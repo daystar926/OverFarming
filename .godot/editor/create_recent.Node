@@ -1,0 +1,15 @@
+Button
+AnimatedSprite2D
+Marker2D
+NinePatchRect
+Label
+ColorRect
+MarginContainer
+Control
+HBoxContainer
+TextureRect
+CanvasLayer
+CollisionShape2D
+Area2D
+TileMapLayer
+AnimationPlayer

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://7llde8q7lelf"]
+
+[ext_resource type="Texture2D" uid="uid://dlam75sxb5b7q" path="res://Assets/Placeholder/ph plants.png" id="1_kocqp"]
+[ext_resource type="Script" uid="uid://c3i1o0aksn7y8" path="res://script/plants/rice.gd" id="1_ntgca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntgca"]
+atlas = ExtResource("1_kocqp")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e78a1"]
+atlas = ExtResource("1_kocqp")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reujk"]
+atlas = ExtResource("1_kocqp")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xodq8"]
+atlas = ExtResource("1_kocqp")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntgca")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e78a1")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reujk")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xodq8")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}]
+
+[node name="rice" type="Node2D" unique_id=2062957136]
+script = ExtResource("1_ntgca")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1024603805]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"1"

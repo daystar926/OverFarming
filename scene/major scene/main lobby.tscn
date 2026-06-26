@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cxaohmmfdtjjo"]
+
+[ext_resource type="Script" uid="uid://bhjioukv1nm1k" path="res://script/scene script/main_lobby.gd" id="1_0uudh"]
+[ext_resource type="LabelSettings" uid="uid://hhscmm0uousa" path="res://Assets/fonts/font file/title fonts.tres" id="2_0uudh"]
+
+[node name="main lobby" type="Control" unique_id=1608415228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0uudh")
+
+[node name="ph background" type="ColorRect" parent="." unique_id=888511254]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.56078434, 1)
+
+[node name="buttons" type="Control" parent="." unique_id=1094694467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1000.0
+offset_right = 1000.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game start" type="Button" parent="buttons" unique_id=423103027]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -583.0
+offset_right = -36.0
+offset_bottom = -438.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(294, 72)
+theme_override_font_sizes/font_size = 100
+text = "게임 시작"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="buttons" unique_id=149012819]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -519.0
+offset_top = -399.0
+offset_right = -36.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="option" type="Button" parent="buttons/VBoxContainer" unique_id=1944164683]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "옵션"
+
+[node name="discord" type="Button" parent="buttons/VBoxContainer" unique_id=1264751848]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "디스코드"
+
+[node name="exit" type="Button" parent="buttons/VBoxContainer" unique_id=510937292]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "나가기"
+
+[node name="title" type="Label" parent="." unique_id=1910968966]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -667.0
+offset_top = -200.0
+offset_right = 667.0
+offset_bottom = 20.99997
+grow_horizontal = 2
+text = "OVER FARMING"
+label_settings = ExtResource("2_0uudh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="buttons/game start" to="." method="_on_game_start_pressed"]
+[connection signal="pressed" from="buttons/VBoxContainer/exit" to="." method="_on_exit_pressed"]

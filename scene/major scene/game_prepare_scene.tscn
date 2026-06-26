@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://dxyg66ht2de1q"]
+
+[ext_resource type="Texture2D" uid="uid://depdgtc6hug1c" path="res://Assets/Placeholder/Cute_Fantasy_Free/Player/Player.png" id="1_ijpm4"]
+[ext_resource type="Script" uid="uid://8vkq3t08ayt0" path="res://script/scene script/game_prepare_scene.gd" id="1_vc5dc"]
+[ext_resource type="LabelSettings" uid="uid://jeu4k6kyap6y" path="res://Assets/fonts/font file/title fonts small.tres" id="2_4h2o5"]
+[ext_resource type="Texture2D" uid="uid://cgq3io38r6su6" path="res://Assets/images/UI/arrow.png" id="3_vc5dc"]
+[ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="4_e8dnh"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="5_euqia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0m6k"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s8ty"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05r73"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h2o5"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5dc"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8dnh"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euqia"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmmsi"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gef26"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmjq"]
+atlas = ExtResource("1_ijpm4")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqqrg"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_c0m6k")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1s8ty")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_05r73")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4h2o5")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vc5dc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_e8dnh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_euqia")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_dmmsi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gef26")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3pmjq")
+}],
+"loop": 0,
+"name": &"waking up",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqqrg"]
+font = ExtResource("5_euqia")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="game prepare scene" type="Control" unique_id=1108718539]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vc5dc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=60402614]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.56078434, 1)
+
+[node name="character" type="AnimatedSprite2D" parent="." unique_id=1152732566]
+position = Vector2(964, -200)
+rotation = 1.0157816
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_hqqrg")
+animation = &"waking up"
+
+[node name="title" type="Label" parent="." unique_id=943592653]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_top = -200.0
+offset_right = 425.0
+offset_bottom = -43.0
+grow_horizontal = 2
+pivot_offset = Vector2(423, 67)
+text = "기본 아이템 선택"
+label_settings = ExtResource("2_4h2o5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="arrows" type="HBoxContainer" parent="." unique_id=1517468267]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 405.0
+offset_right = 1176.0
+offset_bottom = 581.0
+pivot_offset = Vector2(213, 79)
+theme_override_constants/separation = 0
+
+[node name="left arrow" type="TextureRect" parent="arrows" unique_id=1610613916]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_vc5dc")
+flip_h = true
+
+[node name="left arrow button" type="TextureButton" parent="arrows/left arrow" unique_id=1282916140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="empty" type="Control" parent="arrows" unique_id=1844374692]
+custom_minimum_size = Vector2(176, 176)
+custom_maximum_size = Vector2(176, 176)
+layout_mode = 2
+
+[node name="right arrow" type="TextureRect" parent="arrows" unique_id=1124540331]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_vc5dc")
+
+[node name="right arrow button" type="TextureButton" parent="arrows/right arrow" unique_id=308304648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+
+[node name="back button" type="Button" parent="." unique_id=1475827106]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 894.0
+offset_right = 504.0
+offset_bottom = 1037.0
+theme_override_font_sizes/font_size = 60
+disabled = true
+text = "돌아가기"
+
+[node name="game start button" type="Button" parent="." unique_id=675181459]
+layout_mode = 0
+offset_left = 1413.0
+offset_top = 894.0
+offset_right = 1876.0
+offset_bottom = 1037.0
+theme_override_font_sizes/font_size = 60
+disabled = true
+text = "게임 시작"
+
+[node name="option panel" type="NinePatchRect" parent="." unique_id=58338313]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.811035
+offset_top = -333.4132
+offset_right = -39.561035
+offset_bottom = -282.6632
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(8, 8)
+pivot_offset = Vector2(27.59842, 16.512398)
+texture = ExtResource("4_e8dnh")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="option" type="Control" parent="." unique_id=995021716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 651.0
+offset_top = 631.0
+offset_right = -659.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="item name" type="Label" parent="option" unique_id=2051629519]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 26.0
+offset_right = 249.0
+offset_bottom = 123.0
+grow_horizontal = 2
+text = "아이템 없음"
+label_settings = SubResource("LabelSettings_hqqrg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item option" type="Label" parent="option" unique_id=88669958]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 123.0
+offset_right = 278.0
+offset_bottom = 368.0
+grow_horizontal = 2
+text = "아이템을 선택해주세요."
+label_settings = SubResource("LabelSettings_hqqrg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="arrows/left arrow/left arrow button" to="." method="_on_left_arrow_button_pressed"]
+[connection signal="pressed" from="arrows/right arrow/right arrow button" to="." method="_on_right_arrow_button_pressed"]
+[connection signal="pressed" from="back button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="game start button" to="." method="_on_game_start_button_pressed"]

@@ -1,0 +1,888 @@
+[gd_scene format=4 uid="uid://6h5vvnesfw16"]
+
+[ext_resource type="Script" uid="uid://btjawjrtyudxj" path="res://script/scene script/main_game.gd" id="1_f7xul"]
+[ext_resource type="PackedScene" uid="uid://ct18iihq3ijkt" path="res://scene/major scene/main_character.tscn" id="1_mgrta"]
+[ext_resource type="Texture2D" uid="uid://bdfinac31hi7l" path="res://Assets/Placeholder/Clouds 1/1.png" id="1_x8kox"]
+[ext_resource type="Texture2D" uid="uid://ockunv47x4hy" path="res://Assets/Placeholder/Clouds 1/2.png" id="2_avoic"]
+[ext_resource type="Texture2D" uid="uid://bvfnwe631uh8n" path="res://Assets/Placeholder/Clouds 1/4.png" id="3_f7xul"]
+[ext_resource type="Texture2D" uid="uid://ceg4o8si6ux7s" path="res://Assets/Placeholder/Farm RPG - Tiny Asset Pack - (All in One)/Tileset/Tileset Grass Cliff Tileset Summer.png" id="5_d664k"]
+[ext_resource type="Texture2D" uid="uid://cd208050h4xqs" path="res://Assets/images/tile map/dirt tile set.png" id="6_4fn6v"]
+[ext_resource type="Texture2D" uid="uid://c0ftv6xhp36tw" path="res://Assets/images/tile map/tilemap 001.png" id="6_gd74n"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="9_84m0o"]
+[ext_resource type="Script" uid="uid://1ux025840ogd" path="res://scene/major scene/ui_layer.gd" id="9_cgtks"]
+[ext_resource type="Script" uid="uid://csq66h6wr1s4w" path="res://script/scene script/slots.gd" id="9_ff5tn"]
+
+[sub_resource type="Animation" id="Animation_f7xul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cloud/sky cloud 1-1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cloud/sky cloud 2-1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 45)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cloud/sky cloud 2-2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cloud/sky cloud 2-3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1920, 45)]
+}
+
+[sub_resource type="Animation" id="Animation_d664k"]
+resource_name = "cloud 1"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cloud/sky cloud 1-1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1920, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cloud/sky cloud 1-2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1921, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cloud/sky cloud 1-3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3840, 0), Vector2(1920, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cloud/sky cloud 2-1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10, 10.0008335, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 45), Vector2(-1920, 45), Vector2(0, 45), Vector2(-1920, 45)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cloud/sky cloud 2-2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10, 10.0008335, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1920, 45), Vector2(0, 45), Vector2(1920, 45), Vector2(0, 45)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cloud/sky cloud 2-3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10, 10.0008335, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3840, 45), Vector2(1920, 45), Vector2(3840, 45), Vector2(1920, 45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fn6v"]
+_data = {
+&"RESET": SubResource("Animation_f7xul"),
+&"cloud 1": SubResource("Animation_d664k")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fn6v"]
+texture = ExtResource("5_d664k")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4, -4, -4, -4, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, 8, -8, 8, -4, -8, -4)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, 8, -8, 8, -4, -8, -4)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, 8, -8, 8, 8, 4, 8, 4, -4, -8, -4)
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 0, -4, 8, -8, 8)
+9:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 0, -4, 8, -8, 8)
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 8, 8, 8, 8, -8, 4, -8)
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 0, 8, 0, 8, 8, -4, 8, -8, 8)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 0, 8, 0)
+10:3/0 = 0
+11:3/0 = 0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, 0, 4, 0, 4, -8)
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+11:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84m0o"]
+texture = ExtResource("6_gd74n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4, -4, -4, -4, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -4, 8, -8, -8, -8, -8, -4)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0, 8, 8, 4, 8, 4, -4, -8, -4, -8, -8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 8, -4, -8, -8, -8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0, 8, 8, 4, 8, 4, -8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4, -8, -4, 0, 8, 0, 8, 8, -4, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, 0, -8, 0, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 0, 4, -8, 8, -8, 8, 0, 8, 8, -4, 8, -8, 8, -8, 0)
+0:3/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+4:2/0 = 0
+3:2/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gd74n"]
+texture = ExtResource("6_4fn6v")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_utxwm"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_4fn6v")
+sources/2 = SubResource("TileSetAtlasSource_gd74n")
+sources/1 = SubResource("TileSetAtlasSource_84m0o")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ff5tn"]
+font = ExtResource("9_84m0o")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0.87, 0.84912, 0.24359998, 1)
+
+[node name="main game" type="Control" unique_id=51014605]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7xul")
+
+[node name="sky" type="Control" parent="." unique_id=2147164649]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6, 1.6)
+
+[node name="sky bg" type="TextureRect" parent="sky" unique_id=826668274]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_x8kox")
+
+[node name="ColorRect" type="ColorRect" parent="sky/sky bg" unique_id=7878665]
+layout_mode = 0
+offset_left = -1920.0
+offset_top = -1103.0
+offset_right = 3840.0
+offset_bottom = 608.0
+color = Color(0.13333334, 0.6156863, 0.9490196, 1)
+
+[node name="TextureRect" type="TextureRect" parent="sky/sky bg" unique_id=1421600529]
+layout_mode = 0
+offset_left = -1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(1920, 0)
+texture = ExtResource("1_x8kox")
+
+[node name="TextureRect2" type="TextureRect" parent="sky/sky bg" unique_id=1935386514]
+layout_mode = 0
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 1080.0
+texture = ExtResource("1_x8kox")
+
+[node name="ColorRect" type="ColorRect" parent="sky/sky bg/TextureRect2" unique_id=1087140412]
+layout_mode = 0
+offset_left = -3840.0
+offset_top = 1027.0
+offset_right = 1920.0
+offset_bottom = 2738.0
+color = Color(0.43137255, 0.7176471, 0.8901961, 1)
+
+[node name="cloud anim" type="AnimationPlayer" parent="sky" unique_id=963024792]
+libraries/ = SubResource("AnimationLibrary_4fn6v")
+
+[node name="cloud" type="Control" parent="sky" unique_id=1322009512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1920.0
+offset_top = -650.0
+offset_right = -1920.0
+offset_bottom = -650.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6, 1.6)
+
+[node name="sky cloud 1-1" type="TextureRect" parent="sky/cloud" unique_id=567064094]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_avoic")
+
+[node name="sky cloud 1-2" type="TextureRect" parent="sky/cloud" unique_id=700684649]
+layout_mode = 0
+offset_left = 1921.0
+offset_right = 3841.1914
+offset_bottom = 1080.0
+texture = ExtResource("2_avoic")
+
+[node name="sky cloud 1-3" type="TextureRect" parent="sky/cloud" unique_id=1428795657]
+layout_mode = 0
+offset_left = 3840.0
+offset_right = 5760.193
+offset_bottom = 1080.0
+texture = ExtResource("2_avoic")
+
+[node name="sky cloud 2-1" type="TextureRect" parent="sky/cloud" unique_id=1686397429]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 1920.0
+offset_bottom = 1125.0
+texture = ExtResource("3_f7xul")
+
+[node name="sky cloud 2-2" type="TextureRect" parent="sky/cloud" unique_id=1261306973]
+layout_mode = 0
+offset_left = 1920.0
+offset_top = 45.0
+offset_right = 3840.0996
+offset_bottom = 1125.0
+texture = ExtResource("3_f7xul")
+
+[node name="sky cloud 2-3" type="TextureRect" parent="sky/cloud" unique_id=1875000939]
+layout_mode = 0
+offset_left = -1920.0
+offset_top = 45.0
+offset_bottom = 1125.0
+texture = ExtResource("3_f7xul")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=631310364]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tile map 1" type="TileMapLayer" parent="." unique_id=1467364848]
+position = Vector2(180.255, 0)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD8////AQAAAAAAAAD9////AQABAAAAAAD+////AQABAAAAAAD/////AQABAAAAAAAAAP//AQABAAAAAAABAP//AQABAAAAAAACAP//AQABAAAAAAADAP//AQABAAAAAAAEAP//AQABAAAAAAAFAP//AQABAAAAAAAGAP//AQABAAAAAAAHAP//AQABAAAAAAAIAP//AQABAAAAAAAJAP//AQABAAAAAAAKAP//AQABAAAAAAALAP//AQACAAAAAAALAAYAAQACAAIAAAD8/wYAAQAAAAIAAAD8/wUAAQAAAAEAAAD8/wQAAQAAAAEAAAD8/wMAAQAAAAEAAAD8/wIAAQAAAAEAAAD8/wEAAQAAAAEAAAD8/wAAAQAAAAEAAAALAAUAAQACAAEAAAALAAQAAQACAAEAAAALAAMAAQACAAEAAAAKAAMAAQABAAEAAAAKAAIAAQABAAEAAAAKAAEAAQABAAEAAAAKAAAAAQABAAEAAAALAAAAAQACAAEAAAALAAEAAQACAAEAAAALAAIAAQACAAEAAAD9/wAAAQABAAEAAAD+/wEAAQABAAEAAAD//wEAAQABAAEAAAAAAAIAAQADAAEAAAABAAMAAQAEAAIAAAACAAQAAQAFAAAAAAADAAQAAQADAAAAAAAEAAQAAQAEAAAAAAAEAAUAAQAEAAEAAAAFAAUAAQAFAAEAAAAGAAUAAQADAAEAAAAGAAYAAQABAAIAAAAHAAYAAQABAAIAAAAIAAYAAQABAAIAAAAJAAYAAQABAAIAAAAKAAYAAQABAAIAAAD9/wEAAQABAAEAAAD9/wIAAQABAAEAAAD9/wMAAQABAAEAAAD9/wQAAQABAAEAAAD9/wUAAQABAAEAAAD9/wYAAQABAAIAAAD+/wAAAQABAAEAAAD+/wIAAQABAAEAAAD+/wMAAQABAAEAAAD+/wQAAQABAAEAAAD+/wUAAQABAAEAAAD+/wYAAQABAAIAAAD//wAAAQABAAEAAAD//wIAAQABAAEAAAD//wMAAQABAAEAAAD//wQAAQABAAEAAAD//wUAAQABAAEAAAD//wYAAQABAAIAAAAAAAAAAQABAAEAAAAAAAEAAQADAAAAAAAAAAMAAQADAAIAAAAAAAQAAQADAAAAAAAAAAUAAQADAAEAAAAAAAYAAQABAAIAAAABAAAAAQABAAEAAAABAAEAAQAEAAAAAAABAAIAAQAEAAEAAAABAAQAAQAEAAAAAAABAAUAAQAEAAEAAAABAAYAAQABAAIAAAACAAAAAQABAAEAAAACAAEAAQAFAAAAAAACAAIAAQAFAAEAAAACAAMAAQAFAAIAAAACAAUAAQAFAAEAAAACAAYAAQABAAIAAAADAAAAAQABAAEAAAADAAEAAQADAAAAAAADAAIAAQADAAEAAAADAAMAAQADAAIAAAADAAUAAQADAAEAAAADAAYAAQABAAIAAAAEAAAAAQABAAEAAAAEAAEAAQAEAAAAAAAEAAIAAQAEAAEAAAAEAAMAAQAEAAIAAAAEAAYAAQABAAIAAAAFAAAAAQABAAEAAAAFAAEAAQAFAAAAAAAFAAIAAQAFAAEAAAAFAAMAAQAFAAIAAAAFAAQAAQAFAAAAAAAFAAYAAQABAAIAAAAGAAAAAQABAAEAAAAGAAEAAQADAAAAAAAGAAIAAQADAAEAAAAGAAMAAQADAAIAAAAGAAQAAQADAAAAAAAHAAAAAQABAAEAAAAHAAEAAQAEAAAAAAAHAAIAAQAEAAEAAAAHAAMAAQAEAAIAAAAHAAQAAQAEAAAAAAAHAAUAAQAEAAEAAAAIAAAAAQABAAEAAAAIAAEAAQABAAEAAAAIAAIAAQABAAEAAAAIAAMAAQABAAEAAAAIAAQAAQABAAEAAAAIAAUAAQABAAEAAAAJAAAAAQABAAEAAAAJAAEAAQABAAEAAAAJAAIAAQABAAEAAAAJAAMAAQABAAEAAAAJAAQAAQABAAEAAAAJAAUAAQABAAEAAAAKAAQAAQABAAEAAAAKAAUAAQABAAEAAAD9/wcAAQABAAMAAAD+/wcAAQABAAMAAAD//wcAAQABAAMAAAAAAAcAAQABAAMAAAABAAcAAQABAAMAAAACAAcAAQABAAMAAAADAAcAAQABAAMAAAAEAAcAAQABAAMAAAAFAAcAAQABAAMAAAAGAAcAAQABAAMAAAAHAAcAAQABAAMAAAAIAAcAAQABAAMAAAAJAAcAAQABAAMAAAAKAAcAAQABAAMAAAD8/wcAAQAAAAMAAAALAAcAAQACAAMAAAD8/wgAAQAAAAQAAAD8/wkAAQAAAAQAAAD8/woAAQAAAAQAAAD8/wsAAQAAAAQAAAD8/wwAAQAAAAQAAAD8/w0AAQAAAAQAAAD8/w4AAQAAAAQAAAALAAgAAQACAAQAAAALAAkAAQACAAQAAAALAAoAAQACAAQAAAALAAsAAQACAAQAAAALAAwAAQACAAQAAAALAA0AAQACAAQAAAALAA4AAQACAAQAAAD9/wgAAQABAAQAAAD9/wkAAQABAAQAAAD9/woAAQABAAQAAAD9/wsAAQABAAQAAAD9/wwAAQABAAQAAAD9/w0AAQABAAQAAAD9/w4AAQABAAQAAAD+/wgAAQABAAQAAAD+/wkAAQABAAQAAAD+/woAAQABAAQAAAD+/wsAAQABAAQAAAD+/wwAAQABAAQAAAD+/w0AAQABAAQAAAD+/w4AAQABAAQAAAD//wgAAQABAAQAAAD//wkAAQABAAQAAAD//woAAQABAAQAAAD//wsAAQABAAQAAAD//wwAAQABAAQAAAD//w0AAQABAAQAAAD//w4AAQABAAQAAAAAAAgAAQABAAQAAAAAAAkAAQABAAQAAAAAAAoAAQABAAQAAAAAAAsAAQABAAQAAAAAAAwAAQABAAQAAAAAAA0AAQABAAQAAAAAAA4AAQABAAQAAAABAAgAAQABAAQAAAABAAkAAQABAAQAAAABAAoAAQABAAQAAAABAAsAAQABAAQAAAABAAwAAQABAAQAAAABAA0AAQABAAQAAAABAA4AAQABAAQAAAACAAgAAQABAAQAAAACAAkAAQABAAQAAAACAAoAAQABAAQAAAACAAsAAQABAAQAAAACAAwAAQABAAQAAAACAA0AAQABAAQAAAACAA4AAQABAAQAAAADAAgAAQABAAQAAAADAAkAAQABAAQAAAADAAoAAQABAAQAAAADAAsAAQABAAQAAAADAAwAAQABAAQAAAADAA0AAQABAAQAAAADAA4AAQABAAQAAAAEAAgAAQABAAQAAAAEAAkAAQABAAQAAAAEAAoAAQABAAQAAAAEAAsAAQABAAQAAAAEAAwAAQABAAQAAAAEAA0AAQABAAQAAAAEAA4AAQABAAQAAAAFAAgAAQABAAQAAAAFAAkAAQABAAQAAAAFAAoAAQABAAQAAAAFAAsAAQABAAQAAAAFAAwAAQABAAQAAAAFAA0AAQABAAQAAAAFAA4AAQABAAQAAAAGAAgAAQABAAQAAAAGAAkAAQABAAQAAAAGAAoAAQABAAQAAAAGAAsAAQABAAQAAAAGAAwAAQABAAQAAAAGAA0AAQABAAQAAAAGAA4AAQABAAQAAAAHAAgAAQABAAQAAAAHAAkAAQABAAQAAAAHAAoAAQABAAQAAAAHAAsAAQABAAQAAAAHAAwAAQABAAQAAAAHAA0AAQABAAQAAAAHAA4AAQABAAQAAAAIAAgAAQABAAQAAAAIAAkAAQABAAQAAAAIAAoAAQABAAQAAAAIAAsAAQABAAQAAAAIAAwAAQABAAQAAAAIAA0AAQABAAQAAAAIAA4AAQABAAQAAAAJAAgAAQABAAQAAAAJAAkAAQABAAQAAAAJAAoAAQABAAQAAAAJAAsAAQABAAQAAAAJAAwAAQABAAQAAAAJAA0AAQABAAQAAAAJAA4AAQABAAQAAAAKAAgAAQABAAQAAAAKAAkAAQABAAQAAAAKAAoAAQABAAQAAAAKAAsAAQABAAQAAAAKAAwAAQABAAQAAAAKAA0AAQABAAQAAAAKAA4AAQABAAQAAAA=")
+tile_set = SubResource("TileSet_utxwm")
+
+[node name="deco 1" type="TileMapLayer" parent="." unique_id=275789369]
+position = Vector2(181.255, 0)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAAAAAEAAQAEAAMAAAAAAAIAAQAEAAMAAAAAAAMAAQAEAAMAAAAAAAQAAQAEAAMAAAAAAAUAAQAEAAMAAAABAAUAAQAEAAMAAAACAAUAAQAEAAMAAAADAAUAAQAEAAMAAAAEAAUAAQAEAAMAAAAFAAUAAQAEAAMAAAAGAAUAAQAEAAMAAAAHAAUAAQAEAAMAAAAHAAIAAQAEAAMAAAAHAAMAAQAEAAMAAAAHAAQAAQAEAAMAAAAHAAEAAQAEAAMAAAABAAEAAQAEAAMAAAACAAEAAQAEAAMAAAADAAEAAQAEAAMAAAAEAAEAAQAEAAMAAAAFAAEAAQAEAAMAAAAGAAEAAQAEAAMAAAABAAIAAQAEAAMAAAABAAMAAQAEAAMAAAABAAQAAQAEAAMAAAACAAIAAQAEAAMAAAACAAMAAQAEAAMAAAACAAQAAQAEAAMAAAADAAIAAQAEAAMAAAADAAMAAQAEAAMAAAADAAQAAQAEAAMAAAAEAAIAAQAEAAMAAAAEAAMAAQAEAAMAAAAEAAQAAQAEAAMAAAAFAAIAAQAEAAMAAAAFAAMAAQAEAAMAAAAFAAQAAQAEAAMAAAAGAAIAAQAEAAMAAAAGAAMAAQAEAAMAAAAGAAQAAQAEAAMAAAA=")
+tile_set = SubResource("TileSet_utxwm")
+
+[node name="Main Character" parent="." unique_id=1477450777 instance=ExtResource("1_mgrta")]
+
+[node name="UI layer" type="CanvasLayer" parent="." unique_id=460459825]
+script = ExtResource("9_cgtks")
+
+[node name="slots" type="Control" parent="UI layer" unique_id=989434517]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_ff5tn")
+
+[node name="slot hbox" type="HBoxContainer" parent="UI layer/slots" unique_id=1353285562]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -750.0
+offset_top = -150.0
+offset_right = 750.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(750, 150)
+alignment = 1
+
+[node name="Control" type="Control" parent="UI layer/slots/slot hbox" unique_id=953940531]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control" unique_id=1246948442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control/MarginContainer" unique_id=264228814]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control/MarginContainer/ColorRect" unique_id=1814297938]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "쌀"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control" unique_id=1093984487]
+position = Vector2(60, 60)
+
+[node name="Control2" type="Control" parent="UI layer/slots/slot hbox" unique_id=1213394884]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control2" unique_id=13362104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control2/MarginContainer" unique_id=940095429]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control2/MarginContainer/ColorRect" unique_id=952578486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "밀"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control2" unique_id=156067400]
+position = Vector2(60, 60)
+
+[node name="Control3" type="Control" parent="UI layer/slots/slot hbox" unique_id=592098739]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control3" unique_id=374104872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control3/MarginContainer" unique_id=1041436248]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control3/MarginContainer/ColorRect" unique_id=1406388640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "배추"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control3" unique_id=601622807]
+position = Vector2(60, 60)
+
+[node name="Control4" type="Control" parent="UI layer/slots/slot hbox" unique_id=2000069995]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control4" unique_id=1054877132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control4/MarginContainer" unique_id=2076254599]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control4/MarginContainer/ColorRect" unique_id=410480255]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "딸기"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control4" unique_id=1579913251]
+position = Vector2(60, 60)
+
+[node name="Control5" type="Control" parent="UI layer/slots/slot hbox" unique_id=1984522918]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control5" unique_id=39543738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control5/MarginContainer" unique_id=2062973049]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control5/MarginContainer/ColorRect" unique_id=535286776]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "마늘"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control5" unique_id=1905050428]
+position = Vector2(60, 60)
+
+[node name="Control6" type="Control" parent="UI layer/slots/slot hbox" unique_id=1525409451]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control6" unique_id=1362444424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control6/MarginContainer" unique_id=691814864]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control6/MarginContainer/ColorRect" unique_id=171826393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "옥수수"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control6" unique_id=264804742]
+position = Vector2(60, 60)
+
+[node name="Control7" type="Control" parent="UI layer/slots/slot hbox" unique_id=1338491581]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control7" unique_id=759368623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control7/MarginContainer" unique_id=1753399199]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control7/MarginContainer/ColorRect" unique_id=73253374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "콩"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control7" unique_id=23513788]
+position = Vector2(60, 60)
+
+[node name="Control8" type="Control" parent="UI layer/slots/slot hbox" unique_id=137398516]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control8" unique_id=755876906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control8/MarginContainer" unique_id=401973917]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control8/MarginContainer/ColorRect" unique_id=1370619414]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "고구마"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control8" unique_id=1401242255]
+position = Vector2(60, 60)
+
+[node name="Control9" type="Control" parent="UI layer/slots/slot hbox" unique_id=484374866]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control9" unique_id=1094051339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 13
+
+[node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control9/MarginContainer" unique_id=599354438]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control9/MarginContainer/ColorRect" unique_id=1253053241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "토마토"
+label_settings = SubResource("LabelSettings_ff5tn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control9" unique_id=1615206537]
+position = Vector2(60, 60)
+
+[node name="Button" type="Button" parent="UI layer" unique_id=657630673]
+offset_left = 1456.0
+offset_top = 45.0
+offset_right = 1873.0
+offset_bottom = 226.0
+text = "디버그 버튼"
+
+[connection signal="pressed" from="UI layer/Button" to="UI layer" method="_on_button_pressed"]

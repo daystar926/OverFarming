@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://wo8sd2kdxsgv"]
+
+[ext_resource type="Script" uid="uid://mkhereffjt55" path="res://selected_effect.gd" id="1_qfr2y"]
+[ext_resource type="Texture2D" uid="uid://djgeg1rd64un0" path="res://Assets/images/UI/selected effect.png" id="2_a88ts"]
+
+[node name="selected effect" type="Node2D" unique_id=1189846617]
+script = ExtResource("1_qfr2y")
+
+[node name="ninepatch" type="NinePatchRect" parent="." unique_id=1386670911]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("2_a88ts")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
