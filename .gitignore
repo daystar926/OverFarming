@@ -1,0 +1,19 @@
+# Godot 4 관련
+.godot/
+.import/
+export.cfg
+export_credentials.cfg
+
+# 빌드 결과물
+*.exe
+*.pck
+*.zip
+builds/
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# 에디터 관련
+.vscode/
+*.tmp
