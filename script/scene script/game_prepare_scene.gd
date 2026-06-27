@@ -29,16 +29,12 @@ func _on_back_button_pressed() -> void:
 
 func _on_left_arrow_button_pressed() -> void:
 	left_arrow.scale = Vector2(1, 1)
-	var tween = create_tween()
-	tween.tween_property(left_arrow, "scale", Vector2(1.2, 0.8), 0.07)
-	tween.tween_property(left_arrow, "scale", Vector2(1, 1), 0.07)
+	Global.tween_ddiyong(left_arrow)
 
 
 func _on_right_arrow_button_pressed() -> void:
 	right_arrow.scale = Vector2(1, 1)
-	var tween = create_tween()
-	tween.tween_property(right_arrow, "scale", Vector2(1.2, 0.8), 0.07)
-	tween.tween_property(right_arrow, "scale", Vector2(1, 1), 0.07)
+	Global.tween_ddiyong(right_arrow)
 
 func title_tween():
 	var tween = create_tween()

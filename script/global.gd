@@ -153,7 +153,7 @@ var sa_base_tomato = 0
 # rice total
 var gt_total_rice = 0
 var fa_total_rice = 0
-var sa_total_rice = 0
+var sa_total_rice = 3
 
 # wheat total
 var gt_total_wheat = 0
@@ -195,69 +195,192 @@ var gt_total_tomato = 0
 var fa_total_tomato = 0
 var sa_total_tomato = 0
 
+
 signal all_stat_refresh
+
+# 작물 ID로 현재 모종 수 읽기
+func get_sa(crop_id: int) -> int:
+	match crop_id:
+		1:
+			return sa_total_rice
+		2:
+			return sa_total_wheat
+		3:
+			return sa_total_cabbage
+		4:
+			return sa_total_strawberry
+		5:
+			return sa_total_garlic
+		6:
+			return sa_total_corn
+		7:
+			return sa_total_bean
+		8:
+			return sa_total_sweet_potato
+		9:
+			return sa_total_tomato
+		_:
+			return 0
+
+# 심을 때 — 모종 1개 차감
+func use_sa(crop_id: int, amount: int = 1) -> void:
+	match crop_id:
+		1:
+			sa_total_rice -= amount
+		2:
+			sa_total_wheat -= amount
+		3:
+			sa_total_cabbage -= amount
+		4:
+			sa_total_strawberry -= amount
+		5:
+			sa_total_garlic -= amount
+		6:
+			sa_total_corn -= amount
+		7:
+			sa_total_bean -= amount
+		8:
+			sa_total_sweet_potato -= amount
+		9:
+			sa_total_tomato -= amount
+
+# 회수할 때 — 모종 1개 복구
+func add_sa(crop_id: int, amount: int = 1) -> void:
+	match crop_id:
+		1:
+			sa_total_rice += amount
+		2:
+			sa_total_wheat += amount
+		3:
+			sa_total_cabbage += amount
+		4:
+			sa_total_strawberry += amount
+		5:
+			sa_total_garlic += amount
+		6:
+			sa_total_corn += amount
+		7:
+			sa_total_bean += amount
+		8:
+			sa_total_sweet_potato += amount
+		9:
+			sa_total_tomato += amount
+
 func stat_refresh():
 	total_move_speed = base_move_speed + additional_move_speed
 	
 	# rice
-	sa_total_rice = sa_base_rice + sa_add_rice
+
 	gt_total_rice = (GT_BASE_RICE + gt_increase_rice - gt_reduce_rice) * \
 	clamp((1 + (gt_increase_percent_rice - gt_reduce_percent_rice)/100.0), 0, 5000)
 	fa_total_rice = (FA_BASE_RICE + fa_increase_rice - fa_reduce_rice) * \
 	clamp((1 + (fa_increase_percent_rice - fa_reduce_percent_rice)/100.0), 0, 5000)
 	
 	# wheat
-	sa_total_wheat = sa_base_wheat + sa_add_wheat
+
 	gt_total_wheat = (GT_BASE_WHEAT + gt_increase_wheat - gt_reduce_wheat) * \
 	clamp((1 + (gt_increase_percent_wheat - gt_reduce_percent_wheat)/100.0), 0, 5000)
 	fa_total_wheat = (FA_BASE_WHEAT + fa_increase_wheat - fa_reduce_wheat) * \
 	clamp((1 + (fa_increase_percent_wheat - fa_reduce_percent_wheat)/100.0), 0, 5000)
 	
 	# cabbage
-	sa_total_cabbage = sa_base_cabbage + sa_add_cabbage
+
 	gt_total_cabbage = (GT_BASE_CABBAGE + gt_increase_cabbage - gt_reduce_cabbage) * \
 	clamp((1 + (gt_increase_percent_cabbage - gt_reduce_percent_cabbage)/100.0), 0, 5000)
 	fa_total_cabbage = (FA_BASE_CABBAGE + fa_increase_cabbage - fa_reduce_cabbage) * \
 	clamp((1 + (fa_increase_percent_cabbage - fa_reduce_percent_cabbage)/100.0), 0, 5000)
 	
 	# strawberry
-	sa_total_strawberry = sa_base_strawberry + sa_add_strawberry
+
 	gt_total_strawberry = (GT_BASE_STRAWBERRY + gt_increase_strawberry - gt_reduce_strawberry) * \
 	clamp((1 + (gt_increase_percent_strawberry - gt_reduce_percent_strawberry)/100.0), 0, 5000)
 	fa_total_strawberry = (FA_BASE_STRAWBERRY + fa_increase_strawberry - fa_reduce_strawberry) * \
 	clamp((1 + (fa_increase_percent_strawberry - fa_reduce_percent_strawberry)/100.0), 0, 5000)
 	
 	# garlic
-	sa_total_garlic = sa_base_garlic + sa_add_garlic
+
 	gt_total_garlic = (GT_BASE_GARLIC + gt_increase_garlic - gt_reduce_garlic) * \
 	clamp((1 + (gt_increase_percent_garlic - gt_reduce_percent_garlic)/100.0), 0, 5000)
 	fa_total_garlic = (FA_BASE_GARLIC + fa_increase_garlic - fa_reduce_garlic) * \
 	clamp((1 + (fa_increase_percent_garlic - fa_reduce_percent_garlic)/100.0), 0, 5000)
 	
 	# corn
-	sa_total_corn = sa_base_corn + sa_add_corn
+
 	gt_total_corn = (GT_BASE_CORN + gt_increase_corn - gt_reduce_corn) * \
 	clamp((1 + (gt_increase_percent_corn - gt_reduce_percent_corn)/100.0), 0, 5000)
 	fa_total_corn = (FA_BASE_CORN + fa_increase_corn - fa_reduce_corn) * \
 	clamp((1 + (fa_increase_percent_corn - fa_reduce_percent_corn)/100.0), 0, 5000)
 	
 	# bean
-	sa_total_bean = sa_base_bean + sa_add_bean
+
 	gt_total_bean = (GT_BASE_BEAN + gt_increase_bean - gt_reduce_bean) * \
 	clamp((1 + (gt_increase_percent_bean - gt_reduce_percent_bean)/100.0), 0, 5000)
 	fa_total_bean = (FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
 	clamp((1 + (fa_increase_percent_bean - fa_reduce_percent_bean)/100.0), 0, 5000)
 	
 	# sweet_potato (FA_BASE 없음 — 방치형이라 별도 처리 필요)
-	sa_total_sweet_potato = sa_base_sweet_potato + sa_add_sweet_potato
+
 	gt_total_sweet_potato = (GT_BASE_SWEET_POTATO + gt_increase_sweet_potato - gt_reduce_sweet_potato) * \
 	clamp((1 + (gt_increase_percent_sweet_potato - gt_reduce_percent_sweet_potato)/100.0), 0, 5000)
 	
 	# tomato
-	sa_total_tomato = sa_base_tomato + sa_add_tomato
+
 	gt_total_tomato = (GT_BASE_TOMATO + gt_increase_tomato - gt_reduce_tomato) * \
 	clamp((1 + (gt_increase_percent_tomato - gt_reduce_percent_tomato)/100.0), 0, 5000)
 	fa_total_tomato = (FA_BASE_TOMATO + fa_increase_tomato - fa_reduce_tomato) * \
 	clamp((1 + (fa_increase_percent_tomato - fa_reduce_percent_tomato)/100.0), 0, 5000)
 	
 	emit_signal("all_stat_refresh")
+	
+	
+	
+	
+var current_yield = 0
+var total_yield = 0
+
+signal yield_changed
+func add_yield(amount):
+	current_yield += int(round(amount))
+	emit_signal("yield_changed")
+	
+func tween_ddiyong(node):
+	var tween = create_tween()
+	tween.tween_property(node, "scale", Vector2(1.2, 0.8), 0.07)
+	tween.tween_property(node, "scale", Vector2(1, 1), 0.07)
+
+
+
+##############################
+#     수확물 관련 함수         #
+##############################
+
+# 1. 스폰 애니메이션
+func create_spawn_tween(node: Node, duration_min: float, duration_max: float) -> Tween:
+	var tween = create_tween()
+	var angle = randf() * TAU
+	var distance = randf_range(200, 300)
+	var target = node.position + Vector2(cos(angle), sin(angle)) * distance
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUART)
+	tween.tween_property(node, "position", target, randf_range(duration_min, duration_max))
+	tween.parallel().tween_property(node, "scale", Vector2(0.6, 0.6), 0.6)\
+		.set_ease(tween.EASE_OUT)\
+		.set_trans(tween.TRANS_ELASTIC)
+	return tween
+
+# 2. 수확(마커로 빨려들어가기) 애니메이션
+func create_collect_tween(node: Node, target_pos: Vector2) -> Tween:
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.tween_property(node, "global_position", target_pos, 1)
+	tween.parallel().tween_property(node, "scale", Vector2(0.2, 0.2), 1)
+	return tween
+
+# 3. CanvasLayer로 reparent (화면 좌표계 유지)
+func reparent_to_canvas_layer(node: Node, marker: Node) -> void:
+	var current_screen_pos = node.get_global_transform_with_canvas().origin
+	var canvas = marker.get_parent()
+	node.get_parent().remove_child(node)
+	canvas.add_child(node)
+	node.global_position = current_screen_pos

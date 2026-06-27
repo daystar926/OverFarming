@@ -10,7 +10,7 @@ extends Control
 @onready var slot_8: Marker2D = $"slot hbox/Control8/slot 1"
 @onready var slot_9: Marker2D = $"slot hbox/Control9/slot 1"
 
-@onready var maker_array: Array = [
+@onready var marker_array: Array = [
 	slot_1, slot_2, slot_3, slot_4, slot_5,
 	slot_6, slot_7, slot_8, slot_9,
 ]
@@ -66,18 +66,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_9:
 				current_selected = 9
 				selected_check()
-#
-###########################
-# 여러번 누르면 셀렉티드 여러번 인스턴스 되는 버그 발견 @!!@!@@@!
-#####################
 
-func selected_check():
-	for i in range(maker_array.size()):
-		if i == current_selected - 1:
-			continue
-		for child in maker_array[i].get_children():
-			if child.name.begins_with("selected effect"):
-				child.queue_free()
-	
+
+func selected_check() -> void:
+	for i in range(marker_array.size()):
+		var children = marker_array[i].get_children()
+		for child in children:
+			child.queue_free()
+		
+	# 새로운 effect 생성
 	var effect_instance = preload("res://script/scene script/selected_effect.tscn").instantiate()
-	maker_array[current_selected - 1].add_child(effect_instance)
+	marker_array[current_selected - 1].add_child(effect_instance)
+	print(marker_array[current_selected - 1].get_children())

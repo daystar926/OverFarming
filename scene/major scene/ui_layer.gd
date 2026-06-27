@@ -1,16 +1,23 @@
 extends CanvasLayer
 
 @onready var main_character: CharacterBody2D = $"../Main Character"
+@onready var debug_label: Label = $"debug con/debug label"
+@onready var yield_label: Label = $UI/yield
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Global.yield_changed.connect(yield_changed)
+	yield_label.text = str(Global.current_yield) + "Kg"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	debug_label.text = str(Engine.time_scale) + "배속"
+	
 
+func yield_changed():
+	yield_label.text = str(Global.current_yield) + "Kg"
+	Global.tween_ddiyong(yield_label)
 
 func _on_button_pressed() -> void:
 	var rice = preload("res://scene/plants/rice.tscn").instantiate()

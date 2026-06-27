@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ceg4o8si6ux7s" path="res://Assets/Placeholder/Farm RPG - Tiny Asset Pack - (All in One)/Tileset/Tileset Grass Cliff Tileset Summer.png" id="5_d664k"]
 [ext_resource type="Texture2D" uid="uid://cd208050h4xqs" path="res://Assets/images/tile map/dirt tile set.png" id="6_4fn6v"]
 [ext_resource type="Texture2D" uid="uid://c0ftv6xhp36tw" path="res://Assets/images/tile map/tilemap 001.png" id="6_gd74n"]
+[ext_resource type="Script" uid="uid://cc4vsx3f5llig" path="res://scene/major scene/field.gd" id="8_kqero"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="9_84m0o"]
 [ext_resource type="Script" uid="uid://1ux025840ogd" path="res://scene/major scene/ui_layer.gd" id="9_cgtks"]
 [ext_resource type="Script" uid="uid://csq66h6wr1s4w" path="res://script/scene script/slots.gd" id="9_ff5tn"]
@@ -383,12 +384,21 @@ sources/0 = SubResource("TileSetAtlasSource_4fn6v")
 sources/2 = SubResource("TileSetAtlasSource_gd74n")
 sources/1 = SubResource("TileSetAtlasSource_84m0o")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(112, 112)
+
 [sub_resource type="LabelSettings" id="LabelSettings_ff5tn"]
 font = ExtResource("9_84m0o")
 font_size = 20
 font_color = Color(0, 0, 0, 1)
 outline_size = 10
 outline_color = Color(0.87, 0.84912, 0.24359998, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqero"]
+font = ExtResource("9_84m0o")
+font_size = 50
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
 
 [node name="main game" type="Control" unique_id=51014605]
 layout_mode = 3
@@ -523,6 +533,545 @@ position = Vector2(181.255, 0)
 scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAAAAAEAAQAEAAMAAAAAAAIAAQAEAAMAAAAAAAMAAQAEAAMAAAAAAAQAAQAEAAMAAAAAAAUAAQAEAAMAAAABAAUAAQAEAAMAAAACAAUAAQAEAAMAAAADAAUAAQAEAAMAAAAEAAUAAQAEAAMAAAAFAAUAAQAEAAMAAAAGAAUAAQAEAAMAAAAHAAUAAQAEAAMAAAAHAAIAAQAEAAMAAAAHAAMAAQAEAAMAAAAHAAQAAQAEAAMAAAAHAAEAAQAEAAMAAAABAAEAAQAEAAMAAAACAAEAAQAEAAMAAAADAAEAAQAEAAMAAAAEAAEAAQAEAAMAAAAFAAEAAQAEAAMAAAAGAAEAAQAEAAMAAAABAAIAAQAEAAMAAAABAAMAAQAEAAMAAAABAAQAAQAEAAMAAAACAAIAAQAEAAMAAAACAAMAAQAEAAMAAAACAAQAAQAEAAMAAAADAAIAAQAEAAMAAAADAAMAAQAEAAMAAAADAAQAAQAEAAMAAAAEAAIAAQAEAAMAAAAEAAMAAQAEAAMAAAAEAAQAAQAEAAMAAAAFAAIAAQAEAAMAAAAFAAMAAQAEAAMAAAAFAAQAAQAEAAMAAAAGAAIAAQAEAAMAAAAGAAMAAQAEAAMAAAAGAAQAAQAEAAMAAAA=")
 tile_set = SubResource("TileSet_utxwm")
+
+[node name="field" type="Control" parent="." unique_id=670599588]
+anchors_preset = 0
+offset_left = 180.0
+offset_top = 127.0
+offset_right = 1204.0
+offset_bottom = 768.0
+script = ExtResource("8_kqero")
+
+[node name="GridContainer" type="GridContainer" parent="field" unique_id=1762037150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="field_1" type="Control" parent="field/GridContainer" unique_id=576716663]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_1" type="Area2D" parent="field/GridContainer/field_1" unique_id=930908720 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_1/field_area_1" unique_id=1894750613]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_2" type="Control" parent="field/GridContainer" unique_id=295064901]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_2" type="Area2D" parent="field/GridContainer/field_2" unique_id=1236574229 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_2/field_area_2" unique_id=1415482916]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_3" type="Control" parent="field/GridContainer" unique_id=1524194558]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_3" type="Area2D" parent="field/GridContainer/field_3" unique_id=1519403790 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_3/field_area_3" unique_id=1374207546]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_4" type="Control" parent="field/GridContainer" unique_id=2022132683]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_4" type="Area2D" parent="field/GridContainer/field_4" unique_id=814124521 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_4/field_area_4" unique_id=1682922280]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_5" type="Control" parent="field/GridContainer" unique_id=1546547598]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_5" type="Area2D" parent="field/GridContainer/field_5" unique_id=1063646646 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_5/field_area_5" unique_id=1951651480]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_6" type="Control" parent="field/GridContainer" unique_id=2052755638]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_6" type="Area2D" parent="field/GridContainer/field_6" unique_id=319592235 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_6/field_area_6" unique_id=1496432651]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_7" type="Control" parent="field/GridContainer" unique_id=768883585]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_7" type="Area2D" parent="field/GridContainer/field_7" unique_id=1843633121 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_7/field_area_7" unique_id=1678275648]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_8" type="Control" parent="field/GridContainer" unique_id=521480939]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_8" type="Area2D" parent="field/GridContainer/field_8" unique_id=77333893 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_8/field_area_8" unique_id=1601138290]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_9" type="Control" parent="field/GridContainer" unique_id=1163484390]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_9" type="Area2D" parent="field/GridContainer/field_9" unique_id=2139234571 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_9/field_area_9" unique_id=1200696928]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_10" type="Control" parent="field/GridContainer" unique_id=1607246754]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_10" type="Area2D" parent="field/GridContainer/field_10" unique_id=2053479224 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_10/field_area_10" unique_id=1216419753]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_11" type="Control" parent="field/GridContainer" unique_id=234384182]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_11" type="Area2D" parent="field/GridContainer/field_11" unique_id=1030563785 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_11/field_area_11" unique_id=1876520326]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_12" type="Control" parent="field/GridContainer" unique_id=1986730008]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_12" type="Area2D" parent="field/GridContainer/field_12" unique_id=1578547504 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_12/field_area_12" unique_id=466074501]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_13" type="Control" parent="field/GridContainer" unique_id=449199429]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_13" type="Area2D" parent="field/GridContainer/field_13" unique_id=2026125832 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_13/field_area_13" unique_id=1622608853]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_14" type="Control" parent="field/GridContainer" unique_id=633432998]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_14" type="Area2D" parent="field/GridContainer/field_14" unique_id=1212690492 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_14/field_area_14" unique_id=405783997]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_15" type="Control" parent="field/GridContainer" unique_id=1592885609]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_15" type="Area2D" parent="field/GridContainer/field_15" unique_id=1137766855 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_15/field_area_15" unique_id=813611574]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_16" type="Control" parent="field/GridContainer" unique_id=300269307]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_16" type="Area2D" parent="field/GridContainer/field_16" unique_id=217971056 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_16/field_area_16" unique_id=1974093552]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_17" type="Control" parent="field/GridContainer" unique_id=1753459527]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_17" type="Area2D" parent="field/GridContainer/field_17" unique_id=1915635524 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_17/field_area_17" unique_id=300475029]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_18" type="Control" parent="field/GridContainer" unique_id=1465264423]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_18" type="Area2D" parent="field/GridContainer/field_18" unique_id=1399781961 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_18/field_area_18" unique_id=982680024]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_19" type="Control" parent="field/GridContainer" unique_id=1009091934]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_19" type="Area2D" parent="field/GridContainer/field_19" unique_id=977516889 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_19/field_area_19" unique_id=453355762]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_20" type="Control" parent="field/GridContainer" unique_id=897217643]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_20" type="Area2D" parent="field/GridContainer/field_20" unique_id=1604147916 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_20/field_area_20" unique_id=1382001611]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_21" type="Control" parent="field/GridContainer" unique_id=268719212]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_21" type="Area2D" parent="field/GridContainer/field_21" unique_id=804091939 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_21/field_area_21" unique_id=728873577]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_22" type="Control" parent="field/GridContainer" unique_id=580641725]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_22" type="Area2D" parent="field/GridContainer/field_22" unique_id=538634004 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_22/field_area_22" unique_id=173415918]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_23" type="Control" parent="field/GridContainer" unique_id=793440759]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_23" type="Area2D" parent="field/GridContainer/field_23" unique_id=688785750 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_23/field_area_23" unique_id=1749549524]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_24" type="Control" parent="field/GridContainer" unique_id=2098091278]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_24" type="Area2D" parent="field/GridContainer/field_24" unique_id=1997904222 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_24/field_area_24" unique_id=153354273]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_25" type="Control" parent="field/GridContainer" unique_id=1759039836]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_25" type="Area2D" parent="field/GridContainer/field_25" unique_id=277958664 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_25/field_area_25" unique_id=2067273372]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_26" type="Control" parent="field/GridContainer" unique_id=1619113674]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_26" type="Area2D" parent="field/GridContainer/field_26" unique_id=1627120011 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_26/field_area_26" unique_id=1596617034]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_27" type="Control" parent="field/GridContainer" unique_id=1516717713]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_27" type="Area2D" parent="field/GridContainer/field_27" unique_id=1076408674 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_27/field_area_27" unique_id=1495099178]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_28" type="Control" parent="field/GridContainer" unique_id=1610752310]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_28" type="Area2D" parent="field/GridContainer/field_28" unique_id=2024064096 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_28/field_area_28" unique_id=2009182618]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_29" type="Control" parent="field/GridContainer" unique_id=2057372382]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_29" type="Area2D" parent="field/GridContainer/field_29" unique_id=711125940 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_29/field_area_29" unique_id=347794469]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_30" type="Control" parent="field/GridContainer" unique_id=1276989193]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_30" type="Area2D" parent="field/GridContainer/field_30" unique_id=2135207203 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_30/field_area_30" unique_id=1798727555]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_31" type="Control" parent="field/GridContainer" unique_id=1540692792]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_31" type="Area2D" parent="field/GridContainer/field_31" unique_id=310255479 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_31/field_area_31" unique_id=179358662]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_32" type="Control" parent="field/GridContainer" unique_id=1796133802]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_32" type="Area2D" parent="field/GridContainer/field_32" unique_id=377088054 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_32/field_area_32" unique_id=428384931]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_33" type="Control" parent="field/GridContainer" unique_id=676902900]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_33" type="Area2D" parent="field/GridContainer/field_33" unique_id=1179570971 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_33/field_area_33" unique_id=157346055]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_34" type="Control" parent="field/GridContainer" unique_id=1250064065]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_34" type="Area2D" parent="field/GridContainer/field_34" unique_id=335017141 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_34/field_area_34" unique_id=884607512]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_35" type="Control" parent="field/GridContainer" unique_id=1270394685]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_35" type="Area2D" parent="field/GridContainer/field_35" unique_id=1342472321 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_35/field_area_35" unique_id=44709122]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_36" type="Control" parent="field/GridContainer" unique_id=1987602078]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_36" type="Area2D" parent="field/GridContainer/field_36" unique_id=596992702 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_36/field_area_36" unique_id=1165781785]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_37" type="Control" parent="field/GridContainer" unique_id=1769657780]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_37" type="Area2D" parent="field/GridContainer/field_37" unique_id=1762931613 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_37/field_area_37" unique_id=803888402]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_38" type="Control" parent="field/GridContainer" unique_id=779378576]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_38" type="Area2D" parent="field/GridContainer/field_38" unique_id=1087933190 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_38/field_area_38" unique_id=1405321206]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_39" type="Control" parent="field/GridContainer" unique_id=1159787237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_39" type="Area2D" parent="field/GridContainer/field_39" unique_id=1180089712 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_39/field_area_39" unique_id=1543550935]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="field_40" type="Control" parent="field/GridContainer" unique_id=2042494451]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="field_area_40" type="Area2D" parent="field/GridContainer/field_40" unique_id=2048101442 groups=["field"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="field/GridContainer/field_40/field_area_40" unique_id=473569683]
+position = Vector2(65, 64)
+shape = SubResource("RectangleShape2D_huuin")
 
 [node name="Main Character" parent="." unique_id=1477450777 instance=ExtResource("1_mgrta")]
 
@@ -878,11 +1427,54 @@ vertical_alignment = 1
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control9" unique_id=1615206537]
 position = Vector2(60, 60)
 
-[node name="Button" type="Button" parent="UI layer" unique_id=657630673]
-offset_left = 1456.0
-offset_top = 45.0
-offset_right = 1873.0
-offset_bottom = 226.0
+[node name="debug con" type="Control" parent="UI layer" unique_id=839864768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="UI layer/debug con" unique_id=657630673]
+layout_mode = 0
+offset_top = 58.0
+offset_right = 163.0
+offset_bottom = 149.0
 text = "디버그 버튼"
 
-[connection signal="pressed" from="UI layer/Button" to="UI layer" method="_on_button_pressed"]
+[node name="debug label" type="Label" parent="UI layer/debug con" unique_id=1228023213]
+layout_mode = 0
+offset_right = 249.0
+offset_bottom = 58.0
+
+[node name="UI" type="Control" parent="UI layer" unique_id=2105758495]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="yield" type="Label" parent="UI layer/UI" unique_id=1640519957]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 40.0
+offset_right = 476.0
+offset_bottom = 91.0
+pivot_offset = Vector2(39, 26)
+text = "2365"
+label_settings = SubResource("LabelSettings_kqero")
+
+[node name="yield label" type="Label" parent="UI layer/UI" unique_id=805227083]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 476.0
+offset_bottom = 127.0
+text = "수확량:"
+label_settings = SubResource("LabelSettings_kqero")
+
+[node name="yield marker" type="Marker2D" parent="UI layer" unique_id=363040486 groups=["yield marker"]]
+position = Vector2(225, 58)
+
+[connection signal="area_entered" from="field/GridContainer/field_1/field_area_1" to="field" method="_on_field_area_1_area_entered"]
+[connection signal="pressed" from="UI layer/debug con/Button" to="UI layer" method="_on_button_pressed"]

@@ -13,6 +13,7 @@ func _ready() -> void:
 	cloud_anim.play("cloud 1")
 	Global.stat_refresh()
 
+
 func _process(delta: float) -> void:
 	pass
 	

@@ -37,6 +37,14 @@ folder_colors={
 "res://script/": "yellow"
 }
 
+[global_group]
+
+field=""
+plants=""
+player=""
+"dropped item"=""
+"yield marker"=""
+
 [input]
 
 ui_left={
@@ -84,6 +92,9 @@ speed_down={
 [layer_names]
 
 2d_physics/layer_2="wall"
+2d_physics/layer_3="field area"
+2d_physics/layer_4="get"
+2d_physics/layer_5="dropped item"
 
 [physics]
 

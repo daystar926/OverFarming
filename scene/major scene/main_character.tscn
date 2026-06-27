@@ -6,9 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(64, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
-size = Vector2(10, 10)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc4j5"]
 atlas = ExtResource("1_llww5")
 region = Rect2(0, 24, 24, 24)
@@ -144,25 +141,43 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main Character" type="CharacterBody2D" unique_id=1477450777]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(10, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_182vq"]
+size = Vector2(68, 119)
+
+[node name="Main Character" type="CharacterBody2D" unique_id=1477450777 groups=["player"]]
 physics_interpolation_mode = 1
 collision_mask = 3
 script = ExtResource("1_vc4j5")
 
-[node name="wall collision" type="CollisionShape2D" parent="." unique_id=1054376757]
+[node name="wall collision" type="CollisionShape2D" parent="." unique_id=1054376757 groups=["player"]]
 shape = SubResource("RectangleShape2D_huuin")
 
-[node name="get collision" type="CollisionShape2D" parent="." unique_id=951861663]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_utxwm")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=632768972]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=632768972 groups=["player"]]
 physics_interpolation_mode = 1
 position = Vector2(0, -86.99999)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
 animation = &"idle"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=178342418]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=178342418 groups=["player"]]
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="field collision area2d" type="Area2D" parent="." unique_id=2094705397 groups=["player"]]
+collision_layer = 5
+collision_mask = 12
+
+[node name="get collision" type="CollisionShape2D" parent="field collision area2d" unique_id=951861663 groups=["player"]]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_utxwm")
+
+[node name="item get collision" type="Area2D" parent="." unique_id=1370768414 groups=["player"]]
+collision_layer = 16
+collision_mask = 17
+
+[node name="item get collision" type="CollisionShape2D" parent="item get collision" unique_id=778731409 groups=["player"]]
+position = Vector2(0, -49.5)
+shape = SubResource("RectangleShape2D_182vq")

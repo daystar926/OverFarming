@@ -19,12 +19,10 @@ func _process(delta: float) -> void:
 	base_grow_time -= delta
 	if base_grow_time <= 0:
 		plants_level = 4
-	elif base_grow_time <= grow_time * 0.25:
+	elif base_grow_time <= grow_time * 0.33:
 		plants_level = 3
-	elif base_grow_time <= grow_time * 0.5:
+	elif base_grow_time <= grow_time * 0.66:
 		plants_level = 2
-	elif base_grow_time <= grow_time * 0.75:
-		plants_level = 1
 	plants_level_check()
 
 func plants_level_check():
@@ -37,3 +35,13 @@ func plants_level_check():
 			animated_sprite_2d.play("3")
 		4:
 			animated_sprite_2d.play("4")
+			$Area2D/CollisionShape2D.disabled = false
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		var item = preload("res://scene/rice_item.tscn").instantiate()
+		var parent = get_parent()
+		parent.add_child(item)
+		Global.add_sa(1, 1)
+		self.queue_free()
+		

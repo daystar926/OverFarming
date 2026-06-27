@@ -1,2 +1,14 @@
 res://scene/major scene/main_game.tscn
+res://scene/major scene/ui_layer.gd
 res://script/scene script/slots.gd
+res://script/grid_container.gd
+res://scene/major scene/main_character.tscn
+res://scene/major scene/field.gd
+res://scene/plants/rice.tscn
+res://script/plants/rice.gd
+res://script/global.gd
+res://script/scene script/main_game.gd
+res://scene/rice_item.tscn
+res://script/plants/rice_item.gd
+res://scene/major scene/game_prepare_scene.tscn
+res://script/scene script/game_prepare_scene.gd

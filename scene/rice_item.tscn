@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cm81dje8b0bfs"]
+
+[ext_resource type="Texture2D" uid="uid://chp4iqyyysshv" path="res://Assets/Placeholder/rice item.png" id="1_4rjd7"]
+[ext_resource type="Script" uid="uid://cbrtct2fiprk8" path="res://script/plants/rice_item.gd" id="1_p0rfg"]
+[ext_resource type="Texture2D" uid="uid://c043840743n6" path="res://Assets/Placeholder/rice item_shi.png" id="3_sqb87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rjd7"]
+size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0rfg"]
+atlas = ExtResource("1_4rjd7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flgqi"]
+atlas = ExtResource("3_sqb87")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pevkm"]
+atlas = ExtResource("1_4rjd7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0rfg")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flgqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pevkm")
+}],
+"loop": 0,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="rice item" type="Area2D" unique_id=122664055 groups=["dropped item"]]
+collision_layer = 16
+script = ExtResource("1_p0rfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1614910022 groups=["dropped item"]]
+shape = SubResource("RectangleShape2D_4rjd7")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=609849823 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"suck"
+frame = 1
+frame_progress = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

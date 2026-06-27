@@ -54,10 +54,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="rice" type="Node2D" unique_id=2062957136]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(128, 120)
+
+[node name="rice" type="Node2D" unique_id=2062957136 groups=["plants"]]
 script = ExtResource("1_ntgca")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1024603805]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1024603805 groups=["plants"]]
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
-animation = &"1"
+animation = &"4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1558471800]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=787201943]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_huuin")
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
