@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://k037prg1oe44"]
+
+[ext_resource type="Texture2D" uid="uid://dlam75sxb5b7q" path="res://Assets/Placeholder/ph plants.png" id="1_0a83a"]
+[ext_resource type="Script" uid="uid://dos16gl3v87hd" path="res://script/plants/cabbage.gd" id="1_fut3b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fut3b"]
+atlas = ExtResource("1_0a83a")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyhpp"]
+atlas = ExtResource("1_0a83a")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch6fd"]
+atlas = ExtResource("1_0a83a")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56gfp"]
+atlas = ExtResource("1_0a83a")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fut3b")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyhpp")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch6fd")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56gfp")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(130, 120)
+
+[node name="cabbage" type="Node2D" unique_id=2060221648 groups=["plants"]]
+script = ExtResource("1_fut3b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1168541450 groups=["plants"]]
+position = Vector2(0, -20)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_utxwm")
+animation = &"4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=11556162 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1443899378 groups=["plants"]]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_huuin")
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1782543886
-export_presets.cfg::TextFile::-1::1782398052::0::1::::<><><>0<>0<><>::
+::res://::1782638733
+export_presets.cfg::TextFile::-1::1782543916::0::1::::<><><>0<>0<><>::
 game_scene.tscn::PackedScene::6957462623907361170::1782273156::0::1::::<><><>0<>0<><>::uid://d1sxeskmygofr::::res://Assets/Placeholder/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/Tileset Spring.png<>uid://biw0iugpnniyg::::res://Assets/Placeholder/Farm RPG - Tiny Asset Pack - (All in One)/Tileset/Tileset Grass Cliff Tileset Spring.png
 icon.svg::CompressedTexture2D::6640102787009101786::1782268134::1782273312::1::::<><><>0<>0<>2be83f8eea84c7065d01329596307fb7<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 selected_effect.gd::GDScript::863342962632376862::1782397808::0::1::::<>Node2D<><>0<>0<><>::
@@ -20,11 +20,16 @@ arrow.png::CompressedTexture2D::5228719615532805303::1782268134::1782273312::1::
 panel 01.png::CompressedTexture2D::7386202185537033934::1782268134::1782273312::1::::<><><>0<>0<>8708b83d434af475b20087d766feacfd<>res://.godot/imported/panel 01.png-a9cd49f2662582ce5c1fb7dbc822241d.ctex::
 selected effect.png::CompressedTexture2D::7803602885128123419::1782394043::1782394050::1::::<><><>0<>0<>887e522313a71bc6e32c55964f0b12d1<>res://.godot/imported/selected effect.png-7d6944bc3753b5d33164d5ed5886132a.ctex::
 slots 001.png::CompressedTexture2D::2351253438457171212::1782392966::1782392976::1::::<><><>0<>0<>f9b22bfe45b59c35d1b415fc1ffe371c<>res://.godot/imported/slots 001.png-0727c8dcc83f0d59dfd190dbdfd09e9c.ctex::
-::res://Assets/Placeholder/::1782543673
+::res://Assets/Placeholder/::1782634416
 16x16 All Animations-Sheet.png::CompressedTexture2D::6438929977288177815::1782300385::1782300386::1::::<><><>0<>0<>be455b190864030394b1ce28a29d1525<>res://.godot/imported/16x16 All Animations-Sheet.png-7f9a2ba16455e66679bacd977ebee665.ctex::
+cabbage item.png::CompressedTexture2D::2149736518961546607::1782634405::1782634416::1::::<><><>0<>0<>1911dbcf48eb64657ebf5a327de3e465<>res://.godot/imported/cabbage item.png-6b568f93790de013054508107569f5c1.ctex::
+cabbage item_shi.png::CompressedTexture2D::7732229135929932134::1782634410::1782634416::1::::<><><>0<>0<>2c95abc37008e4b57576ef3e3318db1e<>res://.godot/imported/cabbage item_shi.png-f62defe567aca22329db8e24193096f6.ctex::
+cabbage.png::CompressedTexture2D::5184866477086745054::1782634401::1782634416::1::::<><><>0<>0<>e1dcf5b78afa50ed04455d27b81e7373<>res://.godot/imported/cabbage.png-2e4c5fe3242795b51ef5f6b677180243.ctex::
 ph plants.png::CompressedTexture2D::7932126684970329908::1782538836::1782538838::1::::<><><>0<>0<>018aa8c43ecd488a17e914f30c4ee6e1<>res://.godot/imported/ph plants.png-5775e9b29481f2bbd53ec8fe8af3f823.ctex::
 rice item.png::CompressedTexture2D::5296904896876951131::1782538885::1782538888::1::::<><><>0<>0<>7129d8fc9c96f98fb11efbd99678d1e8<>res://.godot/imported/rice item.png-b98fe015b1079471ff6e9edb0a59fed2.ctex::
 rice item_shi.png::CompressedTexture2D::193799705396827537::1782543671::1782543673::1::::<><><>0<>0<>edd10fababf5736cfd4b12d946892247<>res://.godot/imported/rice item_shi.png-fdbda8e6311d69443526983528a0deba.ctex::
+wheat item.png::CompressedTexture2D::4561568222547627429::1782615851::1782615879::1::::<><><>0<>0<>e3cc93ba8e1aa35e5dab9fc035e7614f<>res://.godot/imported/wheat item.png-89b29b0d0e8ca1610279d3542c565600.ctex::
+wheat item_shi.png::CompressedTexture2D::6909555784611299162::1782615876::1782615879::1::::<><><>0<>0<>dad39532742f0608d97599a080f6ee9c<>res://.godot/imported/wheat item_shi.png-f9ed6ff88b298a4bc9ddf4e8a054631a.ctex::
 ::res://Assets/Placeholder/Clouds 1/::1782309960
 1.png::CompressedTexture2D::2607818059037223363::1782309928::1782309960::1::::<><><>0<>0<>3c2a13e85393e91ff30d6418831e0cc0<>res://.godot/imported/1.png-bd62e05e46d8aec9b809fd82282c7d16.ctex::
 2.png::CompressedTexture2D::987416168852107922::1782309928::1782309960::1::::<><><>0<>0<>ee2270e2f0a4913b519ddff9260e42dc<>res://.godot/imported/2.png-26666ebb3ac2e35a3dfcee78b69e3e06.ctex::
@@ -93,27 +98,36 @@ Road copiar.png::CompressedTexture2D::7087561340018184685::1719023412::178227331
 Spring Crops.png::CompressedTexture2D::1911069198880121845::1738355760::1782273312::1::::<><><>0<>0<>57ec172e67da95d5c32b9219d9a97aa1<>res://.godot/imported/Spring Crops.png-4a8411903e5cac4899aa8546b00c139f.ctex::
 ::res://Assets/Placeholder/Farm RPG FREE 16x16 - Tiny Asset Pack/Tileset/::1782273312
 Tileset Spring.png::CompressedTexture2D::9022735380696365475::1749612982::1782273312::1::::<><><>0<>0<>8e216035d62787f45e74a5501fb781c5<>res://.godot/imported/Tileset Spring.png-d6a2215de05fb23265fcbdfaeaac693d.ctex::
-::res://scene/::1782543751
-rice_item.tscn::PackedScene::5684816436511264312::1782543751::0::1::::<><><>0<>0<><>::uid://chp4iqyyysshv::::res://Assets/Placeholder/rice item.png<>uid://cbrtct2fiprk8::::res://script/plants/rice_item.gd<>uid://c043840743n6::::res://Assets/Placeholder/rice item_shi.png
-::res://scene/major scene/::1782543809
-field.gd::GDScript::4974394462227673754::1782538205::0::1::::<>Control<><>0<>0<><>::
+::res://scene/::1782615925
+::res://scene/major scene/::1782638694
+field.gd::GDScript::4974394462227673754::1782637288::0::1::::<>Control<><>0<>0<><>::
 game_prepare_scene.tscn::PackedScene::8823571822356096124::1782541657::0::1::::<><><>0<>0<><>::uid://depdgtc6hug1c::::res://Assets/Placeholder/Cute_Fantasy_Free/Player/Player.png<>uid://8vkq3t08ayt0::::res://script/scene script/game_prepare_scene.gd<>uid://jeu4k6kyap6y::::res://Assets/fonts/font file/title fonts small.tres<>uid://cgq3io38r6su6::::res://Assets/images/UI/arrow.png<>uid://ddh6w2rn5q8pm::::res://Assets/images/UI/panel 01.png<>uid://yqgp63ni4sq5::::res://Assets/fonts/Mulmaru.ttf
 global_canvas.tscn::PackedScene::9204964574182493368::1782300638::0::1::::<><><>0<>0<><>::uid://b1ooupodawb8d::::res://script/scene script/global_canvas.gd
 main lobby.tscn::PackedScene::6388047958566810060::1782398127::0::1::::<><><>0<>0<><>::uid://bhjioukv1nm1k::::res://script/scene script/main_lobby.gd<>uid://hhscmm0uousa::::res://Assets/fonts/font file/title fonts.tres
-main_character.tscn::PackedScene::6162121596992045515::1782539001::0::1::::<><><>0<>0<><>::uid://cx0cia2him5ex::::res://Assets/Placeholder/16x16 All Animations-Sheet.png<>uid://dvhc03ksrhu0q::::res://script/scene script/main_character.gd
-main_game.tscn::PackedScene::2192164931791248115::1782543809::0::1::::<><><>0<>0<><>::uid://btjawjrtyudxj::::res://script/scene script/main_game.gd<>uid://ct18iihq3ijkt::::res://scene/major scene/main_character.tscn<>uid://bdfinac31hi7l::::res://Assets/Placeholder/Clouds 1/1.png<>uid://ockunv47x4hy::::res://Assets/Placeholder/Clouds 1/2.png<>uid://bvfnwe631uh8n::::res://Assets/Placeholder/Clouds 1/4.png<>uid://ceg4o8si6ux7s::::res://Assets/Placeholder/Farm RPG - Tiny Asset Pack - (All in One)/Tileset/Tileset Grass Cliff Tileset Summer.png<>uid://cd208050h4xqs::::res://Assets/images/tile map/dirt tile set.png<>uid://c0ftv6xhp36tw::::res://Assets/images/tile map/tilemap 001.png<>uid://cc4vsx3f5llig::::res://scene/major scene/field.gd<>uid://yqgp63ni4sq5::::res://Assets/fonts/Mulmaru.ttf<>uid://1ux025840ogd::::res://scene/major scene/ui_layer.gd<>uid://csq66h6wr1s4w::::res://script/scene script/slots.gd
-ui_layer.gd::GDScript::1867640091364996671::1782541700::0::1::::<>CanvasLayer<><>0<>0<><>::
-::res://scene/plants/::1782539322
-rice.tscn::PackedScene::2269424657855952803::1782539322::0::1::::<><><>0<>0<><>::uid://dlam75sxb5b7q::::res://Assets/Placeholder/ph plants.png<>uid://c3i1o0aksn7y8::::res://script/plants/rice.gd
-::res://script/::1782543572
-global.gd::GDScript::6897337074338792081::1782543572::0::1::::<>Node<><>0<>0<><>::
-::res://script/plants/::1782543751
-rice.gd::GDScript::6756248967772894361::1782539322::0::1::::<>Node2D<><>0<>0<><>::
-rice_item.gd::GDScript::4879282867185472657::1782543751::0::1::::<>Area2D<><>0<>0<><>::
-::res://script/scene script/::1782541657
+main_character.tscn::PackedScene::6162121596992045515::1782635053::0::1::::<><><>0<>0<><>::uid://cx0cia2him5ex::::res://Assets/Placeholder/16x16 All Animations-Sheet.png<>uid://dvhc03ksrhu0q::::res://script/scene script/main_character.gd
+main_game.tscn::PackedScene::2192164931791248115::1782638694::0::1::::<><><>0<>0<><>::uid://btjawjrtyudxj::::res://script/scene script/main_game.gd<>uid://ct18iihq3ijkt::::res://scene/major scene/main_character.tscn<>uid://bdfinac31hi7l::::res://Assets/Placeholder/Clouds 1/1.png<>uid://ockunv47x4hy::::res://Assets/Placeholder/Clouds 1/2.png<>uid://bvfnwe631uh8n::::res://Assets/Placeholder/Clouds 1/4.png<>uid://ceg4o8si6ux7s::::res://Assets/Placeholder/Farm RPG - Tiny Asset Pack - (All in One)/Tileset/Tileset Grass Cliff Tileset Summer.png<>uid://cd208050h4xqs::::res://Assets/images/tile map/dirt tile set.png<>uid://c0ftv6xhp36tw::::res://Assets/images/tile map/tilemap 001.png<>uid://cc4vsx3f5llig::::res://scene/major scene/field.gd<>uid://yqgp63ni4sq5::::res://Assets/fonts/Mulmaru.ttf<>uid://1ux025840ogd::::res://scene/major scene/ui_layer.gd<>uid://csq66h6wr1s4w::::res://script/scene script/slots.gd
+ui_layer.gd::GDScript::1867640091364996671::1782615173::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://scene/plants/::1782638114
+cabbage.tscn::PackedScene::755255915854076311::1782638114::0::1::::<><><>0<>0<><>::uid://dlam75sxb5b7q::::res://Assets/Placeholder/ph plants.png<>uid://dos16gl3v87hd::::res://script/plants/cabbage.gd
+rice.tscn::PackedScene::2269424657855952803::1782637990::0::1::::<><><>0<>0<><>::uid://dlam75sxb5b7q::::res://Assets/Placeholder/ph plants.png<>uid://c3i1o0aksn7y8::::res://script/plants/rice.gd
+wheat.tscn::PackedScene::8855635167206886549::1782638092::0::1::::<><><>0<>0<><>::uid://dlam75sxb5b7q::::res://Assets/Placeholder/ph plants.png<>uid://dx3x0erntdxpw::::res://script/plants/wheat.gd
+::res://scene/plants/plants_item/::1782638344
+cabbage_item.gd::GDScript::2947430296206738532::1782638148::0::1::::<>Area2D<><>0<>0<><>::
+cabbage_item.tscn::PackedScene::6009726502455692965::1782638148::0::1::::<><><>0<>0<><>::uid://bh800m1xe47vs::::res://scene/plants/plants_item/cabbage_item.gd<>uid://5vl31onh42ed::::res://Assets/Placeholder/cabbage item.png<>uid://difsxi537oumo::::res://Assets/Placeholder/cabbage item_shi.png
+rice_item.tscn::PackedScene::5684816436511264312::1782637781::0::1::::<><><>0<>0<><>::uid://cbrtct2fiprk8::::res://script/plants/rice_item.gd<>uid://chp4iqyyysshv::::res://Assets/Placeholder/rice item.png<>uid://c043840743n6::::res://Assets/Placeholder/rice item_shi.png
+wheat_item.gd::GDScript::6382550663992750776::1782638139::0::1::::<>Area2D<><>0<>0<><>::
+wheat_item.tscn::PackedScene::7064275451987925279::1782638344::0::1::::<><><>0<>0<><>::uid://cw60xasg143aa::::res://scene/plants/plants_item/wheat_item.gd<>uid://b58wmkw2l5xy0::::res://Assets/Placeholder/wheat item.png<>uid://c5pbmywpto14y::::res://Assets/Placeholder/wheat item_shi.png
+::res://script/::1782638429
+global.gd::GDScript::6897337074338792081::1782638429::0::1::::<>Node<><>0<>0<><>::
+::res://script/plants/::1782638114
+cabbage.gd::GDScript::8180698996442350985::1782638114::0::1::::<>Node2D<><>0<>0<><>::
+rice.gd::GDScript::6756248967772894361::1782638044::0::1::::<>Node2D<><>0<>0<><>::
+rice_item.gd::GDScript::4879282867185472657::1782637953::0::1::::<>Area2D<><>0<>0<><>::
+wheat.gd::GDScript::8832849404520244376::1782638092::0::1::::<>Node2D<><>0<>0<><>::
+::res://script/scene script/::1782617259
 game_prepare_scene.gd::GDScript::2360221016705567983::1782541657::0::1::::<>Control<><>0<>0<><>::
 global_canvas.gd::GDScript::4241118470230295545::1782299640::0::1::::<>CanvasLayer<><>0<>0<><>::
-main_character.gd::GDScript::8647845977532259642::1782479461::0::1::::<>CharacterBody2D<><>0<>0<><>::
+main_character.gd::GDScript::8647845977532259642::1782617259::0::1::::<>CharacterBody2D<><>0<>0<><>::
 main_game.gd::GDScript::3738627899936123875::1782538227::0::1::::<>Control<><>0<>0<><>::
 main_lobby.gd::GDScript::2896833792907127382::1782397897::0::1::::<>Control<><>0<>0<><>::
 selected_effect.tscn::PackedScene::1575091853384188689::1782479073::0::1::::<><><>0<>0<><>::uid://mkhereffjt55::::res://selected_effect.gd<>uid://djgeg1rd64un0::::res://Assets/images/UI/selected effect.png

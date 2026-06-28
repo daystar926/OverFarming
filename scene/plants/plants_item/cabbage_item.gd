@@ -77,6 +77,6 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	var tween = Global.create_collect_tween(self, marker.global_position)
 	tween.tween_callback(func():
-		Global.add_yield(Global.fa_total_rice)
+		Global.add_yield(Global.fa_total_cabbage)
 		queue_free()
 	)

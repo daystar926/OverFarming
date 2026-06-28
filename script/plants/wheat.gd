@@ -14,10 +14,10 @@ func _ready() -> void:
 	plants_setting()
 
 func plants_setting():
-	grow_time = Global.gt_total_rice
+	grow_time = Global.gt_total_wheat
 	base_grow_time = grow_time
-	amount = Global.fa_total_rice
-
+	amount = Global.fa_total_wheat
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	base_grow_time -= delta
@@ -50,7 +50,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		_harvest()
 
 func _harvest() -> void:
-	var item = preload("res://scene/plants/plants_item/rice_item.tscn").instantiate()
+	var item = preload("res://scene/plants/plants_item/wheat_item.tscn").instantiate()
 	var parent = get_tree().current_scene
 	var node = parent.get_child(4)
 	var item_position = Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 30)

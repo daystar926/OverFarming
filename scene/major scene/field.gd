@@ -1,11 +1,13 @@
 extends Control
-
 @onready var slots: Control = $"../UI layer/slots"
 @onready var main_game: Control = $".."
 @onready var grid: GridContainer = $GridContainer
+@onready var actual_field: Node = $"../actual field"
 
 var plants_list: Dictionary = {
-	1: preload("res://scene/plants/rice.tscn")
+	1: preload("res://scene/plants/rice.tscn"),
+	2: preload("res://scene/plants/wheat.tscn"),
+	3: preload("res://scene/plants/cabbage.tscn")
 }
 
 func _ready() -> void:
@@ -16,19 +18,28 @@ func _ready() -> void:
 
 func _on_field_area_entered(area: Area2D, field: Control) -> void:
 	var crop_id: int = slots.current_selected
-	# 이미 식물이 있으면 무시 (Area2D 1개 + 식물 1개 = 2개)
-	if field.get_child_count() > 1:
+	var raw_index: int = int(field.name.substr(6))
+	var grid_pos := Vector2i((raw_index - 1) % 8, (raw_index - 1) / 8)
+
+	# 이미 심어진 칸이면 무시
+	if Global.is_occupied(grid_pos):
 		return
 	# 남은 모종 없으면 무시
 	if Global.get_sa(crop_id) <= 0:
 		return
-	# 모종 1개 차감
+
 	Global.use_sa(crop_id, 1)
 	print(Global.get_sa(crop_id))
+
+	var pixel_pos := Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 64 + 5)
 	var plant = plants_check()
-	plant.position = field.size / 2
-	plant.position.y -= 15
-	field.add_child(plant)
+	plant.position = pixel_pos
+	plant.set("crop_id", crop_id)
+	plant.set("grid_pos", grid_pos)
+	actual_field.add_child(plant)
+
+	print(grid_pos)
+	Global.set_occupied(grid_pos, plant)
 
 func plants_check():
 	var plants_num = slots.current_selected

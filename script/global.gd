@@ -52,7 +52,7 @@ var fa_increase_rice = 0
 var fa_reduce_percent_rice = 0
 var fa_reduce_rice = 0
 var sa_add_rice = 0
-var sa_base_rice = 3
+#var sa_base_rice = 3
 
 # wheat
 var gt_reduce_percent_wheat = 0
@@ -64,7 +64,7 @@ var fa_increase_wheat = 0
 var fa_reduce_percent_wheat = 0
 var fa_reduce_wheat = 0
 var sa_add_wheat = 0
-var sa_base_wheat = 0
+#var sa_base_wheat = 3
 
 # cabbage
 var gt_reduce_percent_cabbage = 0
@@ -76,7 +76,7 @@ var fa_increase_cabbage = 0
 var fa_reduce_percent_cabbage = 0
 var fa_reduce_cabbage = 0
 var sa_add_cabbage = 0
-var sa_base_cabbage = 0
+#var sa_base_cabbage = 0
 
 # strawberry
 var gt_reduce_percent_strawberry = 0
@@ -88,7 +88,7 @@ var fa_increase_strawberry = 0
 var fa_reduce_percent_strawberry = 0
 var fa_reduce_strawberry = 0
 var sa_add_strawberry = 0
-var sa_base_strawberry = 0
+#var sa_base_strawberry = 0
 
 # garlic
 var gt_reduce_percent_garlic = 0
@@ -100,7 +100,7 @@ var fa_increase_garlic = 0
 var fa_reduce_percent_garlic = 0
 var fa_reduce_garlic = 0
 var sa_add_garlic = 0
-var sa_base_garlic = 0
+#var sa_base_garlic = 0
 
 # corn
 var gt_reduce_percent_corn = 0
@@ -112,7 +112,7 @@ var fa_increase_corn = 0
 var fa_reduce_percent_corn = 0
 var fa_reduce_corn = 0
 var sa_add_corn = 0
-var sa_base_corn = 0
+#var sa_base_corn = 0
 
 # bean
 var gt_reduce_percent_bean = 0
@@ -124,7 +124,7 @@ var fa_increase_bean = 0
 var fa_reduce_percent_bean = 0
 var fa_reduce_bean = 0
 var sa_add_bean = 0
-var sa_base_bean = 0
+#var sa_base_bean = 0
 
 # sweet_potato
 var gt_reduce_percent_sweet_potato = 0
@@ -136,7 +136,7 @@ var fa_increase_sweet_potato = 0
 var fa_reduce_percent_sweet_potato = 0
 var fa_reduce_sweet_potato = 0
 var sa_add_sweet_potato = 0
-var sa_base_sweet_potato = 0
+#var sa_base_sweet_potato = 0
 
 # tomato
 var gt_reduce_percent_tomato = 0
@@ -148,7 +148,7 @@ var fa_increase_tomato = 0
 var fa_reduce_percent_tomato = 0
 var fa_reduce_tomato = 0
 var sa_add_tomato = 0
-var sa_base_tomato = 0
+#var sa_base_tomato = 0
 
 # rice total
 var gt_total_rice = 0
@@ -158,12 +158,12 @@ var sa_total_rice = 3
 # wheat total
 var gt_total_wheat = 0
 var fa_total_wheat = 0
-var sa_total_wheat = 0
+var sa_total_wheat = 3
 
 # cabbage total
 var gt_total_cabbage = 0
 var fa_total_cabbage = 0
-var sa_total_cabbage = 0
+var sa_total_cabbage = 3
 
 # strawberry total
 var gt_total_strawberry = 0
@@ -358,7 +358,7 @@ func tween_ddiyong(node):
 func create_spawn_tween(node: Node, duration_min: float, duration_max: float) -> Tween:
 	var tween = create_tween()
 	var angle = randf() * TAU
-	var distance = randf_range(200, 300)
+	var distance = randf_range(100, 250)
 	var target = node.position + Vector2(cos(angle), sin(angle)) * distance
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUART)
@@ -384,3 +384,18 @@ func reparent_to_canvas_layer(node: Node, marker: Node) -> void:
 	node.get_parent().remove_child(node)
 	canvas.add_child(node)
 	node.global_position = current_screen_pos
+
+
+
+var occupied_fields: Dictionary = {}  # Vector2i -> 식물 노드 위치
+
+func set_occupied(grid_pos: Vector2i, plant_node: Node) -> void:
+	occupied_fields[grid_pos] = plant_node
+
+func is_occupied(grid_pos: Vector2i) -> bool:
+	return occupied_fields.has(grid_pos)
+
+func clear_occupied(grid_pos: Vector2i) -> void:
+	if occupied_fields.has(grid_pos):
+		occupied_fields.erase(grid_pos)
+		print("칸 비움: ", grid_pos)

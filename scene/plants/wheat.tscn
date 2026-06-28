@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dyf0audcy0dq8"]
+
+[ext_resource type="Texture2D" uid="uid://dlam75sxb5b7q" path="res://Assets/Placeholder/ph plants.png" id="1_5n0f4"]
+[ext_resource type="Script" uid="uid://dx3x0erntdxpw" path="res://script/plants/wheat.gd" id="1_al522"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al522"]
+atlas = ExtResource("1_5n0f4")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5erd"]
+atlas = ExtResource("1_5n0f4")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6po3"]
+atlas = ExtResource("1_5n0f4")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62pg3"]
+atlas = ExtResource("1_5n0f4")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al522")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5erd")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6po3")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62pg3")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry2o3"]
+size = Vector2(113, 122)
+
+[node name="wheat" type="Node2D" unique_id=2043288945 groups=["plants"]]
+script = ExtResource("1_al522")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1862870936 groups=["plants"]]
+position = Vector2(0, -20)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1847973491 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1284878797 groups=["plants"]]
+shape = SubResource("RectangleShape2D_ry2o3")
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

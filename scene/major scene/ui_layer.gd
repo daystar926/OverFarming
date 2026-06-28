@@ -20,8 +20,7 @@ func yield_changed():
 	Global.tween_ddiyong(yield_label)
 
 func _on_button_pressed() -> void:
-	var rice = preload("res://scene/plants/rice.tscn").instantiate()
-	main_character.add_child(rice)
+	pass
 
 var current_time_scale = 1
 func _unhandled_input(event: InputEvent) -> void:
