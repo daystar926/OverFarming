@@ -1,8 +1,0 @@
-res://scene/major scene/main_game.tscn
-res://scene/plants/rice.tscn
-res://scene/plants/wheat.tscn
-res://scene/plants/cabbage.tscn
-res://scene/major scene/field.gd
-res://script/plants/rice.gd
-res://script/plants/wheat.gd
-res://script/plants/cabbage.gd
