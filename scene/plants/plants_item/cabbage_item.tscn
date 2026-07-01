@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crvfk18t136eb"]
 
-[ext_resource type="Script" uid="uid://bh800m1xe47vs" path="res://scene/plants/plants_item/cabbage_item.gd" id="1_66tlc"]
+[ext_resource type="Script" uid="uid://bh800m1xe47vs" path="res://script/plants/cabbage_item.gd" id="1_66tlc"]
 [ext_resource type="Texture2D" uid="uid://5vl31onh42ed" path="res://Assets/Placeholder/cabbage item.png" id="1_ilcnu"]
 [ext_resource type="Texture2D" uid="uid://difsxi537oumo" path="res://Assets/Placeholder/cabbage item_shi.png" id="2_66tlc"]
 
