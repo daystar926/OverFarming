@@ -6,17 +6,20 @@ var amount
 var base_grow_time
 var plants_level = 1
 
-var crop_id: int = 1  # 쌀 = 1
+var crop_id: int = 3  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 
 func _ready() -> void:
 	Global.all_stat_refresh.connect(plants_setting)
-	plants_setting()
+	plants_start()
 
 func plants_setting():
 	grow_time = Global.gt_total_cabbage
-	base_grow_time = grow_time
 	amount = Global.fa_total_cabbage
+
+func plants_start():
+	plants_setting()
+	base_grow_time = grow_time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

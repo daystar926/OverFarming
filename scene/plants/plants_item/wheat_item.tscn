@@ -1,29 +1,24 @@
 [gd_scene format=3 uid="uid://c7v8t410tpjjb"]
 
 [ext_resource type="Script" uid="uid://cw60xasg143aa" path="res://script/plants/wheat_item.gd" id="1_cd5mw"]
-[ext_resource type="Texture2D" uid="uid://b58wmkw2l5xy0" path="res://Assets/Placeholder/wheat item.png" id="1_x0chf"]
-[ext_resource type="Texture2D" uid="uid://c5pbmywpto14y" path="res://Assets/Placeholder/wheat item_shi.png" id="2_cd5mw"]
+[ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_x0chf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(130, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd5mw"]
+atlas = ExtResource("2_x0chf")
+region = Rect2(0, 12, 12, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyc8t"]
-atlas = ExtResource("1_x0chf")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gsguy"]
-atlas = ExtResource("2_cd5mw")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lad2t"]
-atlas = ExtResource("1_x0chf")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_x0chf")
+region = Rect2(0, 12, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uyc8t")
+"texture": SubResource("AtlasTexture_cd5mw")
 }],
 "loop": 1,
 "name": &"normal",
@@ -31,10 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gsguy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lad2t")
+"texture": SubResource("AtlasTexture_uyc8t")
 }],
 "loop": 0,
 "name": &"suck",

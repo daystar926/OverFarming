@@ -1,29 +1,28 @@
 [gd_scene format=3 uid="uid://crvfk18t136eb"]
 
 [ext_resource type="Script" uid="uid://bh800m1xe47vs" path="res://script/plants/cabbage_item.gd" id="1_66tlc"]
-[ext_resource type="Texture2D" uid="uid://5vl31onh42ed" path="res://Assets/Placeholder/cabbage item.png" id="1_ilcnu"]
-[ext_resource type="Texture2D" uid="uid://difsxi537oumo" path="res://Assets/Placeholder/cabbage item_shi.png" id="2_66tlc"]
+[ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_ilcnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
-size = Vector2(124, 114)
+size = Vector2(97, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66tlc"]
+atlas = ExtResource("2_ilcnu")
+region = Rect2(0, 24, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d6fn"]
-atlas = ExtResource("1_ilcnu")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_ilcnu")
+region = Rect2(0, 24, 12, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfmif"]
-atlas = ExtResource("1_ilcnu")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abb4t"]
-atlas = ExtResource("2_66tlc")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_ilcnu")
+region = Rect2(0, 24, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0d6fn")
+"texture": SubResource("AtlasTexture_66tlc")
 }],
 "loop": 1,
 "name": &"normal",
@@ -31,10 +30,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mfmif")
+"texture": SubResource("AtlasTexture_0d6fn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abb4t")
+"texture": SubResource("AtlasTexture_mfmif")
 }],
 "loop": 1,
 "name": &"suck",
@@ -47,12 +46,13 @@ collision_mask = 16
 script = ExtResource("1_66tlc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331917482 groups=["dropped item"]]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_utxwm")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1389094094 groups=["dropped item"]]
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
-animation = &"suck"
+animation = &"normal"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

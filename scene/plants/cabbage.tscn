@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://k037prg1oe44"]
 
-[ext_resource type="Texture2D" uid="uid://dlam75sxb5b7q" path="res://Assets/Placeholder/ph plants.png" id="1_0a83a"]
 [ext_resource type="Script" uid="uid://dos16gl3v87hd" path="res://script/plants/cabbage.gd" id="1_fut3b"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fut3b"]
-atlas = ExtResource("1_0a83a")
-region = Rect2(48, 64, 16, 16)
+[ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="2_fut3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyhpp"]
-atlas = ExtResource("1_0a83a")
-region = Rect2(64, 64, 16, 16)
+atlas = ExtResource("2_fut3b")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch6fd"]
-atlas = ExtResource("1_0a83a")
-region = Rect2(80, 64, 16, 16)
+atlas = ExtResource("2_fut3b")
+region = Rect2(64, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56gfp"]
-atlas = ExtResource("1_0a83a")
-region = Rect2(96, 64, 16, 16)
+atlas = ExtResource("2_fut3b")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xehbi"]
+atlas = ExtResource("2_fut3b")
+region = Rect2(96, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fut3b")
+"texture": SubResource("AtlasTexture_tyhpp")
 }],
 "loop": 1,
 "name": &"1",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tyhpp")
+"texture": SubResource("AtlasTexture_ch6fd")
 }],
 "loop": 1,
 "name": &"2",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ch6fd")
+"texture": SubResource("AtlasTexture_56gfp")
 }],
 "loop": 1,
 "name": &"3",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_56gfp")
+"texture": SubResource("AtlasTexture_xehbi")
 }],
 "loop": 1,
 "name": &"4",

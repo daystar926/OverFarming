@@ -13,7 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	debug_label.text = str(Engine.time_scale) + "배속"
-	
+
 
 func yield_changed():
 	yield_label.text = str(Global.current_yield) + "Kg"

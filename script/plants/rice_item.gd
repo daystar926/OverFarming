@@ -72,10 +72,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if blink_tween:
 		blink_tween.kill()
 	
-	var marker = get_tree().get_first_node_in_group("yield marker")
-	Global.reparent_to_canvas_layer(self, marker)
-	
-	var tween = Global.create_collect_tween(self, marker.global_position)
+	var tween = Global.create_collect_tween(self)
 	tween.tween_callback(func():
 		Global.add_yield(Global.fa_total_rice)
 		queue_free()

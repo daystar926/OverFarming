@@ -96,5 +96,6 @@ label_settings = ExtResource("2_0uudh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="button_up" from="buttons/game start" to="." method="_on_game_start_button_up"]
 [connection signal="pressed" from="buttons/game start" to="." method="_on_game_start_pressed"]
 [connection signal="pressed" from="buttons/VBoxContainer/exit" to="." method="_on_exit_pressed"]

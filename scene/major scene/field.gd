@@ -7,7 +7,8 @@ extends Control
 var plants_list: Dictionary = {
 	1: preload("res://scene/plants/rice.tscn"),
 	2: preload("res://scene/plants/wheat.tscn"),
-	3: preload("res://scene/plants/cabbage.tscn")
+	3: preload("res://scene/plants/cabbage.tscn"),
+	4: preload("res://scene/plants/strawberry.tscn")
 }
 
 func _ready() -> void:

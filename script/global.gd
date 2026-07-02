@@ -88,6 +88,11 @@ var fa_increase_strawberry = 0
 var fa_reduce_percent_strawberry = 0
 var fa_reduce_strawberry = 0
 var sa_add_strawberry = 0
+# strawberry bgt
+var bgt_reduce_percent_strawberry = 0
+var bgt_reduce_strawberry = 0
+var bgt_increase_percent_strawberry = 0
+var bgt_increase_strawberry = 0
 #var sa_base_strawberry = 0
 
 # garlic
@@ -112,6 +117,11 @@ var fa_increase_corn = 0
 var fa_reduce_percent_corn = 0
 var fa_reduce_corn = 0
 var sa_add_corn = 0
+# corn bgt
+var bgt_reduce_percent_corn = 0
+var bgt_reduce_corn = 0
+var bgt_increase_percent_corn = 0
+var bgt_increase_corn = 0
 #var sa_base_corn = 0
 
 # bean
@@ -124,6 +134,11 @@ var fa_increase_bean = 0
 var fa_reduce_percent_bean = 0
 var fa_reduce_bean = 0
 var sa_add_bean = 0
+# bean bgt
+var bgt_reduce_percent_bean = 0
+var bgt_reduce_bean = 0
+var bgt_increase_percent_bean = 0
+var bgt_increase_bean = 0
 #var sa_base_bean = 0
 
 # sweet_potato
@@ -148,6 +163,11 @@ var fa_increase_tomato = 0
 var fa_reduce_percent_tomato = 0
 var fa_reduce_tomato = 0
 var sa_add_tomato = 0
+# tomato bgt
+var bgt_reduce_percent_tomato = 0
+var bgt_reduce_tomato = 0
+var bgt_increase_percent_tomato = 0
+var bgt_increase_tomato = 0
 #var sa_base_tomato = 0
 
 # rice total
@@ -167,8 +187,9 @@ var sa_total_cabbage = 3
 
 # strawberry total
 var gt_total_strawberry = 0
+var bgt_total_strawberry = 0
 var fa_total_strawberry = 0
-var sa_total_strawberry = 0
+var sa_total_strawberry = 3
 
 # garlic total
 var gt_total_garlic = 0
@@ -177,13 +198,16 @@ var sa_total_garlic = 0
 
 # corn total
 var gt_total_corn = 0
+var bgt_total_corn = 0
 var fa_total_corn = 0
 var sa_total_corn = 0
 
 # bean total
 var gt_total_bean = 0
+var bgt_total_bean = 0
 var fa_total_bean = 0
 var sa_total_bean = 0
+
 
 # sweet_potato total
 var gt_total_sweet_potato = 0
@@ -192,6 +216,7 @@ var sa_total_sweet_potato = 0
 
 # tomato total
 var gt_total_tomato = 0
+var bgt_total_tomato = 0
 var fa_total_tomato = 0
 var sa_total_tomato = 0
 
@@ -267,7 +292,7 @@ func add_sa(crop_id: int, amount: int = 1) -> void:
 			sa_total_tomato += amount
 
 func stat_refresh():
-	total_move_speed = base_move_speed + additional_move_speed
+	total_move_speed = base_move_speed + additional_move_speed #(아이템으로 증가 가능한 벨류)
 	
 	# rice
 
@@ -291,9 +316,10 @@ func stat_refresh():
 	clamp((1 + (fa_increase_percent_cabbage - fa_reduce_percent_cabbage)/100.0), 0, 5000)
 	
 	# strawberry
-
 	gt_total_strawberry = (GT_BASE_STRAWBERRY + gt_increase_strawberry - gt_reduce_strawberry) * \
 	clamp((1 + (gt_increase_percent_strawberry - gt_reduce_percent_strawberry)/100.0), 0, 5000)
+	bgt_total_strawberry = (BGT_BASE_STRAWBERRY + bgt_increase_strawberry - bgt_reduce_strawberry) * \
+	clamp((1 + (bgt_increase_percent_strawberry - bgt_reduce_percent_strawberry)/100.0), 0, 5000)
 	fa_total_strawberry = (FA_BASE_STRAWBERRY + fa_increase_strawberry - fa_reduce_strawberry) * \
 	clamp((1 + (fa_increase_percent_strawberry - fa_reduce_percent_strawberry)/100.0), 0, 5000)
 	
@@ -305,16 +331,18 @@ func stat_refresh():
 	clamp((1 + (fa_increase_percent_garlic - fa_reduce_percent_garlic)/100.0), 0, 5000)
 	
 	# corn
-
 	gt_total_corn = (GT_BASE_CORN + gt_increase_corn - gt_reduce_corn) * \
 	clamp((1 + (gt_increase_percent_corn - gt_reduce_percent_corn)/100.0), 0, 5000)
+	bgt_total_corn = (BGT_BASE_CORN + bgt_increase_corn - bgt_reduce_corn) * \
+	clamp((1 + (bgt_increase_percent_corn - bgt_reduce_percent_corn)/100.0), 0, 5000)
 	fa_total_corn = (FA_BASE_CORN + fa_increase_corn - fa_reduce_corn) * \
 	clamp((1 + (fa_increase_percent_corn - fa_reduce_percent_corn)/100.0), 0, 5000)
 	
 	# bean
-
 	gt_total_bean = (GT_BASE_BEAN + gt_increase_bean - gt_reduce_bean) * \
 	clamp((1 + (gt_increase_percent_bean - gt_reduce_percent_bean)/100.0), 0, 5000)
+	bgt_total_bean = (BGT_BASE_BEAN + bgt_increase_bean - bgt_reduce_bean) * \
+	clamp((1 + (bgt_increase_percent_bean - bgt_reduce_percent_bean)/100.0), 0, 5000)
 	fa_total_bean = (FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
 	clamp((1 + (fa_increase_percent_bean - fa_reduce_percent_bean)/100.0), 0, 5000)
 	
@@ -324,9 +352,11 @@ func stat_refresh():
 	clamp((1 + (gt_increase_percent_sweet_potato - gt_reduce_percent_sweet_potato)/100.0), 0, 5000)
 	
 	# tomato
-
+	
 	gt_total_tomato = (GT_BASE_TOMATO + gt_increase_tomato - gt_reduce_tomato) * \
 	clamp((1 + (gt_increase_percent_tomato - gt_reduce_percent_tomato)/100.0), 0, 5000)
+	bgt_total_tomato = (BGT_BASE_TOMATO + bgt_increase_tomato - bgt_reduce_tomato) * \
+	clamp((1 + (bgt_increase_percent_tomato - bgt_reduce_percent_tomato)/100.0), 0, 5000)
 	fa_total_tomato = (FA_BASE_TOMATO + fa_increase_tomato - fa_reduce_tomato) * \
 	clamp((1 + (fa_increase_percent_tomato - fa_reduce_percent_tomato)/100.0), 0, 5000)
 	
@@ -361,20 +391,22 @@ func create_spawn_tween(node: Node, duration_min: float, duration_max: float) ->
 	var distance = randf_range(100, 250)
 	var target = node.position + Vector2(cos(angle), sin(angle)) * distance
 	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_QUART)
+	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(node, "position", target, randf_range(duration_min, duration_max))
-	tween.parallel().tween_property(node, "scale", Vector2(0.6, 0.6), 0.6)\
+	tween.parallel().tween_property(node, "scale", Vector2(1, 1), 0.6)\
 		.set_ease(tween.EASE_OUT)\
 		.set_trans(tween.TRANS_ELASTIC)
 	return tween
 
 # 2. 수확(마커로 빨려들어가기) 애니메이션
-func create_collect_tween(node: Node, target_pos: Vector2) -> Tween:
+func create_collect_tween(node: Node) -> Tween:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_BACK)
-	tween.tween_property(node, "global_position", target_pos, 1)
-	tween.parallel().tween_property(node, "scale", Vector2(0.2, 0.2), 1)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(node, "scale", Vector2(1.1, 1.1), 0.05)
+	tween.tween_property(node, "scale", Vector2(0, 0), 0.3)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_EXPO)
 	return tween
 
 # 3. CanvasLayer로 reparent (화면 좌표계 유지)

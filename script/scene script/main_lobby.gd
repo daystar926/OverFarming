@@ -37,7 +37,8 @@ func button_close_tween():
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_QUART)
 	tween.tween_interval(2.5)
-	tween.tween_callback(func(): GlobalCanvas.white_transition("res://scene/major scene/game_prepare_scene.tscn"))
+	tween.tween_callback(func():
+		GlobalCanvas.white_transition("res://scene/major scene/game_prepare_scene.tscn"))
 
 
 func _on_game_start_pressed() -> void:

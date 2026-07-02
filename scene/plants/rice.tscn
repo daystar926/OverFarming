@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://7llde8q7lelf"]
 
-[ext_resource type="Texture2D" uid="uid://dlam75sxb5b7q" path="res://Assets/Placeholder/ph plants.png" id="1_kocqp"]
 [ext_resource type="Script" uid="uid://c3i1o0aksn7y8" path="res://script/plants/rice.gd" id="1_ntgca"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ntgca"]
-atlas = ExtResource("1_kocqp")
-region = Rect2(48, 32, 16, 16)
+[ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="2_ntgca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e78a1"]
-atlas = ExtResource("1_kocqp")
-region = Rect2(64, 32, 16, 16)
+atlas = ExtResource("2_ntgca")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reujk"]
-atlas = ExtResource("1_kocqp")
-region = Rect2(80, 32, 16, 16)
+atlas = ExtResource("2_ntgca")
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xodq8"]
-atlas = ExtResource("1_kocqp")
-region = Rect2(96, 32, 16, 16)
+atlas = ExtResource("2_ntgca")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hflwe"]
+atlas = ExtResource("2_ntgca")
+region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ntgca")
+"texture": SubResource("AtlasTexture_e78a1")
 }],
 "loop": 1,
 "name": &"1",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e78a1")
+"texture": SubResource("AtlasTexture_reujk")
 }],
 "loop": 1,
 "name": &"2",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_reujk")
+"texture": SubResource("AtlasTexture_xodq8")
 }],
 "loop": 1,
 "name": &"3",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xodq8")
+"texture": SubResource("AtlasTexture_hflwe")
 }],
 "loop": 1,
 "name": &"4",

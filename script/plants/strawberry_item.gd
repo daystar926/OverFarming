@@ -71,10 +71,8 @@ func _on_area_entered(area: Area2D) -> void:
 	$AnimatedSprite2D.play("suck")
 	if blink_tween:
 		blink_tween.kill()
-
-	
 	var tween = Global.create_collect_tween(self)
 	tween.tween_callback(func():
-		Global.add_yield(Global.fa_total_wheat)
+		Global.add_yield(Global.fa_total_strawberry)
 		queue_free()
 	)

@@ -596,8 +596,8 @@ texture = ExtResource("2_avoic")
 
 [node name="sky cloud 1-2" type="TextureRect" parent="sky/cloud" unique_id=700684649]
 layout_mode = 0
-offset_left = 1921.0
-offset_right = 3841.1914
+offset_left = 1920.2188
+offset_right = 3840.4102
 offset_bottom = 1080.0
 texture = ExtResource("2_avoic")
 

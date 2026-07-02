@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bls47qw306kqo"]
+
+[ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="1_fl0d8"]
+[ext_resource type="Script" uid="uid://b8oxioah3evrh" path="res://script/plants/strawberry_item.gd" id="1_te4cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te4cb"]
+atlas = ExtResource("1_fl0d8")
+region = Rect2(0, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foc8o"]
+atlas = ExtResource("1_fl0d8")
+region = Rect2(0, 36, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te4cb")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foc8o")
+}],
+"loop": 1,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="strawberry_item" type="Area2D" unique_id=599207513 groups=["dropped item"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_te4cb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=39595357 groups=["dropped item"]]
+shape = SubResource("RectangleShape2D_huuin")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2101278999 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_utxwm")
+animation = &"suck"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://c8kovax00km4b"]
+
+[ext_resource type="Script" uid="uid://cst10wubp52j0" path="res://script/plants/strawberry.gd" id="1_ev7g0"]
+[ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="2_555ph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt5w0"]
+atlas = ExtResource("2_555ph")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2wyh"]
+atlas = ExtResource("2_555ph")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi2is"]
+atlas = ExtResource("2_555ph")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npoc7"]
+atlas = ExtResource("2_555ph")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u6ky"]
+atlas = ExtResource("2_555ph")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwkse"]
+atlas = ExtResource("2_555ph")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pu04"]
+atlas = ExtResource("2_555ph")
+region = Rect2(96, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt5w0")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2wyh")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi2is")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npoc7")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u6ky")
+}],
+"loop": 1,
+"name": &"4-1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwkse")
+}],
+"loop": 1,
+"name": &"4-2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pu04")
+}],
+"loop": 1,
+"name": &"4-3",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(114, 130)
+
+[node name="strawberry" type="Node2D" unique_id=1177193672 groups=["plants"]]
+script = ExtResource("1_ev7g0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=147700653 groups=["plants"]]
+position = Vector2(0, -20)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=689416844 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=955866643 groups=["plants"]]
+shape = SubResource("RectangleShape2D_utxwm")
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
