@@ -10,6 +10,8 @@ var crop_id: int = 1  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 
 func _ready() -> void:
+	Global.time_stop_signal.connect(stop_growing)
+	Global.time_start_signal.connect(start_growing)
 	Global.all_stat_refresh.connect(plants_setting)
 	plants_start()
 
@@ -21,16 +23,24 @@ func plants_start():
 	plants_setting()
 	base_grow_time = grow_time
 
+var growable = true
+func stop_growing():
+	growable = false
+
+func start_growing():
+	growable = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	base_grow_time -= delta
-	if base_grow_time <= 0:
-		plants_level = 4
-	elif base_grow_time <= grow_time * 0.33:
-		plants_level = 3
-	elif base_grow_time <= grow_time * 0.66:
-		plants_level = 2
-	plants_level_check()
+	if growable:
+		base_grow_time -= delta
+		if base_grow_time <= 0:
+			plants_level = 4
+		elif base_grow_time <= grow_time * 0.33:
+			plants_level = 3
+		elif base_grow_time <= grow_time * 0.66:
+			plants_level = 2
+		plants_level_check()
 
 func plants_level_check():
 	match plants_level:

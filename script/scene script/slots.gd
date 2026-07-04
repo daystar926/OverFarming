@@ -28,14 +28,15 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			current_selected += 1
-			if current_selected == 10:
-				current_selected = 1
-			selected_check()
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			current_selected -= 1
 			if current_selected == 0:
 				current_selected = 9
+			selected_check()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			
+			current_selected += 1
+			if current_selected == 10:
+				current_selected = 1
 			selected_check()
 	if event is InputEventKey and event.pressed:
 		match event.keycode:

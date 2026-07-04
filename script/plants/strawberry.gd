@@ -12,6 +12,8 @@ var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 var fruit_level: int = 1
 
 func _ready() -> void:
+	Global.time_stop_signal.connect(stop_growing)
+	Global.time_start_signal.connect(start_growing)
 	Global.all_stat_refresh.connect(plants_setting)
 	plants_start()
 
@@ -26,27 +28,35 @@ func plants_start():
 	current_bgt = bgt
 	
 var is_bgt = true
+var growable = true
+func stop_growing():
+	growable = false
+
+func start_growing():
+	growable = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	base_grow_time -= delta
-	if is_bgt:
-		if base_grow_time <= 0:
-			plants_level = 4
-		elif base_grow_time <= grow_time * 0.33:
-			plants_level = 3
-		elif base_grow_time <= grow_time * 0.66:
-			plants_level = 2
-		plants_level_check()
-	else:
-		current_bgt -= delta
-		if current_bgt <= 0:
-			fruit_level = 3
-		elif current_bgt <= bgt * 0.5:
-			fruit_level = 2
+	if growable:
+		base_grow_time -= delta
+		if is_bgt:
+			if base_grow_time <= 0:
+				plants_level = 4
+			elif base_grow_time <= grow_time * 0.33:
+				plants_level = 3
+			elif base_grow_time <= grow_time * 0.66:
+				plants_level = 2
+			plants_level_check()
 		else:
-			fruit_level = 1
-		fruit_level_check()
-		
+			current_bgt -= delta
+			if current_bgt <= 0:
+				fruit_level = 3
+			elif current_bgt <= bgt * 0.5:
+				fruit_level = 2
+			else:
+				fruit_level = 1
+			fruit_level_check()
+			
 func fruit_level_check():
 	match fruit_level:
 		1:

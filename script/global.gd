@@ -393,7 +393,8 @@ func create_spawn_tween(node: Node, duration_min: float, duration_max: float) ->
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(node, "position", target, randf_range(duration_min, duration_max))
-	tween.parallel().tween_property(node, "scale", Vector2(1, 1), 0.6)\
+	
+	tween.parallel().tween_property(node, "scale", Vector2(1, 1), 0.52)\
 		.set_ease(tween.EASE_OUT)\
 		.set_trans(tween.TRANS_ELASTIC)
 	return tween
@@ -403,8 +404,8 @@ func create_collect_tween(node: Node) -> Tween:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(node, "scale", Vector2(1.1, 1.1), 0.05)
-	tween.tween_property(node, "scale", Vector2(0, 0), 0.3)\
+	tween.tween_property(node, "scale", Vector2(1.2, 1.2), 0.05)
+	tween.tween_property(node, "scale", Vector2(0, 0), 0.45)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_EXPO)
 	return tween
@@ -431,3 +432,50 @@ func clear_occupied(grid_pos: Vector2i) -> void:
 	if occupied_fields.has(grid_pos):
 		occupied_fields.erase(grid_pos)
 		print("칸 비움: ", grid_pos)
+
+
+signal time_stop_signal
+signal time_start_signal
+
+func time_stop():
+	time_stop_signal.emit()
+	
+
+func time_start():
+	time_start_signal.emit()
+	
+	
+signal to_next_morning
+func next_morning():
+	time_start()
+	to_next_morning.emit()
+	round += 1
+	
+
+### 라운드 클리어 작물 양 기준
+var round = 1
+var clear_requirments: Dictionary = {
+	1: 50,
+	2: 100,
+	3: 300,
+	4: 800,
+	5: 2000,
+	6: 6000,
+	7: 30000,
+	8: 100000,
+	9: 500000,
+	10: 2000000,
+	11: 5000000,
+	12: 20000000,
+	13: 50000000,
+	14: 99999999,
+	15: 100000000
+}
+
+signal clear_reward_signal
+func round_clear_check():
+	if current_yield < clear_requirments[round]:
+		return false
+	else:
+		clear_reward_signal.emit()
+		return true

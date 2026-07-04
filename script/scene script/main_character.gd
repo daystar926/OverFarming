@@ -10,24 +10,40 @@ var last_direction: String = "down"
 
 func _ready() -> void:
 	Global.all_stat_refresh.connect(update_stat)
+	Global.time_stop_signal.connect(character_stop)
+	Global.time_start_signal.connect(character_start)
+	
+var is_movable = true
+
+func character_stop():
+	is_movable = false
+
+	animated_sprite.play("idle")
+	
+func character_start():
+	is_movable = true
+
 
 func _process(delta: float) -> void:
-	field_collision.disabled = not Input.is_key_pressed(KEY_SHIFT)
-	yield_collision.disabled = not Input.is_key_pressed(KEY_SPACE)
+	if is_movable:
+		field_collision.disabled = not Input.is_key_pressed(KEY_SHIFT)
+		yield_collision.disabled = not Input.is_key_pressed(KEY_SPACE)
+
 func update_stat():
 	speed = Global.total_move_speed
 
 func _physics_process(delta: float) -> void:
-	var input_vector := Vector2.ZERO
+	if is_movable:
+		var input_vector := Vector2.ZERO
 
-	input_vector.x = Input.get_axis("ui_left", "ui_right")
-	input_vector.y = Input.get_axis("ui_up", "ui_down")
-	input_vector = input_vector.normalized()
+		input_vector.x = Input.get_axis("ui_left", "ui_right")
+		input_vector.y = Input.get_axis("ui_up", "ui_down")
+		input_vector = input_vector.normalized()
 
-	velocity = input_vector * speed
-	move_and_slide()
+		velocity = input_vector * speed
+		move_and_slide()
 
-	update_animation(input_vector)
+		update_animation(input_vector)
 
 
 

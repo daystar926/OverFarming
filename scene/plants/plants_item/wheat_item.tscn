@@ -43,6 +43,7 @@ shape = SubResource("RectangleShape2D_huuin")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1471701420 groups=["dropped item"]]
+z_index = 1
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_utxwm")
 animation = &"normal"

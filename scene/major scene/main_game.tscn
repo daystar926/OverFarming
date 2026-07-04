@@ -2,158 +2,26 @@
 
 [ext_resource type="Script" uid="uid://btjawjrtyudxj" path="res://script/scene script/main_game.gd" id="1_f7xul"]
 [ext_resource type="PackedScene" uid="uid://ct18iihq3ijkt" path="res://scene/major scene/main_character.tscn" id="1_mgrta"]
-[ext_resource type="Texture2D" uid="uid://bdfinac31hi7l" path="res://Assets/Placeholder/Clouds 1/1.png" id="1_x8kox"]
-[ext_resource type="Texture2D" uid="uid://ockunv47x4hy" path="res://Assets/Placeholder/Clouds 1/2.png" id="2_avoic"]
-[ext_resource type="Texture2D" uid="uid://bvfnwe631uh8n" path="res://Assets/Placeholder/Clouds 1/4.png" id="3_f7xul"]
+[ext_resource type="Texture2D" uid="uid://cm5m86e5hqfxx" path="res://Assets/Placeholder/image.png" id="2_cgtks"]
 [ext_resource type="TileSet" uid="uid://bbbkg2wlmii5f" path="res://Assets/images/tile map/map tiles.tres" id="5_ff5tn"]
+[ext_resource type="Script" uid="uid://cpf0ys2ub27k0" path="res://scene/major scene/canvas_modulate.gd" id="6_wawtu"]
+[ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://resource/daynightcycle-gradient-texture.tres" id="7_dv444"]
 [ext_resource type="Script" uid="uid://cc4vsx3f5llig" path="res://scene/major scene/field.gd" id="8_kqero"]
+[ext_resource type="Texture2D" uid="uid://bj26eb277p4wl" path="res://Assets/images/plants/rice item.png" id="8_r2nnh"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="9_84m0o"]
 [ext_resource type="Script" uid="uid://1ux025840ogd" path="res://scene/major scene/ui_layer.gd" id="9_cgtks"]
 [ext_resource type="Script" uid="uid://csq66h6wr1s4w" path="res://script/scene script/slots.gd" id="9_ff5tn"]
-
-[sub_resource type="Animation" id="Animation_f7xul"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cloud/sky cloud 1-1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cloud/sky cloud 2-1:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 45)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("cloud/sky cloud 2-2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1920, 45)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("cloud/sky cloud 2-3:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1920, 45)]
-}
-
-[sub_resource type="Animation" id="Animation_d664k"]
-resource_name = "cloud 1"
-length = 20.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cloud/sky cloud 1-1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-1920, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cloud/sky cloud 1-2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1921, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("cloud/sky cloud 1-3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(3840, 0), Vector2(1920, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("cloud/sky cloud 2-1:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 10, 10.0008335, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 45), Vector2(-1920, 45), Vector2(0, 45), Vector2(-1920, 45)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("cloud/sky cloud 2-2:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 10, 10.0008335, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1920, 45), Vector2(0, 45), Vector2(1920, 45), Vector2(0, 45)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("cloud/sky cloud 2-3:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 10, 10.0008335, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3840, 45), Vector2(1920, 45), Vector2(3840, 45), Vector2(1920, 45)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fn6v"]
-_data = {
-&"RESET": SubResource("Animation_f7xul"),
-&"cloud 1": SubResource("Animation_d664k")
-}
+[ext_resource type="Texture2D" uid="uid://dygkl1xlasyvw" path="res://Assets/images/plants/wheat item.png" id="9_tc3a8"]
+[ext_resource type="Texture2D" uid="uid://37bi8ftgkq0k" path="res://Assets/images/plants/cabbage item.png" id="10_wawtu"]
+[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="11_dv444"]
+[ext_resource type="Texture2D" uid="uid://qfrrwrieb1b1" path="res://Assets/images/plants/garlic item.png" id="12_j5pkd"]
+[ext_resource type="Texture2D" uid="uid://dg6smfcjpd6s" path="res://Assets/images/plants/corn item.png" id="13_rfv2i"]
+[ext_resource type="Texture2D" uid="uid://bpuehvp2vpxld" path="res://Assets/images/plants/bean item.png" id="14_brniu"]
+[ext_resource type="Texture2D" uid="uid://clj03i2r3pm4" path="res://Assets/images/plants/sweet potato item.png" id="15_78176"]
+[ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="16_yribu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(112, 112)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ff5tn"]
-font = ExtResource("9_84m0o")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
-outline_size = 10
-outline_color = Color(0.87, 0.84912, 0.24359998, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kqero"]
 font = ExtResource("9_84m0o")
@@ -170,116 +38,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f7xul")
 
-[node name="sky" type="Control" parent="." unique_id=2147164649]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1068589598]
+scroll_scale = Vector2(0.5, 0.2)
+
+[node name="ph background" type="TextureRect" parent="Parallax2D" unique_id=1613535918]
 z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.6, 1.6)
-
-[node name="sky bg" type="TextureRect" parent="sky" unique_id=826668274]
-z_index = -1
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(1.6, 1.6)
-texture = ExtResource("1_x8kox")
-
-[node name="ColorRect" type="ColorRect" parent="sky/sky bg" unique_id=7878665]
-z_index = -1
-layout_mode = 0
-offset_left = -1920.0
-offset_top = -1103.0
-offset_right = 3840.0
-offset_bottom = 608.0
-color = Color(0.13333334, 0.6156863, 0.9490196, 1)
-
-[node name="TextureRect" type="TextureRect" parent="sky/sky bg" unique_id=1421600529]
-z_index = -1
-layout_mode = 0
-offset_left = -1920.0
-offset_bottom = 1080.0
-pivot_offset = Vector2(1920, 0)
-texture = ExtResource("1_x8kox")
-
-[node name="TextureRect2" type="TextureRect" parent="sky/sky bg" unique_id=1935386514]
-z_index = -1
-layout_mode = 0
-offset_left = 1920.0
-offset_right = 3840.0
-offset_bottom = 1080.0
-texture = ExtResource("1_x8kox")
-
-[node name="ColorRect" type="ColorRect" parent="sky/sky bg/TextureRect2" unique_id=1087140412]
-z_index = -1
-layout_mode = 0
-offset_left = -3840.0
-offset_top = 1027.0
-offset_right = 1920.0
-offset_bottom = 2738.0
-color = Color(0.43137255, 0.7176471, 0.8901961, 1)
-
-[node name="cloud anim" type="AnimationPlayer" parent="sky" unique_id=963024792]
-libraries/ = SubResource("AnimationLibrary_4fn6v")
-
-[node name="cloud" type="Control" parent="sky" unique_id=1322009512]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1920.0
-offset_top = -650.0
-offset_right = -1920.0
-offset_bottom = -650.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.6, 1.6)
-
-[node name="sky cloud 1-1" type="TextureRect" parent="sky/cloud" unique_id=567064094]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("2_avoic")
-
-[node name="sky cloud 1-2" type="TextureRect" parent="sky/cloud" unique_id=700684649]
-layout_mode = 0
-offset_left = 1920.2188
-offset_right = 3840.4102
-offset_bottom = 1080.0
-texture = ExtResource("2_avoic")
-
-[node name="sky cloud 1-3" type="TextureRect" parent="sky/cloud" unique_id=1428795657]
-layout_mode = 0
-offset_left = 3840.0
-offset_right = 5760.193
-offset_bottom = 1080.0
-texture = ExtResource("2_avoic")
-
-[node name="sky cloud 2-1" type="TextureRect" parent="sky/cloud" unique_id=1686397429]
-layout_mode = 0
-offset_top = 45.0
-offset_right = 1920.0
-offset_bottom = 1125.0
-texture = ExtResource("3_f7xul")
-
-[node name="sky cloud 2-2" type="TextureRect" parent="sky/cloud" unique_id=1261306973]
-layout_mode = 0
-offset_left = 1920.0
-offset_top = 45.0
-offset_right = 3840.0996
-offset_bottom = 1125.0
-texture = ExtResource("3_f7xul")
-
-[node name="sky cloud 2-3" type="TextureRect" parent="sky/cloud" unique_id=1875000939]
-layout_mode = 0
-offset_left = -1920.0
-offset_top = 45.0
-offset_bottom = 1125.0
-texture = ExtResource("3_f7xul")
+offset_left = -1997.0
+offset_top = -1446.0
+offset_right = 3153.7808
+offset_bottom = 1525.0
+texture = ExtResource("2_cgtks")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=631310364]
 visible = false
@@ -855,6 +623,10 @@ collision_mask = 4
 position = Vector2(65, 64)
 shape = SubResource("RectangleShape2D_huuin")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1726283960]
+script = ExtResource("6_wawtu")
+gradient = ExtResource("7_dv444")
+
 [node name="UI layer" type="CanvasLayer" parent="." unique_id=460459825]
 script = ExtResource("9_cgtks")
 
@@ -904,17 +676,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control/MarginContainer" unique_id=264228814]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control/MarginContainer/ColorRect" unique_id=1814297938]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control/MarginContainer/ColorRect" unique_id=825893637]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "쌀"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("8_r2nnh")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control" unique_id=1093984487]
 position = Vector2(60, 60)
@@ -940,17 +709,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control2/MarginContainer" unique_id=940095429]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control2/MarginContainer/ColorRect" unique_id=952578486]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control2/MarginContainer/ColorRect" unique_id=457632289]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "밀"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("9_tc3a8")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control2" unique_id=156067400]
 position = Vector2(60, 60)
@@ -976,17 +742,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control3/MarginContainer" unique_id=1041436248]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control3/MarginContainer/ColorRect" unique_id=1406388640]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control3/MarginContainer/ColorRect" unique_id=1177264432]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "배추"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("10_wawtu")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control3" unique_id=601622807]
 position = Vector2(60, 60)
@@ -1012,17 +775,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control4/MarginContainer" unique_id=2076254599]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control4/MarginContainer/ColorRect" unique_id=410480255]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control4/MarginContainer/ColorRect" unique_id=637697527]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "딸기"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("11_dv444")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control4" unique_id=1579913251]
 position = Vector2(60, 60)
@@ -1048,17 +808,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control5/MarginContainer" unique_id=2062973049]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control5/MarginContainer/ColorRect" unique_id=535286776]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control5/MarginContainer/ColorRect" unique_id=1436584946]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "마늘"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("12_j5pkd")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control5" unique_id=1905050428]
 position = Vector2(60, 60)
@@ -1084,17 +841,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control6/MarginContainer" unique_id=691814864]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control6/MarginContainer/ColorRect" unique_id=171826393]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control6/MarginContainer/ColorRect" unique_id=1367474619]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "옥수수"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("13_rfv2i")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control6" unique_id=264804742]
 position = Vector2(60, 60)
@@ -1120,17 +874,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control7/MarginContainer" unique_id=1753399199]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control7/MarginContainer/ColorRect" unique_id=73253374]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control7/MarginContainer/ColorRect" unique_id=1401126201]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "콩"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("14_brniu")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control7" unique_id=23513788]
 position = Vector2(60, 60)
@@ -1156,17 +907,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control8/MarginContainer" unique_id=401973917]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control8/MarginContainer/ColorRect" unique_id=1370619414]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control8/MarginContainer/ColorRect" unique_id=1009898910]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "고구마"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("15_78176")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control8" unique_id=1401242255]
 position = Vector2(60, 60)
@@ -1192,17 +940,14 @@ theme_override_constants/margin_bottom = 13
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control9/MarginContainer" unique_id=599354438]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI layer/slots/slot hbox/Control9/MarginContainer/ColorRect" unique_id=1253053241]
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control9/MarginContainer/ColorRect" unique_id=1176717145]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "토마토"
-label_settings = SubResource("LabelSettings_ff5tn")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("16_yribu")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control9" unique_id=1615206537]
 position = Vector2(60, 60)
@@ -1227,6 +972,19 @@ text = "디버그 버튼"
 layout_mode = 0
 offset_right = 249.0
 offset_bottom = 58.0
+
+[node name="debug label2" type="Label" parent="UI layer/debug con" unique_id=602375701]
+layout_mode = 0
+offset_top = 196.0
+offset_right = 249.0
+offset_bottom = 302.0
+
+[node name="Button2" type="Button" parent="UI layer/debug con" unique_id=955973603]
+layout_mode = 0
+offset_top = 280.0
+offset_right = 163.0
+offset_bottom = 394.0
+text = "디버그 버튼"
 
 [node name="UI" type="Control" parent="UI layer" unique_id=2105758495]
 layout_mode = 3
@@ -1258,3 +1016,4 @@ position = Vector2(225, 58)
 
 [connection signal="area_entered" from="field/GridContainer/field_1/field_area_1" to="field" method="_on_field_area_1_area_entered"]
 [connection signal="pressed" from="UI layer/debug con/Button" to="UI layer" method="_on_button_pressed"]
+[connection signal="pressed" from="UI layer/debug con/Button2" to="UI layer" method="_on_button_2_pressed"]
