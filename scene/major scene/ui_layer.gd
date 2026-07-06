@@ -62,3 +62,7 @@ func engine_speed_setting():
 func _on_button_2_pressed() -> void:
 	time_modulate.go_to_next_morning()
 	Global.time_start()
+
+
+func _on_interactive_button_pressed() -> void:
+	pass # Replace with function body.

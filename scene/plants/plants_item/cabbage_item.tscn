@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crvfk18t136eb"]
 
 [ext_resource type="Script" uid="uid://bh800m1xe47vs" path="res://script/plants/cabbage_item.gd" id="1_66tlc"]
+[ext_resource type="Texture2D" uid="uid://bwrqjehaitnvn" path="res://Assets/images/plants/cabbage item_ white.png" id="2_66tlc"]
 [ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_ilcnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
@@ -21,10 +22,13 @@ region = Rect2(0, 24, 12, 12)
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_66tlc")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_66tlc")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"normal",
 "speed": 5.0
 }, {
@@ -35,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mfmif")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"suck",
 "speed": 5.0
 }]

@@ -11,7 +11,7 @@ var spawn_position: Vector2
 func _ready() -> void:
 	spawn_position_setting()
 	start_tween()
-	
+	$AnimatedSprite2D.play("normal")
 	
 func spawn_position_setting():
 	self.position = spawn_position

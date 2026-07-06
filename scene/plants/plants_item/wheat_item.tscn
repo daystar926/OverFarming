@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7v8t410tpjjb"]
 
 [ext_resource type="Script" uid="uid://cw60xasg143aa" path="res://script/plants/wheat_item.gd" id="1_cd5mw"]
+[ext_resource type="Texture2D" uid="uid://bh21jxsgjrcau" path="res://Assets/images/plants/wheat item_white.png" id="2_cd5mw"]
 [ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_x0chf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
@@ -17,10 +18,13 @@ region = Rect2(0, 12, 12, 12)
 [sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
 animations = [{
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_cd5mw")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cd5mw")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"normal",
 "speed": 5.0
 }, {
