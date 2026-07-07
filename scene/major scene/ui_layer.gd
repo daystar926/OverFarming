@@ -12,23 +12,23 @@ func _ready() -> void:
 	yield_label.text = str(Global.current_yield) + "Kg"
 	time_modulate.time_tick.connect(set_daytime)
 	time_modulate.night_time.connect(round_check)
-	Global.clear_reward_signal.connect(round_clear)
+
+	Global.ui_hide_signal.connect(ui_hide)
+	Global.ui_show_signal.connect(ui_show)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	debug_label.text = str(Engine.time_scale) + "배속"
 
-var round_clear_check = true
-
 func round_check():
 	Global.time_stop()
-	if not Global.round_clear_check():
-		print("여기서 라운드 클리어 했는지 안했는지 정해짐")
-		round_clear_check = false
+	Global.round_clear_check()
+	Global.ui_hide()
+	var rcs = preload("res://scene/round_check_scene.tscn").instantiate()
+	add_child(rcs)
 
 
-func round_clear():
-	round_clear_check = true
+
 
 
 
@@ -63,6 +63,30 @@ func _on_button_2_pressed() -> void:
 	time_modulate.go_to_next_morning()
 	Global.time_start()
 
+@onready var slots: Control = $slots
+@onready var ui: Control = $UI
 
-func _on_interactive_button_pressed() -> void:
-	pass # Replace with function body.
+func ui_hide():
+	var tween = create_tween()
+	tween.tween_property(slots, "position", Vector2(0, 250), 0.6)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_BACK)
+	tween.parallel().tween_property(ui, "position", Vector2(-500, 0), 1)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_BACK)
+
+func ui_show():
+	var tween = create_tween()
+	tween.tween_property(slots, "position", Vector2(0, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BACK)
+	tween.parallel().tween_property(ui, "position", Vector2(0, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BACK)
+		
+		
+		
+		
+		
+		
+		

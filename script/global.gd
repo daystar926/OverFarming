@@ -449,11 +449,11 @@ signal to_next_morning
 func next_morning():
 	time_start()
 	to_next_morning.emit()
-	round += 1
+	current_round += 1
 	
 
 ### 라운드 클리어 작물 양 기준
-var round = 1
+var current_round = 1
 var clear_requirments: Dictionary = {
 	1: 50,
 	2: 100,
@@ -472,10 +472,21 @@ var clear_requirments: Dictionary = {
 	15: 100000000
 }
 
-signal clear_reward_signal
+var round_clear = false
+
 func round_clear_check():
-	if current_yield < clear_requirments[round]:
-		return false
+	if current_yield < clear_requirments[current_round]:
+		print("라운드 클리어 실패")
+		round_clear = false
 	else:
-		clear_reward_signal.emit()
-		return true
+		print("라운드 클리어")
+		round_clear = true
+
+
+signal ui_hide_signal
+func ui_hide():
+	ui_hide_signal.emit()
+
+signal ui_show_signal
+func ui_show():
+	ui_show_signal.emit()
