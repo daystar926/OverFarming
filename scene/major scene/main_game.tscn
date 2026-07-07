@@ -2,10 +2,15 @@
 
 [ext_resource type="Script" uid="uid://btjawjrtyudxj" path="res://script/scene script/main_game.gd" id="1_f7xul"]
 [ext_resource type="PackedScene" uid="uid://ct18iihq3ijkt" path="res://scene/major scene/main_character.tscn" id="1_mgrta"]
-[ext_resource type="Texture2D" uid="uid://cm5m86e5hqfxx" path="res://Assets/Placeholder/image.png" id="2_cgtks"]
+[ext_resource type="Texture2D" uid="uid://d4gwdim8uaxn7" path="res://Assets/images/map/back sky.png" id="2_78176"]
+[ext_resource type="Texture2D" uid="uid://cxit6fw3f5t1n" path="res://Assets/images/map/back cloud.png" id="3_yribu"]
+[ext_resource type="Texture2D" uid="uid://lusasl6vob2i" path="res://Assets/images/map/back.png" id="4_qsvq7"]
 [ext_resource type="TileSet" uid="uid://bbbkg2wlmii5f" path="res://Assets/images/tile map/map tiles.tres" id="5_ff5tn"]
+[ext_resource type="Texture2D" uid="uid://ju1t5q7tyts2" path="res://Assets/images/map/cloud.png" id="5_y1dry"]
+[ext_resource type="Texture2D" uid="uid://d2etdip05eixj" path="res://Assets/images/map/front.png" id="6_nbbly"]
 [ext_resource type="Script" uid="uid://cpf0ys2ub27k0" path="res://scene/major scene/canvas_modulate.gd" id="6_wawtu"]
 [ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://resource/daynightcycle-gradient-texture.tres" id="7_dv444"]
+[ext_resource type="Texture2D" uid="uid://qvu2telj5nsx" path="res://Assets/images/map/filter.png" id="7_hrcro"]
 [ext_resource type="Script" uid="uid://cc4vsx3f5llig" path="res://scene/major scene/field.gd" id="8_kqero"]
 [ext_resource type="Texture2D" uid="uid://bj26eb277p4wl" path="res://Assets/images/plants/rice item.png" id="8_r2nnh"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="9_84m0o"]
@@ -19,6 +24,106 @@
 [ext_resource type="Texture2D" uid="uid://bpuehvp2vpxld" path="res://Assets/images/plants/bean item.png" id="14_brniu"]
 [ext_resource type="Texture2D" uid="uid://clj03i2r3pm4" path="res://Assets/images/plants/sweet potato item.png" id="15_78176"]
 [ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="16_yribu"]
+
+[sub_resource type="Animation" id="Animation_78176"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3840, 164)]
+}
+
+[sub_resource type="Animation" id="Animation_yribu"]
+resource_name = "cloud anim1"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 164), Vector2(3840, 164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3840, 164), Vector2(0, 164)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qsvq7"]
+_data = {
+&"RESET": SubResource("Animation_78176"),
+&"cloud anim1": SubResource("Animation_yribu")
+}
+
+[sub_resource type="Animation" id="Animation_qsvq7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-720, 164)]
+}
+
+[sub_resource type="Animation" id="Animation_y1dry"]
+resource_name = "cloud anim2"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 164), Vector2(-7200, 164)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbbly"]
+_data = {
+&"RESET": SubResource("Animation_qsvq7"),
+&"cloud anim2": SubResource("Animation_y1dry")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(112, 112)
@@ -39,15 +144,167 @@ grow_vertical = 2
 script = ExtResource("1_f7xul")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1068589598]
-scroll_scale = Vector2(0.5, 0.2)
-
-[node name="ph background" type="TextureRect" parent="Parallax2D" unique_id=1613535918]
 z_index = -1
-offset_left = -1997.0
-offset_top = -1446.0
-offset_right = 3153.7808
-offset_bottom = 1525.0
-texture = ExtResource("2_cgtks")
+scroll_scale = Vector2(0.5, 0.2)
+scroll_offset = Vector2(750, -348)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1248059433]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("2_78176")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1940870485]
+z_index = -1
+scroll_scale = Vector2(0.3, 0.15)
+scroll_offset = Vector2(750, -348)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=452326700]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 164.0
+offset_right = 480.05905
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("3_yribu")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Parallax2D2" unique_id=148168120]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3840.0
+offset_top = 164.0
+offset_right = -3360.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("3_yribu")
+metadata/_edit_use_anchors_ = true
+
+[node name="back clouod anim" type="AnimationPlayer" parent="Parallax2D2" unique_id=546306420]
+libraries/ = SubResource("AnimationLibrary_qsvq7")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1738744087]
+z_index = -1
+scroll_scale = Vector2(0.4, 0.2)
+scroll_offset = Vector2(750, -103)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D3" unique_id=699978298]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("4_qsvq7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=456276528]
+z_index = -1
+scroll_scale = Vector2(0.6, 0.3)
+scroll_offset = Vector2(750, -348)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D6" unique_id=784296239]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(11, 11)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("6_nbbly")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1216382101]
+z_index = -1
+scroll_scale = Vector2(0.5, 0.25)
+scroll_offset = Vector2(750, -348)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D4" unique_id=1803605509]
+modulate = Color(1, 1, 1, 0.5137255)
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = 164.0
+offset_right = 720.0088
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("5_y1dry")
+metadata/_edit_use_anchors_ = true
+
+[node name="cloud anim" type="AnimationPlayer" parent="Parallax2D4" unique_id=1578115798]
+libraries/ = SubResource("AnimationLibrary_nbbly")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1667512169]
+z_index = -1
+scroll_scale = Vector2(0.7, 0.35)
+scroll_offset = Vector2(750, -348)
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D5" unique_id=316877858]
+modulate = Color(1, 1, 1, 0.11372549)
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 164.0
+offset_right = 240.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(11, 11)
+pivot_offset = Vector2(239.09163, 133.5477)
+texture = ExtResource("7_hrcro")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=631310364]
 visible = false

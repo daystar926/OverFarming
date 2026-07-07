@@ -14,7 +14,7 @@ func _ready() -> void:
 	label_3.text = "필요 수확량: " + str(Global.clear_requirments[Global.current_round]) + "kg"
 	animation_play()
 	
-
+var is_pressable = false
 func animation_play():
 	Engine.time_scale = 1
 	animation_player.play("1")
@@ -24,22 +24,27 @@ func animation_play():
 	if Global.round_clear:
 		print("if 문 진입")
 		animation_player.play("clear")
+		await animation_player.animation_finished
+		is_pressable = true
 	else:
 		animation_player.play("game over")
+		await animation_player.animation_finished
+		is_pressable = true
 
-var is_pressable = true
+
 
 func _input(event: InputEvent) -> void:
 	var is_key_press = event is InputEventKey and event.pressed and not event.is_echo()
 	var is_mouse_press = event is InputEventMouseButton and event.pressed
 	
-	if is_key_press or is_mouse_press:
-		if Global.round_clear:
-			print("if 문 진입")
-			animation_player.play("clear_2")
-		else:
-			animation_player.play("game over_2")
-		get_viewport().set_input_as_handled()
+	if is_pressable:
+		if is_key_press or is_mouse_press:
+			if Global.round_clear:
+				print("if 문 진입")
+				animation_player.play("clear_2")
+			else:
+				animation_player.play("game over_2")
+			get_viewport().set_input_as_handled()
 
 func _on_button_pressed() -> void:
 	pass
