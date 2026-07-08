@@ -2,14 +2,14 @@ extends CanvasLayer
 
 @onready var main_character: CharacterBody2D = $"../Main Character"
 @onready var debug_label: Label = $"debug con/debug label"
-@onready var yield_label: Label = $UI/yield
+@onready var gold_label: Label = $UI/yield
 @onready var time_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var debug_label_2: Label = $"debug con/debug label2"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.yield_changed.connect(yield_changed)
-	yield_label.text = str(Global.current_yield) + "Kg"
+	Global.gold_changed.connect(gold_changed)
+	gold_label.text = str(Global.current_gold) + "Kg"
 	time_modulate.time_tick.connect(set_daytime)
 	time_modulate.night_time.connect(round_check)
 
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	debug_label.text = str(Engine.time_scale) + "배속"
+	debug_label.text = "이속: " + str(Global.total_move_speed)
 
 func round_check():
 	Global.time_stop()
@@ -35,12 +35,13 @@ func round_check():
 func set_daytime(day, hour, minute):
 	debug_label_2.text = str(day) + "번째 날, " + str(hour) + "시 " + str(minute) + "분"
 
-func yield_changed():
-	yield_label.text = str(Global.current_yield) + "Kg"
-	Global.tween_ddiyong(yield_label)
+func gold_changed():
+	gold_label.text = str(Global.current_gold) + " G"
+	Global.tween_ddiyong(gold_label)
 
 func _on_button_pressed() -> void:
-	pass
+	Global.additional_move_speed += 30
+	Global.stat_refresh()
 
 var current_time_scale = 1
 func _unhandled_input(event: InputEvent) -> void:

@@ -5,9 +5,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	
+var current_gold = 6000
+var current_ticket = 0
+
 ### bgt = base grow time 기본 성장 시간
 ### gt = grow time 수확 시간
-### fa = farming amount 수확량
+### fa = farming amount 가격
+### da = drop amount 드랍되는 작물 갯수
 ### sa = seed amount 모종 갯수
 const GT_BASE_RICE = 90
 const GT_BASE_WHEAT = 60
@@ -33,6 +39,15 @@ const FA_BASE_CORN = 5
 const FA_BASE_BEAN = 2
 const FA_BASE_TOMATO = 4
 
+const DA_BASE_RICE = 1
+const DA_BASE_WHEAT = 1
+const DA_BASE_CABBAGE = 1
+const DA_BASE_STRAWBERRY = 1
+const DA_BASE_GARLIC = 1
+const DA_BASE_CORN = 1
+const DA_BASE_BEAN = 1
+const DA_BASE_SWEET_POTATO = 1
+const DA_BASE_TOMATO = 1
 
 var additional_move_speed = 0
 var base_move_speed = 400
@@ -41,6 +56,45 @@ var gt_reduce_percent_all_plants = 0
 var gt_reduce_all_plants = 0
 var gt_increase_percent_all_plants = 0
 var gt_increase_all_plants = 0
+
+### DA
+# rice
+var da_chance_rice = 0
+var da_increase_rice = 0
+
+# wheat
+var da_chance_wheat = 0
+var da_increase_wheat = 0
+
+# cabbage
+var da_chance_cabbage = 0
+var da_increase_cabbage = 0
+
+# strawberry
+var da_chance_strawberry = 0
+var da_increase_strawberry = 0
+
+# garlic
+var da_chance_garlic = 0
+var da_increase_garlic = 0
+
+# corn
+var da_chance_corn = 0
+var da_increase_corn = 0
+
+# bean
+var da_chance_bean = 0
+var da_increase_bean = 0
+
+# sweet_potato
+var da_chance_sweet_potato = 0
+var da_increase_sweet_potato = 0
+
+# tomato
+var da_chance_tomato = 0
+var da_increase_tomato = 0
+
+#############
 
 # rice
 var gt_reduce_percent_rice = 0
@@ -220,6 +274,37 @@ var bgt_total_tomato = 0
 var fa_total_tomato = 0
 var sa_total_tomato = 0
 
+# rice total
+var da_total_rice = 0
+
+# wheat total
+var da_total_wheat = 0
+
+# cabbage total
+var da_total_cabbage = 0
+
+# strawberry total
+var da_total_strawberry = 0
+
+# garlic total
+var da_total_garlic = 0
+
+# corn total
+var da_total_corn = 0
+
+# bean total
+var da_total_bean = 0
+
+# sweet_potato total
+var da_total_sweet_potato = 0
+
+# tomato total
+var da_total_tomato = 0
+
+const DROP_ITEM_DISTANCE_BASE = 350
+var drop_item_distance_increase = 0
+var drop_item_distance_decrease = 0
+var drop_item_distance_total = 0
 
 signal all_stat_refresh
 
@@ -292,7 +377,7 @@ func add_sa(crop_id: int, amount: int = 1) -> void:
 			sa_total_tomato += amount
 
 func stat_refresh():
-	total_move_speed = base_move_speed + additional_move_speed #(아이템으로 증가 가능한 벨류)
+	total_move_speed = clamp(base_move_speed + additional_move_speed, 0, 1000) #(아이템으로 증가 가능한 벨류)
 	
 	# rice
 
@@ -360,18 +445,103 @@ func stat_refresh():
 	fa_total_tomato = (FA_BASE_TOMATO + fa_increase_tomato - fa_reduce_tomato) * \
 	clamp((1 + (fa_increase_percent_tomato - fa_reduce_percent_tomato)/100.0), 0, 5000)
 	
+	# rice
+	da_total_rice = DA_BASE_RICE + da_increase_rice
+	
+	# wheat
+	da_total_wheat = DA_BASE_WHEAT + da_increase_wheat
+
+	# cabbage
+	da_total_cabbage = DA_BASE_CABBAGE + da_increase_cabbage
+
+	# strawberry
+	da_total_strawberry = DA_BASE_STRAWBERRY + da_increase_strawberry
+
+	# garlic
+	da_total_garlic = DA_BASE_GARLIC + da_increase_garlic
+
+	# corn
+	da_total_corn = DA_BASE_CORN + da_increase_corn
+
+	# bean
+	da_total_bean = DA_BASE_BEAN + da_increase_bean
+
+	# sweet_potato
+	da_total_sweet_potato = DA_BASE_SWEET_POTATO + da_increase_sweet_potato
+
+	# tomato
+	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato
+	
+	drop_item_distance_total = \
+	clamp(DROP_ITEM_DISTANCE_BASE + drop_item_distance_increase - drop_item_distance_decrease, 100, 1000)
+	
 	emit_signal("all_stat_refresh")
 	
 	
 	
-	
-var current_yield = 0
-var total_yield = 0
+func da_chance_cul(plants: String) -> bool:
+	var chance = 0
+	var rand = randi_range(1, 100)
+	match plants:
+		"rice":
+			chance = da_chance_rice
+		"wheat":
+			chance = da_chance_wheat
+		"cabbage":
+			chance = da_chance_cabbage
+		"strawberry":
+			chance = da_chance_strawberry
+		"garlic":
+			chance = da_chance_garlic
+		"corn":
+			chance = da_chance_corn
+		"bean":
+			chance = da_chance_bean
+		"sweet_potato":
+			chance = da_chance_sweet_potato
+		"tomato":
+			chance = da_chance_tomato
 
-signal yield_changed
-func add_yield(amount):
-	current_yield += int(round(amount))
-	emit_signal("yield_changed")
+	if chance >= rand:
+		return true
+	else:
+		return false
+
+func da_amount_cul(plants: String) -> int:
+	var da_additional = 0
+
+	match plants:
+		"rice":
+			da_additional = da_total_rice
+		"wheat":
+			da_additional = da_total_wheat
+		"cabbage":
+			da_additional = da_total_cabbage
+		"strawberry":
+			da_additional = da_total_strawberry
+		"garlic":
+			da_additional = da_total_garlic
+		"corn":
+			da_additional = da_total_corn
+		"bean":
+			da_additional = da_total_bean
+		"sweet_potato":
+			da_additional = da_total_sweet_potato
+		"tomato":
+			da_additional = da_total_tomato
+
+	if da_chance_cul(plants):
+		da_additional += 1
+	return da_additional
+
+# var total_gold = 0
+var bonus_gold = 0
+var bonus_gold_percent = 0
+
+signal gold_changed
+func add_gold(amount):
+	current_gold += int(round(amount * clamp(1+ (bonus_gold_percent * 0.01), 1, 100000000000) + bonus_gold))
+	emit_signal("gold_changed")
 	
 func tween_ddiyong(node):
 	var tween = create_tween()
@@ -388,7 +558,7 @@ func tween_ddiyong(node):
 func create_spawn_tween(node: Node, duration_min: float, duration_max: float) -> Tween:
 	var tween = create_tween()
 	var angle = randf() * TAU
-	var distance = randf_range(100, 250)
+	var distance = randf_range(100, drop_item_distance_total)
 	var target = node.position + Vector2(cos(angle), sin(angle)) * distance
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
@@ -405,7 +575,7 @@ func create_collect_tween(node: Node) -> Tween:
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(node, "scale", Vector2(1.2, 1.2), 0.05)
-	tween.tween_property(node, "scale", Vector2(0, 0), 0.45)\
+	tween.tween_property(node, "scale", Vector2(0, 0), 0.2)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_EXPO)
 	return tween
@@ -475,7 +645,7 @@ var clear_requirments: Dictionary = {
 var round_clear = false
 
 func round_clear_check():
-	if current_yield < clear_requirments[current_round]:
+	if current_gold < clear_requirments[current_round]:
 		print("라운드 클리어 실패")
 		round_clear = false
 	else:
@@ -490,3 +660,71 @@ func ui_hide():
 signal ui_show_signal
 func ui_show():
 	ui_show_signal.emit()
+
+
+### ### ### ### ### ### ### 
+# 포맷
+##############################
+
+func format_with_commas(n: int) -> String:
+	var s := str(n)
+	var out := ""
+	while s.length() > 3:
+		out = "," + s.substr(s.length() - 3, 3) + out
+		s = s.substr(0, s.length() - 3)
+	return s + out
+
+func format_num_custom(value: int) -> String:
+	if value >= 1_000_000_000_000: # 1조 이상이면 M 단위
+		return format_with_commas(value / 1_000_000) + "M"
+	elif value >= 100_000_000: # 1억 이상이면 K 단위
+		return format_with_commas(value / 1_000) + "K"
+	else:
+		return format_with_commas(value)
+
+
+##############################################
+############## 아이템 ####################
+###################################
+
+func apply_item(item_id: int) -> void:
+	match item_id:
+		0: # 조개껍질 모든 아이템 판매량 +10G
+			bonus_gold += 10
+		1: # 개똥 작물 추가 수확 확률 +10%, 낙하 범위 +30
+			da_chance_rice += 10
+			da_chance_wheat += 10
+			da_chance_cabbage += 10
+			da_chance_strawberry += 10
+			da_chance_garlic += 10
+			da_chance_corn += 10
+			da_chance_bean += 10
+			da_chance_sweet_potato += 10
+			da_chance_tomato += 10
+			drop_item_distance_increase += 30
+		2: # 똥 묻은 장화 이동 속도 +50
+			additional_move_speed += 50
+		3: # 삐걱이는 호미 쌀 수확량 증가 +10
+			da_increase_rice += 10
+	stat_refresh()
+
+func remove_item(item_id: int) -> void:
+	match item_id:
+		0:
+			bonus_gold -= 10
+		1:
+			da_chance_rice -= 10
+			da_chance_wheat -= 10
+			da_chance_cabbage -= 10
+			da_chance_strawberry -= 10
+			da_chance_garlic -= 10
+			da_chance_corn -= 10
+			da_chance_bean -= 10
+			da_chance_sweet_potato -= 10
+			da_chance_tomato -= 10
+			drop_item_distance_increase -= 30
+		2:
+			additional_move_speed -= 50
+		3:
+			da_increase_rice -= 10
+	stat_refresh()

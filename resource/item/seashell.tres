@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dx2ej8d4megcx"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_lv4h1"]
+
+[resource]
+script = ExtResource("1_lv4h1")
+item_name = "조개껍질"
+item_option = "모든 아이템 판매량 + 10 G"
+discription = "이게 왜 여기있지?"
+metadata/_custom_type_script = "uid://tovn75rtg33v"

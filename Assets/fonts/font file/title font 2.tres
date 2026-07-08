@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c6p3pwmqd5mdp"]
+
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="1_2p2tj"]
+
+[resource]
+font = ExtResource("1_2p2tj")
+font_size = 70
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)

@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://c8ifuealu1027"]
+
+[ext_resource type="Shader" uid="uid://coxsfsle1ehnb" path="res://resource/fake3d.gdshader" id="1_b5g6v"]
+[ext_resource type="Texture2D" uid="uid://c5bjof6qwvd5y" path="res://Assets/Placeholder/card.png" id="1_gf4py"]
+[ext_resource type="Script" uid="uid://215ovuw8l3e4" path="res://scene/item_card.gd" id="1_my1pl"]
+[ext_resource type="LabelSettings" uid="uid://bxw32gdgxew8l" path="res://Assets/fonts/font file/item title font.tres" id="4_0aanl"]
+[ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="5_gc0n8"]
+[ext_resource type="Texture2D" uid="uid://bxxxvpwagiark" path="res://Assets/Placeholder/모자_unique.png" id="6_cxupf"]
+[ext_resource type="LabelSettings" uid="uid://b781tdqme4c83" path="res://Assets/fonts/font file/item option font.tres" id="7_v7r8f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_my1pl"]
+shader = ExtResource("1_b5g6v")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="item card" type="Button" unique_id=2037621706]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 360.0
+offset_bottom = 480.0
+pivot_offset = Vector2(180, 240)
+script = ExtResource("1_my1pl")
+angle_x_max = 5.0
+angle_y_max = 5.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1415698413]
+material = SubResource("ShaderMaterial_my1pl")
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 480.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1738759752]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(360, 480)
+render_target_update_mode = 4
+
+[node name="CardTexture" type="TextureRect" parent="SubViewportContainer/SubViewport" unique_id=1582545081]
+offset_right = 360.0
+offset_bottom = 480.0
+texture = ExtResource("1_gf4py")
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/CardTexture" unique_id=1679491046]
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="item name" type="Label" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=2066898281]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 28.0
+offset_right = 95.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "테스트 이름"
+label_settings = ExtResource("4_0aanl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item frame" type="NinePatchRect" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=538926004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -87.0
+offset_right = 8.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(8.505859, 8.00293)
+texture = ExtResource("5_gc0n8")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="item image" type="TextureRect" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=1909576879]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 105.0
+offset_right = 239.0
+offset_bottom = 225.0
+pivot_offset = Vector2(60, 60)
+texture = ExtResource("6_cxupf")
+
+[node name="item discription" type="Label" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=409422780]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(152, 30)
+text = "정령 검사에게서 훔쳐온 모자"
+label_settings = ExtResource("7_v7r8f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item option" type="Label" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=1405521517]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -172.0
+offset_right = 152.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "어쩌고 저쩌고 옵션 + 20%"
+label_settings = ExtResource("7_v7r8f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

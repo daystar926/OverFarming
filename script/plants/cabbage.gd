@@ -63,14 +63,18 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		_harvest()
 
 func _harvest() -> void:
-	var item = preload("res://scene/plants/plants_item/cabbage_item.tscn").instantiate()
+	
 	var parent = get_tree().current_scene
 	var node = parent.get_child(9)
 	var item_position = Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 30)
-	item.set("spawn_position", item_position)
-	node.add_child(item)
 	
-	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
+	var da_amount = Global.da_amount_cul("cabbage")
+	for i in range (da_amount):
+		var item = preload("res://scene/plants/plants_item/cabbage_item.tscn").instantiate()
+		item.set("spawn_position", item_position)
+		node.add_child(item)
+	
+	Global.add_sa(crop_id, 1)  # (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)
 	
 	self.queue_free()

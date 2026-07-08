@@ -334,6 +334,7 @@ y_sort_enabled = true
 position = Vector2(180, 128)
 
 [node name="Main Character" parent="actual field" unique_id=1477450777 instance=ExtResource("1_mgrta")]
+position = Vector2(500, -1500)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="actual field" unique_id=541968531]
 y_sort_enabled = true

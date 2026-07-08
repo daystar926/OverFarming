@@ -75,6 +75,6 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	var tween = Global.create_collect_tween(self)
 	tween.tween_callback(func():
-		Global.add_yield(Global.fa_total_wheat)
+		Global.add_gold(Global.fa_total_wheat)
 		queue_free()
 	)
