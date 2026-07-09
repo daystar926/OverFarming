@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_lv4h1")
+item_id = 1001
 item_name = "조개껍질"
 item_option = "모든 아이템 판매량 + 10 G"
 discription = "이게 왜 여기있지?"

@@ -1,7 +1,8 @@
 extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_load_all_items()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -9,7 +10,7 @@ func _process(delta: float) -> void:
 	
 var current_gold = 6000
 var current_ticket = 0
-
+var reward_level = 1
 ### bgt = base grow time 기본 성장 시간
 ### gt = grow time 수확 시간
 ### fa = farming amount 가격
@@ -301,6 +302,9 @@ var da_total_sweet_potato = 0
 # tomato total
 var da_total_tomato = 0
 
+var da_add_all = 0
+var item_reward_chance = 1
+
 const DROP_ITEM_DISTANCE_BASE = 350
 var drop_item_distance_increase = 0
 var drop_item_distance_decrease = 0
@@ -446,31 +450,31 @@ func stat_refresh():
 	clamp((1 + (fa_increase_percent_tomato - fa_reduce_percent_tomato)/100.0), 0, 5000)
 	
 	# rice
-	da_total_rice = DA_BASE_RICE + da_increase_rice
+	da_total_rice = DA_BASE_RICE + da_increase_rice + da_add_all
 	
 	# wheat
-	da_total_wheat = DA_BASE_WHEAT + da_increase_wheat
+	da_total_wheat = DA_BASE_WHEAT + da_increase_wheat + da_add_all
 
 	# cabbage
-	da_total_cabbage = DA_BASE_CABBAGE + da_increase_cabbage
+	da_total_cabbage = DA_BASE_CABBAGE + da_increase_cabbage + da_add_all
 
 	# strawberry
-	da_total_strawberry = DA_BASE_STRAWBERRY + da_increase_strawberry
+	da_total_strawberry = DA_BASE_STRAWBERRY + da_increase_strawberry + da_add_all
 
 	# garlic
-	da_total_garlic = DA_BASE_GARLIC + da_increase_garlic
+	da_total_garlic = DA_BASE_GARLIC + da_increase_garlic + da_add_all
 
 	# corn
-	da_total_corn = DA_BASE_CORN + da_increase_corn
+	da_total_corn = DA_BASE_CORN + da_increase_corn + da_add_all
 
 	# bean
-	da_total_bean = DA_BASE_BEAN + da_increase_bean
+	da_total_bean = DA_BASE_BEAN + da_increase_bean + da_add_all
 
 	# sweet_potato
-	da_total_sweet_potato = DA_BASE_SWEET_POTATO + da_increase_sweet_potato
+	da_total_sweet_potato = DA_BASE_SWEET_POTATO + da_increase_sweet_potato + da_add_all
 
 	# tomato
-	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato
+	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato + da_add_all
 	
 	drop_item_distance_total = \
 	clamp(DROP_ITEM_DISTANCE_BASE + drop_item_distance_increase - drop_item_distance_decrease, 100, 1000)
@@ -501,6 +505,7 @@ func da_chance_cul(plants: String) -> bool:
 			chance = da_chance_sweet_potato
 		"tomato":
 			chance = da_chance_tomato
+
 
 	if chance >= rand:
 		return true
@@ -689,9 +694,9 @@ func format_num_custom(value: int) -> String:
 
 func apply_item(item_id: int) -> void:
 	match item_id:
-		0: # 조개껍질 모든 아이템 판매량 +10G
+		1001: # 조개껍질 모든 아이템 판매량 +10G
 			bonus_gold += 10
-		1: # 개똥 작물 추가 수확 확률 +10%, 낙하 범위 +30
+		1002: # 개똥 작물 추가 수확 확률 +10%, 낙하 범위 +30
 			da_chance_rice += 10
 			da_chance_wheat += 10
 			da_chance_cabbage += 10
@@ -702,17 +707,42 @@ func apply_item(item_id: int) -> void:
 			da_chance_sweet_potato += 10
 			da_chance_tomato += 10
 			drop_item_distance_increase += 30
-		2: # 똥 묻은 장화 이동 속도 +50
+		1003: # 똥 묻은 장화 이동 속도 +50
 			additional_move_speed += 50
-		3: # 삐걱이는 호미 쌀 수확량 증가 +10
+		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
 			da_increase_rice += 10
+		2001: # 날개달린 신발 이속 + 100
+			additional_move_speed += 100
+		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
+			gt_reduce_rice += 10
+			gt_reduce_wheat += 10
+		2003: # 곰팡이 핀 빵 드랍 범위 50 감소
+			drop_item_distance_decrease += 50
+		2004: # 콩밥, 쌀 수확량 30% 쌀 성장시간 -10% 콩 수확량 10% 콩 성장시간 -10%
+			fa_increase_percent_rice += 30
+			gt_reduce_rice += 10
+			fa_increase_percent_bean += 10
+			gt_reduce_bean += 10
+		3001: # 마법이 깃든 잎 # 작물 드랍 갯수 + 1
+			da_add_all += 1
+		4001: # 이기적인 양파 양파 수확량 +300% 다른 작물 수확량 - 30%
+			fa_increase_percent_garlic += 300
+			fa_reduce_percent_cabbage += 30
+			fa_reduce_percent_corn += 30
+			fa_reduce_percent_bean += 30
+			fa_reduce_percent_rice += 30
+			fa_reduce_percent_strawberry += 30
+			fa_reduce_percent_sweet_potato += 30
+			fa_reduce_percent_tomato += 30
+			fa_reduce_percent_wheat += 30
+			
 	stat_refresh()
 
 func remove_item(item_id: int) -> void:
 	match item_id:
-		0:
+		1001: # 조개껍질 모든 아이템 판매량 +10G
 			bonus_gold -= 10
-		1:
+		1002: # 개똥 작물 추가 수확 확률 +10%, 낙하 범위 +30
 			da_chance_rice -= 10
 			da_chance_wheat -= 10
 			da_chance_cabbage -= 10
@@ -723,8 +753,78 @@ func remove_item(item_id: int) -> void:
 			da_chance_sweet_potato -= 10
 			da_chance_tomato -= 10
 			drop_item_distance_increase -= 30
-		2:
+		1003: # 똥 묻은 장화 이동 속도 +50
 			additional_move_speed -= 50
-		3:
+		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
 			da_increase_rice -= 10
+		2001: # 날개달린 신발 이속 + 100
+			additional_move_speed -= 100
+		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
+			gt_reduce_rice -= 10
+			gt_reduce_wheat-= 10
+		2003: # 곰팡이 핀 빵 드랍 범위 50 감소
+			drop_item_distance_decrease -= 50
+		2004: # 콩밥, 쌀 수확량 30% 쌀 성장시간 -10% 콩 수확량 10% 콩 성장시간 -10%
+			fa_increase_percent_rice -= 30
+			gt_reduce_rice -= 10
+			fa_increase_percent_bean -= 10
+			gt_reduce_bean -= 10
+		3001: # 마법이 깃든 잎 # 작물 드랍 갯수 + 1
+			da_add_all -= 1
+		4001: # 이기적인 양파 양파 수확량 +300% 다른 작물 수확량 - 30%
+			fa_increase_percent_garlic -= 300
+			fa_reduce_percent_cabbage-= 30
+			fa_reduce_percent_corn -= 30
+			fa_reduce_percent_bean -= 30
+			fa_reduce_percent_rice -= 30
+			fa_reduce_percent_strawberry -= 30
+			fa_reduce_percent_sweet_potato -= 30
+			fa_reduce_percent_tomato -= 30
+			fa_reduce_percent_wheat -= 30
 	stat_refresh()
+	
+	
+	
+	
+var item_database: Dictionary = {} # item_id -> ItemResource
+const ITEM_DIR: String = "res://resource/item/"
+
+
+
+func _load_all_items() -> void:
+	_scan_directory(ITEM_DIR)
+
+func _scan_directory(path: String) -> void:
+	var dir: DirAccess = DirAccess.open(path)
+	if dir == null:
+		push_error("폴더를 열 수 없습니다: %s" % path)
+		return
+
+	dir.list_dir_begin()
+	var file_name: String = dir.get_next()
+
+	while file_name != "":
+		if file_name == "." or file_name == "..":
+			file_name = dir.get_next()
+			continue
+
+		var full_path: String = path.path_join(file_name)
+
+		if dir.current_is_dir():
+			_scan_directory(full_path) # 하위 폴더 재귀 탐색
+		elif file_name.ends_with(".tres"):
+			var resource: Resource = load(full_path)
+			if resource is ItemResource:
+				item_database[resource.item_id] = resource
+
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
+
+
+func get_item_by_id(item_id: int) -> ItemResource:
+	if not item_database.has(item_id):
+		push_error("존재하지 않는 아이템 ID입니다: %d" % item_id)
+		return null
+
+	return item_database[item_id]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://ddbiwt202p7ps"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_eyoxd"]
+
+[resource]
+script = ExtResource("1_eyoxd")
+item_id = 4001
+item_name = "이기적인 양파"
+item_option = "양파 수확량 + 300%
+다른 작물 수확량 - 30%"
+discription = "아우 매워! 눈 따가워!"
+rarity = 3
+metadata/_custom_type_script = "uid://tovn75rtg33v"

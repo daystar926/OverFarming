@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://1r0djbsxcn2o"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_05xnr"]
+
+[resource]
+script = ExtResource("1_05xnr")
+item_id = 2001
+item_name = "날개 달린 신발"
+item_option = "이동속도 + 100"
+discription = "신발이 막 움직여!"
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

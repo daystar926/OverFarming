@@ -8,9 +8,6 @@ func _ready() -> void:
 	back_clouod_anim.play("cloud anim1")
 	cloud_anim.play("cloud anim2")
 
-
 func _process(delta: float) -> void:
 	pass
-	
-
 	

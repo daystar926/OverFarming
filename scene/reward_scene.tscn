@@ -1,17 +1,33 @@
 [gd_scene format=3 uid="uid://bxwk11exd62hf"]
 
+[ext_resource type="Script" uid="uid://dgigrb1twp6g0" path="res://script/scene script/reward_scene.gd" id="1_8pl01"]
 [ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="1_83hdj"]
 [ext_resource type="LabelSettings" uid="uid://c6p3pwmqd5mdp" path="res://Assets/fonts/font file/title font 2.tres" id="2_iuukm"]
 
 [node name="reward scene" type="Control" unique_id=154596221]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8pl01")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1621860335]
+[node name="title ui" type="Control" parent="." unique_id=1407242168]
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="title ui" unique_id=1621860335]
+z_index = 10
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -29,7 +45,8 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Label" type="Label" parent="." unique_id=732512797]
+[node name="Label" type="Label" parent="title ui" unique_id=732512797]
+z_index = 10
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -43,3 +60,23 @@ text = "라운드 클리어 보상"
 label_settings = ExtResource("2_iuukm")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="slot 1" type="Node2D" parent="." unique_id=889063383]
+z_index = 10
+position = Vector2(104, 321)
+
+[node name="slot 2" type="Node2D" parent="." unique_id=1424403555]
+z_index = 10
+position = Vector2(515, 322)
+
+[node name="slot 3" type="Node2D" parent="." unique_id=1705592496]
+z_index = 10
+position = Vector2(928, 322)
+
+[node name="debug button 1" type="Button" parent="." unique_id=2059991711]
+z_index = 10
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="debug button 1" to="." method="_on_debug_button_1_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://de2jxvlx2iftf"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_0qk2f"]
+
+[resource]
+script = ExtResource("1_0qk2f")
+item_id = 2002
+item_name = "갈대 피리"
+item_option = "쌀 성장 시간 - 10%
+밀 성장 시간 - 10%"
+discription = "피릴릴리 피릴리~"
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

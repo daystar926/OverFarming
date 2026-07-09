@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_ufowe")
-item_id = 1
+item_id = 1002
 item_name = "개똥"
 item_option = "작물 추가 수확 확률 + 10%
-작물이 떨어지는 범위 + 30"
+작물 드랍 범위 + 30"
 discription = "밟으면 재수 좋다던데.."
 metadata/_custom_type_script = "uid://tovn75rtg33v"

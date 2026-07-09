@@ -23,20 +23,47 @@ var following_mouse: bool = false
 var last_pos: Vector2
 var velocity: Vector2
 
+var slot_num: int
+@onready var item_name: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item name"
+@onready var item_image: TextureRect = $"SubViewportContainer/SubViewport/CardTexture/Control/item image"
+@onready var item_discription: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item discription"
+@onready var item_option: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item option"
+@onready var animated_sprite_2d: AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
+
+
+
+
+
 @onready var card_texture: SubViewportContainer = $SubViewportContainer
 
 
 
 func _ready() -> void:
+	spawn_tween()
 	# Convert to radians because lerp_angle is using that
 	angle_x_max = deg_to_rad(angle_x_max)
 	angle_y_max = deg_to_rad(angle_y_max)
+
+	# 머티리얼이 인스턴스 간에 공유되지 않도록 복제
+	if card_texture.material:
+		card_texture.material = card_texture.material.duplicate()
+
 
 
 func _process(delta: float) -> void:
 	rotate_velocity(delta)
 	follow_mouse(delta)
+
+func spawn_tween():
+	var tween = create_tween()
+	tween.tween_property(card_texture, "scale", Vector2(1,1), 0.25)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BACK)
 	
+func set_item(item):
+	item_name.text = str(item.item_name)
+	item_discription.text = str(item.discription)
+	item_option.text = str(item.item_option)
 
 func rotate_velocity(delta: float) -> void:
 	if not following_mouse: return
@@ -111,3 +138,11 @@ func _on_mouse_exited() -> void:
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
+
+signal selected
+func _on_pressed() -> void:
+	animated_sprite_2d.play("selected")
+	selected.emit(slot_num)
+	
+func cancel_selection():
+	animated_sprite_2d.play("normal")

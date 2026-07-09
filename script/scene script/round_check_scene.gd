@@ -42,8 +42,10 @@ func _input(event: InputEvent) -> void:
 			if Global.round_clear:
 				print("if 문 진입")
 				animation_player.play("clear_2")
+				is_pressable = false
 			else:
 				animation_player.play("game over_2")
+				is_pressable = false
 			get_viewport().set_input_as_handled()
 
 func _on_button_pressed() -> void:
@@ -52,3 +54,7 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	animation_player.play("clear")
+
+func reward_scene_ins():
+	var reward_scene = preload("res://scene/reward_scene.tscn").instantiate()
+	add_child(reward_scene)
