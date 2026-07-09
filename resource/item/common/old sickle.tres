@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d2oscbcpb35yb"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_dx1h3"]
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_gbn47"]
 
 [resource]
 script = ExtResource("1_dx1h3")
@@ -8,4 +9,5 @@ item_id = 1004
 item_name = "삐걱이는 호미"
 item_option = "쌀 수확량 증가 + 10"
 discription = "곧 부러질 것 같다."
+icon = ExtResource("1_gbn47")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

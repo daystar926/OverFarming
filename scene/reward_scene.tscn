@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://dgigrb1twp6g0" path="res://script/scene script/reward_scene.gd" id="1_8pl01"]
 [ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="1_83hdj"]
 [ext_resource type="LabelSettings" uid="uid://c6p3pwmqd5mdp" path="res://Assets/fonts/font file/title font 2.tres" id="2_iuukm"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="4_8pl01"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_huuin"]
+font = ExtResource("4_8pl01")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
 
 [node name="reward scene" type="Control" unique_id=154596221]
 z_index = 10
@@ -58,6 +64,104 @@ offset_bottom = 159.0
 grow_horizontal = 2
 text = "라운드 클리어 보상"
 label_settings = ExtResource("2_iuukm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="inventory ui" type="Control" parent="." unique_id=985051903]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 700.0
+offset_right = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="inventory ui" unique_id=1380320153]
+layout_mode = 0
+offset_left = 1587.0
+offset_top = 791.0
+offset_right = 1650.75
+offset_bottom = 845.875
+scale = Vector2(8, 8)
+pivot_offset = Vector2(31.875, 27.5)
+texture = ExtResource("1_83hdj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="inventory ui" unique_id=1624936359]
+layout_mode = 0
+offset_left = 1364.0
+offset_top = 599.0
+offset_right = 1874.0
+offset_bottom = 1038.0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="inventory ui/MarginContainer" unique_id=40783912]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="inventory ui/MarginContainer/ScrollContainer" unique_id=1946133327]
+layout_mode = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 7
+
+[node name="extra shop ui" type="Control" parent="." unique_id=2105568084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 700.0
+offset_right = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="extra shop ui" unique_id=2075659795]
+layout_mode = 0
+offset_left = 1587.125
+offset_top = 232.5
+offset_right = 1650.875
+offset_bottom = 297.375
+scale = Vector2(8, 8)
+pivot_offset = Vector2(31.875, 27.5)
+texture = ExtResource("1_83hdj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="extra shop ui" unique_id=522675640]
+layout_mode = 0
+offset_left = 1587.125
+offset_top = 232.5
+offset_right = 1650.875
+offset_bottom = 283.875
+scale = Vector2(8, 8)
+pivot_offset = Vector2(31.875, 27.5)
+texture = ExtResource("1_83hdj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="Label" parent="extra shop ui" unique_id=1892184146]
+layout_mode = 0
+offset_left = 1444.0
+offset_top = 71.0
+offset_right = 1802.0
+offset_bottom = 122.0
+pivot_offset = Vector2(179, 26)
+text = "모종 추가 상점"
+label_settings = SubResource("LabelSettings_huuin")
 horizontal_alignment = 1
 vertical_alignment = 1
 

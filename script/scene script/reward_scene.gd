@@ -1,5 +1,8 @@
 extends Control
 @onready var title_ui: Control = $"title ui"
+@onready var inventory_ui: Control = $"inventory ui"
+@onready var extra_shop_ui: Control = $"extra shop ui"
+@onready var grid_container: GridContainer = $"inventory ui/MarginContainer/ScrollContainer/GridContainer"
 
 @onready var slot_1: Node2D = $"slot 1"
 @onready var slot_2: Node2D = $"slot 2"
@@ -9,6 +12,7 @@ extends Control
 ]
 var slot_instances: Array = [null, null, null]
 var selected_slot_num = 0 # 0이면 스킵할거냐 질문, 1, 2, 3, 이면 slot_instance 쟤들 적용 
+var selectable = false
 func _ready() -> void:
 	spawn_tween()
 
@@ -18,6 +22,17 @@ func _process(delta: float) -> void:
 func spawn_tween():
 	var tween = create_tween()
 	tween.tween_property(title_ui, "position", Vector2(0, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_interval(0.2)
+	var tween2 = create_tween()
+	tween2.tween_interval(0.3)
+	tween2.tween_property(inventory_ui, "position", Vector2(0, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	var tween3 = create_tween()
+	tween3.tween_interval(0.6)
+	tween3.tween_property(extra_shop_ui, "position", Vector2(0, 0), 0.6)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func(): item_slot_setting())
@@ -30,7 +45,7 @@ func item_slot_setting():
 	tween.tween_callback(func():item_slot_setting2())
 	tween.tween_interval(0.3)
 	tween.tween_callback(func():item_slot_setting3())
-
+	tween.tween_callback(func():selectable = true)
 
 func item_slot_setting1() -> void:
 	for child in slot_1.get_children():
@@ -48,6 +63,7 @@ func item_slot_setting1() -> void:
 	slot_ins.set_item(item_data)
 	slot_ins.slot_num = 0
 	slot_ins.selected.connect(_on_slot_selected)
+	slot_ins.disappeared.connect(grid_refresh)
 	slot_instances[0] = slot_ins
 	
 func item_slot_setting2() -> void:
@@ -66,6 +82,7 @@ func item_slot_setting2() -> void:
 	slot_ins.set_item(item_data)
 	slot_ins.slot_num = 1
 	slot_ins.selected.connect(_on_slot_selected)
+	slot_ins.disappeared.connect(grid_refresh)
 	slot_instances[1] = slot_ins
 
 func item_slot_setting3() -> void:
@@ -84,19 +101,19 @@ func item_slot_setting3() -> void:
 	slot_ins.set_item(item_data)
 	slot_ins.slot_num = 2
 	slot_ins.selected.connect(_on_slot_selected)
+	slot_ins.disappeared.connect(grid_refresh)
 	slot_instances[2] = slot_ins
-
+	
 func _on_slot_selected(slot_num: int) -> void:
-	match slot_num:
-		0:
-			slot_instances[1].cancel_selection()
-			slot_instances[2].cancel_selection()
-		1:
-			slot_instances[0].cancel_selection()
-			slot_instances[2].cancel_selection()
-		2:
-			slot_instances[0].cancel_selection()
-			slot_instances[1].cancel_selection()
+	if not selectable:
+		return
+	selectable = false
+
+	for i in range(slot_instances.size()):
+		if i == slot_num:
+			slot_instances[i].play_selected()
+		else:
+			slot_instances[i].cancel_selection()
 
 const RARITY_WEIGHTS: Dictionary = {
 	1: {1: 90, 2: 8, 3: 1.5, 4: 0.5},
@@ -149,4 +166,36 @@ func _get_random_item_by_rarity(rarity: int) -> int:
 
 
 func _on_debug_button_1_pressed() -> void:
+	selectable = false
 	item_slot_setting()
+
+func grid_refresh():
+	for child in grid_container.get_children():
+		child.queue_free()
+
+	for item in Global.item_inventory:
+		var slot = preload("res://scene/inventory_slot.tscn").instantiate()
+		grid_container.add_child(slot)
+		slot.set_item(item)
+		
+	exit_tween()
+	
+signal reward_exit
+func exit_tween():
+	var tween = create_tween()
+	tween.tween_property(title_ui, "position", Vector2(0, -300), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_interval(0.2)
+	var tween2 = create_tween()
+	tween2.tween_interval(0.3)
+	tween2.tween_property(inventory_ui, "position", Vector2(700, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	var tween3 = create_tween()
+	tween3.tween_interval(0.6)
+	tween3.tween_property(extra_shop_ui, "position", Vector2(700, 0), 0.6)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_callback(func(): reward_exit.emit())
+	tween.tween_callback(func(): queue_free())

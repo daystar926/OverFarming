@@ -58,3 +58,11 @@ func _on_button_2_pressed() -> void:
 func reward_scene_ins():
 	var reward_scene = preload("res://scene/reward_scene.tscn").instantiate()
 	add_child(reward_scene)
+	reward_scene.reward_exit.connect(round_check_exit)
+
+signal rcs_exit
+func round_check_exit():
+	animation_player.play("round check exit anim")
+	await animation_player.animation_finished
+	rcs_exit.emit()
+	queue_free()

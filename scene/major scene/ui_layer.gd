@@ -26,7 +26,12 @@ func round_check():
 	Global.ui_hide()
 	var rcs = preload("res://scene/round_check_scene.tscn").instantiate()
 	add_child(rcs)
-
+	rcs.rcs_exit.connect(next_day_start)
+	
+func next_day_start():
+	time_modulate.go_to_next_morning()
+	Global.ui_show()
+	Global.time_start()
 
 
 

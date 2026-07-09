@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c16tsnhnjawvq"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_pr80y"]
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_vblcq"]
 
 [resource]
 script = ExtResource("1_pr80y")
@@ -8,5 +9,6 @@ item_id = 3001
 item_name = "마법이 깃든 잎"
 item_option = "작물 드랍 갯수 + 1"
 discription = "푸른 빛이 나는데.. 방사능..?"
+icon = ExtResource("1_vblcq")
 rarity = 2
 metadata/_custom_type_script = "uid://tovn75rtg33v"

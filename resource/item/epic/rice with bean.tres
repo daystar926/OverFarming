@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dub1l5b1jkq18"]
 
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_s118s"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_yqomi"]
 
 [resource]
@@ -11,5 +12,6 @@ item_option = "쌀 수확량 + 30%
 콩 수확량 + 10%
 콩 성장 시간 - 10%"
 discription = "콩밥 먹고 싶어? 응.."
+icon = ExtResource("1_s118s")
 rarity = 1
 metadata/_custom_type_script = "uid://tovn75rtg33v"

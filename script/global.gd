@@ -562,6 +562,7 @@ func tween_ddiyong(node):
 # 1. 스폰 애니메이션
 func create_spawn_tween(node: Node, duration_min: float, duration_max: float) -> Tween:
 	var tween = create_tween()
+	var scale_tween = create_tween()
 	var angle = randf() * TAU
 	var distance = randf_range(100, drop_item_distance_total)
 	var target = node.position + Vector2(cos(angle), sin(angle)) * distance
@@ -569,9 +570,12 @@ func create_spawn_tween(node: Node, duration_min: float, duration_max: float) ->
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(node, "position", target, randf_range(duration_min, duration_max))
 	
-	tween.parallel().tween_property(node, "scale", Vector2(1, 1), 0.52)\
-		.set_ease(tween.EASE_OUT)\
-		.set_trans(tween.TRANS_ELASTIC)
+	scale_tween.tween_property(node, "scale", Vector2(2, 2), 0.3)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_CIRC)
+	scale_tween.parallel().tween_property(node, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CIRC)
 	return tween
 
 # 2. 수확(마커로 빨려들어가기) 애니메이션
@@ -828,3 +832,5 @@ func get_item_by_id(item_id: int) -> ItemResource:
 		return null
 
 	return item_database[item_id]
+
+var item_inventory: Array = []

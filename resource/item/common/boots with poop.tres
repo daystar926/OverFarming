@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d1ym1t5xv5a25"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_jpkpm"]
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_l04wm"]
 
 [resource]
 script = ExtResource("1_jpkpm")
@@ -8,4 +9,5 @@ item_id = 1003
 item_name = "똥 묻은 장화"
 item_option = "이동 속도 + 50"
 discription = "호다닥 호다닥"
+icon = ExtResource("1_l04wm")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bxe2d7y6e3d3n"]
 
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_x5gkp"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_ybrk8"]
 
 [resource]
@@ -8,5 +9,6 @@ item_id = 2003
 item_name = "곰팡이 핀 빵"
 item_option = "작물 드랍 범위 - 50"
 discription = "곰빵이 삔 빵, 핀 팡, 삔 팡.. 빵.."
+icon = ExtResource("1_x5gkp")
 rarity = 1
 metadata/_custom_type_script = "uid://tovn75rtg33v"
