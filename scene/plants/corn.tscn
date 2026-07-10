@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bsk5ku0tf30mg"]
+
+[ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="1_5mjsi"]
+[ext_resource type="Script" uid="uid://bdv5na68dy23t" path="res://scene/plants/corn.gd" id="1_5ovau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ovau"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtnl"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pkce"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijdl6"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mde4o"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfdqb"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5s0s"]
+atlas = ExtResource("1_5mjsi")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ovau")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrtnl")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pkce")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijdl6")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mde4o")
+}],
+"loop": 1,
+"name": &"4-1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfdqb")
+}],
+"loop": 1,
+"name": &"4-2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5s0s")
+}],
+"loop": 1,
+"name": &"4-3",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ddm"]
+size = Vector2(121, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvqb2"]
+size = Vector2(95, 101)
+
+[node name="corn" type="Node2D" unique_id=706270310 groups=["plants"]]
+script = ExtResource("1_5ovau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312302357 groups=["plants"]]
+position = Vector2(0, -20)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"4-3"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=903183912 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1781913058 groups=["plants"]]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_s1ddm")
+disabled = true
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1283974732 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1524466897 groups=["plants"]]
+position = Vector2(-2.5, -4.5)
+shape = SubResource("RectangleShape2D_dvqb2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

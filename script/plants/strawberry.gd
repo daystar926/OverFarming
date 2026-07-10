@@ -11,16 +11,19 @@ var crop_id: int = 4  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 var fruit_level: int = 1
 
+
 func _ready() -> void:
+	if randi_range(1, 2) == 1:
+		animated_sprite_2d.flip_h = true
 	Global.time_stop_signal.connect(stop_growing)
 	Global.time_start_signal.connect(start_growing)
 	Global.all_stat_refresh.connect(plants_setting)
 	plants_start()
 
 func plants_setting():
-	grow_time = Global.gt_total_strawberry
-	amount = Global.fa_total_strawberry
-	bgt = Global.bgt_total_strawberry
+	grow_time = Global.gt_total_grape
+	amount = Global.fa_total_grape
+	bgt = Global.bgt_total_grape
 	
 func plants_start():
 	plants_setting()
@@ -94,13 +97,20 @@ func _harvest() -> void:
 	var parent = get_tree().current_scene
 	var node = parent.get_child(9)
 	var item_position = Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 30)
-	var da_amount = Global.da_amount_cul("strawberry")
+	var da_amount = Global.da_amount_cul("grape")
 	for i in range (da_amount):
-		var item = preload("res://scene/plants/plants_item/strawberry_item.tscn").instantiate()
+		var item = preload("res://scene/plants/plants_item/grape_item.tscn").instantiate()
 		item.set("spawn_position", item_position)
 		node.add_child(item)
 	
 	animated_sprite_2d.play("4")
-	current_bgt = Global.bgt_total_strawberry
+	current_bgt = Global.bgt_total_grape
 	fruit_level = 1
 	$Area2D/CollisionShape2D.disabled = true
+
+
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
+	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
+	Global.clear_occupied(grid_pos)
+	
+	self.queue_free()

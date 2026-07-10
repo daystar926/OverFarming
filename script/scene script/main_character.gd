@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var field_collision: CollisionShape2D = $"field collision area2d/get collision"
 @onready var yield_collision: CollisionShape2D = $"yield collision/CollisionShape2D"
+@onready var remove_collision: CollisionShape2D = $"remove plant/CollisionShape2D"
 
 var last_direction: String = "down"
 
@@ -28,6 +29,7 @@ func _process(delta: float) -> void:
 	if is_movable:
 		field_collision.disabled = not Input.is_key_pressed(KEY_SHIFT)
 		yield_collision.disabled = not Input.is_key_pressed(KEY_SPACE)
+		remove_collision.disabled = not Input.is_key_pressed(KEY_Q)
 
 func update_stat():
 	speed = Global.total_move_speed

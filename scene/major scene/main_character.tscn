@@ -149,6 +149,8 @@ size = Vector2(68, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44gkf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xlbj"]
+
 [node name="Main Character" type="CharacterBody2D" unique_id=1477450777 groups=["player"]]
 physics_interpolation_mode = 1
 collision_mask = 3
@@ -191,4 +193,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="yield collision" unique_id=1179052562 groups=["player"]]
 shape = SubResource("RectangleShape2D_44gkf")
+disabled = true
+
+[node name="remove plant" type="Area2D" parent="." unique_id=1868823685 groups=["player"]]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="remove plant" unique_id=1106197790 groups=["player"]]
+shape = SubResource("RectangleShape2D_5xlbj")
 disabled = true

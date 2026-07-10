@@ -102,6 +102,7 @@ shift={
 2d_physics/layer_3="field area"
 2d_physics/layer_4="get"
 2d_physics/layer_5="dropped item"
+2d_physics/layer_7="remove plant"
 
 [physics]
 

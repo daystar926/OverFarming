@@ -18,12 +18,12 @@
 [ext_resource type="Script" uid="uid://csq66h6wr1s4w" path="res://script/scene script/slots.gd" id="9_ff5tn"]
 [ext_resource type="Texture2D" uid="uid://dygkl1xlasyvw" path="res://Assets/images/plants/wheat item.png" id="9_tc3a8"]
 [ext_resource type="Texture2D" uid="uid://37bi8ftgkq0k" path="res://Assets/images/plants/cabbage item.png" id="10_wawtu"]
-[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="11_dv444"]
-[ext_resource type="Texture2D" uid="uid://qfrrwrieb1b1" path="res://Assets/images/plants/garlic item.png" id="12_j5pkd"]
 [ext_resource type="Texture2D" uid="uid://dg6smfcjpd6s" path="res://Assets/images/plants/corn item.png" id="13_rfv2i"]
 [ext_resource type="Texture2D" uid="uid://bpuehvp2vpxld" path="res://Assets/images/plants/bean item.png" id="14_brniu"]
-[ext_resource type="Texture2D" uid="uid://clj03i2r3pm4" path="res://Assets/images/plants/sweet potato item.png" id="15_78176"]
 [ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="16_yribu"]
+[ext_resource type="Texture2D" uid="uid://c23gppmfu8aw1" path="res://Assets/images/plants/grape item.png" id="18_78176"]
+[ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="19_yribu"]
+[ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="22_qsvq7"]
 
 [sub_resource type="Animation" id="Animation_78176"]
 length = 0.001
@@ -1040,7 +1040,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_dv444")
+texture = ExtResource("18_78176")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control4" unique_id=1579913251]
 position = Vector2(60, 60)
@@ -1073,7 +1073,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_j5pkd")
+texture = ExtResource("19_yribu")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control5" unique_id=1905050428]
 position = Vector2(60, 60)
@@ -1172,7 +1172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_78176")
+texture = ExtResource("22_qsvq7")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control8" unique_id=1401242255]
 position = Vector2(60, 60)

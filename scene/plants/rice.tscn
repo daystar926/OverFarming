@@ -57,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(128, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(111, 104)
+
 [node name="rice" type="Node2D" unique_id=2062957136 groups=["plants"]]
 script = ExtResource("1_ntgca")
 
@@ -76,4 +79,13 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_huuin")
 disabled = true
 
+[node name="Area2D2" type="Area2D" parent="." unique_id=1760949754 groups=["plants"]]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1822119941 groups=["plants"]]
+position = Vector2(-0.5, -24)
+shape = SubResource("RectangleShape2D_utxwm")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

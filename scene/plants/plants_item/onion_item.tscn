@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dgf4pg34kfoeu"]
+
+[ext_resource type="Script" uid="uid://dylr3ynvg7iyj" path="res://script/plants/onion_item.gd" id="1_brt7n"]
+[ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="1_clu48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brt7n"]
+size = Vector2(96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_clu48")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_clu48")
+}],
+"loop": 1,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="onion_item" type="Area2D" unique_id=513209600 groups=["dropped item"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_brt7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025000451 groups=["dropped item"]]
+shape = SubResource("RectangleShape2D_brt7n")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=278861033 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"suck"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

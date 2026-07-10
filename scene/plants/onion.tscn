@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://y0ajnomlu5x1"]
+
+[ext_resource type="Script" uid="uid://bv34bi8gy0dbx" path="res://script/plants/onion.gd" id="1_8v7ha"]
+[ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="1_ux3r4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v7ha"]
+atlas = ExtResource("1_ux3r4")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw2k4"]
+atlas = ExtResource("1_ux3r4")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovbcq"]
+atlas = ExtResource("1_ux3r4")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acdcj"]
+atlas = ExtResource("1_ux3r4")
+region = Rect2(96, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v7ha")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw2k4")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovbcq")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acdcj")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(116, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(101, 98)
+
+[node name="onion" type="Node2D" unique_id=1556244283 groups=["plants"]]
+script = ExtResource("1_8v7ha")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1515785952 groups=["plants"]]
+position = Vector2(0, -20)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_utxwm")
+animation = &"4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1740947126 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=136229850 groups=["plants"]]
+shape = SubResource("RectangleShape2D_huuin")
+disabled = true
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1017197826 groups=["plants"]]
+position = Vector2(0, -20)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1710777603 groups=["plants"]]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_utxwm")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

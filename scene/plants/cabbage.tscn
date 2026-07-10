@@ -57,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(130, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(118, 108)
+
 [node name="cabbage" type="Node2D" unique_id=2060221648 groups=["plants"]]
 script = ExtResource("1_fut3b")
 
@@ -64,7 +67,7 @@ script = ExtResource("1_fut3b")
 position = Vector2(0, -20)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_utxwm")
-animation = &"4"
+animation = &"1"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=11556162 groups=["plants"]]
 position = Vector2(0, -20)
@@ -76,4 +79,11 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_huuin")
 disabled = true
 
+[node name="Area2D2" type="Area2D" parent="." unique_id=53331964 groups=["plants"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=681241061 groups=["plants"]]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_utxwm")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

@@ -64,5 +64,6 @@ signal rcs_exit
 func round_check_exit():
 	animation_player.play("round check exit anim")
 	await animation_player.animation_finished
+	Global.current_round += 1
 	rcs_exit.emit()
 	queue_free()

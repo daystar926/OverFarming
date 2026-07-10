@@ -19,23 +19,23 @@ var reward_level = 1
 const GT_BASE_RICE = 90
 const GT_BASE_WHEAT = 60
 const GT_BASE_CABBAGE = 30
-const GT_BASE_STRAWBERRY = 30
-const BGT_BASE_STRAWBERRY = 30
-const GT_BASE_GARLIC = 50
+const GT_BASE_GRAPE = 30
+const BGT_BASE_GRAPE = 30
+const GT_BASE_ONION = 50
 const GT_BASE_CORN = 50
 const BGT_BASE_CORN = 50
 const GT_BASE_BEAN = 30
 const BGT_BASE_BEAN = 20
-const GT_BASE_SWEET_POTATO = 30
-const MGT_BASE_SWEET_POTATO = 90 # 기본 맥시멈 성장 수치 / 이렇게 설정해야하나 ? 다르게 설정해야하나 몰겠네
+const GT_BASE_PUMKIN = 30
+const MGT_BASE_PUMKIN = 90 # 기본 맥시멈 성장 수치 / 이렇게 설정해야하나 ? 다르게 설정해야하나 몰겠네
 const GT_BASE_TOMATO = 40
 const BGT_BASE_TOMATO = 40
 
 const FA_BASE_RICE = 10
 const FA_BASE_WHEAT = 7
 const FA_BASE_CABBAGE = 3
-const FA_BASE_STRAWBERRY = 3
-const FA_BASE_GARLIC = 7
+const FA_BASE_GRAPE = 3
+const FA_BASE_ONION = 7
 const FA_BASE_CORN = 5
 const FA_BASE_BEAN = 2
 const FA_BASE_TOMATO = 4
@@ -43,11 +43,11 @@ const FA_BASE_TOMATO = 4
 const DA_BASE_RICE = 1
 const DA_BASE_WHEAT = 1
 const DA_BASE_CABBAGE = 1
-const DA_BASE_STRAWBERRY = 1
-const DA_BASE_GARLIC = 1
+const DA_BASE_GRAPE = 1
+const DA_BASE_ONION = 1
 const DA_BASE_CORN = 1
 const DA_BASE_BEAN = 1
-const DA_BASE_SWEET_POTATO = 1
+const DA_BASE_PUMKIN = 1
 const DA_BASE_TOMATO = 1
 
 var additional_move_speed = 0
@@ -71,13 +71,13 @@ var da_increase_wheat = 0
 var da_chance_cabbage = 0
 var da_increase_cabbage = 0
 
-# strawberry
-var da_chance_strawberry = 0
-var da_increase_strawberry = 0
+# grape
+var da_chance_grape = 0
+var da_increase_grape = 0
 
-# garlic
-var da_chance_garlic = 0
-var da_increase_garlic = 0
+# onion
+var da_chance_onion = 0
+var da_increase_onion = 0
 
 # corn
 var da_chance_corn = 0
@@ -87,9 +87,9 @@ var da_increase_corn = 0
 var da_chance_bean = 0
 var da_increase_bean = 0
 
-# sweet_potato
-var da_chance_sweet_potato = 0
-var da_increase_sweet_potato = 0
+# pumkin
+var da_chance_pumkin = 0
+var da_increase_pumkin = 0
 
 # tomato
 var da_chance_tomato = 0
@@ -133,34 +133,34 @@ var fa_reduce_cabbage = 0
 var sa_add_cabbage = 0
 #var sa_base_cabbage = 0
 
-# strawberry
-var gt_reduce_percent_strawberry = 0
-var gt_reduce_strawberry = 0
-var gt_increase_percent_strawberry = 0
-var gt_increase_strawberry = 0
-var fa_increase_percent_strawberry = 0
-var fa_increase_strawberry = 0
-var fa_reduce_percent_strawberry = 0
-var fa_reduce_strawberry = 0
-var sa_add_strawberry = 0
-# strawberry bgt
-var bgt_reduce_percent_strawberry = 0
-var bgt_reduce_strawberry = 0
-var bgt_increase_percent_strawberry = 0
-var bgt_increase_strawberry = 0
-#var sa_base_strawberry = 0
+# grape
+var gt_reduce_percent_grape = 0
+var gt_reduce_grape = 0
+var gt_increase_percent_grape = 0
+var gt_increase_grape = 0
+var fa_increase_percent_grape = 0
+var fa_increase_grape = 0
+var fa_reduce_percent_grape = 0
+var fa_reduce_grape = 0
+var sa_add_grape = 0
+# grape bgt
+var bgt_reduce_percent_grape = 0
+var bgt_reduce_grape = 0
+var bgt_increase_percent_grape = 0
+var bgt_increase_grape = 0
+#var sa_base_grape = 0
 
-# garlic
-var gt_reduce_percent_garlic = 0
-var gt_reduce_garlic = 0
-var gt_increase_percent_garlic = 0
-var gt_increase_garlic = 0
-var fa_increase_percent_garlic = 0
-var fa_increase_garlic = 0
-var fa_reduce_percent_garlic = 0
-var fa_reduce_garlic = 0
-var sa_add_garlic = 0
-#var sa_base_garlic = 0
+# onion
+var gt_reduce_percent_onion = 0
+var gt_reduce_onion = 0
+var gt_increase_percent_onion = 0
+var gt_increase_onion = 0
+var fa_increase_percent_onion = 0
+var fa_increase_onion = 0
+var fa_reduce_percent_onion = 0
+var fa_reduce_onion = 0
+var sa_add_onion = 0
+#var sa_base_onion = 0
 
 # corn
 var gt_reduce_percent_corn = 0
@@ -196,17 +196,17 @@ var bgt_increase_percent_bean = 0
 var bgt_increase_bean = 0
 #var sa_base_bean = 0
 
-# sweet_potato
-var gt_reduce_percent_sweet_potato = 0
-var gt_reduce_sweet_potato = 0
-var gt_increase_percent_sweet_potato = 0
-var gt_increase_sweet_potato = 0
-var fa_increase_percent_sweet_potato = 0
-var fa_increase_sweet_potato = 0
-var fa_reduce_percent_sweet_potato = 0
-var fa_reduce_sweet_potato = 0
-var sa_add_sweet_potato = 0
-#var sa_base_sweet_potato = 0
+# pumkin
+var gt_reduce_percent_pumkin = 0
+var gt_reduce_pumkin = 0
+var gt_increase_percent_pumkin = 0
+var gt_increase_pumkin = 0
+var fa_increase_percent_pumkin = 0
+var fa_increase_pumkin = 0
+var fa_reduce_percent_pumkin = 0
+var fa_reduce_pumkin = 0
+var sa_add_pumkin = 0
+#var sa_base_pumkin = 0
 
 # tomato
 var gt_reduce_percent_tomato = 0
@@ -240,40 +240,40 @@ var gt_total_cabbage = 0
 var fa_total_cabbage = 0
 var sa_total_cabbage = 3
 
-# strawberry total
-var gt_total_strawberry = 0
-var bgt_total_strawberry = 0
-var fa_total_strawberry = 0
-var sa_total_strawberry = 3
+# grape total
+var gt_total_grape = 0
+var bgt_total_grape = 0
+var fa_total_grape = 0
+var sa_total_grape = 3
 
-# garlic total
-var gt_total_garlic = 0
-var fa_total_garlic = 0
-var sa_total_garlic = 0
+# onion total
+var gt_total_onion = 0
+var fa_total_onion = 0
+var sa_total_onion = 3
 
 # corn total
 var gt_total_corn = 0
 var bgt_total_corn = 0
 var fa_total_corn = 0
-var sa_total_corn = 0
+var sa_total_corn = 3
 
 # bean total
 var gt_total_bean = 0
 var bgt_total_bean = 0
 var fa_total_bean = 0
-var sa_total_bean = 0
+var sa_total_bean = 3
 
 
-# sweet_potato total
-var gt_total_sweet_potato = 0
-var fa_total_sweet_potato = 0
-var sa_total_sweet_potato = 0
+# pumkin total
+var gt_total_pumkin = 0
+var fa_total_pumkin = 0
+var sa_total_pumkin = 3
 
 # tomato total
 var gt_total_tomato = 0
 var bgt_total_tomato = 0
 var fa_total_tomato = 0
-var sa_total_tomato = 0
+var sa_total_tomato = 3
 
 # rice total
 var da_total_rice = 0
@@ -284,11 +284,11 @@ var da_total_wheat = 0
 # cabbage total
 var da_total_cabbage = 0
 
-# strawberry total
-var da_total_strawberry = 0
+# grape total
+var da_total_grape = 0
 
-# garlic total
-var da_total_garlic = 0
+# onion total
+var da_total_onion = 0
 
 # corn total
 var da_total_corn = 0
@@ -296,8 +296,8 @@ var da_total_corn = 0
 # bean total
 var da_total_bean = 0
 
-# sweet_potato total
-var da_total_sweet_potato = 0
+# pumkin total
+var da_total_pumkin = 0
 
 # tomato total
 var da_total_tomato = 0
@@ -322,15 +322,15 @@ func get_sa(crop_id: int) -> int:
 		3:
 			return sa_total_cabbage
 		4:
-			return sa_total_strawberry
+			return sa_total_grape
 		5:
-			return sa_total_garlic
+			return sa_total_onion
 		6:
 			return sa_total_corn
 		7:
 			return sa_total_bean
 		8:
-			return sa_total_sweet_potato
+			return sa_total_pumkin
 		9:
 			return sa_total_tomato
 		_:
@@ -346,15 +346,15 @@ func use_sa(crop_id: int, amount: int = 1) -> void:
 		3:
 			sa_total_cabbage -= amount
 		4:
-			sa_total_strawberry -= amount
+			sa_total_grape -= amount
 		5:
-			sa_total_garlic -= amount
+			sa_total_onion -= amount
 		6:
 			sa_total_corn -= amount
 		7:
 			sa_total_bean -= amount
 		8:
-			sa_total_sweet_potato -= amount
+			sa_total_pumkin -= amount
 		9:
 			sa_total_tomato -= amount
 
@@ -368,15 +368,15 @@ func add_sa(crop_id: int, amount: int = 1) -> void:
 		3:
 			sa_total_cabbage += amount
 		4:
-			sa_total_strawberry += amount
+			sa_total_grape += amount
 		5:
-			sa_total_garlic += amount
+			sa_total_onion += amount
 		6:
 			sa_total_corn += amount
 		7:
 			sa_total_bean += amount
 		8:
-			sa_total_sweet_potato += amount
+			sa_total_pumkin += amount
 		9:
 			sa_total_tomato += amount
 
@@ -404,20 +404,20 @@ func stat_refresh():
 	fa_total_cabbage = (FA_BASE_CABBAGE + fa_increase_cabbage - fa_reduce_cabbage) * \
 	clamp((1 + (fa_increase_percent_cabbage - fa_reduce_percent_cabbage)/100.0), 0, 5000)
 	
-	# strawberry
-	gt_total_strawberry = (GT_BASE_STRAWBERRY + gt_increase_strawberry - gt_reduce_strawberry) * \
-	clamp((1 + (gt_increase_percent_strawberry - gt_reduce_percent_strawberry)/100.0), 0, 5000)
-	bgt_total_strawberry = (BGT_BASE_STRAWBERRY + bgt_increase_strawberry - bgt_reduce_strawberry) * \
-	clamp((1 + (bgt_increase_percent_strawberry - bgt_reduce_percent_strawberry)/100.0), 0, 5000)
-	fa_total_strawberry = (FA_BASE_STRAWBERRY + fa_increase_strawberry - fa_reduce_strawberry) * \
-	clamp((1 + (fa_increase_percent_strawberry - fa_reduce_percent_strawberry)/100.0), 0, 5000)
+	# grape
+	gt_total_grape = (GT_BASE_GRAPE + gt_increase_grape - gt_reduce_grape) * \
+	clamp((1 + (gt_increase_percent_grape - gt_reduce_percent_grape)/100.0), 0, 5000)
+	bgt_total_grape = (BGT_BASE_GRAPE + bgt_increase_grape - bgt_reduce_grape) * \
+	clamp((1 + (bgt_increase_percent_grape - bgt_reduce_percent_grape)/100.0), 0, 5000)
+	fa_total_grape = (FA_BASE_GRAPE + fa_increase_grape - fa_reduce_grape) * \
+	clamp((1 + (fa_increase_percent_grape - fa_reduce_percent_grape)/100.0), 0, 5000)
 	
-	# garlic
+	# onion
 
-	gt_total_garlic = (GT_BASE_GARLIC + gt_increase_garlic - gt_reduce_garlic) * \
-	clamp((1 + (gt_increase_percent_garlic - gt_reduce_percent_garlic)/100.0), 0, 5000)
-	fa_total_garlic = (FA_BASE_GARLIC + fa_increase_garlic - fa_reduce_garlic) * \
-	clamp((1 + (fa_increase_percent_garlic - fa_reduce_percent_garlic)/100.0), 0, 5000)
+	gt_total_onion = (GT_BASE_ONION + gt_increase_onion - gt_reduce_onion) * \
+	clamp((1 + (gt_increase_percent_onion - gt_reduce_percent_onion)/100.0), 0, 5000)
+	fa_total_onion = (FA_BASE_ONION + fa_increase_onion - fa_reduce_onion) * \
+	clamp((1 + (fa_increase_percent_onion - fa_reduce_percent_onion)/100.0), 0, 5000)
 	
 	# corn
 	gt_total_corn = (GT_BASE_CORN + gt_increase_corn - gt_reduce_corn) * \
@@ -435,10 +435,10 @@ func stat_refresh():
 	fa_total_bean = (FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
 	clamp((1 + (fa_increase_percent_bean - fa_reduce_percent_bean)/100.0), 0, 5000)
 	
-	# sweet_potato (FA_BASE 없음 — 방치형이라 별도 처리 필요)
+	# pumkin (FA_BASE 없음 — 방치형이라 별도 처리 필요)
 
-	gt_total_sweet_potato = (GT_BASE_SWEET_POTATO + gt_increase_sweet_potato - gt_reduce_sweet_potato) * \
-	clamp((1 + (gt_increase_percent_sweet_potato - gt_reduce_percent_sweet_potato)/100.0), 0, 5000)
+	gt_total_pumkin = (GT_BASE_PUMKIN + gt_increase_pumkin - gt_reduce_pumkin) * \
+	clamp((1 + (gt_increase_percent_pumkin - gt_reduce_percent_pumkin)/100.0), 0, 5000)
 	
 	# tomato
 	
@@ -458,11 +458,11 @@ func stat_refresh():
 	# cabbage
 	da_total_cabbage = DA_BASE_CABBAGE + da_increase_cabbage + da_add_all
 
-	# strawberry
-	da_total_strawberry = DA_BASE_STRAWBERRY + da_increase_strawberry + da_add_all
+	# grape
+	da_total_grape = DA_BASE_GRAPE + da_increase_grape + da_add_all
 
-	# garlic
-	da_total_garlic = DA_BASE_GARLIC + da_increase_garlic + da_add_all
+	# onion
+	da_total_onion = DA_BASE_ONION + da_increase_onion + da_add_all
 
 	# corn
 	da_total_corn = DA_BASE_CORN + da_increase_corn + da_add_all
@@ -470,8 +470,8 @@ func stat_refresh():
 	# bean
 	da_total_bean = DA_BASE_BEAN + da_increase_bean + da_add_all
 
-	# sweet_potato
-	da_total_sweet_potato = DA_BASE_SWEET_POTATO + da_increase_sweet_potato + da_add_all
+	# pumkin
+	da_total_pumkin = DA_BASE_PUMKIN + da_increase_pumkin + da_add_all
 
 	# tomato
 	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato + da_add_all
@@ -493,16 +493,16 @@ func da_chance_cul(plants: String) -> bool:
 			chance = da_chance_wheat
 		"cabbage":
 			chance = da_chance_cabbage
-		"strawberry":
-			chance = da_chance_strawberry
-		"garlic":
-			chance = da_chance_garlic
+		"grape":
+			chance = da_chance_grape
+		"onion":
+			chance = da_chance_onion
 		"corn":
 			chance = da_chance_corn
 		"bean":
 			chance = da_chance_bean
-		"sweet_potato":
-			chance = da_chance_sweet_potato
+		"pumkin":
+			chance = da_chance_pumkin
 		"tomato":
 			chance = da_chance_tomato
 
@@ -522,16 +522,16 @@ func da_amount_cul(plants: String) -> int:
 			da_additional = da_total_wheat
 		"cabbage":
 			da_additional = da_total_cabbage
-		"strawberry":
-			da_additional = da_total_strawberry
-		"garlic":
-			da_additional = da_total_garlic
+		"grape":
+			da_additional = da_total_grape
+		"onion":
+			da_additional = da_total_onion
 		"corn":
 			da_additional = da_total_corn
 		"bean":
 			da_additional = da_total_bean
-		"sweet_potato":
-			da_additional = da_total_sweet_potato
+		"pumkin":
+			da_additional = da_total_pumkin
 		"tomato":
 			da_additional = da_total_tomato
 
@@ -704,11 +704,11 @@ func apply_item(item_id: int) -> void:
 			da_chance_rice += 10
 			da_chance_wheat += 10
 			da_chance_cabbage += 10
-			da_chance_strawberry += 10
-			da_chance_garlic += 10
+			da_chance_grape += 10
+			da_chance_onion += 10
 			da_chance_corn += 10
 			da_chance_bean += 10
-			da_chance_sweet_potato += 10
+			da_chance_pumkin += 10
 			da_chance_tomato += 10
 			drop_item_distance_increase += 30
 		1003: # 똥 묻은 장화 이동 속도 +50
@@ -730,13 +730,13 @@ func apply_item(item_id: int) -> void:
 		3001: # 마법이 깃든 잎 # 작물 드랍 갯수 + 1
 			da_add_all += 1
 		4001: # 이기적인 양파 양파 수확량 +300% 다른 작물 수확량 - 30%
-			fa_increase_percent_garlic += 300
+			fa_increase_percent_onion += 300
 			fa_reduce_percent_cabbage += 30
 			fa_reduce_percent_corn += 30
 			fa_reduce_percent_bean += 30
 			fa_reduce_percent_rice += 30
-			fa_reduce_percent_strawberry += 30
-			fa_reduce_percent_sweet_potato += 30
+			fa_reduce_percent_grape += 30
+			fa_reduce_percent_pumkin += 30
 			fa_reduce_percent_tomato += 30
 			fa_reduce_percent_wheat += 30
 			
@@ -750,11 +750,11 @@ func remove_item(item_id: int) -> void:
 			da_chance_rice -= 10
 			da_chance_wheat -= 10
 			da_chance_cabbage -= 10
-			da_chance_strawberry -= 10
-			da_chance_garlic -= 10
+			da_chance_grape -= 10
+			da_chance_onion -= 10
 			da_chance_corn -= 10
 			da_chance_bean -= 10
-			da_chance_sweet_potato -= 10
+			da_chance_pumkin -= 10
 			da_chance_tomato -= 10
 			drop_item_distance_increase -= 30
 		1003: # 똥 묻은 장화 이동 속도 +50
@@ -776,13 +776,13 @@ func remove_item(item_id: int) -> void:
 		3001: # 마법이 깃든 잎 # 작물 드랍 갯수 + 1
 			da_add_all -= 1
 		4001: # 이기적인 양파 양파 수확량 +300% 다른 작물 수확량 - 30%
-			fa_increase_percent_garlic -= 300
+			fa_increase_percent_onion -= 300
 			fa_reduce_percent_cabbage-= 30
 			fa_reduce_percent_corn -= 30
 			fa_reduce_percent_bean -= 30
 			fa_reduce_percent_rice -= 30
-			fa_reduce_percent_strawberry -= 30
-			fa_reduce_percent_sweet_potato -= 30
+			fa_reduce_percent_grape -= 30
+			fa_reduce_percent_pumkin -= 30
 			fa_reduce_percent_tomato -= 30
 			fa_reduce_percent_wheat -= 30
 	stat_refresh()

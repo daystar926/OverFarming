@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b44rei3do5k81"]
+
+[ext_resource type="Texture2D" uid="uid://dg6smfcjpd6s" path="res://Assets/images/plants/corn item.png" id="1_6tnuw"]
+[ext_resource type="Script" uid="uid://chks5jlrjhnro" path="res://scene/plants/plants_item/corn_item.gd" id="1_jjgab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgab"]
+size = Vector2(96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6tnuw")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6tnuw")
+}],
+"loop": 1,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="corn_item" type="Area2D" unique_id=1469395508 groups=["dropped item"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_jjgab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020511501 groups=["dropped item"]]
+shape = SubResource("RectangleShape2D_jjgab")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1317891349 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"normal"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

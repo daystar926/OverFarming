@@ -10,6 +10,8 @@ var crop_id: int = 3  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 
 func _ready() -> void:
+	if randi_range(1, 2) == 1:
+		animated_sprite_2d.flip_h = true
 	Global.time_stop_signal.connect(stop_growing)
 	Global.time_start_signal.connect(start_growing)
 	Global.all_stat_refresh.connect(plants_setting)
@@ -73,6 +75,13 @@ func _harvest() -> void:
 		item.set("spawn_position", item_position)
 		node.add_child(item)
 	
+	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
+	Global.clear_occupied(grid_pos)
+	
+	self.queue_free()
+
+
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)
 	
