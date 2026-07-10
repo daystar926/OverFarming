@@ -14,6 +14,7 @@ var slot_instances: Array = [null, null, null]
 var selected_slot_num = 0 # 0이면 스킵할거냐 질문, 1, 2, 3, 이면 slot_instance 쟤들 적용 
 var selectable = false
 func _ready() -> void:
+	inven_refresh()
 	spawn_tween()
 
 func _process(delta: float) -> void:
@@ -168,6 +169,15 @@ func _get_random_item_by_rarity(rarity: int) -> int:
 func _on_debug_button_1_pressed() -> void:
 	selectable = false
 	item_slot_setting()
+
+func inven_refresh():
+	for child in grid_container.get_children():
+		child.queue_free()
+
+	for item in Global.item_inventory:
+		var slot = preload("res://scene/inventory_slot.tscn").instantiate()
+		grid_container.add_child(slot)
+		slot.set_item(item)
 
 func grid_refresh():
 	for child in grid_container.get_children():

@@ -26,8 +26,7 @@ const GT_BASE_CORN = 50
 const BGT_BASE_CORN = 50
 const GT_BASE_BEAN = 30
 const BGT_BASE_BEAN = 20
-const GT_BASE_PUMKIN = 30
-const MGT_BASE_PUMKIN = 90 # 기본 맥시멈 성장 수치 / 이렇게 설정해야하나 ? 다르게 설정해야하나 몰겠네
+const GT_BASE_PUMPKIN = 90
 const GT_BASE_TOMATO = 40
 const BGT_BASE_TOMATO = 40
 
@@ -39,6 +38,7 @@ const FA_BASE_ONION = 7
 const FA_BASE_CORN = 5
 const FA_BASE_BEAN = 2
 const FA_BASE_TOMATO = 4
+const FA_BASE_PUMPKIN = 16
 
 const DA_BASE_RICE = 1
 const DA_BASE_WHEAT = 1
@@ -47,7 +47,7 @@ const DA_BASE_GRAPE = 1
 const DA_BASE_ONION = 1
 const DA_BASE_CORN = 1
 const DA_BASE_BEAN = 1
-const DA_BASE_PUMKIN = 1
+const DA_BASE_PUMPKIN = 1
 const DA_BASE_TOMATO = 1
 
 var additional_move_speed = 0
@@ -87,9 +87,9 @@ var da_increase_corn = 0
 var da_chance_bean = 0
 var da_increase_bean = 0
 
-# pumkin
-var da_chance_pumkin = 0
-var da_increase_pumkin = 0
+# pumpkin
+var da_chance_pumpkin = 0
+var da_increase_pumpkin = 0
 
 # tomato
 var da_chance_tomato = 0
@@ -196,17 +196,17 @@ var bgt_increase_percent_bean = 0
 var bgt_increase_bean = 0
 #var sa_base_bean = 0
 
-# pumkin
-var gt_reduce_percent_pumkin = 0
-var gt_reduce_pumkin = 0
-var gt_increase_percent_pumkin = 0
-var gt_increase_pumkin = 0
-var fa_increase_percent_pumkin = 0
-var fa_increase_pumkin = 0
-var fa_reduce_percent_pumkin = 0
-var fa_reduce_pumkin = 0
-var sa_add_pumkin = 0
-#var sa_base_pumkin = 0
+# pumpkin
+var gt_reduce_percent_pumpkin = 0
+var gt_reduce_pumpkin = 0
+var gt_increase_percent_pumpkin = 0
+var gt_increase_pumpkin = 0
+var fa_increase_percent_pumpkin = 0
+var fa_increase_pumpkin = 0
+var fa_reduce_percent_pumpkin = 0
+var fa_reduce_pumpkin = 0
+var sa_add_pumpkin = 0
+#var sa_base_pumpkin = 0
 
 # tomato
 var gt_reduce_percent_tomato = 0
@@ -264,10 +264,10 @@ var fa_total_bean = 0
 var sa_total_bean = 3
 
 
-# pumkin total
-var gt_total_pumkin = 0
-var fa_total_pumkin = 0
-var sa_total_pumkin = 3
+# pumpkin total
+var gt_total_pumpkin = 0
+var fa_total_pumpkin = 0
+var sa_total_pumpkin = 3
 
 # tomato total
 var gt_total_tomato = 0
@@ -296,8 +296,8 @@ var da_total_corn = 0
 # bean total
 var da_total_bean = 0
 
-# pumkin total
-var da_total_pumkin = 0
+# pumpkin total
+var da_total_pumpkin = 0
 
 # tomato total
 var da_total_tomato = 0
@@ -330,7 +330,7 @@ func get_sa(crop_id: int) -> int:
 		7:
 			return sa_total_bean
 		8:
-			return sa_total_pumkin
+			return sa_total_pumpkin
 		9:
 			return sa_total_tomato
 		_:
@@ -354,7 +354,7 @@ func use_sa(crop_id: int, amount: int = 1) -> void:
 		7:
 			sa_total_bean -= amount
 		8:
-			sa_total_pumkin -= amount
+			sa_total_pumpkin -= amount
 		9:
 			sa_total_tomato -= amount
 
@@ -376,7 +376,7 @@ func add_sa(crop_id: int, amount: int = 1) -> void:
 		7:
 			sa_total_bean += amount
 		8:
-			sa_total_pumkin += amount
+			sa_total_pumpkin += amount
 		9:
 			sa_total_tomato += amount
 
@@ -435,11 +435,12 @@ func stat_refresh():
 	fa_total_bean = (FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
 	clamp((1 + (fa_increase_percent_bean - fa_reduce_percent_bean)/100.0), 0, 5000)
 	
-	# pumkin (FA_BASE 없음 — 방치형이라 별도 처리 필요)
+	# pumpkin (FA_BASE 없음 — 방치형이라 별도 처리 필요)
 
-	gt_total_pumkin = (GT_BASE_PUMKIN + gt_increase_pumkin - gt_reduce_pumkin) * \
-	clamp((1 + (gt_increase_percent_pumkin - gt_reduce_percent_pumkin)/100.0), 0, 5000)
-	
+	gt_total_pumpkin = (GT_BASE_PUMPKIN + gt_increase_pumpkin - gt_reduce_pumpkin) * \
+	clamp((1 + (gt_increase_percent_pumpkin - gt_reduce_percent_pumpkin)/100.0), 0, 5000)
+	fa_total_pumpkin = (FA_BASE_PUMPKIN + fa_increase_pumpkin - fa_reduce_pumpkin) * \
+	clamp((1 + (fa_increase_percent_pumpkin - fa_reduce_percent_pumpkin)/100.0), 0, 5000)
 	# tomato
 	
 	gt_total_tomato = (GT_BASE_TOMATO + gt_increase_tomato - gt_reduce_tomato) * \
@@ -470,8 +471,8 @@ func stat_refresh():
 	# bean
 	da_total_bean = DA_BASE_BEAN + da_increase_bean + da_add_all
 
-	# pumkin
-	da_total_pumkin = DA_BASE_PUMKIN + da_increase_pumkin + da_add_all
+	# pumpkin
+	da_total_pumpkin = DA_BASE_PUMPKIN + da_increase_pumpkin + da_add_all
 
 	# tomato
 	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato + da_add_all
@@ -501,8 +502,8 @@ func da_chance_cul(plants: String) -> bool:
 			chance = da_chance_corn
 		"bean":
 			chance = da_chance_bean
-		"pumkin":
-			chance = da_chance_pumkin
+		"pumpkin":
+			chance = da_chance_pumpkin
 		"tomato":
 			chance = da_chance_tomato
 
@@ -530,8 +531,8 @@ func da_amount_cul(plants: String) -> int:
 			da_additional = da_total_corn
 		"bean":
 			da_additional = da_total_bean
-		"pumkin":
-			da_additional = da_total_pumkin
+		"pumpkin":
+			da_additional = da_total_pumpkin
 		"tomato":
 			da_additional = da_total_tomato
 
@@ -708,13 +709,13 @@ func apply_item(item_id: int) -> void:
 			da_chance_onion += 10
 			da_chance_corn += 10
 			da_chance_bean += 10
-			da_chance_pumkin += 10
+			da_chance_pumpkin += 10
 			da_chance_tomato += 10
 			drop_item_distance_increase += 30
 		1003: # 똥 묻은 장화 이동 속도 +50
 			additional_move_speed += 50
 		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
-			da_increase_rice += 10
+			fa_increase_rice += 10
 		2001: # 날개달린 신발 이속 + 100
 			additional_move_speed += 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
@@ -736,7 +737,7 @@ func apply_item(item_id: int) -> void:
 			fa_reduce_percent_bean += 30
 			fa_reduce_percent_rice += 30
 			fa_reduce_percent_grape += 30
-			fa_reduce_percent_pumkin += 30
+			fa_reduce_percent_pumpkin += 30
 			fa_reduce_percent_tomato += 30
 			fa_reduce_percent_wheat += 30
 			
@@ -754,13 +755,13 @@ func remove_item(item_id: int) -> void:
 			da_chance_onion -= 10
 			da_chance_corn -= 10
 			da_chance_bean -= 10
-			da_chance_pumkin -= 10
+			da_chance_pumpkin -= 10
 			da_chance_tomato -= 10
 			drop_item_distance_increase -= 30
 		1003: # 똥 묻은 장화 이동 속도 +50
 			additional_move_speed -= 50
 		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
-			da_increase_rice -= 10
+			fa_increase_rice -= 10
 		2001: # 날개달린 신발 이속 + 100
 			additional_move_speed -= 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
@@ -782,7 +783,7 @@ func remove_item(item_id: int) -> void:
 			fa_reduce_percent_bean -= 30
 			fa_reduce_percent_rice -= 30
 			fa_reduce_percent_grape -= 30
-			fa_reduce_percent_pumkin -= 30
+			fa_reduce_percent_pumpkin -= 30
 			fa_reduce_percent_tomato -= 30
 			fa_reduce_percent_wheat -= 30
 	stat_refresh()

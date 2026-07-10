@@ -7,6 +7,7 @@ var is_level0_started = false
 var blink_tween: Tween   # 깜빡임 트윈 추적용
 var spawn_position: Vector2
 
+var incr_redu_ratio
 # 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
 func _ready() -> void:
 	if randi_range(1, 2) == 1:
@@ -14,8 +15,18 @@ func _ready() -> void:
 	spawn_position_setting()
 	start_tween()
 	$AnimatedSprite2D.play("normal")
-	
-	
+
+func pumpkin_level_set(level: int):
+	match level:
+		4:
+			incr_redu_ratio = 0.15
+		5:
+			incr_redu_ratio = 0.35
+		6:
+			incr_redu_ratio = 0.6
+		7:
+			incr_redu_ratio = 1
+
 func spawn_position_setting():
 	self.position = spawn_position
 
@@ -74,9 +85,8 @@ func _on_area_entered(area: Area2D) -> void:
 	$AnimatedSprite2D.play("suck")
 	if blink_tween:
 		blink_tween.kill()
-	
 	var tween = Global.create_collect_tween(self)
 	tween.tween_callback(func():
-		Global.add_gold(Global.fa_total_cabbage)
+		Global.add_gold(Global.fa_total_pumpkin * incr_redu_ratio)
 		queue_free()
 	)

@@ -9,6 +9,8 @@ var spawn_position: Vector2
 
 # 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
 func _ready() -> void:
+	if randi_range(1, 2) == 1:
+		$AnimatedSprite2D.flip_h = true
 	spawn_position_setting()
 	start_tween()
 	$AnimatedSprite2D.play("normal")

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dgqa2lyqw1lww"]
+
+[ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="1_1qkne"]
+[ext_resource type="Script" uid="uid://c5cwb7r8y44mg" path="res://scene/plants/plants_item/pumpkin_item.gd" id="1_8lmek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqrg"]
+size = Vector2(96, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp60l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1qkne")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1qkne")
+}],
+"loop": 1,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="pumpkin_item" type="Area2D" unique_id=790902719 groups=["dropped item"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_8lmek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322384841 groups=["dropped item"]]
+shape = SubResource("RectangleShape2D_hqqrg")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1409946714 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_wp60l")
+animation = &"suck"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
