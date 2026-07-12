@@ -14,6 +14,7 @@ enum Rarity {
 	RARE,
 	EPIC,
 	UNIQUE,
+	SYNERGY,
 }
 
 func apply():

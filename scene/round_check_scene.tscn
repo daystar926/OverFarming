@@ -313,7 +313,7 @@ tracks/15/keys = {
 
 [sub_resource type="Animation" id="Animation_fnf3a"]
 resource_name = "clear"
-length = 0.76666665
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -421,6 +421,20 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_pass"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_f6p22"]
@@ -539,7 +553,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_budav"]
 resource_name = "game over"
-length = 2.0
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -647,6 +661,20 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(),
 "update": 0,
 "values": []
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_pass"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8ly2i"]

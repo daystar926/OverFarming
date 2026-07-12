@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://evm82xiyqbph"]
+
+[ext_resource type="Script" uid="uid://cb2nl5l53h3hv" path="res://script/plants/tomato_item.gd" id="1_7hmca"]
+[ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="1_flpf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqrg"]
+size = Vector2(97, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp60l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flpf7")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flpf7")
+}],
+"loop": 1,
+"name": &"suck",
+"speed": 5.0
+}]
+
+[node name="tomato_item" type="Area2D" unique_id=201807523 groups=["dropped item"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_7hmca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088933936 groups=["dropped item"]]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_hqqrg")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1503067291 groups=["dropped item"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_wp60l")
+animation = &"normal"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

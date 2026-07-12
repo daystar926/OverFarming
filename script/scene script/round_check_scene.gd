@@ -33,20 +33,16 @@ func animation_play():
 
 
 
-func _input(event: InputEvent) -> void:
-	var is_key_press = event is InputEventKey and event.pressed and not event.is_echo()
-	var is_mouse_press = event is InputEventMouseButton and event.pressed
-	
-	if is_pressable:
-		if is_key_press or is_mouse_press:
-			if Global.round_clear:
-				print("if 문 진입")
-				animation_player.play("clear_2")
-				is_pressable = false
-			else:
-				animation_player.play("game over_2")
-				is_pressable = false
-			get_viewport().set_input_as_handled()
+func animation_pass():
+
+	if Global.round_clear:
+		print("if 문 진입")
+		animation_player.play("clear_2")
+		is_pressable = false
+	else:
+		animation_player.play("game over_2")
+		is_pressable = false
+
 
 func _on_button_pressed() -> void:
 	pass

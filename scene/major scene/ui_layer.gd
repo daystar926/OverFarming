@@ -82,6 +82,7 @@ func ui_hide():
 		.set_trans(Tween.TRANS_BACK)
 
 func ui_show():
+	gold_label.text = str(Global.current_gold) + " G"
 	var tween = create_tween()
 	tween.tween_property(slots, "position", Vector2(0, 0), 0.6)\
 		.set_ease(Tween.EASE_OUT)\

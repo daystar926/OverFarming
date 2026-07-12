@@ -51,12 +51,14 @@ const DA_BASE_PUMPKIN = 1
 const DA_BASE_TOMATO = 1
 
 var additional_move_speed = 0
+var decrease_move_speed = 0
 var base_move_speed = 400
 var total_move_speed = 0
 var gt_reduce_percent_all_plants = 0
 var gt_reduce_all_plants = 0
 var gt_increase_percent_all_plants = 0
 var gt_increase_all_plants = 0
+var fa_increase_percent_all_plants = 0
 
 ### DA
 # rice
@@ -381,101 +383,96 @@ func add_sa(crop_id: int, amount: int = 1) -> void:
 			sa_total_tomato += amount
 
 func stat_refresh():
-	total_move_speed = clamp(base_move_speed + additional_move_speed, 0, 1000) #(아이템으로 증가 가능한 벨류)
+	total_move_speed = clamp(base_move_speed + additional_move_speed - decrease_move_speed, 50, 1000) #(아이템으로 증가 가능한 벨류)
 	
-	# rice
-
-	gt_total_rice = (GT_BASE_RICE + gt_increase_rice - gt_reduce_rice) * \
-	clamp((1 + (gt_increase_percent_rice - gt_reduce_percent_rice)/100.0), 0, 5000)
-	fa_total_rice = (FA_BASE_RICE + fa_increase_rice - fa_reduce_rice) * \
-	clamp((1 + (fa_increase_percent_rice - fa_reduce_percent_rice)/100.0), 0, 5000)
+# rice
+	gt_total_rice = clamp((GT_BASE_RICE + gt_increase_rice - gt_reduce_rice) * \
+	clamp((1 + (gt_increase_percent_rice - gt_reduce_percent_rice)/100.0), 0, 5000), 0, 999999)
+	fa_total_rice = clamp((FA_BASE_RICE + fa_increase_rice - fa_reduce_rice) * \
+	clamp((1 + (fa_increase_percent_rice + fa_increase_percent_all_plants - fa_reduce_percent_rice)/100.0), 0, 5000), 0, 999999)
 	
 	# wheat
-
-	gt_total_wheat = (GT_BASE_WHEAT + gt_increase_wheat - gt_reduce_wheat) * \
-	clamp((1 + (gt_increase_percent_wheat - gt_reduce_percent_wheat)/100.0), 0, 5000)
-	fa_total_wheat = (FA_BASE_WHEAT + fa_increase_wheat - fa_reduce_wheat) * \
-	clamp((1 + (fa_increase_percent_wheat - fa_reduce_percent_wheat)/100.0), 0, 5000)
+	gt_total_wheat = clamp((GT_BASE_WHEAT + gt_increase_wheat - gt_reduce_wheat) * \
+	clamp((1 + (gt_increase_percent_wheat - gt_reduce_percent_wheat)/100.0), 0, 5000), 0, 999999)
+	fa_total_wheat = clamp((FA_BASE_WHEAT + fa_increase_wheat - fa_reduce_wheat) * \
+	clamp((1 + (fa_increase_percent_wheat + fa_increase_percent_all_plants - fa_reduce_percent_wheat)/100.0), 0, 5000), 0, 999999)
 	
 	# cabbage
-
-	gt_total_cabbage = (GT_BASE_CABBAGE + gt_increase_cabbage - gt_reduce_cabbage) * \
-	clamp((1 + (gt_increase_percent_cabbage - gt_reduce_percent_cabbage)/100.0), 0, 5000)
-	fa_total_cabbage = (FA_BASE_CABBAGE + fa_increase_cabbage - fa_reduce_cabbage) * \
-	clamp((1 + (fa_increase_percent_cabbage - fa_reduce_percent_cabbage)/100.0), 0, 5000)
+	gt_total_cabbage = clamp((GT_BASE_CABBAGE + gt_increase_cabbage - gt_reduce_cabbage) * \
+	clamp((1 + (gt_increase_percent_cabbage - gt_reduce_percent_cabbage)/100.0), 0, 5000), 0, 999999)
+	fa_total_cabbage = clamp((FA_BASE_CABBAGE + fa_increase_cabbage - fa_reduce_cabbage) * \
+	clamp((1 + (fa_increase_percent_cabbage + fa_increase_percent_all_plants - fa_reduce_percent_cabbage)/100.0), 0, 5000), 0, 999999)
 	
 	# grape
-	gt_total_grape = (GT_BASE_GRAPE + gt_increase_grape - gt_reduce_grape) * \
-	clamp((1 + (gt_increase_percent_grape - gt_reduce_percent_grape)/100.0), 0, 5000)
-	bgt_total_grape = (BGT_BASE_GRAPE + bgt_increase_grape - bgt_reduce_grape) * \
-	clamp((1 + (bgt_increase_percent_grape - bgt_reduce_percent_grape)/100.0), 0, 5000)
-	fa_total_grape = (FA_BASE_GRAPE + fa_increase_grape - fa_reduce_grape) * \
-	clamp((1 + (fa_increase_percent_grape - fa_reduce_percent_grape)/100.0), 0, 5000)
+	gt_total_grape = clamp((GT_BASE_GRAPE + gt_increase_grape - gt_reduce_grape) * \
+	clamp((1 + (gt_increase_percent_grape - gt_reduce_percent_grape)/100.0), 0, 5000), 0, 999999)
+	bgt_total_grape = clamp((BGT_BASE_GRAPE + bgt_increase_grape - bgt_reduce_grape) * \
+	clamp((1 + (bgt_increase_percent_grape - bgt_reduce_percent_grape)/100.0), 0, 5000), 0, 999999)
+	fa_total_grape = clamp((FA_BASE_GRAPE + fa_increase_grape - fa_reduce_grape) * \
+	clamp((1 + (fa_increase_percent_grape + fa_increase_percent_all_plants - fa_reduce_percent_grape)/100.0), 0, 5000), 0, 999999)
 	
 	# onion
-
-	gt_total_onion = (GT_BASE_ONION + gt_increase_onion - gt_reduce_onion) * \
-	clamp((1 + (gt_increase_percent_onion - gt_reduce_percent_onion)/100.0), 0, 5000)
-	fa_total_onion = (FA_BASE_ONION + fa_increase_onion - fa_reduce_onion) * \
-	clamp((1 + (fa_increase_percent_onion - fa_reduce_percent_onion)/100.0), 0, 5000)
+	gt_total_onion = clamp((GT_BASE_ONION + gt_increase_onion - gt_reduce_onion) * \
+	clamp((1 + (gt_increase_percent_onion - gt_reduce_percent_onion)/100.0), 0, 5000), 0, 999999)
+	fa_total_onion = clamp((FA_BASE_ONION + fa_increase_onion - fa_reduce_onion) * \
+	clamp((1 + (fa_increase_percent_onion + fa_increase_percent_all_plants - fa_reduce_percent_onion)/100.0), 0, 5000), 0, 999999)
 	
 	# corn
-	gt_total_corn = (GT_BASE_CORN + gt_increase_corn - gt_reduce_corn) * \
-	clamp((1 + (gt_increase_percent_corn - gt_reduce_percent_corn)/100.0), 0, 5000)
-	bgt_total_corn = (BGT_BASE_CORN + bgt_increase_corn - bgt_reduce_corn) * \
-	clamp((1 + (bgt_increase_percent_corn - bgt_reduce_percent_corn)/100.0), 0, 5000)
-	fa_total_corn = (FA_BASE_CORN + fa_increase_corn - fa_reduce_corn) * \
-	clamp((1 + (fa_increase_percent_corn - fa_reduce_percent_corn)/100.0), 0, 5000)
+	gt_total_corn = clamp((GT_BASE_CORN + gt_increase_corn - gt_reduce_corn) * \
+	clamp((1 + (gt_increase_percent_corn - gt_reduce_percent_corn)/100.0), 0, 5000), 0, 999999)
+	bgt_total_corn = clamp((BGT_BASE_CORN + bgt_increase_corn - bgt_reduce_corn) * \
+	clamp((1 + (bgt_increase_percent_corn - bgt_reduce_percent_corn)/100.0), 0, 5000), 0, 999999)
+	fa_total_corn = clamp((FA_BASE_CORN + fa_increase_corn - fa_reduce_corn) * \
+	clamp((1 + (fa_increase_percent_corn + fa_increase_percent_all_plants - fa_reduce_percent_corn)/100.0), 0, 5000), 0, 999999)
 	
 	# bean
-	gt_total_bean = (GT_BASE_BEAN + gt_increase_bean - gt_reduce_bean) * \
-	clamp((1 + (gt_increase_percent_bean - gt_reduce_percent_bean)/100.0), 0, 5000)
-	bgt_total_bean = (BGT_BASE_BEAN + bgt_increase_bean - bgt_reduce_bean) * \
-	clamp((1 + (bgt_increase_percent_bean - bgt_reduce_percent_bean)/100.0), 0, 5000)
-	fa_total_bean = (FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
-	clamp((1 + (fa_increase_percent_bean - fa_reduce_percent_bean)/100.0), 0, 5000)
+	gt_total_bean = clamp((GT_BASE_BEAN + gt_increase_bean - gt_reduce_bean) * \
+	clamp((1 + (gt_increase_percent_bean - gt_reduce_percent_bean)/100.0), 0, 5000), 0, 999999)
+	bgt_total_bean = clamp((BGT_BASE_BEAN + bgt_increase_bean - bgt_reduce_bean) * \
+	clamp((1 + (bgt_increase_percent_bean - bgt_reduce_percent_bean)/100.0), 0, 5000), 0, 999999)
+	fa_total_bean = clamp((FA_BASE_BEAN + fa_increase_bean - fa_reduce_bean) * \
+	clamp((1 + (fa_increase_percent_bean + fa_increase_percent_all_plants - fa_reduce_percent_bean)/100.0), 0, 5000), 0, 999999)
 	
-	# pumpkin (FA_BASE 없음 — 방치형이라 별도 처리 필요)
-
-	gt_total_pumpkin = (GT_BASE_PUMPKIN + gt_increase_pumpkin - gt_reduce_pumpkin) * \
-	clamp((1 + (gt_increase_percent_pumpkin - gt_reduce_percent_pumpkin)/100.0), 0, 5000)
-	fa_total_pumpkin = (FA_BASE_PUMPKIN + fa_increase_pumpkin - fa_reduce_pumpkin) * \
-	clamp((1 + (fa_increase_percent_pumpkin - fa_reduce_percent_pumpkin)/100.0), 0, 5000)
+	# pumpkin 
+	gt_total_pumpkin = clamp((GT_BASE_PUMPKIN + gt_increase_pumpkin - gt_reduce_pumpkin) * \
+	clamp((1 + (gt_increase_percent_pumpkin - gt_reduce_percent_pumpkin)/100.0), 0, 5000), 0, 999999)
+	fa_total_pumpkin = clamp((FA_BASE_PUMPKIN + fa_increase_pumpkin - fa_reduce_pumpkin) * \
+	clamp((1 + (fa_increase_percent_pumpkin + fa_increase_percent_all_plants - fa_reduce_percent_pumpkin)/100.0), 0, 5000), 0, 999999)
+	
 	# tomato
-	
-	gt_total_tomato = (GT_BASE_TOMATO + gt_increase_tomato - gt_reduce_tomato) * \
-	clamp((1 + (gt_increase_percent_tomato - gt_reduce_percent_tomato)/100.0), 0, 5000)
-	bgt_total_tomato = (BGT_BASE_TOMATO + bgt_increase_tomato - bgt_reduce_tomato) * \
-	clamp((1 + (bgt_increase_percent_tomato - bgt_reduce_percent_tomato)/100.0), 0, 5000)
-	fa_total_tomato = (FA_BASE_TOMATO + fa_increase_tomato - fa_reduce_tomato) * \
-	clamp((1 + (fa_increase_percent_tomato - fa_reduce_percent_tomato)/100.0), 0, 5000)
+	gt_total_tomato = clamp((GT_BASE_TOMATO + gt_increase_tomato - gt_reduce_tomato) * \
+	clamp((1 + (gt_increase_percent_tomato - gt_reduce_percent_tomato)/100.0), 0, 5000), 0, 999999)
+	bgt_total_tomato = clamp((BGT_BASE_TOMATO + bgt_increase_tomato - bgt_reduce_tomato) * \
+	clamp((1 + (bgt_increase_percent_tomato - bgt_reduce_percent_tomato)/100.0), 0, 5000), 0, 999999)
+	fa_total_tomato = clamp((FA_BASE_TOMATO + fa_increase_tomato - fa_reduce_tomato) * \
+	clamp((1 + (fa_increase_percent_tomato + fa_increase_percent_all_plants - fa_reduce_percent_tomato)/100.0), 0, 5000), 0, 999999)
 	
 	# rice
-	da_total_rice = DA_BASE_RICE + da_increase_rice + da_add_all
+	da_total_rice = clamp(DA_BASE_RICE + da_increase_rice + da_add_all, 0, 999999)
 	
 	# wheat
-	da_total_wheat = DA_BASE_WHEAT + da_increase_wheat + da_add_all
+	da_total_wheat = clamp(DA_BASE_WHEAT + da_increase_wheat + da_add_all, 0, 999999)
 
 	# cabbage
-	da_total_cabbage = DA_BASE_CABBAGE + da_increase_cabbage + da_add_all
+	da_total_cabbage = clamp(DA_BASE_CABBAGE + da_increase_cabbage + da_add_all, 0, 999999)
 
 	# grape
-	da_total_grape = DA_BASE_GRAPE + da_increase_grape + da_add_all
+	da_total_grape = clamp(DA_BASE_GRAPE + da_increase_grape + da_add_all, 0, 999999)
 
 	# onion
-	da_total_onion = DA_BASE_ONION + da_increase_onion + da_add_all
+	da_total_onion = clamp(DA_BASE_ONION + da_increase_onion + da_add_all, 0, 999999)
 
 	# corn
-	da_total_corn = DA_BASE_CORN + da_increase_corn + da_add_all
+	da_total_corn = clamp(DA_BASE_CORN + da_increase_corn + da_add_all, 0, 999999)
 
 	# bean
-	da_total_bean = DA_BASE_BEAN + da_increase_bean + da_add_all
+	da_total_bean = clamp(DA_BASE_BEAN + da_increase_bean + da_add_all, 0, 999999)
 
 	# pumpkin
-	da_total_pumpkin = DA_BASE_PUMPKIN + da_increase_pumpkin + da_add_all
+	da_total_pumpkin = clamp(DA_BASE_PUMPKIN + da_increase_pumpkin + da_add_all, 0, 999999)
 
 	# tomato
-	da_total_tomato = DA_BASE_TOMATO + da_increase_tomato + da_add_all
+	da_total_tomato = clamp(DA_BASE_TOMATO + da_increase_tomato + da_add_all, 0, 999999)
 	
 	drop_item_distance_total = \
 	clamp(DROP_ITEM_DISTANCE_BASE + drop_item_distance_increase - drop_item_distance_decrease, 100, 1000)
@@ -660,6 +657,7 @@ func round_clear_check():
 		round_clear = false
 	else:
 		print("라운드 클리어")
+		current_gold -= clear_requirments[current_round]
 		round_clear = true
 
 
@@ -719,8 +717,8 @@ func apply_item(item_id: int) -> void:
 		2001: # 날개달린 신발 이속 + 100
 			additional_move_speed += 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
-			gt_reduce_rice += 10
-			gt_reduce_wheat += 10
+			gt_reduce_percent_rice += 10
+			gt_reduce_percent_wheat += 10
 		2003: # 곰팡이 핀 빵 드랍 범위 50 감소
 			drop_item_distance_decrease += 50
 		2004: # 콩밥, 쌀 수확량 30% 쌀 성장시간 -10% 콩 수확량 10% 콩 성장시간 -10%
@@ -766,7 +764,7 @@ func remove_item(item_id: int) -> void:
 			additional_move_speed -= 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
 			gt_reduce_rice -= 10
-			gt_reduce_wheat-= 10
+			gt_reduce_wheat -= 10
 		2003: # 곰팡이 핀 빵 드랍 범위 50 감소
 			drop_item_distance_decrease -= 50
 		2004: # 콩밥, 쌀 수확량 30% 쌀 성장시간 -10% 콩 수확량 10% 콩 성장시간 -10%
@@ -778,7 +776,7 @@ func remove_item(item_id: int) -> void:
 			da_add_all -= 1
 		4001: # 이기적인 양파 양파 수확량 +300% 다른 작물 수확량 - 30%
 			fa_increase_percent_onion -= 300
-			fa_reduce_percent_cabbage-= 30
+			fa_reduce_percent_cabbage -= 30
 			fa_reduce_percent_corn -= 30
 			fa_reduce_percent_bean -= 30
 			fa_reduce_percent_rice -= 30

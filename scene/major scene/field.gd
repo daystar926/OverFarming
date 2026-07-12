@@ -12,7 +12,8 @@ var plants_list: Dictionary = {
 	5: preload("res://scene/plants/onion.tscn"),
 	6: preload("res://scene/plants/corn.tscn"),
 	7: preload("res://scene/plants/bean.tscn"),
-	8: preload("res://scene/plants/pumpkin.tscn")
+	8: preload("res://scene/plants/pumpkin.tscn"),
+	9: preload("res://scene/plants/tomato.tscn")
 }
 
 func _ready() -> void:
