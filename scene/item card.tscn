@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c8ifuealu1027"]
 
 [ext_resource type="Shader" uid="uid://coxsfsle1ehnb" path="res://resource/fake3d.gdshader" id="1_b5g6v"]
-[ext_resource type="Texture2D" uid="uid://c5bjof6qwvd5y" path="res://Assets/Placeholder/card.png" id="1_gf4py"]
 [ext_resource type="Script" uid="uid://215ovuw8l3e4" path="res://scene/item_card.gd" id="1_my1pl"]
+[ext_resource type="Texture2D" uid="uid://bkmoap437kqe4" path="res://Assets/images/UI/card 1.png" id="3_v7r8f"]
 [ext_resource type="LabelSettings" uid="uid://bxw32gdgxew8l" path="res://Assets/fonts/font file/item title font.tres" id="4_0aanl"]
-[ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="5_gc0n8"]
-[ext_resource type="Texture2D" uid="uid://bxxxvpwagiark" path="res://Assets/Placeholder/모자_unique.png" id="6_cxupf"]
+[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="5_kg023"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="7_kg023"]
 [ext_resource type="LabelSettings" uid="uid://b781tdqme4c83" path="res://Assets/fonts/font file/item option font.tres" id="7_v7r8f"]
 [ext_resource type="Texture2D" uid="uid://bi0bksauyejsw" path="res://Assets/Placeholder/card selected effect-Sheet.png" id="9_kg023"]
@@ -20,8 +19,9 @@ shader_parameter/inset = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_faoja"]
 font = ExtResource("7_kg023")
-font_size = 20
-font_color = Color(0, 0, 0, 1)
+font_size = 15
+outline_size = 4
+outline_color = Color(0.21960784, 0.6627451, 0.7764706, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg023"]
 atlas = ExtResource("9_kg023")
@@ -119,6 +119,7 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(180, 240)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1738759752]
+transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 3
 size = Vector2i(360, 480)
@@ -128,7 +129,7 @@ render_target_update_mode = 4
 z_index = 10
 offset_right = 360.0
 offset_bottom = 480.0
-texture = ExtResource("1_gf4py")
+texture = ExtResource("3_v7r8f")
 
 [node name="Control" type="Control" parent="SubViewportContainer/SubViewport/CardTexture" unique_id=1679491046]
 z_index = 10
@@ -144,16 +145,16 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -95.0
-offset_top = 28.0
+offset_top = 215.0
 offset_right = 95.0
-offset_bottom = 90.0
+offset_bottom = 277.0
 grow_horizontal = 2
 text = "테스트 이름"
 label_settings = ExtResource("4_0aanl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="item frame" type="NinePatchRect" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=538926004]
+[node name="item image" type="TextureRect" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=1909576879]
 z_index = 10
 layout_mode = 1
 anchors_preset = 8
@@ -161,29 +162,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -87.0
-offset_right = 8.0
-offset_bottom = -70.0
+offset_left = -6.0
+offset_top = -99.0
+offset_right = 6.0
+offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(8, 8)
-pivot_offset = Vector2(8.505859, 8.00293)
-texture = ExtResource("5_gc0n8")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-
-[node name="item image" type="TextureRect" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=1909576879]
-z_index = 10
-layout_mode = 0
-offset_left = 119.0
-offset_top = 105.0
-offset_right = 239.0
-offset_bottom = 225.0
-pivot_offset = Vector2(60, 60)
-texture = ExtResource("6_cxupf")
+pivot_offset = Vector2(6, 6)
+texture = ExtResource("5_kg023")
 
 [node name="item discription" type="Label" parent="SubViewportContainer/SubViewport/CardTexture/Control" unique_id=409422780]
 z_index = 10
@@ -214,7 +201,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -152.0
-offset_top = -240.0
+offset_top = -203.0
 offset_right = 152.0
 offset_bottom = -80.0
 grow_horizontal = 2

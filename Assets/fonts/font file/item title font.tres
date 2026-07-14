@@ -5,4 +5,5 @@
 [resource]
 font = ExtResource("1_gyhd3")
 font_size = 35
-font_color = Color(0, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0.21960784, 0.6627451, 0.7764706, 1)

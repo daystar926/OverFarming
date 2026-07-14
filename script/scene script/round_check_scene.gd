@@ -10,7 +10,7 @@ extends Control
 
 func _ready() -> void:
 	round_label.text = "ROUND " + str(Global.current_round)
-	label_2.text = "보유 골드: " + str(Global.format_num_custom(Global.current_gold)) + " G"
+	label_2.text = "보유 골드: " + str(Global.format_num_custom(Global.current_gold + Global.clear_requirments[Global.current_round])) + " G"
 	label_3.text = "필요 골드: " + str(Global.format_num_custom(Global.clear_requirments[Global.current_round])) + " G"
 	animation_play()
 	

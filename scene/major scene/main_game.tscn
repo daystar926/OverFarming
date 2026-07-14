@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://37bi8ftgkq0k" path="res://Assets/images/plants/cabbage item.png" id="10_wawtu"]
 [ext_resource type="Texture2D" uid="uid://dg6smfcjpd6s" path="res://Assets/images/plants/corn item.png" id="13_rfv2i"]
 [ext_resource type="Texture2D" uid="uid://bpuehvp2vpxld" path="res://Assets/images/plants/bean item.png" id="14_brniu"]
+[ext_resource type="Texture2D" uid="uid://bds2g053fjn32" path="res://Assets/images/UI/slot panel.png" id="15_yribu"]
+[ext_resource type="Texture2D" uid="uid://di0do6c0mpihs" path="res://Assets/images/UI/slot slot.png" id="16_qsvq7"]
 [ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="16_yribu"]
 [ext_resource type="Texture2D" uid="uid://c23gppmfu8aw1" path="res://Assets/images/plants/grape item.png" id="18_78176"]
 [ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="19_yribu"]
@@ -898,6 +900,28 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_ff5tn")
 
+[node name="slot panel" type="NinePatchRect" parent="UI layer/slots" unique_id=1807990319]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -407.96692
+offset_top = -18.996094
+offset_right = -262.06714
+offset_bottom = -0.24609375
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(8, 8)
+pivot_offset = Vector2(25.033081, 18.714844)
+texture = ExtResource("15_yribu")
+region_rect = Rect2(0, 0, 12, 12)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+
 [node name="slot hbox" type="HBoxContainer" parent="UI layer/slots" unique_id=1353285562]
 layout_mode = 1
 anchors_preset = 7
@@ -919,6 +943,14 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control" unique_id=748676032]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
+
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control" unique_id=1246948442]
 layout_mode = 1
 anchors_preset = 15
@@ -933,12 +965,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control/MarginContainer" unique_id=264228814]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control/MarginContainer/ColorRect" unique_id=825893637]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_r2nnh")
@@ -951,6 +988,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control2" unique_id=277436294]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control2" unique_id=13362104]
 layout_mode = 1
@@ -966,12 +1011,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control2/MarginContainer" unique_id=940095429]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control2/MarginContainer/ColorRect" unique_id=457632289]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_tc3a8")
@@ -984,6 +1034,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control3" unique_id=158787556]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control3" unique_id=374104872]
 layout_mode = 1
@@ -999,12 +1057,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control3/MarginContainer" unique_id=1041436248]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control3/MarginContainer/ColorRect" unique_id=1177264432]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_wawtu")
@@ -1017,6 +1080,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control4" unique_id=1427949972]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control4" unique_id=1054877132]
 layout_mode = 1
@@ -1032,12 +1103,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control4/MarginContainer" unique_id=2076254599]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control4/MarginContainer/ColorRect" unique_id=637697527]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_78176")
@@ -1050,6 +1126,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control5" unique_id=1281743379]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control5" unique_id=39543738]
 layout_mode = 1
@@ -1065,12 +1149,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control5/MarginContainer" unique_id=2062973049]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control5/MarginContainer/ColorRect" unique_id=1436584946]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_yribu")
@@ -1083,6 +1172,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control6" unique_id=1124519771]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control6" unique_id=1362444424]
 layout_mode = 1
@@ -1098,12 +1195,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control6/MarginContainer" unique_id=691814864]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control6/MarginContainer/ColorRect" unique_id=1367474619]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_rfv2i")
@@ -1116,6 +1218,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control7" unique_id=593380279]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control7" unique_id=759368623]
 layout_mode = 1
@@ -1131,12 +1241,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control7/MarginContainer" unique_id=1753399199]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control7/MarginContainer/ColorRect" unique_id=1401126201]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_brniu")
@@ -1149,6 +1264,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control8" unique_id=26894993]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control8" unique_id=755876906]
 layout_mode = 1
@@ -1164,12 +1287,17 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control8/MarginContainer" unique_id=401973917]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control8/MarginContainer/ColorRect" unique_id=1009898910]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_qsvq7")
@@ -1182,6 +1310,14 @@ custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control9" unique_id=500913163]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("16_qsvq7")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI layer/slots/slot hbox/Control9" unique_id=1094051339]
 layout_mode = 1
@@ -1197,14 +1333,20 @@ theme_override_constants/margin_bottom = 13
 
 [node name="ColorRect" type="ColorRect" parent="UI layer/slots/slot hbox/Control9/MarginContainer" unique_id=599354438]
 layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="TextureRect" type="TextureRect" parent="UI layer/slots/slot hbox/Control9/MarginContainer/ColorRect" unique_id=1176717145]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(40, 40)
 texture = ExtResource("16_yribu")
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control9" unique_id=1615206537]
