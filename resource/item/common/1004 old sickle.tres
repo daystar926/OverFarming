@@ -7,7 +7,7 @@
 script = ExtResource("1_dx1h3")
 item_id = 1004
 item_name = "삐걱이는 호미"
-item_option = "쌀 수확량 증가 + 10"
+item_option = "쌀 값어치 + 10 G"
 discription = "곧 부러질 것 같다."
 icon = ExtResource("1_gbn47")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

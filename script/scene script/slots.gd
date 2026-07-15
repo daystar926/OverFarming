@@ -14,6 +14,15 @@ extends Control
 	slot_1, slot_2, slot_3, slot_4, slot_5,
 	slot_6, slot_7, slot_8, slot_9,
 ]
+@onready var sa_1: Label = $"slot hbox/Control/MarginContainer/ColorRect/sa 1"
+@onready var sa_2: Label = $"slot hbox/Control2/MarginContainer/ColorRect/sa 2"
+@onready var sa_3: Label = $"slot hbox/Control3/MarginContainer/ColorRect/sa 3"
+@onready var sa_4: Label = $"slot hbox/Control4/MarginContainer/ColorRect/sa 4"
+@onready var sa_5: Label = $"slot hbox/Control5/MarginContainer/ColorRect/sa 5"
+@onready var sa_6: Label = $"slot hbox/Control6/MarginContainer/ColorRect/sa 6"
+@onready var sa_7: Label = $"slot hbox/Control7/MarginContainer/ColorRect/sa 7"
+@onready var sa_8: Label = $"slot hbox/Control8/MarginContainer/ColorRect/sa 8"
+@onready var sa_9: Label = $"slot hbox/Control9/MarginContainer/ColorRect/sa 9"
 
 var current_selected = 1
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +32,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	sa_1.text = str(Global.sa_total_rice)
+	sa_2.text = str(Global.sa_total_wheat)
+	sa_3.text = str(Global.sa_total_cabbage)
+	sa_4.text = str(Global.sa_total_grape)
+	sa_5.text = str(Global.sa_total_onion)
+	sa_6.text = str(Global.sa_total_corn)
+	sa_7.text = str(Global.sa_total_bean)
+	sa_8.text = str(Global.sa_total_pumpkin)
+	sa_9.text = str(Global.sa_total_tomato)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

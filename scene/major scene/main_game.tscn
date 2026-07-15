@@ -24,8 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://di0do6c0mpihs" path="res://Assets/images/UI/slot slot.png" id="16_qsvq7"]
 [ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="16_yribu"]
 [ext_resource type="Texture2D" uid="uid://c23gppmfu8aw1" path="res://Assets/images/plants/grape item.png" id="18_78176"]
+[ext_resource type="LabelSettings" uid="uid://gf3ciuy3malt" path="res://Assets/fonts/font file/slot sa font.tres" id="18_hrcro"]
 [ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="19_yribu"]
 [ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="22_qsvq7"]
+[ext_resource type="Texture2D" uid="uid://ldi5x8vjasea" path="res://Assets/Placeholder/speed scale 1.png" id="27_nbbly"]
+[ext_resource type="Texture2D" uid="uid://dqdpyx6nr8rt5" path="res://Assets/Placeholder/menu.png" id="28_hrcro"]
 
 [sub_resource type="Animation" id="Animation_78176"]
 length = 0.001
@@ -129,6 +132,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(112, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(2246, 1680)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kqero"]
 font = ExtResource("9_84m0o")
@@ -328,7 +334,7 @@ tile_set = ExtResource("5_ff5tn")
 z_index = -1
 position = Vector2(180, 0)
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAAAAEAAwADAAIAAAAAAAIAAwADAAIAAAAAAAMAAwADAAIAAAAAAAQAAwADAAIAAAAAAAUAAwADAAIAAAABAAUAAwADAAIAAAACAAUAAwADAAIAAAADAAUAAwADAAIAAAAEAAUAAwADAAIAAAAFAAUAAwADAAIAAAAGAAUAAwADAAIAAAAHAAUAAwADAAIAAAAHAAIAAwADAAIAAAAHAAMAAwADAAIAAAAHAAQAAwADAAIAAAAHAAEAAwADAAIAAAABAAEAAwADAAIAAAACAAEAAwADAAIAAAADAAEAAwADAAIAAAAEAAEAAwADAAIAAAAFAAEAAwADAAIAAAAGAAEAAwADAAIAAAABAAIAAwADAAIAAAABAAMAAwADAAIAAAABAAQAAwADAAIAAAACAAIAAwADAAIAAAACAAMAAwADAAIAAAACAAQAAwADAAIAAAADAAIAAwADAAIAAAADAAMAAwADAAIAAAADAAQAAwADAAIAAAAEAAIAAwADAAIAAAAEAAMAAwADAAIAAAAEAAQAAwADAAIAAAAFAAIAAwADAAIAAAAFAAMAAwADAAIAAAAFAAQAAwADAAIAAAAGAAIAAwADAAIAAAAGAAMAAwADAAIAAAAGAAQAAwADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAwAVAAEAAAAAAAIAAwAVAAEAAAAAAAMAAwARAAEAAAAAAAQAAwARAAEAAAAAAAUAAwAVAAEAAAABAAUAAwARAAEAAAACAAUAAwARAAEAAAADAAUAAwAXAAEAAAAEAAUAAwATAAEAAAAFAAUAAwARAAEAAAAGAAUAAwAXAAEAAAAHAAUAAwAXAAEAAAAHAAIAAwARAAEAAAAHAAMAAwARAAEAAAAHAAQAAwARAAEAAAAHAAEAAwAXAAEAAAABAAEAAwARAAEAAAACAAEAAwARAAEAAAADAAEAAwAXAAEAAAAEAAEAAwAXAAEAAAAFAAEAAwARAAEAAAAGAAEAAwATAAEAAAABAAIAAwATAAEAAAABAAMAAwARAAEAAAABAAQAAwAXAAEAAAACAAIAAwARAAEAAAACAAMAAwARAAEAAAACAAQAAwATAAEAAAADAAIAAwAXAAEAAAADAAMAAwAVAAEAAAADAAQAAwARAAEAAAAEAAIAAwARAAEAAAAEAAMAAwAVAAEAAAAEAAQAAwARAAEAAAAFAAIAAwARAAEAAAAFAAMAAwATAAEAAAAFAAQAAwAVAAEAAAAGAAIAAwAXAAEAAAAGAAMAAwARAAEAAAAGAAQAAwAXAAEAAAAAAAYAAwARAAMAAAABAAYAAwARAAMAAAACAAYAAwARAAMAAAADAAYAAwATAAMAAAAEAAYAAwATAAMAAAAFAAYAAwATAAMAAAAGAAYAAwARAAMAAAAHAAYAAwARAAMAAAAIAAYAAwAVAAMAAAAIAAAAAwAVAAMAAGD//wAAAwAVAAMAADD//wYAAwAVAAMAAFAIAAIAAwATAAMAAGAIAAMAAwATAAMAAGAIAAQAAwATAAMAAGAIAAUAAwATAAMAAGAIAAEAAwATAAMAAGAAAAAAAwATAAMAADABAAAAAwATAAMAADACAAAAAwATAAMAADADAAAAAwARAAMAADAEAAAAAwARAAMAADAFAAAAAwATAAMAADAGAAAAAwATAAMAADAHAAAAAwATAAMAADD//wEAAwARAAMAAFD//wIAAwARAAMAAFD//wMAAwARAAMAAFD//wQAAwATAAMAAFD//wUAAwATAAMAAFA=")
 tile_set = ExtResource("5_ff5tn")
 
 [node name="actual field" type="Node2D" parent="." unique_id=1348106378]
@@ -883,6 +889,14 @@ collision_mask = 4
 position = Vector2(65, 64)
 shape = SubResource("RectangleShape2D_huuin")
 
+[node name="UI show area2d" type="Area2D" parent="." unique_id=1449777000]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI show area2d" unique_id=2097816976]
+position = Vector2(689, 201)
+shape = SubResource("RectangleShape2D_utxwm")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1726283960]
 script = ExtResource("6_wawtu")
 gradient = ExtResource("7_dv444")
@@ -895,6 +909,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 250.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -980,6 +996,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_r2nnh")
 
+[node name="sa 1" type="Label" parent="UI layer/slots/slot hbox/Control/MarginContainer/ColorRect" unique_id=209692221]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control" unique_id=1093984487]
 position = Vector2(60, 60)
 
@@ -1025,6 +1059,24 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_tc3a8")
+
+[node name="sa 2" type="Label" parent="UI layer/slots/slot hbox/Control2/MarginContainer/ColorRect" unique_id=162373058]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control2" unique_id=156067400]
 position = Vector2(60, 60)
@@ -1072,6 +1124,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_wawtu")
 
+[node name="sa 3" type="Label" parent="UI layer/slots/slot hbox/Control3/MarginContainer/ColorRect" unique_id=1932879518]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control3" unique_id=601622807]
 position = Vector2(60, 60)
 
@@ -1117,6 +1187,24 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_78176")
+
+[node name="sa 4" type="Label" parent="UI layer/slots/slot hbox/Control4/MarginContainer/ColorRect" unique_id=1249292266]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control4" unique_id=1579913251]
 position = Vector2(60, 60)
@@ -1164,6 +1252,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_yribu")
 
+[node name="sa 5" type="Label" parent="UI layer/slots/slot hbox/Control5/MarginContainer/ColorRect" unique_id=1445243676]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control5" unique_id=1905050428]
 position = Vector2(60, 60)
 
@@ -1209,6 +1315,24 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_rfv2i")
+
+[node name="sa 6" type="Label" parent="UI layer/slots/slot hbox/Control6/MarginContainer/ColorRect" unique_id=1285793816]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control6" unique_id=264804742]
 position = Vector2(60, 60)
@@ -1256,6 +1380,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("14_brniu")
 
+[node name="sa 7" type="Label" parent="UI layer/slots/slot hbox/Control7/MarginContainer/ColorRect" unique_id=1031656787]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control7" unique_id=23513788]
 position = Vector2(60, 60)
 
@@ -1301,6 +1443,24 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("22_qsvq7")
+
+[node name="sa 8" type="Label" parent="UI layer/slots/slot hbox/Control8/MarginContainer/ColorRect" unique_id=1614417655]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control8" unique_id=1401242255]
 position = Vector2(60, 60)
@@ -1349,10 +1509,29 @@ grow_vertical = 2
 pivot_offset = Vector2(40, 40)
 texture = ExtResource("16_yribu")
 
+[node name="sa 9" type="Label" parent="UI layer/slots/slot hbox/Control9/MarginContainer/ColorRect" unique_id=2072327174]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -47.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = ExtResource("18_hrcro")
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="slot 1" type="Marker2D" parent="UI layer/slots/slot hbox/Control9" unique_id=1615206537]
 position = Vector2(60, 60)
 
 [node name="debug con" type="Control" parent="UI layer" unique_id=839864768]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1389,7 +1568,8 @@ text = "디버그 버튼"
 [node name="UI" type="Control" parent="UI layer" unique_id=2105758495]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -500.0
+offset_right = -460.0
 offset_bottom = 40.0
 
 [node name="yield" type="Label" parent="UI layer/UI" unique_id=1640519957]
@@ -1408,12 +1588,48 @@ offset_left = 40.0
 offset_top = 40.0
 offset_right = 476.0
 offset_bottom = 127.0
-text = "수확량:"
+text = "소지금:"
 label_settings = SubResource("LabelSettings_kqero")
 
 [node name="yield marker" type="Marker2D" parent="UI layer" unique_id=363040486 groups=["yield marker"]]
 position = Vector2(225, 58)
 
+[node name="setting UI" type="Control" parent="UI layer" unique_id=1091779529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI layer/setting UI" unique_id=1670711358]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -259.0
+offset_top = 21.0
+offset_right = -23.0
+offset_bottom = 129.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="speed button" type="TextureButton" parent="UI layer/setting UI/HBoxContainer" unique_id=774032380]
+custom_minimum_size = Vector2(108, 108)
+layout_mode = 2
+texture_normal = ExtResource("27_nbbly")
+stretch_mode = 0
+
+[node name="back button" type="TextureButton" parent="UI layer/setting UI/HBoxContainer" unique_id=655250105]
+custom_minimum_size = Vector2(108, 108)
+layout_mode = 2
+texture_normal = ExtResource("28_hrcro")
+stretch_mode = 0
+
 [connection signal="area_entered" from="field/GridContainer/field_1/field_area_1" to="field" method="_on_field_area_1_area_entered"]
+[connection signal="area_entered" from="UI show area2d" to="UI layer" method="_on_ui_show_area_2d_area_entered"]
+[connection signal="area_exited" from="UI show area2d" to="UI layer" method="_on_ui_show_area_2d_area_exited"]
 [connection signal="pressed" from="UI layer/debug con/Button" to="UI layer" method="_on_button_pressed"]
 [connection signal="pressed" from="UI layer/debug con/Button2" to="UI layer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI layer/setting UI/HBoxContainer/speed button" to="UI layer" method="_on_speed_button_pressed"]

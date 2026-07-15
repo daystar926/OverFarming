@@ -578,10 +578,11 @@ func create_spawn_tween(node: Node, duration_min: float, duration_max: float) ->
 
 # 2. 수확(마커로 빨려들어가기) 애니메이션
 func create_collect_tween(node: Node) -> Tween:
+	var first_scale = node.scale * 1.2
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(node, "scale", Vector2(1.2, 1.2), 0.05)
+	tween.tween_property(node, "scale", first_scale, 0.05)
 	tween.tween_property(node, "scale", Vector2(0, 0), 0.2)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_EXPO)
@@ -714,6 +715,36 @@ func apply_item(item_id: int) -> void:
 			additional_move_speed += 50
 		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
 			fa_increase_rice += 10
+		1005: # 낡은 삽 양배추 값어치 + 7G
+			fa_increase_cabbage += 7
+		1006: # 시큼한 포도즙 포도 성장시간 가속 + 10%
+			gt_reduce_percent_grape += 10
+		1007: # 씁쓸한 양파즙 양파 성장시간 가속 + 20%
+			gt_reduce_percent_onion += 20
+		1008: # 옥수수 수염차 옥수수 값어치 + 5G
+			fa_increase_corn += 5
+		1009: # 콩깍지 콩 성장시간 가속 + 3초
+			gt_reduce_bean += 3
+		1010: # 으스스한 호박 호박 값어치 + 15G
+			fa_increase_pumpkin += 15
+		1011: # 토마토 맛 토 토마토 성장시간 가속 + 20%, 토마토 수확시간 가속 + 20% 
+			bgt_reduce_percent_tomato += 20
+			gt_reduce_percent_tomato += 20
+		1012: # 밀가루 밀 값어치 + 10G
+			fa_increase_wheat += 10
+		1013: # 성장 가속제 전체 작물 성장시간 가속 + 20%
+			gt_reduce_percent_all_plants += 20
+		1014: # 식물 영양제 전체 작물 값어치 + 50%
+			fa_increase_percent_all_plants += 50
+		1015: # 옥수수수수수 옥수수 값어치 + 100%, 옥수수 성장시간 증가 + 400%
+			fa_increase_percent_corn += 100
+			gt_increase_percent_corn += 400
+		1016: # 보리보리 쌀 쌀 드랍 갯수 + 1
+			da_increase_rice += 1
+		1017: # 밀가루 봉투 밀 성장시간 가속 + 20%
+			gt_reduce_percent_wheat += 20
+		1018: # 김치찌개 양배추 성장시간 가속 + 20%
+			gt_reduce_percent_cabbage += 20
 		2001: # 날개달린 신발 이속 + 100
 			additional_move_speed += 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
@@ -760,6 +791,36 @@ func remove_item(item_id: int) -> void:
 			additional_move_speed -= 50
 		1004: # 삐걱이는 호미 쌀 수확량 증가 +10
 			fa_increase_rice -= 10
+		1005: # 낡은 삽
+			fa_increase_cabbage -= 7
+		1006: # 시큼한 포도즙
+			gt_reduce_percent_grape -= 10
+		1007: # 씁쓸한 양파즙
+			gt_reduce_percent_onion -= 20
+		1008: # 옥수수 수염차
+			fa_increase_corn -= 5
+		1009: # 콩깍지
+			gt_reduce_bean -= 3
+		1010: # 으스스한 호박
+			fa_increase_pumpkin -= 15
+		1011: # 토마토 맛 토
+			bgt_reduce_percent_tomato -= 20
+			gt_reduce_percent_tomato -= 20
+		1012: # 밀가루
+			fa_increase_wheat -= 10
+		1013: # 성장 가속제
+			gt_reduce_percent_all_plants -= 20
+		1014: # 식물 영양제
+			fa_increase_percent_all_plants -= 50
+		1015: # 옥수수수수수
+			fa_increase_percent_corn -= 100
+			gt_increase_percent_corn -= 400
+		1016: # 보리보리 쌀
+			da_increase_rice -= 1
+		1017: # 밀가루 봉투
+			gt_reduce_percent_wheat -= 20
+		1018: # 김치찌개
+			gt_reduce_percent_cabbage -= 20
 		2001: # 날개달린 신발 이속 + 100
 			additional_move_speed -= 100
 		2002: # 갈대 피리 쌀 성장속도 10% 밀 성장속도 10%
@@ -833,3 +894,7 @@ func get_item_by_id(item_id: int) -> ItemResource:
 	return item_database[item_id]
 
 var item_inventory: Array = []
+
+func money_get_label(money):
+	var money_label = preload("res://scene/money_get_label.tscn").instantiate()
+	add_child(money_label)

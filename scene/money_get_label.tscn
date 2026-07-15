@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bmj72cgoh53x3"]
+
+[ext_resource type="Script" uid="uid://of87qjcltj35" path="res://script/money_get_label.gd" id="1_5mn6e"]
+[ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="2_tw7tr"]
+
+[node name="money get label" type="Node2D" unique_id=1183373942]
+script = ExtResource("1_5mn6e")
+
+[node name="Label" type="Label" parent="." unique_id=1354733522]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -19.0
+offset_right = 66.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "+ 32953 G"
+label_settings = ExtResource("2_tw7tr")
+horizontal_alignment = 1
+vertical_alignment = 1

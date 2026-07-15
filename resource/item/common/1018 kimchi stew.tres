@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://ccdaa78qkfsqp"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_hgnmg"]
+[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="1_qyfi1"]
+
+[resource]
+script = ExtResource("1_hgnmg")
+item_id = 1018
+item_name = "김치찌개"
+item_option = "양배추 성장시간 가속 + 20%"
+discription = "매콤한 김치찌개를 한 입 크으~"
+icon = ExtResource("1_qyfi1")
+metadata/_custom_type_script = "uid://tovn75rtg33v"

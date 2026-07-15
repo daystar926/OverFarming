@@ -23,12 +23,12 @@ func _process(delta: float) -> void:
 	pass
 
 func hovering_tween():
-	var current_pst = self.position
+	var current_pst = $AnimatedSprite2D.position
 	var tween = create_tween()
 	tween.set_loops()
-	tween.tween_property(self, "position", current_pst + Vector2(0, 15), 0.6)
+	tween.tween_property($AnimatedSprite2D, "position", current_pst + Vector2(0, 15), 0.6)
 	tween.tween_interval(0.2)
-	tween.tween_property(self, "position", current_pst, 0.6)
+	tween.tween_property($AnimatedSprite2D, "position", current_pst, 0.6)
 	tween.tween_interval(0.2)
 	
 
@@ -40,6 +40,7 @@ func start_tween():
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
+	money_get_anim(Global.fa_total_cabbage)
 	Global.stat_refresh()
 	$CollisionShape2D.disabled = true
 	set_process(false)
@@ -47,8 +48,20 @@ func _on_area_entered(area: Area2D) -> void:
 	if blink_tween:
 		blink_tween.kill()
 	
-	var tween = Global.create_collect_tween(self)
+	var tween = Global.create_collect_tween($AnimatedSprite2D)
 	tween.tween_callback(func():
 		Global.add_gold(Global.fa_total_cabbage)
-		queue_free()
 	)
+	tween.tween_interval(1)
+	tween.tween_callback(func(): queue_free())
+
+func money_get_anim(money):
+	$Label.visible = true
+	$Label.text = "+ " + str(Global.format_num_custom(money)) + " G"
+	var target_y = $Label.position.y - 80
+	var tween = create_tween()
+	var alpha_tween = create_tween()
+	tween.tween_property($Label, "position:y", target_y, 1)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_CUBIC)
+	alpha_tween.tween_property($Label, "modulate", Color(1,1,1,0), 0.5).set_delay(0.5)

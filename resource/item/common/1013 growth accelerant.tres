@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://o4xet8o38p7v"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_a1mud"]
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_tdq70"]
+
+[resource]
+script = ExtResource("1_a1mud")
+item_id = 1013
+item_name = "성장 가속제"
+item_option = "전체 작물 성장시간 가속 + 20%"
+discription = "나도 마셔볼까..?"
+icon = ExtResource("1_tdq70")
+metadata/_custom_type_script = "uid://tovn75rtg33v"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8oxioah3evrh" path="res://script/plants/strawberry_item.gd" id="1_p7q0h"]
 [ext_resource type="Texture2D" uid="uid://kg045uea0qw4" path="res://Assets/images/plants/strawberry item_white.png" id="2_tv6wr"]
 [ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="3_gj8jm"]
+[ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="4_tv6wr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(96, 96)
@@ -38,18 +39,38 @@ animations = [{
 }]
 
 [node name="grape_item" type="Area2D" unique_id=599207513 groups=["dropped item"]]
-z_index = 1
+z_index = 3
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_p7q0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=39595357 groups=["dropped item"]]
+z_index = 3
 shape = SubResource("RectangleShape2D_huuin")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2101278999 groups=["dropped item"]]
+z_index = 3
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_utxwm")
 animation = &"normal"
+
+[node name="Label" type="Label" parent="." unique_id=1555769241]
+visible = false
+z_index = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -23.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "+ 3253 G"
+label_settings = ExtResource("4_tv6wr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

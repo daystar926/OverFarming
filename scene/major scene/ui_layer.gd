@@ -1,15 +1,17 @@
 extends CanvasLayer
+@onready var setting_ui: Control = $"setting UI"
 
 @onready var main_character: CharacterBody2D = $"../Main Character"
 @onready var debug_label: Label = $"debug con/debug label"
 @onready var gold_label: Label = $UI/yield
 @onready var time_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var debug_label_2: Label = $"debug con/debug label2"
+@onready var speed_button: TextureButton = $"setting UI/HBoxContainer/speed button"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.gold_changed.connect(gold_changed)
-	gold_label.text = str(Global.current_gold) + "Kg"
+	gold_label.text = str(Global.current_gold) + " G"
 	time_modulate.time_tick.connect(set_daytime)
 	time_modulate.night_time.connect(round_check)
 
@@ -56,13 +58,31 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_time_scale += 1
 		engine_speed_setting()
 	elif Input.is_action_just_pressed("speed_down"):
-		if current_time_scale <= 1:
+		if current_time_scale <= 0:
 			return
 		current_time_scale -= 1
 		engine_speed_setting()
-			
+
+
 func engine_speed_setting():
 	Engine.time_scale = current_time_scale
+	match current_time_scale:
+		0:
+			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 0.png")
+			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 0.png")
+			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 0.png")
+		1:
+			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 1.png")
+			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 1.png")
+			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 1.png")
+		2:
+			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 2.png")
+			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 2.png")
+			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 2.png")
+		3:
+			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 3.png")
+			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 3.png")
+			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 3.png")
 
 
 func _on_button_2_pressed() -> void:
@@ -77,7 +97,7 @@ func ui_hide():
 	tween.tween_property(slots, "position", Vector2(0, 250), 0.6)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_BACK)
-	tween.parallel().tween_property(ui, "position", Vector2(-500, 0), 1)\
+	tween.parallel().tween_property(ui, "position", Vector2(-500, 0), 0.6)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_BACK)
 
@@ -95,5 +115,19 @@ func ui_show():
 		
 		
 		
-		
-		
+
+
+func _on_speed_button_pressed() -> void:
+	if current_time_scale >= 3:
+		current_time_scale = 0
+	else:
+		current_time_scale += 1
+	engine_speed_setting()
+
+
+func _on_ui_show_area_2d_area_entered(area: Area2D) -> void:
+	ui_show()
+
+
+func _on_ui_show_area_2d_area_exited(area: Area2D) -> void:
+	ui_hide()

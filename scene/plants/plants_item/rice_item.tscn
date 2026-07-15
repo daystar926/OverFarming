@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbrtct2fiprk8" path="res://script/plants/rice_item.gd" id="1_srjw6"]
 [ext_resource type="Texture2D" uid="uid://cf05jswt33gwg" path="res://Assets/images/plants/rice item_white.png" id="2_srjw6"]
 [ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_u107u"]
+[ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="4_1wu13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rjd7"]
 size = Vector2(102, 96)
@@ -38,18 +39,38 @@ animations = [{
 }]
 
 [node name="rice item" type="Area2D" unique_id=122664055 groups=["dropped item"]]
+z_index = 3
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_srjw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1614910022 groups=["dropped item"]]
+z_index = 3
 shape = SubResource("RectangleShape2D_4rjd7")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=609849823 groups=["dropped item"]]
-z_index = 1
+z_index = 3
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
 animation = &"normal"
+
+[node name="Label" type="Label" parent="." unique_id=1938310421]
+visible = false
+z_index = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -23.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "+ 3253 G"
+label_settings = ExtResource("4_1wu13")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

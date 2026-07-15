@@ -35,6 +35,7 @@ var slot_num: int
 
 
 @onready var card_texture: SubViewportContainer = $SubViewportContainer
+
 var item_data
 var mouse_followable = true
 

@@ -116,12 +116,11 @@ disabled = true
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1168421847]
 position = Vector2(0, -20)
-collision_layer = 0
+collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1001773542]
 shape = SubResource("RectangleShape2D_wp60l")
-disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d2k8sa2m8swas"]
+
+[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="1_pk8ri"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_plfbb"]
+
+[resource]
+script = ExtResource("2_plfbb")
+item_id = 1005
+item_name = "낡은 삽"
+item_option = "양배추 값어치 + 7 G"
+discription = "녹슬어있어.."
+icon = ExtResource("1_pk8ri")
+metadata/_custom_type_script = "uid://tovn75rtg33v"

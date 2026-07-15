@@ -7,7 +7,7 @@
 script = ExtResource("1_jpkpm")
 item_id = 1003
 item_name = "똥 묻은 장화"
-item_option = "이동 속도 + 50"
+item_option = "이동속도 + 50"
 discription = "호다닥 호다닥"
 icon = ExtResource("1_l04wm")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

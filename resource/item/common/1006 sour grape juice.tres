@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dmee2qraqafcu"]
+
+[ext_resource type="Texture2D" uid="uid://5esaslv83beo" path="res://Assets/images/plants/tomato item.png" id="1_mduew"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_on6gd"]
+
+[resource]
+script = ExtResource("2_on6gd")
+item_id = 1006
+item_name = "시큼한 포도즙"
+item_option = "포도 성장시간 가속 + 10%"
+discription = "이거 술 아니야?"
+icon = ExtResource("1_mduew")
+metadata/_custom_type_script = "uid://tovn75rtg33v"

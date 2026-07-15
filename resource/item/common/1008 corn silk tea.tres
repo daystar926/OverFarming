@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bls8kcfxdsp24"]
+
+[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_nqr50"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_7nurm"]
+
+[resource]
+script = ExtResource("2_7nurm")
+item_id = 1008
+item_name = "옥수수 수염차"
+item_option = "옥수수 값어치 + 5 G"
+discription = "음~ 진한 수염 향기"
+icon = ExtResource("1_nqr50")
+metadata/_custom_type_script = "uid://tovn75rtg33v"
