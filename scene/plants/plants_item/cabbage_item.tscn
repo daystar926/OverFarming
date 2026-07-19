@@ -1,42 +1,31 @@
 [gd_scene format=3 uid="uid://crvfk18t136eb"]
 
 [ext_resource type="Script" uid="uid://bh800m1xe47vs" path="res://script/plants/cabbage_item.gd" id="1_66tlc"]
-[ext_resource type="Texture2D" uid="uid://bwrqjehaitnvn" path="res://Assets/images/plants/cabbage item_ white.png" id="2_66tlc"]
-[ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_ilcnu"]
+[ext_resource type="Texture2D" uid="uid://d0md05vhatsd0" path="res://Assets/images/plants/cabbage item drop.png" id="2_66tlc"]
 [ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="4_0d6fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
 size = Vector2(97, 98)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_66tlc"]
-atlas = ExtResource("2_ilcnu")
-region = Rect2(0, 24, 12, 12)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d6fn"]
-atlas = ExtResource("2_ilcnu")
-region = Rect2(0, 24, 12, 12)
+atlas = ExtResource("2_66tlc")
+region = Rect2(0, 0, 14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfmif"]
-atlas = ExtResource("2_ilcnu")
-region = Rect2(0, 24, 12, 12)
+atlas = ExtResource("2_66tlc")
+region = Rect2(0, 0, 14, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
-"duration": 0.5,
-"texture": ExtResource("2_66tlc")
-}, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66tlc")
+"texture": SubResource("AtlasTexture_0d6fn")
 }],
 "loop": 0,
 "name": &"normal",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0d6fn")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mfmif")
 }],

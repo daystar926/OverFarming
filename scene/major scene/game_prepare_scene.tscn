@@ -1,81 +1,196 @@
-[gd_scene format=3 uid="uid://dxyg66ht2de1q"]
+[gd_scene format=4 uid="uid://dxyg66ht2de1q"]
 
-[ext_resource type="Texture2D" uid="uid://depdgtc6hug1c" path="res://Assets/Placeholder/Cute_Fantasy_Free/Player/Player.png" id="1_ijpm4"]
 [ext_resource type="Script" uid="uid://8vkq3t08ayt0" path="res://script/scene script/game_prepare_scene.gd" id="1_vc5dc"]
-[ext_resource type="LabelSettings" uid="uid://jeu4k6kyap6y" path="res://Assets/fonts/font file/title fonts small.tres" id="2_4h2o5"]
-[ext_resource type="Texture2D" uid="uid://cgq3io38r6su6" path="res://Assets/images/UI/arrow.png" id="3_vc5dc"]
-[ext_resource type="Texture2D" uid="uid://ddh6w2rn5q8pm" path="res://Assets/images/UI/panel 01.png" id="4_e8dnh"]
-[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="5_euqia"]
+[ext_resource type="Texture2D" uid="uid://xy8pfsu80jsw" path="res://Assets/images/tile map/HOMEsheet.png" id="2_c0m6k"]
+[ext_resource type="Texture2D" uid="uid://yqtmwg8m16eh" path="res://Assets/images/tile map/table.png" id="3_1s8ty"]
+[ext_resource type="Texture2D" uid="uid://b8n5yquyftauc" path="res://Assets/images/tile map/book-Sheet.png" id="4_05r73"]
+[ext_resource type="Texture2D" uid="uid://bti5hwdf0lmck" path="res://Assets/images/tile map/chair.png" id="5_4h2o5"]
+[ext_resource type="LabelSettings" uid="uid://do7y6m18qu1ss" path="res://Assets/fonts/font file/object title.tres" id="5_gef26"]
+[ext_resource type="Texture2D" uid="uid://dqnvhktxr22ee" path="res://Assets/images/tile map/bed.png" id="6_vc5dc"]
+[ext_resource type="Texture2D" uid="uid://doyf0jkjfjw8p" path="res://Assets/images/tile map/shelf-Sheet.png" id="7_e8dnh"]
+[ext_resource type="Texture2D" uid="uid://50xus54sgyj8" path="res://Assets/images/tile map/stairs.png" id="8_dmmsi"]
+[ext_resource type="PackedScene" uid="uid://ct18iihq3ijkt" path="res://scene/major scene/main_character.tscn" id="8_euqia"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0m6k"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1s8ty"]
+texture = ExtResource("2_c0m6k")
+1:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+13:1/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+1:3/0 = 0
+3:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:5/0 = 0
+11:5/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+1:9/0 = 0
+3:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:11/0 = 0
+3:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:11/0 = 0
+5:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:13/0 = 0
+1:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:13/0 = 0
+3:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:13/0 = 0
+5:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:15/0 = 0
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:15/0 = 0
+3:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:15/0 = 0
+5:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:15/0 = 0
+4:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+1:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+2:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+8:20/0 = 0
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+13:20/0 = 0
+14:20/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1s8ty"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="TileSet" id="TileSet_huuin"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_1s8ty")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05r73"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1s8ty")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
+size = Vector2(310, 143)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_523ed"]
+atlas = ExtResource("4_05r73")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51yum"]
+atlas = ExtResource("4_05r73")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsikr"]
+atlas = ExtResource("4_05r73")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h2o5"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc5dc"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8dnh"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_euqia"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(96, 288, 32, 32)
+atlas = ExtResource("4_05r73")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmmsi"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(64, 288, 32, 32)
+atlas = ExtResource("4_05r73")
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gef26"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(32, 288, 32, 32)
+atlas = ExtResource("4_05r73")
+region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3pmjq"]
-atlas = ExtResource("1_ijpm4")
-region = Rect2(0, 288, 32, 32)
+atlas = ExtResource("4_05r73")
+region = Rect2(48, 0, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hqqrg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
 animations = [{
 "frames": [{
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_c0m6k")
+"texture": SubResource("AtlasTexture_523ed")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_1s8ty")
+"texture": SubResource("AtlasTexture_51yum")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_05r73")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_4h2o5")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_vc5dc")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_e8dnh")
+"texture": SubResource("AtlasTexture_fsikr")
 }],
-"loop": 1,
-"name": &"idle",
+"loop": 0,
+"name": &"close",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_euqia")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h2o5")
+}],
+"loop": 0,
+"name": &"normal",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_dmmsi")
 }, {
@@ -86,14 +201,108 @@ animations = [{
 "texture": SubResource("AtlasTexture_3pmjq")
 }],
 "loop": 0,
-"name": &"waking up",
+"name": &"open",
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hqqrg"]
-font = ExtResource("5_euqia")
-font_size = 50
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pmjq"]
+size = Vector2(246, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc5dc"]
+size = Vector2(118, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dnh"]
+size = Vector2(188, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guost"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(76, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjg7o"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(38, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61xg0"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(0, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euqia"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(0, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r686"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(0, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nax47"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(38, 0, 38, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibt40"]
+atlas = ExtResource("7_e8dnh")
+region = Rect2(76, 0, 38, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmmsi"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_guost")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_rjg7o")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_61xg0")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euqia")
+}],
+"loop": 0,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_2r686")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_nax47")
+}, {
+"duration": 0.35,
+"texture": SubResource("AtlasTexture_ibt40")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gef26"]
+size = Vector2(262, 526)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euqia"]
+size = Vector2(166, 328)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gef26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dmmsi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmmsi"]
+size = Vector2(378, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
+size = Vector2(254, 328)
 
 [node name="game prepare scene" type="Control" unique_id=1108718539]
 layout_mode = 3
@@ -104,170 +313,199 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc5dc")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=60402614]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="tilemap" type="Node2D" parent="." unique_id=852562062]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tilemap" unique_id=1262576143]
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD+////AAADAA0AAAD+/wAAAAADAA0AAAD+/wEAAAADAA0AAAD+/wIAAAADAA0AAAD+/wMAAAADAA0AAAD+/wQAAAADAA0AAAD+/wUAAAADAA0AAAD+/wYAAAADAA0AAAD+/wcAAAADAA0AAAD+/wgAAAADAA0AAAD+/wkAAAADAA0AAAD/////AAADAA0AAAD//wAAAAADAA0AAAD//wEAAAADAA0AAAD//wIAAAADAA0AAAD//wMAAAADAA0AAAD//wQAAAADAA0AAAD//wUAAAADAA0AAAD//wYAAAADAA0AAAD//wcAAAADAA0AAAD//wgAAAADAA0AAAD//wkAAAADAA0AAAAAAP//AAADAA0AAAAAAAAAAAABAAsAAAAAAAEAAAABAA0AAAAAAAIAAAABAA0AAAAAAAMAAAABAA0AAAAAAAQAAAABAA0AAAAAAAUAAAABAA0AAAAAAAYAAAABAA0AAAAAAAcAAAABAA0AAAAAAAgAAAABAA8AAAAAAAkAAAADAA0AAAABAP//AAADAA0AAAABAAAAAAADAAsAAAABAAEAAAABAAUAAAABAAIAAAABAAcAAAABAAMAAAABAAkAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAABAAYAAAABAAEAAAABAAcAAAABAAEAAAABAAgAAAADAA8AAAABAAkAAAADAA0AAAACAP//AAADAA0AAAACAAAAAAADAAsAAAACAAEAAAADAAUAAAACAAIAAAADAAcAAAACAAMAAAADAAkAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAACAAgAAAADAA8AAAACAAkAAAADAA0AAAADAP//AAADAA0AAAADAAAAAAADAAsAAAADAAEAAAAFAAEAAAADAAIAAAAFAAcAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAADAAcAAAABAAEAAAADAAgAAAADAA8AAAADAAkAAAADAA0AAAAEAP//AAADAA0AAAAEAAAAAAADAAsAAAAEAAEAAAAHAA8AAAAEAAIAAAAFAAcAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAADAA8AAAAEAAkAAAADAA0AAAAFAP//AAADAA0AAAAFAAAAAAADAAsAAAAFAAEAAAABAAUAAAAFAAIAAAABAAcAAAAFAAMAAAABAAkAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAADAA8AAAAFAAkAAAADAA0AAAAGAP//AAADAA0AAAAGAAAAAAADAAsAAAAGAAEAAAADAAUAAAAGAAIAAAADAAcAAAAGAAMAAAADAAkAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAADAA8AAAAGAAkAAAADAA0AAAAHAP//AAADAA0AAAAHAAAAAAADAAsAAAAHAAEAAAAFAAEAAAAHAAIAAAAFAAcAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAAHAAgAAAADAA8AAAAHAAkAAAADAA0AAAAIAP//AAADAA0AAAAIAAAAAAADAAsAAAAIAAEAAAAFAAEAAAAIAAIAAAAFAAcAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAIAAYAAAABAAEAAAAIAAcAAAABAAEAAAAIAAgAAAADAA8AAAAIAAkAAAADAA0AAAAJAP//AAADAA0AAAAJAAAAAAADAAsAAAAJAAEAAAABAAUAAAAJAAIAAAABAAcAAAAJAAMAAAABAAkAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAADAA8AAAAJAAkAAAADAA0AAAAKAP//AAADAA0AAAAKAAAAAAADAAsAAAAKAAEAAAADAAUAAAAKAAIAAAADAAcAAAAKAAMAAAADAAkAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAAKAAgAAAADAA8AAAAKAAkAAAADAA0AAAALAP//AAADAA0AAAALAAAAAAADAAsAAAALAAEAAAAHAA8AAAALAAIAAAAFAAcAAAALAAMAAAABAAEAAAALAAQAAAABAAEAAAALAAUAAAABAAEAAAALAAYAAAABAAEAAAALAAcAAAABAAEAAAALAAgAAAADAA8AAAALAAkAAAADAA0AAAAMAP//AAADAA0AAAAMAAAAAAADAAsAAAAMAAEAAAAFAAEAAAAMAAIAAAAFAAcAAAAMAAMAAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAEAAAAMAAYAAAABAAEAAAAMAAcAAAABAAEAAAAMAAgAAAADAA8AAAAMAAkAAAADAA0AAAANAP//AAADAA0AAAANAAAAAAAFAAsAAAANAAEAAAAFAA0AAAANAAIAAAAFAA0AAAANAAMAAAAFAA0AAAANAAQAAAAFAA0AAAANAAUAAAAFAA0AAAANAAYAAAAFAA0AAAANAAcAAAAFAA0AAAANAAgAAAAFAA8AAAANAAkAAAADAA0AAAAOAP//AAADAA0AAAAOAAAAAAADAA0AAAAOAAEAAAADAA0AAAAOAAIAAAADAA0AAAAOAAMAAAADAA0AAAAOAAQAAAADAA0AAAAOAAUAAAADAA0AAAAOAAYAAAADAA0AAAAOAAcAAAADAA0AAAAOAAgAAAADAA0AAAAOAAkAAAADAA0AAAAPAP//AAADAA0AAAAPAAAAAAADAA0AAAAPAAEAAAADAA0AAAAPAAIAAAADAA0AAAAPAAMAAAADAA0AAAAPAAQAAAADAA0AAAAPAAUAAAADAA0AAAAPAAYAAAADAA0AAAAPAAcAAAADAA0AAAAPAAgAAAADAA0AAAAPAAkAAAADAA0AAAAQAAkAAAADAA0AAAD+//z/AAADAA0AAAD+//3/AAADAA0AAAD+//7/AAADAA0AAAD///z/AAADAA0AAAD///3/AAADAA0AAAD///7/AAADAA0AAAAAAPz/AAADAA0AAAAAAP3/AAADAA0AAAAAAP7/AAADAA0AAAABAPz/AAADAA0AAAABAP3/AAADAA0AAAABAP7/AAADAA0AAAACAPz/AAADAA0AAAACAP3/AAADAA0AAAACAP7/AAADAA0AAAADAPz/AAADAA0AAAADAP3/AAADAA0AAAADAP7/AAADAA0AAAAEAPz/AAADAA0AAAAEAP3/AAADAA0AAAAEAP7/AAADAA0AAAAFAPz/AAADAA0AAAAFAP3/AAADAA0AAAAFAP7/AAADAA0AAAAGAPz/AAADAA0AAAAGAP3/AAADAA0AAAAGAP7/AAADAA0AAAAHAPz/AAADAA0AAAAHAP3/AAADAA0AAAAHAP7/AAADAA0AAAAIAPz/AAADAA0AAAAIAP3/AAADAA0AAAAIAP7/AAADAA0AAAAJAPz/AAADAA0AAAAJAP3/AAADAA0AAAAJAP7/AAADAA0AAAAKAPz/AAADAA0AAAAKAP3/AAADAA0AAAAKAP7/AAADAA0AAAALAPz/AAADAA0AAAALAP3/AAADAA0AAAALAP7/AAADAA0AAAAMAPz/AAADAA0AAAAMAP3/AAADAA0AAAAMAP7/AAADAA0AAAANAPz/AAADAA0AAAANAP3/AAADAA0AAAANAP7/AAADAA0AAAAOAPz/AAADAA0AAAAOAP3/AAADAA0AAAAOAP7/AAADAA0AAAAPAPz/AAADAA0AAAAPAP3/AAADAA0AAAAPAP7/AAADAA0AAAAQAPz/AAADAA0AAAAQAP3/AAADAA0AAAAQAP7/AAADAA0AAAAQAP//AAADAA0AAAARAPz/AAADAA0AAAARAP3/AAADAA0AAAARAP7/AAADAA0AAAARAP//AAADAA0AAAAOAAoAAAADAA0AAAAOAAsAAAADAA0AAAAPAAoAAAADAA0AAAAPAAsAAAADAA0AAAAQAAAAAAADAA0AAAAQAAEAAAADAA0AAAAQAAIAAAADAA0AAAAQAAMAAAADAA0AAAAQAAQAAAADAA0AAAAQAAUAAAADAA0AAAAQAAYAAAADAA0AAAAQAAcAAAADAA0AAAAQAAgAAAADAA0AAAAQAAoAAAADAA0AAAAQAAsAAAADAA0AAAARAAAAAAADAA0AAAARAAEAAAADAA0AAAARAAIAAAADAA0AAAARAAMAAAADAA0AAAARAAQAAAADAA0AAAARAAUAAAADAA0AAAARAAYAAAADAA0AAAARAAcAAAADAA0AAAARAAgAAAADAA0AAAARAAkAAAADAA0AAAARAAoAAAADAA0AAAARAAsAAAADAA0AAAASAP7/AAADAA0AAAASAP//AAADAA0AAAASAAAAAAADAA0AAAASAAEAAAADAA0AAAASAAIAAAADAA0AAAASAAMAAAADAA0AAAASAAQAAAADAA0AAAASAAUAAAADAA0AAAASAAYAAAADAA0AAAASAAcAAAADAA0AAAASAAgAAAADAA0AAAASAAkAAAADAA0AAAASAAoAAAADAA0AAAASAAsAAAADAA0AAAD7//z/AAADAA0AAAD7//3/AAADAA0AAAD7//7/AAADAA0AAAD7////AAADAA0AAAD7/wAAAAADAA0AAAD7/wEAAAADAA0AAAD7/wIAAAADAA0AAAD7/wMAAAADAA0AAAD7/wQAAAADAA0AAAD7/wUAAAADAA0AAAD7/wYAAAADAA0AAAD7/wcAAAADAA0AAAD7/wgAAAADAA0AAAD7/wkAAAADAA0AAAD7/woAAAADAA0AAAD7/wsAAAADAA0AAAD8//z/AAADAA0AAAD8//3/AAADAA0AAAD8//7/AAADAA0AAAD8////AAADAA0AAAD8/wAAAAADAA0AAAD8/wEAAAADAA0AAAD8/wIAAAADAA0AAAD8/wMAAAADAA0AAAD8/wQAAAADAA0AAAD8/wUAAAADAA0AAAD8/wYAAAADAA0AAAD8/wcAAAADAA0AAAD8/wgAAAADAA0AAAD8/wkAAAADAA0AAAD8/woAAAADAA0AAAD8/wsAAAADAA0AAAD9//z/AAADAA0AAAD9//3/AAADAA0AAAD9//7/AAADAA0AAAD9////AAADAA0AAAD9/wAAAAADAA0AAAD9/wEAAAADAA0AAAD9/wIAAAADAA0AAAD9/wMAAAADAA0AAAD9/wQAAAADAA0AAAD9/wUAAAADAA0AAAD9/wYAAAADAA0AAAD9/wcAAAADAA0AAAD9/wgAAAADAA0AAAD9/wkAAAADAA0AAAD9/woAAAADAA0AAAD9/wsAAAADAA0AAAD+/woAAAADAA0AAAD+/wsAAAADAA0AAAD//woAAAADAA0AAAD//wsAAAADAA0AAAD7/wwAAAADAA0AAAD7/w0AAAADAA0AAAD7/w4AAAADAA0AAAD7/w8AAAADAA0AAAD8/wwAAAADAA0AAAD8/w0AAAADAA0AAAD8/w4AAAADAA0AAAD8/w8AAAADAA0AAAD9/wwAAAADAA0AAAD9/w0AAAADAA0AAAD9/w4AAAADAA0AAAD9/w8AAAADAA0AAAD+/wwAAAADAA0AAAD+/w0AAAADAA0AAAD+/w4AAAADAA0AAAD+/w8AAAADAA0AAAD//wwAAAADAA0AAAD//w0AAAADAA0AAAD//w4AAAADAA0AAAD//w8AAAADAA0AAAAAAAoAAAADAA0AAAAAAAsAAAADAA0AAAAAAAwAAAADAA0AAAAAAA0AAAADAA0AAAAAAA4AAAADAA0AAAAAAA8AAAADAA0AAAABAAoAAAADAA0AAAABAAsAAAADAA0AAAABAAwAAAADAA0AAAABAA0AAAADAA0AAAABAA4AAAADAA0AAAABAA8AAAADAA0AAAACAAoAAAADAA0AAAACAAsAAAADAA0AAAACAAwAAAADAA0AAAACAA0AAAADAA0AAAACAA4AAAADAA0AAAACAA8AAAADAA0AAAADAAoAAAADAA0AAAADAAsAAAADAA0AAAADAAwAAAADAA0AAAADAA0AAAADAA0AAAADAA4AAAADAA0AAAADAA8AAAADAA0AAAAEAAoAAAADAA0AAAAEAAsAAAADAA0AAAAEAAwAAAADAA0AAAAEAA0AAAADAA0AAAAEAA4AAAADAA0AAAAEAA8AAAADAA0AAAAFAAoAAAADAA0AAAAFAAsAAAADAA0AAAAFAAwAAAADAA0AAAAFAA0AAAADAA0AAAAFAA4AAAADAA0AAAAFAA8AAAADAA0AAAAGAAoAAAADAA0AAAAGAAsAAAADAA0AAAAGAAwAAAADAA0AAAAGAA0AAAADAA0AAAAGAA4AAAADAA0AAAAGAA8AAAADAA0AAAAHAAoAAAADAA0AAAAHAAsAAAADAA0AAAAHAAwAAAADAA0AAAAHAA0AAAADAA0AAAAHAA4AAAADAA0AAAAHAA8AAAADAA0AAAAIAAoAAAADAA0AAAAIAAsAAAADAA0AAAAIAAwAAAADAA0AAAAIAA0AAAADAA0AAAAIAA4AAAADAA0AAAAIAA8AAAADAA0AAAAJAAoAAAADAA0AAAAJAAsAAAADAA0AAAAJAAwAAAADAA0AAAAJAA0AAAADAA0AAAAJAA4AAAADAA0AAAAJAA8AAAADAA0AAAAKAAoAAAADAA0AAAAKAAsAAAADAA0AAAAKAAwAAAADAA0AAAAKAA0AAAADAA0AAAAKAA4AAAADAA0AAAAKAA8AAAADAA0AAAALAAoAAAADAA0AAAALAAsAAAADAA0AAAALAAwAAAADAA0AAAALAA0AAAADAA0AAAALAA4AAAADAA0AAAALAA8AAAADAA0AAAAMAAoAAAADAA0AAAAMAAsAAAADAA0AAAAMAAwAAAADAA0AAAAMAA0AAAADAA0AAAAMAA4AAAADAA0AAAAMAA8AAAADAA0AAAANAAoAAAADAA0AAAANAAsAAAADAA0AAAANAAwAAAADAA0AAAANAA0AAAADAA0AAAANAA4AAAADAA0AAAANAA8AAAADAA0AAAAOAAwAAAADAA0AAAAOAA0AAAADAA0AAAAOAA4AAAADAA0AAAAOAA8AAAADAA0AAAAPAAwAAAADAA0AAAAPAA0AAAADAA0AAAAPAA4AAAADAA0AAAAPAA8AAAADAA0AAAAQAAwAAAADAA0AAAAQAA0AAAADAA0AAAAQAA4AAAADAA0AAAAQAA8AAAADAA0AAAARAAwAAAADAA0AAAARAA0AAAADAA0AAAARAA4AAAADAA0AAAARAA8AAAADAA0AAAASAAwAAAADAA0AAAASAA0AAAADAA0AAAASAA4AAAADAA0AAAASAA8AAAADAA0AAAATAAkAAAADAA0AAAATAAoAAAADAA0AAAATAAsAAAADAA0AAAATAAwAAAADAA0AAAATAA0AAAADAA0AAAATAA4AAAADAA0AAAATAA8AAAADAA0AAAAUAAkAAAADAA0AAAAUAAoAAAADAA0AAAAUAAsAAAADAA0AAAAUAAwAAAADAA0AAAAUAA0AAAADAA0AAAAUAA4AAAADAA0AAAAUAA8AAAADAA0AAAA=")
+tile_set = SubResource("TileSet_huuin")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="tilemap" unique_id=1266795254]
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAALAAIAAAAKAAUAAAALAAMAAAAKAAYAAAALAAQAAAAKAAcAAAAMAAEAAAALAAQAAAAMAAIAAAALAAUAAAAMAAMAAAALAAYAAAAMAAQAAAALAAcAAAA=")
+tile_set = SubResource("TileSet_huuin")
+
+[node name="playerble map" type="Node2D" parent="." unique_id=1349565227]
+y_sort_enabled = true
+
+[node name="table" type="StaticBody2D" parent="playerble map" unique_id=1120921595 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(504, 300)
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="playerble map/table" unique_id=778164217 groups=["object"]]
+position = Vector2(0, 76)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_huuin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/table" unique_id=1806420686 groups=["object"]]
+position = Vector2(4, 65.5)
+shape = SubResource("RectangleShape2D_utxwm")
+
+[node name="book" type="Area2D" parent="playerble map" unique_id=237701194 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(520, 328)
+collision_layer = 256
+collision_mask = 256
+
+[node name="book sprite" type="AnimatedSprite2D" parent="playerble map/book" unique_id=1023078175 groups=["object"]]
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_utxwm")
+animation = &"normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/book" unique_id=101334137 groups=["object"]]
+position = Vector2(57, 59)
+shape = SubResource("RectangleShape2D_3pmjq")
+
+[node name="book label" type="Label" parent="playerble map/book" unique_id=913448254]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -105.0
+offset_right = 112.0
+offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 0.56078434, 1)
-
-[node name="character" type="AnimatedSprite2D" parent="." unique_id=1152732566]
-position = Vector2(964, -200)
-rotation = 1.0157816
-scale = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_hqqrg")
-animation = &"waking up"
-
-[node name="title" type="Label" parent="." unique_id=943592653]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -425.0
-offset_top = -200.0
-offset_right = 425.0
-offset_bottom = -43.0
-grow_horizontal = 2
-pivot_offset = Vector2(423, 67)
-text = "기본 아이템 선택"
-label_settings = ExtResource("2_4h2o5")
+text = "도감"
+label_settings = ExtResource("5_gef26")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="arrows" type="HBoxContainer" parent="." unique_id=1517468267]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 405.0
-offset_right = 1176.0
-offset_bottom = 581.0
-pivot_offset = Vector2(213, 79)
-theme_override_constants/separation = 0
+[node name="chair" type="StaticBody2D" parent="playerble map" unique_id=567144780 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(440, 464)
+collision_layer = 2
+collision_mask = 2
 
-[node name="left arrow" type="TextureRect" parent="arrows" unique_id=1610613916]
-custom_minimum_size = Vector2(128, 128)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("3_vc5dc")
-flip_h = true
+[node name="AnimatedSprite2D" type="Sprite2D" parent="playerble map/chair" unique_id=759304589 groups=["object"]]
+scale = Vector2(8, 8)
+texture = ExtResource("5_4h2o5")
 
-[node name="left arrow button" type="TextureButton" parent="arrows/left arrow" unique_id=1282916140]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/chair" unique_id=2039804520 groups=["object"]]
+position = Vector2(-1, -3.5)
+shape = SubResource("RectangleShape2D_vc5dc")
+
+[node name="chair2" type="StaticBody2D" parent="playerble map" unique_id=1002651846 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(223, 873)
+collision_layer = 2
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="playerble map/chair2" unique_id=1265751683 groups=["object"]]
+scale = Vector2(8, 8)
+texture = ExtResource("6_vc5dc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/chair2" unique_id=898701614 groups=["object"]]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_e8dnh")
+
+[node name="shelf" type="Area2D" parent="playerble map" unique_id=509660447 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(1032, 425)
+collision_layer = 256
+collision_mask = 256
+
+[node name="shelf sprite" type="AnimatedSprite2D" parent="playerble map/shelf" unique_id=926723231 groups=["object"]]
+position = Vector2(0, -154)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_dmmsi")
+animation = &"normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/shelf" unique_id=1287972404 groups=["object"]]
+position = Vector2(-3, -163)
+shape = SubResource("RectangleShape2D_gef26")
+
+[node name="shelf label" type="Label" parent="playerble map/shelf" unique_id=665185653]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -317.0
+offset_right = 139.0
+offset_bottom = -266.0
 grow_horizontal = 2
 grow_vertical = 2
-disabled = true
+text = "시작 아이템"
+label_settings = ExtResource("5_gef26")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="empty" type="Control" parent="arrows" unique_id=1844374692]
-custom_minimum_size = Vector2(176, 176)
-custom_maximum_size = Vector2(176, 176)
-layout_mode = 2
+[node name="shelf2" type="StaticBody2D" parent="playerble map/shelf" unique_id=1853733995 groups=["object"]]
+physics_interpolation_mode = 1
+collision_layer = 2
+collision_mask = 2
 
-[node name="right arrow" type="TextureRect" parent="arrows" unique_id=1124540331]
-custom_minimum_size = Vector2(128, 128)
-custom_maximum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("3_vc5dc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/shelf/shelf2" unique_id=709187029 groups=["object"]]
+position = Vector2(-4, -163)
+shape = SubResource("RectangleShape2D_euqia")
 
-[node name="right arrow button" type="TextureButton" parent="arrows/right arrow" unique_id=308304648]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="stairs" type="Area2D" parent="playerble map" unique_id=1208138667 groups=["object"]]
+physics_interpolation_mode = 1
+position = Vector2(1536, 340)
+collision_layer = 256
+collision_mask = 256
+
+[node name="stairs" type="AnimatedSprite2D" parent="playerble map/stairs" unique_id=1838876684 groups=["object"]]
+position = Vector2(0, 52)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_gef26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/stairs" unique_id=1719701823 groups=["object"]]
+position = Vector2(-3, 43)
+shape = SubResource("RectangleShape2D_dmmsi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="playerble map/stairs" unique_id=1731944929]
+position = Vector2(0, 206)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerble map/stairs/StaticBody2D" unique_id=595539542]
+position = Vector2(2, -169)
+shape = SubResource("RectangleShape2D_huuin")
+
+[node name="game start label" type="Label" parent="playerble map/stairs" unique_id=497316471]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -169.0
+offset_right = 143.0
+offset_bottom = -118.0
 grow_horizontal = 2
 grow_vertical = 2
-disabled = true
-
-[node name="back button" type="Button" parent="." unique_id=1475827106]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 894.0
-offset_right = 504.0
-offset_bottom = 1037.0
-theme_override_font_sizes/font_size = 60
-disabled = true
-text = "돌아가기"
-
-[node name="game start button" type="Button" parent="." unique_id=675181459]
-layout_mode = 0
-offset_left = 1413.0
-offset_top = 894.0
-offset_right = 1876.0
-offset_bottom = 1037.0
-theme_override_font_sizes/font_size = 60
-disabled = true
 text = "게임 시작"
-
-[node name="option panel" type="NinePatchRect" parent="." unique_id=58338313]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -115.811035
-offset_top = -333.4132
-offset_right = -39.561035
-offset_bottom = -282.6632
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(8, 8)
-pivot_offset = Vector2(27.59842, 16.512398)
-texture = ExtResource("4_e8dnh")
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 3
-
-[node name="option" type="Control" parent="." unique_id=995021716]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 651.0
-offset_top = 631.0
-offset_right = -659.0
-offset_bottom = -43.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="item name" type="Label" parent="option" unique_id=2051629519]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -249.0
-offset_top = 26.0
-offset_right = 249.0
-offset_bottom = 123.0
-grow_horizontal = 2
-text = "아이템 없음"
-label_settings = SubResource("LabelSettings_hqqrg")
+label_settings = ExtResource("5_gef26")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="item option" type="Label" parent="option" unique_id=88669958]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -278.0
-offset_top = 123.0
-offset_right = 278.0
-offset_bottom = 368.0
-grow_horizontal = 2
-text = "아이템을 선택해주세요."
-label_settings = SubResource("LabelSettings_hqqrg")
-horizontal_alignment = 1
+[node name="Main Character" parent="playerble map" unique_id=1477450777 instance=ExtResource("8_euqia")]
+position = Vector2(785, 711)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1226210028]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=357476407]
+offset_left = 31.0
+offset_top = 973.0
+offset_right = 510.0
+offset_bottom = 1075.0
+text = "스페이스바로 상호작용"
+label_settings = ExtResource("5_gef26")
 vertical_alignment = 1
 
-[connection signal="pressed" from="arrows/left arrow/left arrow button" to="." method="_on_left_arrow_button_pressed"]
-[connection signal="pressed" from="arrows/right arrow/right arrow button" to="." method="_on_right_arrow_button_pressed"]
-[connection signal="pressed" from="back button" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="game start button" to="." method="_on_game_start_button_pressed"]
+[connection signal="area_entered" from="playerble map/book" to="." method="_on_book_area_entered"]
+[connection signal="area_exited" from="playerble map/book" to="." method="_on_book_area_exited"]
+[connection signal="area_entered" from="playerble map/shelf" to="." method="_on_shelf_area_entered"]
+[connection signal="area_exited" from="playerble map/shelf" to="." method="_on_shelf_area_exited"]
+[connection signal="area_entered" from="playerble map/stairs" to="." method="_on_stairs_area_entered"]
+[connection signal="area_exited" from="playerble map/stairs" to="." method="_on_stairs_area_exited"]

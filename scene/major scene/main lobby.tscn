@@ -1,7 +1,54 @@
 [gd_scene format=3 uid="uid://cxaohmmfdtjjo"]
 
 [ext_resource type="Script" uid="uid://bhjioukv1nm1k" path="res://script/scene script/main_lobby.gd" id="1_0uudh"]
-[ext_resource type="LabelSettings" uid="uid://hhscmm0uousa" path="res://Assets/fonts/font file/title fonts.tres" id="2_0uudh"]
+[ext_resource type="Texture2D" uid="uid://d4gwdim8uaxn7" path="res://Assets/images/map/back sky.png" id="2_wp4oy"]
+[ext_resource type="Texture2D" uid="uid://lusasl6vob2i" path="res://Assets/images/map/back.png" id="3_tor6f"]
+[ext_resource type="Texture2D" uid="uid://d2etdip05eixj" path="res://Assets/images/map/front.png" id="4_fmbow"]
+[ext_resource type="Texture2D" uid="uid://cxit6fw3f5t1n" path="res://Assets/images/map/back cloud.png" id="5_aieut"]
+[ext_resource type="Texture2D" uid="uid://ju1t5q7tyts2" path="res://Assets/images/map/cloud.png" id="6_k1t8d"]
+[ext_resource type="Texture2D" uid="uid://dci2imghp177v" path="res://Assets/images/UI/logo cloud.png" id="7_jcrd8"]
+[ext_resource type="Texture2D" uid="uid://qvu2telj5nsx" path="res://Assets/images/map/filter.png" id="7_tor6f"]
+[ext_resource type="Texture2D" uid="uid://cyswapvuvejc2" path="res://Assets/images/UI/logo farming.png" id="8_qm4q2"]
+[ext_resource type="Texture2D" uid="uid://b7ygtq0xrsty4" path="res://Assets/images/UI/logo over.png" id="9_2bo2l"]
+[ext_resource type="Texture2D" uid="uid://dt284538vv4ds" path="res://Assets/images/UI/logo item.png" id="10_r6ic3"]
+
+[sub_resource type="Animation" id="Animation_tor6f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cloud 2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 896)]
+}
+
+[sub_resource type="Animation" id="Animation_fmbow"]
+resource_name = "cloud anim"
+length = 100.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cloud 2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -400), Vector2(-2477, -400)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aieut"]
+_data = {
+&"RESET": SubResource("Animation_tor6f"),
+&"cloud anim": SubResource("Animation_fmbow")
+}
 
 [node name="main lobby" type="Control" unique_id=1608415228]
 layout_mode = 3
@@ -12,14 +59,154 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0uudh")
 
-[node name="ph background" type="ColorRect" parent="." unique_id=888511254]
+[node name="background" type="Control" parent="." unique_id=2071590786]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 0.56078434, 1)
+
+[node name="sky" type="TextureRect" parent="background" unique_id=1463299526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wp4oy")
+
+[node name="back ground" type="TextureRect" parent="background" unique_id=1502000678]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -243.556
+offset_top = 576.0
+offset_right = 243.55518
+offset_bottom = 849.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tor6f")
+
+[node name="front ground" type="TextureRect" parent="background" unique_id=1601281449]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -183.111
+offset_top = 1200.0
+offset_right = 183.11108
+offset_bottom = 1406.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fmbow")
+
+[node name="cloud" type="TextureRect" parent="background" unique_id=731016657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 195.55566
+offset_top = 938.0
+offset_right = -156.44434
+offset_bottom = 740.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_aieut")
+
+[node name="cloud 2" type="TextureRect" parent="background" unique_id=2094628260]
+layout_mode = 0
+offset_top = 896.0
+offset_right = 4955.791
+offset_bottom = 1979.0
+texture = ExtResource("6_k1t8d")
+
+[node name="filter" type="TextureRect" parent="background" unique_id=1593085637]
+modulate = Color(1, 1, 1, 0.11372549)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_tor6f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="background" unique_id=1385027469]
+libraries/ = SubResource("AnimationLibrary_aieut")
+
+[node name="logo" type="Control" parent="." unique_id=1702837961]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="logo cloud" type="TextureRect" parent="logo" unique_id=2098242882]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -1620.0
+offset_right = -252.99994
+offset_bottom = -1461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("7_jcrd8")
+
+[node name="logo items" type="TextureRect" parent="logo" unique_id=1887789271]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -297.0
+offset_right = 104.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(119, 81)
+texture = ExtResource("10_r6ic3")
+
+[node name="logo farming" type="TextureRect" parent="logo" unique_id=1734697065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -1620.0
+offset_right = -252.99994
+offset_bottom = -1461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("8_qm4q2")
+
+[node name="logo over" type="TextureRect" parent="logo" unique_id=2055992439]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -1620.0
+offset_right = -252.99994
+offset_bottom = -1461.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("9_2bo2l")
 
 [node name="buttons" type="Control" parent="." unique_id=1094694467]
 layout_mode = 1
@@ -80,21 +267,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 70
 text = "나가기"
-
-[node name="title" type="Label" parent="." unique_id=1910968966]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -667.0
-offset_top = -200.0
-offset_right = 667.0
-offset_bottom = 20.99997
-grow_horizontal = 2
-text = "OVER FARMING"
-label_settings = ExtResource("2_0uudh")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="button_up" from="buttons/game start" to="." method="_on_game_start_button_up"]
 [connection signal="pressed" from="buttons/game start" to="." method="_on_game_start_pressed"]

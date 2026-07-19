@@ -1,71 +1,63 @@
 extends Control
+@onready var book_sprite: AnimatedSprite2D = $"playerble map/book/book sprite"
+@onready var shelf_sprite: AnimatedSprite2D = $"playerble map/shelf/shelf sprite"
+@onready var game_start_label: Label = $"playerble map/stairs/game start label"
+@onready var book_label: Label = $"playerble map/book/book label"
+@onready var shelf_label: Label = $"playerble map/shelf/shelf label"
 
-@onready var character: AnimatedSprite2D = $character
-@onready var left_arrow: TextureRect = $"arrows/left arrow"
-@onready var right_arrow: TextureRect = $"arrows/right arrow"
-@onready var title_label: Label = $title
-
-@onready var left_arrow_button: TextureButton = $"arrows/left arrow/left arrow button"
-@onready var right_arrow_button: TextureButton = $"arrows/right arrow/right arrow button"
-@onready var back_button: Button = $"back button"
-@onready var game_start_button: Button = $"game start button"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	title_tween()
-	character_tween()
-	left_arrow.pivot_offset = left_arrow.size / 2
-	right_arrow.pivot_offset = right_arrow.size / 2
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_back_button_pressed() -> void:
+func title_show_tween(node):
+	var tween = create_tween()
+	tween.tween_property(node, "modulate", Color(1,1,1,1), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUAD)
 	
-	GlobalCanvas.white_transition("res://scene/major scene/main lobby.tscn")
-
-
-func _on_left_arrow_button_pressed() -> void:
-	left_arrow.scale = Vector2(1, 1)
-	Global.tween_ddiyong(left_arrow)
-
-
-func _on_right_arrow_button_pressed() -> void:
-	right_arrow.scale = Vector2(1, 1)
-	Global.tween_ddiyong(right_arrow)
-
-func title_tween():
+func title_hide_tween(node):
 	var tween = create_tween()
-	tween.tween_property(title_label, "position", Vector2(535, 34), 1)\
-		.set_trans(Tween.TRANS_QUART)\
-		.set_ease(Tween.EASE_OUT)
+	tween.tween_property(node, "modulate", Color(1,1,1,0), 0.3)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUAD)
 
-func character_tween():
-	character.frame = 0
+func ddiyong_tween(node):
+	var current_scale = node.scale
+	var target_scale = Vector2(current_scale.x * 0.8, current_scale.y * 1.4)
+	
 	var tween = create_tween()
-	tween.tween_interval(0.7)
-	tween.tween_property(character, "position", Vector2(964, 470), 0.3)
-	tween.parallel().tween_property(character, "rotation", 0, 0.3)
-	tween.tween_property(character, "position", Vector2(964, 450), 0.05)
-	tween.tween_property(character, "position", Vector2(964, 470), 0.05)
-	tween.tween_property(character, "position", Vector2(964, 465), 0.03)
-	tween.tween_property(character, "position", Vector2(964, 470), 0.03)
-	tween.tween_interval(0.7)
-	tween.tween_callback(func():
-		character.play("waking up")
-		await character.animation_finished
-		character.play("idle")
-		button_unlock()
-	)
+	tween.tween_property(node, "scale", target_scale, 0.05)
+	tween.tween_property(node, "scale", current_scale, 0.05)
 
-func button_unlock():
-	left_arrow_button.disabled = false
-	game_start_button.disabled = false
-	right_arrow_button.disabled = false
-	back_button.disabled = false
+func _on_book_area_entered(area: Area2D) -> void:
+	print(area)
+	if not area.is_in_group("player"):
+		return
+	ddiyong_tween(book_sprite)
+	book_sprite.play("open")
+	
+	title_show_tween(book_label)
+	
+func _on_book_area_exited(area: Area2D) -> void:
+	if not area.is_in_group("player"):
+		return
+	book_sprite.play("close")
+	ddiyong_tween(book_sprite)
+	title_hide_tween(book_label)
+
+func _on_shelf_area_entered(area: Area2D) -> void:
+	if not area.is_in_group("player"):
+		return
+	shelf_sprite.play("open")
+	ddiyong_tween(shelf_sprite)
+	title_show_tween(shelf_label)
+
+func _on_shelf_area_exited(area: Area2D) -> void:
+	if not area.is_in_group("player"):
+		return
+	shelf_sprite.play("close")
+	ddiyong_tween(shelf_sprite)
+	title_hide_tween(shelf_label)
+	
+func _on_stairs_area_entered(area: Area2D) -> void:
+	title_show_tween(game_start_label)
 
 
-func _on_game_start_button_pressed() -> void:
-	GlobalCanvas.white_transition("res://scene/major scene/main_game.tscn")
+func _on_stairs_area_exited(area: Area2D) -> void:
+	title_hide_tween(game_start_label)

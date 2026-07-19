@@ -45,6 +45,7 @@ plants=""
 player=""
 "dropped item"=""
 "yield marker"=""
+object=""
 
 [input]
 
@@ -104,6 +105,7 @@ shift={
 2d_physics/layer_5="dropped item"
 2d_physics/layer_7="remove plant"
 2d_physics/layer_8="UI collision"
+2d_physics/layer_9="object"
 
 [physics]
 

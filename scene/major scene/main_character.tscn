@@ -154,6 +154,9 @@ size = Vector2(68, 74)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyps2"]
 size = Vector2(60, 62)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uw5u"]
+size = Vector2(96, 128)
+
 [node name="Main Character" type="CharacterBody2D" unique_id=1477450777 groups=["player"]]
 physics_interpolation_mode = 1
 collision_mask = 3
@@ -207,10 +210,18 @@ collision_mask = 64
 shape = SubResource("RectangleShape2D_5xlbj")
 disabled = true
 
-[node name="ui area2d" type="Area2D" parent="." unique_id=2047555515]
+[node name="ui area2d" type="Area2D" parent="." unique_id=2047555515 groups=["player"]]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ui area2d" unique_id=458309720]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ui area2d" unique_id=458309720 groups=["player"]]
 position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_jyps2")
+
+[node name="object area2d" type="Area2D" parent="." unique_id=642917907 groups=["player"]]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="object area2d" unique_id=1615820250 groups=["player"]]
+position = Vector2(0, -54)
+shape = SubResource("RectangleShape2D_1uw5u")

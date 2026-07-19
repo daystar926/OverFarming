@@ -10,6 +10,8 @@ extends CharacterBody2D
 var last_direction: String = "down"
 
 func _ready() -> void:
+	Global.stat_refresh()
+	update_stat()
 	Global.all_stat_refresh.connect(update_stat)
 	Global.time_stop_signal.connect(character_stop)
 	Global.time_start_signal.connect(character_start)
@@ -33,7 +35,8 @@ func _process(delta: float) -> void:
 
 func update_stat():
 	speed = Global.total_move_speed
-
+	print(speed)
+	
 func _physics_process(delta: float) -> void:
 	if is_movable:
 		var input_vector := Vector2.ZERO
