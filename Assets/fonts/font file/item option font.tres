@@ -6,4 +6,4 @@
 font = ExtResource("1_hin7f")
 font_size = 20
 outline_size = 6
-outline_color = Color(0.21960784, 0.6627451, 0.7764706, 1)
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)

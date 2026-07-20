@@ -27,8 +27,8 @@
 [ext_resource type="LabelSettings" uid="uid://gf3ciuy3malt" path="res://Assets/fonts/font file/slot sa font.tres" id="18_hrcro"]
 [ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="19_yribu"]
 [ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="22_qsvq7"]
-[ext_resource type="Texture2D" uid="uid://ldi5x8vjasea" path="res://Assets/Placeholder/speed scale 1.png" id="27_nbbly"]
-[ext_resource type="Texture2D" uid="uid://dqdpyx6nr8rt5" path="res://Assets/Placeholder/menu.png" id="28_hrcro"]
+[ext_resource type="Texture2D" uid="uid://bl5h3xaw1ciq4" path="res://Assets/images/UI/icon time scale 1.png" id="28_hrcro"]
+[ext_resource type="Texture2D" uid="uid://bkyp0ka1bl3h6" path="res://Assets/images/UI/icon menu.png" id="29_4xxtj"]
 
 [sub_resource type="Animation" id="Animation_78176"]
 length = 0.001
@@ -253,12 +253,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -240.0
-offset_top = 164.0
+offset_top = 199.0
 offset_right = 240.0
-offset_bottom = 434.0
+offset_bottom = 469.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(11, 11)
+scale = Vector2(9, 9)
 pivot_offset = Vector2(239.09163, 133.5477)
 texture = ExtResource("6_nbbly")
 metadata/_edit_use_anchors_ = true
@@ -1618,13 +1618,13 @@ theme_override_constants/separation = 10
 [node name="speed button" type="TextureButton" parent="UI layer/setting UI/HBoxContainer" unique_id=774032380]
 custom_minimum_size = Vector2(108, 108)
 layout_mode = 2
-texture_normal = ExtResource("27_nbbly")
+texture_normal = ExtResource("28_hrcro")
 stretch_mode = 0
 
 [node name="back button" type="TextureButton" parent="UI layer/setting UI/HBoxContainer" unique_id=655250105]
 custom_minimum_size = Vector2(108, 108)
 layout_mode = 2
-texture_normal = ExtResource("28_hrcro")
+texture_normal = ExtResource("29_4xxtj")
 stretch_mode = 0
 
 [connection signal="area_entered" from="field/GridContainer/field_1/field_area_1" to="field" method="_on_field_area_1_area_entered"]

@@ -22,18 +22,18 @@ func _process(delta: float) -> void:
 
 func spawn_tween():
 	var tween = create_tween()
-	tween.tween_property(title_ui, "position", Vector2(0, 0), 0.6)\
+	tween.tween_property(title_ui, "position", Vector2(0, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_interval(0.2)
+	tween.tween_interval(0.4)
 	var tween2 = create_tween()
-	tween2.tween_interval(0.3)
-	tween2.tween_property(inventory_ui, "position", Vector2(0, 0), 0.6)\
+	tween2.tween_interval(0.2)
+	tween2.tween_property(inventory_ui, "position", Vector2(0, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	var tween3 = create_tween()
-	tween3.tween_interval(0.6)
-	tween3.tween_property(extra_shop_ui, "position", Vector2(0, 0), 0.6)\
+	tween3.tween_interval(0.4)
+	tween3.tween_property(extra_shop_ui, "position", Vector2(0, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func(): item_slot_setting())
@@ -42,9 +42,9 @@ func item_slot_setting():
 	slot_instances = [null, null, null]
 	var tween = create_tween()
 	tween.tween_callback(func():item_slot_setting1())
-	tween.tween_interval(0.3)
+	tween.tween_interval(0.15)
 	tween.tween_callback(func():item_slot_setting2())
-	tween.tween_interval(0.3)
+	tween.tween_interval(0.15)
 	tween.tween_callback(func():item_slot_setting3())
 	tween.tween_callback(func():selectable = true)
 
@@ -190,21 +190,27 @@ func grid_refresh():
 		
 	exit_tween()
 	
+func _unhandled_key_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_COMMA):
+		return
+	if Input.is_key_pressed(KEY_PERIOD):
+		return
+
 signal reward_exit
 func exit_tween():
 	var tween = create_tween()
-	tween.tween_property(title_ui, "position", Vector2(0, -300), 0.6)\
+	tween.tween_property(title_ui, "position", Vector2(0, -300), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_interval(0.2)
+	tween.tween_interval(0.3)
 	var tween2 = create_tween()
-	tween2.tween_interval(0.3)
-	tween2.tween_property(inventory_ui, "position", Vector2(700, 0), 0.6)\
+	tween2.tween_interval(0.2)
+	tween2.tween_property(inventory_ui, "position", Vector2(700, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	var tween3 = create_tween()
-	tween3.tween_interval(0.6)
-	tween3.tween_property(extra_shop_ui, "position", Vector2(700, 0), 0.6)\
+	tween3.tween_interval(0.3)
+	tween3.tween_property(extra_shop_ui, "position", Vector2(700, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func(): reward_exit.emit())

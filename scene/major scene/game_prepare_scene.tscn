@@ -503,6 +503,13 @@ text = "스페이스바로 상호작용"
 label_settings = ExtResource("5_gef26")
 vertical_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1057715544]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 488.0
+offset_right = 1127.0
+offset_bottom = 568.0
+
 [connection signal="area_entered" from="playerble map/book" to="." method="_on_book_area_entered"]
 [connection signal="area_exited" from="playerble map/book" to="." method="_on_book_area_exited"]
 [connection signal="area_entered" from="playerble map/shelf" to="." method="_on_shelf_area_entered"]

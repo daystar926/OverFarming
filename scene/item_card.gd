@@ -30,6 +30,7 @@ var slot_num: int
 @onready var item_option: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item option"
 @onready var animated_sprite_2d: AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
 
+@onready var card_panel_texture: TextureRect = $SubViewportContainer/SubViewport/CardTexture
 
 
 
@@ -66,7 +67,18 @@ func set_item(item):
 	item_name.text = str(item.item_name)
 	item_discription.text = str(item.discription)
 	item_option.text = str(item.item_option)
+	item_image.texture = item.icon
 	item_data = item
+	if item.item_id < 1900:
+		card_panel_texture.texture = preload("res://Assets/images/UI/card 1.png")
+	elif item.item_id < 2900:
+		card_panel_texture.texture = preload("res://Assets/images/UI/card 2.png")
+	elif item.item_id < 3900:
+		card_panel_texture.texture = preload("res://Assets/images/UI/card 3.png")
+	elif item.item_id < 4900:
+		card_panel_texture.texture = preload("res://Assets/images/UI/card 4.png")
+	elif item.item_id > 5000:
+		card_panel_texture.texture = preload("res://Assets/images/UI/card 5.png")
 
 func rotate_velocity(delta: float) -> void:
 	if not mouse_followable: return

@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	pass
 	
 	
-var current_gold = 6000
+var current_gold = 0
 var current_ticket = 0
 var reward_level = 1
 ### bgt = base grow time 기본 성장 시간
@@ -658,7 +658,6 @@ func round_clear_check():
 		round_clear = false
 	else:
 		print("라운드 클리어")
-		current_gold -= clear_requirments[current_round]
 		round_clear = true
 
 

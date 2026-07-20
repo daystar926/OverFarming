@@ -4,6 +4,8 @@
 [ext_resource type="LabelSettings" uid="uid://b8gffw16fqps0" path="res://Assets/fonts/font file/round clear check font.tres" id="1_ntkre"]
 [ext_resource type="Texture2D" uid="uid://b5tuyf8v7jpcw" path="res://Assets/images/plants/plants_item.png" id="2_fnf3a"]
 [ext_resource type="LabelSettings" uid="uid://bef6gn7fsdmsn" path="res://Assets/fonts/font file/round clear check font 2.tres" id="3_pnrp6"]
+[ext_resource type="Texture2D" uid="uid://brju6s7n1uen6" path="res://Assets/images/game over frame.png" id="5_budav"]
+[ext_resource type="Texture2D" uid="uid://comvpsqfdu7i5" path="res://Assets/images/UI/game over frame anim-Sheet.png" id="6_8ly2i"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_44gkf"]
 particles_animation = true
@@ -309,6 +311,42 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("game over frame:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, 60)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprite2D:frame")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Sprite2D:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_fnf3a"]
@@ -800,6 +838,58 @@ tracks/9/keys = {
 "values": [Vector2(510, 439.5), Vector2(510, 1200)]
 }
 
+[sub_resource type="Animation" id="Animation_darp5"]
+resource_name = "game over_3"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("game over frame:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.6000001, 2.5),
+"transitions": PackedFloat32Array(5.2780304, 1, 1, 1),
+"update": 0,
+"values": [Vector2(60, 60), Vector2(6, 6), Vector2(6, 6), Vector2(6, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.3333335, 2.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="Animation" id="Animation_0l3gm"]
 resource_name = "round check exit anim"
 tracks/0/type = "value"
@@ -823,6 +913,7 @@ _data = {
 &"clear_2": SubResource("Animation_f6p22"),
 &"game over": SubResource("Animation_budav"),
 &"game over_2": SubResource("Animation_8ly2i"),
+&"game over_3": SubResource("Animation_darp5"),
 &"round check exit anim": SubResource("Animation_0l3gm")
 }
 
@@ -869,7 +960,7 @@ anchor_bottom = 0.5
 offset_left = -383.0
 offset_top = -840.0
 offset_right = 799.0
-offset_bottom = -638.9995
+offset_bottom = -638.99963
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(590, 99.50006)
@@ -906,7 +997,7 @@ anchor_bottom = 0.5
 offset_left = -1577.0
 offset_top = -733.0
 offset_right = 1563.0
-offset_bottom = -531.995
+offset_bottom = -531.9946
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1589, 84.30847)
@@ -926,7 +1017,7 @@ anchor_bottom = 0.5
 offset_left = -1577.0
 offset_top = 560.0
 offset_right = 1563.0
-offset_bottom = 760.9971
+offset_bottom = 760.99756
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1589, 84.30847)
@@ -992,5 +1083,30 @@ offset_top = 79.0
 offset_right = 57.0
 offset_bottom = 123.0
 
+[node name="game over frame" type="TextureRect" parent="." unique_id=655903865]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -90.0
+offset_right = 180.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(60, 60)
+pivot_offset = Vector2(180.02383, 89.957695)
+texture = ExtResource("5_budav")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957031839]
+visible = false
+position = Vector2(959, 541.99994)
+scale = Vector2(6.32, 6.32)
+texture = ExtResource("6_8ly2i")
+hframes = 4
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -10,13 +10,20 @@ extends Control
 
 func _ready() -> void:
 	round_label.text = "ROUND " + str(Global.current_round)
-	label_2.text = "보유 골드: " + str(Global.format_num_custom(Global.current_gold + Global.clear_requirments[Global.current_round])) + " G"
+	label_2.text = "보유 골드: " + str(Global.format_num_custom(Global.current_gold)) + " G"
 	label_3.text = "필요 골드: " + str(Global.format_num_custom(Global.clear_requirments[Global.current_round])) + " G"
+	Global.current_gold -= Global.clear_requirments[Global.current_round]
 	animation_play()
 	
 var is_pressable = false
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if Input.is_key_pressed(KEY_COMMA):
+		return
+	if Input.is_key_pressed(KEY_PERIOD):
+		return
+
 func animation_play():
-	Engine.time_scale = 1
 	animation_player.play("1")
 	await animation_player.animation_finished
 	print("if 진입 전")
@@ -63,3 +70,10 @@ func round_check_exit():
 	Global.current_round += 1
 	rcs_exit.emit()
 	queue_free()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "game over_2":
+		animation_player.play("game over_3")
+	elif anim_name == "game over_3":
+		pass #여기에 게임 오버 씬으로 넘어가는 씬 만들기

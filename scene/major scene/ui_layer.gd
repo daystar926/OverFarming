@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var time_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var debug_label_2: Label = $"debug con/debug label2"
 @onready var speed_button: TextureButton = $"setting UI/HBoxContainer/speed button"
-
+var time_controlable = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.gold_changed.connect(gold_changed)
@@ -23,25 +23,31 @@ func _process(delta: float) -> void:
 	debug_label.text = "이속: " + str(Global.total_move_speed)
 
 func round_check():
+	current_time_scale = 1
+	engine_speed_setting()
+	
 	Global.time_stop()
 	Global.round_clear_check()
 	Global.ui_hide()
+	time_controlable = false
 	var rcs = preload("res://scene/round_check_scene.tscn").instantiate()
 	add_child(rcs)
 	rcs.rcs_exit.connect(next_day_start)
 	
+
 func next_day_start():
 	time_modulate.go_to_next_morning()
 	Global.ui_show()
 	Global.time_start()
-
-
+	time_controlable = true
 
 
 
 func set_daytime(day, hour, minute):
 	debug_label_2.text = str(day) + "번째 날, " + str(hour) + "시 " + str(minute) + "분"
-
+	
+	
+	
 func gold_changed():
 	gold_label.text = str(Global.current_gold) + " G"
 	Global.tween_ddiyong(gold_label)
@@ -52,37 +58,39 @@ func _on_button_pressed() -> void:
 
 var current_time_scale = 1
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("speed_up"):
-		if current_time_scale >= 3:
-			return
-		current_time_scale += 1
-		engine_speed_setting()
-	elif Input.is_action_just_pressed("speed_down"):
-		if current_time_scale <= 0:
-			return
-		current_time_scale -= 1
-		engine_speed_setting()
+	if time_controlable:
+		if Input.is_action_just_pressed("speed_up"):
+			if current_time_scale >= 3:
+				return
+			current_time_scale += 1
+			engine_speed_setting()
+		elif Input.is_action_just_pressed("speed_down"):
+			if current_time_scale <= 0:
+				return
+			current_time_scale -= 1
+			engine_speed_setting()
 
 
-func engine_speed_setting():
+func engine_speed_setting(): # 시간 배속 감속 잠금은 클리어씬 소환함수, next_day_start() 함수에서 처리
+	
 	Engine.time_scale = current_time_scale
 	match current_time_scale:
 		0:
-			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 0.png")
-			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 0.png")
-			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 0.png")
+			speed_button.texture_normal = preload("res://Assets/images/UI/icon pause.png")
+			speed_button.texture_pressed = preload("res://Assets/images/UI/icon pause.png")
+			speed_button.texture_hover = preload("res://Assets/images/UI/icon pause.png")
 		1:
-			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 1.png")
-			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 1.png")
-			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 1.png")
+			speed_button.texture_normal = preload("res://Assets/images/UI/icon time scale 1.png")
+			speed_button.texture_pressed = preload("res://Assets/images/UI/icon time scale 1.png")
+			speed_button.texture_hover = preload("res://Assets/images/UI/icon time scale 1.png")
 		2:
-			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 2.png")
-			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 2.png")
-			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 2.png")
+			speed_button.texture_normal = preload("res://Assets/images/UI/icon time scale 2.png")
+			speed_button.texture_pressed = preload("res://Assets/images/UI/icon time scale 2.png")
+			speed_button.texture_hover = preload("res://Assets/images/UI/icon time scale 2.png")
 		3:
-			speed_button.texture_normal = preload("res://Assets/Placeholder/speed scale 3.png")
-			speed_button.texture_pressed = preload("res://Assets/Placeholder/speed scale 3.png")
-			speed_button.texture_hover = preload("res://Assets/Placeholder/speed scale 3.png")
+			speed_button.texture_normal = preload("res://Assets/images/UI/icon time scale 3.png")
+			speed_button.texture_pressed = preload("res://Assets/images/UI/icon time scale 3.png")
+			speed_button.texture_hover = preload("res://Assets/images/UI/icon time scale 3.png")
 
 
 func _on_button_2_pressed() -> void:
