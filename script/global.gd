@@ -8,6 +8,11 @@ func _process(delta: float) -> void:
 	pass
 	
 	
+# ================ 게임 결과 변수 ===============
+var play_time: float = 0
+var total_plants: int = 0
+var total_gold = 0
+
 var current_gold = 0
 var current_ticket = 0
 var reward_level = 1
@@ -544,8 +549,9 @@ var bonus_gold_percent = 0
 signal gold_changed
 func add_gold(amount):
 	current_gold += int(round(amount * clamp(1+ (bonus_gold_percent * 0.01), 1, 100000000000) + bonus_gold))
+	total_gold += int(round(amount * clamp(1+ (bonus_gold_percent * 0.01), 1, 100000000000) + bonus_gold))
 	emit_signal("gold_changed")
-	
+
 func tween_ddiyong(node):
 	var tween = create_tween()
 	tween.tween_property(node, "scale", Vector2(1.2, 0.8), 0.07)
@@ -897,3 +903,85 @@ var item_inventory: Array = []
 func money_get_label(money):
 	var money_label = preload("res://scene/money_get_label.tscn").instantiate()
 	add_child(money_label)
+
+func format_time(total_seconds: int) -> String:
+	var hours = total_seconds / 3600
+	var minutes = (total_seconds % 3600) / 60
+	var seconds = total_seconds % 60
+	
+	if hours > 0:
+		return "%d시간 %02d분 %02d초" % [hours, minutes, seconds]
+	elif minutes > 0:
+		return "%02d분 %02d초" % [minutes, seconds]
+	else:
+		return "%02d초" % [seconds]
+
+
+func reset_for_new_game() -> void:
+	# 게임 결과 / 진행
+	play_time = 0
+	total_plants = 0
+	total_gold = 0
+	current_gold = 0
+	current_ticket = 0
+	reward_level = 1
+	current_round = 1
+	round_clear = false
+
+	# 이동 속도
+	additional_move_speed = 0
+	decrease_move_speed = 0
+	total_move_speed = 0
+
+	# 골드 보너스
+	bonus_gold = 0
+	bonus_gold_percent = 0
+
+	# 드랍 범위
+	drop_item_distance_increase = 0
+	drop_item_distance_decrease = 0
+	drop_item_distance_total = 0
+
+	# 전체 작물 공용
+	gt_reduce_percent_all_plants = 0
+	gt_reduce_all_plants = 0
+	gt_increase_percent_all_plants = 0
+	gt_increase_all_plants = 0
+	fa_increase_percent_all_plants = 0
+	da_add_all = 0
+	item_reward_chance = 1
+
+	# 인벤토리 / 필드
+	item_inventory.clear()
+	occupied_fields.clear()
+
+	# 작물별 스탯 초기화
+	_reset_all_crop_stats()
+
+
+
+
+func _reset_all_crop_stats() -> void:
+	var crops = ["rice", "wheat", "cabbage", "grape", "onion", "corn", "bean", "pumpkin", "tomato"]
+	for c in crops:
+		set("da_chance_" + c, 0)
+		set("da_increase_" + c, 0)
+		set("gt_reduce_percent_" + c, 0)
+		set("gt_reduce_" + c, 0)
+		set("gt_increase_percent_" + c, 0)
+		set("gt_increase_" + c, 0)
+		set("fa_increase_percent_" + c, 0)
+		set("fa_increase_" + c, 0)
+		set("fa_reduce_percent_" + c, 0)
+		set("fa_reduce_" + c, 0)
+		set("sa_add_" + c, 0)
+		set("sa_total_" + c, 3)
+
+	# bgt 계열이 있는 작물만 별도 처리
+	var bgt_crops = ["grape", "corn", "bean", "tomato"]
+	for c in bgt_crops:
+		set("bgt_reduce_percent_" + c, 0)
+		set("bgt_reduce_" + c, 0)
+		set("bgt_increase_percent_" + c, 0)
+		set("bgt_increase_" + c, 0)
+	stat_refresh()

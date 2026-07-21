@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cmw8j2rc80k42"]
+
+[ext_resource type="Script" uid="uid://caa3xb7xckrlx" path="res://script/inventory_slot_2.gd" id="1_tfc61"]
+
+[node name="inventory slot 2" type="Control" unique_id=1280829156]
+custom_minimum_size = Vector2(144, 144)
+custom_maximum_size = Vector2(144, 144)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1776.0
+offset_bottom = -936.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfc61")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1546700155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

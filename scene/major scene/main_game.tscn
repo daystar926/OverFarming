@@ -243,7 +243,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=456276528]
 z_index = -1
 scroll_scale = Vector2(0.6, 0.3)
-scroll_offset = Vector2(750, -348)
+scroll_offset = Vector2(750, -226)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D6" unique_id=784296239]
 z_index = -1

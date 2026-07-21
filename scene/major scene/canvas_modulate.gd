@@ -24,9 +24,12 @@ func _ready():
 
 var time_passable = true
 func _process(delta: float) -> void:
+	if Engine.time_scale > 0:
+			Global.play_time += delta / Engine.time_scale
 	if time_passable:
+		
 		time += delta
-
+		
 		# 0~1 사이 값으로 하루 진행률을 구함 (fmod로 하루마다 반복)
 		var day_progress = fmod(time, day_length_seconds) / day_length_seconds
 		var angle = day_progress * 2.0 * PI

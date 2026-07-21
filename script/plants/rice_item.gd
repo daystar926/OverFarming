@@ -41,6 +41,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	money_get_anim(Global.fa_total_rice)
 	Global.stat_refresh()
+	Global.total_plants += 1
 	$CollisionShape2D.disabled = true
 	set_process(false)
 	$AnimatedSprite2D.play("suck")

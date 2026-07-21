@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cyswapvuvejc2" path="res://Assets/images/UI/logo farming.png" id="8_qm4q2"]
 [ext_resource type="Texture2D" uid="uid://b7ygtq0xrsty4" path="res://Assets/images/UI/logo over.png" id="9_2bo2l"]
 [ext_resource type="Texture2D" uid="uid://dt284538vv4ds" path="res://Assets/images/UI/logo item.png" id="10_r6ic3"]
+[ext_resource type="Texture2D" uid="uid://b5eylqoglunww" path="res://Assets/images/UI/button 73x18 normal.png" id="12_qm4q2"]
+[ext_resource type="Texture2D" uid="uid://bs1jjjxwrl61m" path="res://Assets/images/UI/button 73x18 pressed.png" id="13_2bo2l"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="14_r6ic3"]
+[ext_resource type="Texture2D" uid="uid://do5pj6its5wuy" path="res://Assets/images/UI/button 60x13 normal.png" id="15_xqbj5"]
+[ext_resource type="Texture2D" uid="uid://0emqjwd65uh3" path="res://Assets/images/UI/button 60x13 pressed.png" id="16_ad7or"]
 
 [sub_resource type="Animation" id="Animation_tor6f"]
 length = 0.001
@@ -49,6 +54,20 @@ _data = {
 &"RESET": SubResource("Animation_tor6f"),
 &"cloud anim": SubResource("Animation_fmbow")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_huuin"]
+font = ExtResource("14_r6ic3")
+font_size = 80
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 25
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b70eo"]
+font = ExtResource("14_r6ic3")
+font_size = 50
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 14
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
 [node name="main lobby" type="Control" unique_id=1608415228]
 layout_mode = 3
@@ -218,7 +237,7 @@ offset_right = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="game start" type="Button" parent="buttons" unique_id=423103027]
+[node name="game start" type="TextureButton" parent="buttons" unique_id=512833815]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -228,12 +247,26 @@ anchor_bottom = 1.0
 offset_left = -624.0
 offset_top = -583.0
 offset_right = -36.0
-offset_bottom = -438.0
+offset_bottom = -436.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(294, 72)
-theme_override_font_sizes/font_size = 100
+texture_normal = ExtResource("12_qm4q2")
+texture_pressed = ExtResource("13_2bo2l")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="buttons/game start" unique_id=679418475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "게임 시작"
+label_settings = SubResource("LabelSettings_huuin")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="buttons" unique_id=149012819]
 layout_mode = 1
@@ -250,23 +283,65 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="option" type="Button" parent="buttons/VBoxContainer" unique_id=1944164683]
+[node name="option" type="TextureButton" parent="buttons/VBoxContainer" unique_id=1633233711]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
+texture_normal = ExtResource("15_xqbj5")
+texture_pressed = ExtResource("16_ad7or")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="buttons/VBoxContainer/option" unique_id=1274282919]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "옵션"
+label_settings = SubResource("LabelSettings_b70eo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="discord" type="Button" parent="buttons/VBoxContainer" unique_id=1264751848]
+[node name="discord" type="TextureButton" parent="buttons/VBoxContainer" unique_id=1563719385]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
+texture_normal = ExtResource("15_xqbj5")
+texture_pressed = ExtResource("16_ad7or")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="buttons/VBoxContainer/discord" unique_id=931299894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "디스코드"
+label_settings = SubResource("LabelSettings_b70eo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="exit" type="Button" parent="buttons/VBoxContainer" unique_id=510937292]
+[node name="exit" type="TextureButton" parent="buttons/VBoxContainer" unique_id=935287379]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 70
-text = "나가기"
+texture_normal = ExtResource("15_xqbj5")
+texture_pressed = ExtResource("16_ad7or")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="buttons/VBoxContainer/exit" unique_id=669102060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "게임 종료"
+label_settings = SubResource("LabelSettings_b70eo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="buttons/game start" to="." method="_on_game_start_button_up"]
 [connection signal="pressed" from="buttons/game start" to="." method="_on_game_start_pressed"]

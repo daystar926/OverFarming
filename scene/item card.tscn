@@ -17,9 +17,10 @@ shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_faoja"]
+line_spacing = 10.0
 font = ExtResource("7_kg023")
 font_size = 15
-outline_size = 4
+outline_size = 8
 outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg023"]
@@ -114,6 +115,7 @@ material = SubResource("ShaderMaterial_my1pl")
 layout_mode = 0
 offset_right = 360.0
 offset_bottom = 480.0
+scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(180, 240)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1738759752]
@@ -142,9 +144,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.0
-offset_top = 227.0
-offset_right = 95.0
+offset_left = -137.0
+offset_top = 226.0
+offset_right = 136.0
 offset_bottom = 289.0
 grow_horizontal = 2
 text = "테스트 이름"

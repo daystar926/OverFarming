@@ -42,6 +42,7 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	money_get_anim(Global.fa_total_cabbage)
 	Global.stat_refresh()
+	Global.total_plants += 1
 	$CollisionShape2D.disabled = true
 	set_process(false)
 	$AnimatedSprite2D.play("suck")
@@ -54,7 +55,7 @@ func _on_area_entered(area: Area2D) -> void:
 	)
 	tween.tween_interval(1)
 	tween.tween_callback(func(): queue_free())
-
+	
 func money_get_anim(money):
 	$Label.visible = true
 	$Label.text = "+ " + str(Global.format_num_custom(money)) + " G"
