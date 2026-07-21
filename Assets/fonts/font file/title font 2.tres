@@ -7,4 +7,4 @@ font = ExtResource("1_2p2tj")
 font_size = 70
 font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
 outline_size = 20
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)

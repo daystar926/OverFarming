@@ -14,12 +14,56 @@
 [ext_resource type="Texture2D" uid="uid://dobp0nw6gwmw3" path="res://Assets/images/UI/button normal upgrade item rarity.png" id="12_wkrpb"]
 [ext_resource type="Texture2D" uid="uid://8x7pwqohqbag" path="res://Assets/images/UI/button pressed upgrade item rarity.png" id="13_8vfyc"]
 [ext_resource type="LabelSettings" uid="uid://1nrwihu3rk8n" path="res://Assets/fonts/font file/shop medium fonts.tres" id="14_b01vy"]
+[ext_resource type="Texture2D" uid="uid://dpus0y8hlxbev" path="res://Assets/images/UI/seed card 1.png" id="15_udjeg"]
+[ext_resource type="Texture2D" uid="uid://c6rif5xmsnu3b" path="res://Assets/images/UI/button gray 45x13 normal.png" id="15_wkrpb"]
+[ext_resource type="Texture2D" uid="uid://c1ocf5yogxdqy" path="res://Assets/images/UI icons/red crystal.png" id="15_yktyb"]
+[ext_resource type="Texture2D" uid="uid://d0v4h2wp2k686" path="res://Assets/images/UI/seed card 1 hover.png" id="16_88owg"]
+[ext_resource type="Texture2D" uid="uid://c5knswbiqad76" path="res://Assets/images/UI/button gray 45x13 pressed.png" id="16_b01vy"]
+[ext_resource type="Script" uid="uid://yaf6skkmhnwg" path="res://script/buttons_tween_2.gd" id="17_88owg"]
+[ext_resource type="Texture2D" uid="uid://chbf061du71uk" path="res://Assets/images/UI/button gray 45x13 hover.png" id="17_o62pv"]
+[ext_resource type="Script" uid="uid://12u5concmbsf" path="res://script/buttons_tween.gd" id="18_o62pv"]
+[ext_resource type="Texture2D" uid="uid://cj0vhvctg8cd0" path="res://Assets/images/UI/seed card 2.png" id="18_ow0u8"]
+[ext_resource type="Texture2D" uid="uid://cdoyog8gbf5c5" path="res://Assets/images/UI/button 45x13 normal.png" id="19_gqld3"]
+[ext_resource type="Texture2D" uid="uid://d3gw2fulgoh4b" path="res://Assets/images/UI/seed card 2 hover.png" id="19_q23wc"]
+[ext_resource type="Texture2D" uid="uid://b1fayftx62oo4" path="res://Assets/images/UI/seed card 3.png" id="20_myo20"]
+[ext_resource type="Texture2D" uid="uid://bc6dep5vpmugb" path="res://Assets/images/UI/button 45x13 pressed.png" id="20_yktyb"]
+[ext_resource type="Texture2D" uid="uid://w2xhya3rfwwi" path="res://Assets/images/UI/seed card 3 hover.png" id="21_4mt1f"]
+[ext_resource type="Texture2D" uid="uid://b5wnkw4n4ohd8" path="res://Assets/images/UI/button 45x13 hover.png" id="21_53kre"]
+[ext_resource type="Texture2D" uid="uid://dffqeyxkcpapl" path="res://Assets/images/UI/sy card 1.png" id="30_ow0u8"]
+[ext_resource type="Texture2D" uid="uid://cdbskxi4hmus6" path="res://Assets/images/UI/panel 1.png" id="31_q23wc"]
+[ext_resource type="Texture2D" uid="uid://y8i7tq8q7neb" path="res://Assets/images/UI/sy card 2.png" id="32_myo20"]
+[ext_resource type="Texture2D" uid="uid://dict8jvy8oxp2" path="res://Assets/images/UI/sy card 3.png" id="33_4mt1f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_huuin"]
 font = ExtResource("4_8pl01")
-font_size = 50
+font_size = 55
 font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
-outline_size = 17
+outline_size = 24
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_182vq"]
+font = ExtResource("4_8pl01")
+font_size = 40
+font_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdd4v"]
+font = ExtResource("4_8pl01")
+font_size = 55
+font_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_utxwm"]
+font = ExtResource("4_8pl01")
+font_size = 45
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 15
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_44gkf"]
+line_spacing = 20.0
+font = ExtResource("4_8pl01")
+font_size = 40
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 15
 outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
 [node name="reward scene" type="Control" unique_id=154596221]
@@ -199,11 +243,11 @@ patch_margin_bottom = 20
 [node name="Label" type="Label" parent="extra shop ui" unique_id=1892184146]
 layout_mode = 0
 offset_left = 1444.0
-offset_top = 87.0
+offset_top = 93.0
 offset_right = 1802.0
-offset_bottom = 138.0
+offset_bottom = 149.0
 pivot_offset = Vector2(179, 26)
-text = "모종 추가 상점"
+text = "시너지 뽑기"
 label_settings = SubResource("LabelSettings_huuin")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -215,18 +259,247 @@ offset_top = 439.0
 offset_right = 1444.0
 offset_bottom = 451.0
 scale = Vector2(8, 8)
+disabled = true
 texture_normal = ExtResource("12_wkrpb")
 texture_pressed = ExtResource("13_8vfyc")
 
-[node name="crt synergy label" type="Label" parent="extra shop ui" unique_id=1026767469]
+[node name="crystal amount" type="Label" parent="extra shop ui" unique_id=1026767469]
 layout_mode = 0
-offset_left = 1394.0
-offset_top = 459.0
-offset_right = 1844.0
-offset_bottom = 514.0
-text = "아이템 희귀도 레벨업"
+offset_left = 1420.0
+offset_top = 462.0
+offset_right = 1619.0
+offset_bottom = 517.0
+text = "보유 보석:"
 label_settings = ExtResource("14_b01vy")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="crystal amount2" type="Label" parent="extra shop ui" unique_id=1237195184]
+layout_mode = 0
+offset_left = 1633.0
+offset_top = 461.0
+offset_right = 1848.0
+offset_bottom = 516.0
+text = "1,325 개"
+label_settings = ExtResource("14_b01vy")
+vertical_alignment = 1
+
+[node name="con" type="Control" parent="extra shop ui" unique_id=1259955242]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -518.0
+offset_top = -386.0
+offset_right = -84.0
+offset_bottom = -122.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(194, 117)
+
+[node name="MarginContainer" type="MarginContainer" parent="extra shop ui/con" unique_id=524434599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="extra shop ui/con/MarginContainer" unique_id=937996693]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="extra shop ui/con/MarginContainer/HBoxContainer" unique_id=2034056496]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="synergy 1" type="TextureButton" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control" unique_id=1193492203]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 17.0
+offset_right = 56.0
+offset_bottom = 169.0
+grow_horizontal = 2
+pivot_offset = Vector2(56, 76)
+texture_normal = ExtResource("15_udjeg")
+texture_pressed = ExtResource("15_udjeg")
+texture_hover = ExtResource("16_88owg")
+stretch_mode = 0
+script = ExtResource("17_88owg")
+
+[node name="TextureRect" type="TextureRect" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control" unique_id=1499210814]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 192.0
+offset_right = 52.0
+offset_bottom = 240.0
+pivot_offset = Vector2(20, 24)
+texture = ExtResource("15_yktyb")
+
+[node name="Label" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control" unique_id=33369726]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -87.0
+offset_right = 15.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "X"
+label_settings = SubResource("LabelSettings_182vq")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control" unique_id=2055830885]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -87.0
+offset_right = 59.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "5"
+label_settings = SubResource("LabelSettings_kdd4v")
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="extra shop ui/con/MarginContainer/HBoxContainer" unique_id=1823942179]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="synergy 2" type="TextureButton" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control2" unique_id=1380341546]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 17.0
+offset_right = 56.0
+offset_bottom = 169.0
+grow_horizontal = 2
+pivot_offset = Vector2(56, 76)
+texture_normal = ExtResource("18_ow0u8")
+texture_pressed = ExtResource("18_ow0u8")
+texture_hover = ExtResource("19_q23wc")
+stretch_mode = 0
+script = ExtResource("17_88owg")
+
+[node name="TextureRect" type="TextureRect" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control2" unique_id=1176197363]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 192.0
+offset_right = 52.0
+offset_bottom = 240.0
+pivot_offset = Vector2(20, 24)
+texture = ExtResource("15_yktyb")
+
+[node name="Label" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control2" unique_id=1279767873]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -87.0
+offset_right = 15.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "X"
+label_settings = SubResource("LabelSettings_182vq")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control2" unique_id=1580039662]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -87.0
+offset_right = 59.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "5"
+label_settings = SubResource("LabelSettings_kdd4v")
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="extra shop ui/con/MarginContainer/HBoxContainer" unique_id=903453235]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="synergy 3" type="TextureButton" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control3" unique_id=1492058154]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 17.0
+offset_right = 56.0
+offset_bottom = 169.0
+grow_horizontal = 2
+pivot_offset = Vector2(56, 76)
+texture_normal = ExtResource("20_myo20")
+texture_pressed = ExtResource("20_myo20")
+texture_hover = ExtResource("21_4mt1f")
+stretch_mode = 0
+script = ExtResource("17_88owg")
+
+[node name="TextureRect" type="TextureRect" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control3" unique_id=401558160]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 192.0
+offset_right = 52.0
+offset_bottom = 240.0
+pivot_offset = Vector2(20, 24)
+texture = ExtResource("15_yktyb")
+
+[node name="Label" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control3" unique_id=1094860152]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -87.0
+offset_right = 15.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "X"
+label_settings = SubResource("LabelSettings_182vq")
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="extra shop ui/con/MarginContainer/HBoxContainer/Control3" unique_id=1168720264]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -87.0
+offset_right = 59.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "5"
+label_settings = SubResource("LabelSettings_kdd4v")
 vertical_alignment = 1
 
 [node name="slot 1" type="Node2D" parent="." unique_id=889063383]
@@ -247,4 +520,543 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
+[node name="skip select button" type="TextureButton" parent="." unique_id=24476734]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 881.0
+offset_right = 875.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+texture_normal = ExtResource("15_wkrpb")
+texture_pressed = ExtResource("16_b01vy")
+texture_hover = ExtResource("17_o62pv")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="skip select button" unique_id=744986745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "건너뛰기"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="plants check button" type="TextureButton" parent="." unique_id=1807178915]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 881.0
+offset_right = 464.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+texture_normal = ExtResource("19_gqld3")
+texture_pressed = ExtResource("20_yktyb")
+texture_hover = ExtResource("21_53kre")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="plants check button" unique_id=427861453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "작물 확인"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reroll button" type="TextureButton" parent="." unique_id=1078816]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 881.0
+offset_right = 1288.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+texture_normal = ExtResource("19_gqld3")
+texture_pressed = ExtResource("20_yktyb")
+texture_hover = ExtResource("21_53kre")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="reroll button" unique_id=595044911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "새로고침"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 1" type="Control" parent="." unique_id=173212448]
+visible = false
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="synergy 1 color mat" type="ColorRect" parent="synergy 1" unique_id=1821578759]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="synergy 1 paper bag" type="TextureRect" parent="synergy 1" unique_id=1567001537]
+z_index = 15
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -250.0
+offset_right = 188.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(188, 248)
+texture = ExtResource("30_ow0u8")
+
+[node name="synergy 1 close button" type="TextureButton" parent="synergy 1" unique_id=928993264]
+z_index = 15
+layout_mode = 0
+offset_left = 546.0
+offset_top = 881.0
+offset_right = 906.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("15_wkrpb")
+texture_pressed = ExtResource("16_b01vy")
+texture_hover = ExtResource("17_o62pv")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 1/synergy 1 close button" unique_id=335053159]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "취소"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 1 buy button" type="TextureButton" parent="synergy 1" unique_id=1721575943]
+z_index = 15
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 881.0
+offset_right = 1380.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("19_gqld3")
+texture_pressed = ExtResource("20_yktyb")
+texture_hover = ExtResource("21_53kre")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 1/synergy 1 buy button" unique_id=206875985]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "구매하기"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 1 panel" type="Control" parent="synergy 1" unique_id=960270656]
+z_index = 15
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 431.0
+offset_right = 724.0
+offset_bottom = 634.0
+pivot_offset = Vector2(264, 165)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="synergy 1/synergy 1 panel" unique_id=2072946627]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 94.0
+offset_right = -291.0
+offset_bottom = -84.58594
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(41.5, 12.1640625)
+texture = ExtResource("31_q23wc")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="synergy 1/synergy 1 panel" unique_id=512110354]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "랜덤한 시너지가 들어있는 봉투
+한 개 중 하나를 선택합니다."
+label_settings = SubResource("LabelSettings_44gkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 2" type="Control" parent="." unique_id=174281897]
+visible = false
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="synergy 2 color mat" type="ColorRect" parent="synergy 2" unique_id=1323332137]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="synergy 2 paper bag" type="TextureRect" parent="synergy 2" unique_id=1593576427]
+z_index = 15
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -250.0
+offset_right = 188.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(188, 248)
+texture = ExtResource("32_myo20")
+
+[node name="synergy 2 close button" type="TextureButton" parent="synergy 2" unique_id=498353160]
+z_index = 15
+layout_mode = 0
+offset_left = 546.0
+offset_top = 881.0
+offset_right = 906.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("15_wkrpb")
+texture_pressed = ExtResource("16_b01vy")
+texture_hover = ExtResource("17_o62pv")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 2/synergy 2 close button" unique_id=1560648745]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "취소"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 2 buy button" type="TextureButton" parent="synergy 2" unique_id=153511400]
+z_index = 15
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 881.0
+offset_right = 1380.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("19_gqld3")
+texture_pressed = ExtResource("20_yktyb")
+texture_hover = ExtResource("21_53kre")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 2/synergy 2 buy button" unique_id=1630703211]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "구매하기"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 2 panel" type="Control" parent="synergy 2" unique_id=107347392]
+z_index = 15
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 431.0
+offset_right = 724.0
+offset_bottom = 634.0
+pivot_offset = Vector2(264, 165)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="synergy 2/synergy 2 panel" unique_id=1929614806]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 94.0
+offset_right = -291.0
+offset_bottom = -84.58594
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(41.5, 12.1640625)
+texture = ExtResource("31_q23wc")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="synergy 2/synergy 2 panel" unique_id=512188843]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "랜덤한 시너지가 들어있는 봉투
+세 개 중 하나를 선택합니다."
+label_settings = SubResource("LabelSettings_44gkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 3" type="Control" parent="." unique_id=292416527]
+visible = false
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="synergy 3 color mat" type="ColorRect" parent="synergy 3" unique_id=1195078961]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="synergy 3 paper bag" type="TextureRect" parent="synergy 3" unique_id=44426023]
+z_index = 15
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -250.0
+offset_right = 188.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(188, 248)
+texture = ExtResource("33_4mt1f")
+
+[node name="synergy 3 close button" type="TextureButton" parent="synergy 3" unique_id=1963431949]
+z_index = 15
+layout_mode = 0
+offset_left = 546.0
+offset_top = 881.0
+offset_right = 906.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("15_wkrpb")
+texture_pressed = ExtResource("16_b01vy")
+texture_hover = ExtResource("17_o62pv")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 3/synergy 3 close button" unique_id=751451100]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "취소"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 3 buy button" type="TextureButton" parent="synergy 3" unique_id=1995848068]
+z_index = 15
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 881.0
+offset_right = 1380.0
+offset_bottom = 985.0
+pivot_offset = Vector2(180, 52)
+mouse_filter = 2
+texture_normal = ExtResource("19_gqld3")
+texture_pressed = ExtResource("20_yktyb")
+texture_hover = ExtResource("21_53kre")
+stretch_mode = 0
+script = ExtResource("18_o62pv")
+
+[node name="Label" type="Label" parent="synergy 3/synergy 3 buy button" unique_id=1686665298]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "구매하기"
+label_settings = SubResource("LabelSettings_utxwm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="synergy 3 panel" type="Control" parent="synergy 3" unique_id=1156405926]
+z_index = 15
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 431.0
+offset_right = 724.0
+offset_bottom = 634.0
+pivot_offset = Vector2(264, 165)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="synergy 3/synergy 3 panel" unique_id=2084685169]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 94.0
+offset_right = -291.0
+offset_bottom = -84.58594
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(41.5, 12.1640625)
+texture = ExtResource("31_q23wc")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="synergy 3/synergy 3 panel" unique_id=598357927]
+z_index = 15
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 56.5
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "랜덤한 시너지가 들어있는 봉투
+다섯 개 중 하나를 선택합니다."
+label_settings = SubResource("LabelSettings_44gkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" to="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" to="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" method="_on_mouse_exited"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" to="." method="_on_synergy_1_pressed"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" to="extra shop ui/con/MarginContainer/HBoxContainer/Control/synergy 1" method="_on_pressed"]
+[connection signal="mouse_entered" from="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" to="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" to="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" method="_on_mouse_exited"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" to="." method="_on_synergy_2_pressed"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" to="extra shop ui/con/MarginContainer/HBoxContainer/Control2/synergy 2" method="_on_pressed"]
+[connection signal="mouse_entered" from="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" to="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" to="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" method="_on_mouse_exited"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" to="." method="_on_synergy_3_pressed"]
+[connection signal="pressed" from="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" to="extra shop ui/con/MarginContainer/HBoxContainer/Control3/synergy 3" method="_on_pressed"]
 [connection signal="pressed" from="debug button 1" to="." method="_on_debug_button_1_pressed"]
+[connection signal="mouse_entered" from="skip select button" to="skip select button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="skip select button" to="skip select button" method="_on_mouse_exited"]
+[connection signal="pressed" from="skip select button" to="." method="_on_skip_select_button_pressed"]
+[connection signal="pressed" from="skip select button" to="skip select button" method="_on_pressed"]
+[connection signal="mouse_entered" from="plants check button" to="plants check button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="plants check button" to="plants check button" method="_on_mouse_exited"]
+[connection signal="pressed" from="plants check button" to="plants check button" method="_on_pressed"]
+[connection signal="mouse_entered" from="reroll button" to="reroll button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="reroll button" to="reroll button" method="_on_mouse_exited"]
+[connection signal="pressed" from="reroll button" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="reroll button" to="reroll button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 1/synergy 1 close button" to="synergy 1/synergy 1 close button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 1/synergy 1 close button" to="synergy 1/synergy 1 close button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 1/synergy 1 close button" to="." method="_on_synergy_1_close_button_pressed"]
+[connection signal="pressed" from="synergy 1/synergy 1 close button" to="synergy 1/synergy 1 close button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 1/synergy 1 buy button" to="synergy 1/synergy 1 buy button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 1/synergy 1 buy button" to="synergy 1/synergy 1 buy button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 1/synergy 1 buy button" to="synergy 1/synergy 1 buy button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 2/synergy 2 close button" to="synergy 2/synergy 2 close button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 2/synergy 2 close button" to="synergy 2/synergy 2 close button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 2/synergy 2 close button" to="." method="_on_synergy_2_close_button_pressed"]
+[connection signal="pressed" from="synergy 2/synergy 2 close button" to="synergy 2/synergy 2 close button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 2/synergy 2 buy button" to="synergy 2/synergy 2 buy button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 2/synergy 2 buy button" to="synergy 2/synergy 2 buy button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 2/synergy 2 buy button" to="synergy 2/synergy 2 buy button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 3/synergy 3 close button" to="synergy 3/synergy 3 close button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 3/synergy 3 close button" to="synergy 3/synergy 3 close button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 3/synergy 3 close button" to="." method="_on_synergy_3_close_button_pressed"]
+[connection signal="pressed" from="synergy 3/synergy 3 close button" to="synergy 3/synergy 3 close button" method="_on_pressed"]
+[connection signal="mouse_entered" from="synergy 3/synergy 3 buy button" to="synergy 3/synergy 3 buy button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="synergy 3/synergy 3 buy button" to="synergy 3/synergy 3 buy button" method="_on_mouse_exited"]
+[connection signal="pressed" from="synergy 3/synergy 3 buy button" to="synergy 3/synergy 3 buy button" method="_on_pressed"]

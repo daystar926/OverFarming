@@ -4,6 +4,9 @@ extends Control
 @onready var game_start_label: Label = $"playerble map/stairs/game start label"
 @onready var book_label: Label = $"playerble map/book/book label"
 @onready var shelf_label: Label = $"playerble map/shelf/shelf label"
+@onready var book_panel: NinePatchRect = $"playerble map/book/book panel"
+@onready var shelf_panel: NinePatchRect = $"playerble map/shelf/shelf panel"
+@onready var game_start_panel: NinePatchRect = $"playerble map/stairs/game start panel"
 
 var ui_selected = 0 # 0은 아무것도 아님, 1은 도감, 2는 기본 아이템, 3은 게임 시작
 
@@ -49,6 +52,7 @@ func _on_book_area_entered(area: Area2D) -> void:
 	book_sprite.play("open")
 	
 	title_show_tween(book_label)
+	title_show_tween(book_panel)
 	ui_selected = 1
 	
 func _on_book_area_exited(area: Area2D) -> void:
@@ -57,6 +61,7 @@ func _on_book_area_exited(area: Area2D) -> void:
 	book_sprite.play("close")
 	ddiyong_tween(book_sprite)
 	title_hide_tween(book_label)
+	title_hide_tween(book_panel)
 	ui_selected = 0
 
 func _on_shelf_area_entered(area: Area2D) -> void:
@@ -65,6 +70,7 @@ func _on_shelf_area_entered(area: Area2D) -> void:
 	shelf_sprite.play("open")
 	ddiyong_tween(shelf_sprite)
 	title_show_tween(shelf_label)
+	title_show_tween(shelf_panel)
 	ui_selected = 2
 
 func _on_shelf_area_exited(area: Area2D) -> void:
@@ -73,12 +79,15 @@ func _on_shelf_area_exited(area: Area2D) -> void:
 	shelf_sprite.play("close")
 	ddiyong_tween(shelf_sprite)
 	title_hide_tween(shelf_label)
+	title_hide_tween(shelf_panel)
 	ui_selected = 0
 	
 func _on_stairs_area_entered(area: Area2D) -> void:
 	title_show_tween(game_start_label)
+	title_show_tween(game_start_panel)
 	ui_selected = 3
 
 func _on_stairs_area_exited(area: Area2D) -> void:
 	title_hide_tween(game_start_label)
+	title_hide_tween(game_start_panel)
 	ui_selected = 0

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xy8pfsu80jsw" path="res://Assets/images/tile map/HOMEsheet.png" id="2_c0m6k"]
 [ext_resource type="Texture2D" uid="uid://yqtmwg8m16eh" path="res://Assets/images/tile map/table.png" id="3_1s8ty"]
 [ext_resource type="Texture2D" uid="uid://b8n5yquyftauc" path="res://Assets/images/tile map/book-Sheet.png" id="4_05r73"]
+[ext_resource type="Texture2D" uid="uid://cdbskxi4hmus6" path="res://Assets/images/UI/panel 1.png" id="5_3pmjq"]
 [ext_resource type="Texture2D" uid="uid://bti5hwdf0lmck" path="res://Assets/images/tile map/chair.png" id="5_4h2o5"]
 [ext_resource type="LabelSettings" uid="uid://do7y6m18qu1ss" path="res://Assets/fonts/font file/object title.tres" id="5_gef26"]
 [ext_resource type="Texture2D" uid="uid://dqnvhktxr22ee" path="res://Assets/images/tile map/bed.png" id="6_vc5dc"]
@@ -358,6 +359,20 @@ animation = &"normal"
 position = Vector2(57, 59)
 shape = SubResource("RectangleShape2D_3pmjq")
 
+[node name="book panel" type="NinePatchRect" parent="playerble map/book" unique_id=29600819]
+modulate = Color(1, 1, 1, 0)
+offset_left = -159.0
+offset_top = -245.0
+offset_right = -109.0
+offset_bottom = -226.0
+scale = Vector2(6, 6)
+texture = ExtResource("5_3pmjq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="book label" type="Label" parent="playerble map/book" unique_id=913448254]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -365,10 +380,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -105.0
-offset_right = 112.0
-offset_bottom = -54.0
+offset_left = -127.0
+offset_top = -212.0
+offset_right = 105.0
+offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "도감"
@@ -420,6 +435,20 @@ animation = &"normal"
 position = Vector2(-3, -163)
 shape = SubResource("RectangleShape2D_gef26")
 
+[node name="shelf panel" type="NinePatchRect" parent="playerble map/shelf" unique_id=2019698791]
+modulate = Color(1, 1, 1, 0)
+offset_left = -178.00006
+offset_top = -440.0
+offset_right = -119.833374
+offset_bottom = -421.0
+scale = Vector2(6, 6)
+texture = ExtResource("5_3pmjq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="shelf label" type="Label" parent="playerble map/shelf" unique_id=665185653]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -427,10 +456,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.0
-offset_top = -317.0
-offset_right = 139.0
-offset_bottom = -266.0
+offset_left = -147.0
+offset_top = -404.99997
+offset_right = 137.0
+offset_bottom = -353.99997
 grow_horizontal = 2
 grow_vertical = 2
 text = "시작 아이템"
@@ -471,6 +500,20 @@ collision_mask = 2
 position = Vector2(2, -169)
 shape = SubResource("RectangleShape2D_huuin")
 
+[node name="game start panel" type="NinePatchRect" parent="playerble map/stairs" unique_id=1782829102]
+modulate = Color(1, 1, 1, 0)
+offset_left = -178.0
+offset_top = -277.0
+offset_right = -119.83331
+offset_bottom = -258.0
+scale = Vector2(6, 6)
+texture = ExtResource("5_3pmjq")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [node name="game start label" type="Label" parent="playerble map/stairs" unique_id=497316471]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -479,9 +522,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -141.0
-offset_top = -169.0
+offset_top = -241.99998
 offset_right = 143.0
-offset_bottom = -118.0
+offset_bottom = -190.99998
 grow_horizontal = 2
 grow_vertical = 2
 text = "게임 시작"
@@ -495,12 +538,20 @@ position = Vector2(785, 711)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1226210028]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=357476407]
-offset_left = 31.0
-offset_top = 973.0
-offset_right = 510.0
-offset_bottom = 1075.0
-text = "스페이스바로 상호작용"
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -114.0
+offset_right = 375.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "스페이스바를 눌러 상호작용"
 label_settings = ExtResource("5_gef26")
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1057715544]

@@ -4,6 +4,31 @@ extends Control
 @onready var extra_shop_ui: Control = $"extra shop ui"
 @onready var grid_container: GridContainer = $"inventory ui/MarginContainer/ScrollContainer/GridContainer"
 
+@onready var synergy_1: Control = $"synergy 1"
+@onready var synergy_1_color_mat: ColorRect = $"synergy 1/synergy 1 color mat"
+@onready var synergy_1_paper_bag: TextureRect = $"synergy 1/synergy 1 paper bag"
+@onready var synergy_1_close_button: TextureButton = $"synergy 1/synergy 1 close button"
+@onready var synergy_1_buy_button: TextureButton = $"synergy 1/synergy 1 buy button"
+@onready var synergy_1_panel: Control = $"synergy 1/synergy 1 panel"
+
+@onready var synergy_2: Control = $"synergy 2"
+@onready var synergy_2_color_mat: ColorRect = $"synergy 2/synergy 2 color mat"
+@onready var synergy_2_paper_bag: TextureRect = $"synergy 2/synergy 2 paper bag"
+@onready var synergy_2_close_button: TextureButton = $"synergy 2/synergy 2 close button"
+@onready var synergy_2_buy_button: TextureButton = $"synergy 2/synergy 2 buy button"
+@onready var synergy_2_panel: Control = $"synergy 2/synergy 2 panel"
+
+@onready var synergy_3: Control = $"synergy 3"
+@onready var synergy_3_color_mat: ColorRect = $"synergy 3/synergy 3 color mat"
+@onready var synergy_3_paper_bag: TextureRect = $"synergy 3/synergy 3 paper bag"
+@onready var synergy_3_close_button: TextureButton = $"synergy 3/synergy 3 close button"
+@onready var synergy_3_buy_button: TextureButton = $"synergy 3/synergy 3 buy button"
+@onready var synergy_3_panel: Control = $"synergy 3/synergy 3 panel"
+
+@onready var skip_select_button: TextureButton = $"skip select button"
+@onready var plants_check_button: TextureButton = $"plants check button"
+@onready var reroll_button: TextureButton = $"reroll button"
+
 @onready var slot_1: Node2D = $"slot 1"
 @onready var slot_2: Node2D = $"slot 2"
 @onready var slot_3: Node2D = $"slot 3"
@@ -13,6 +38,7 @@ extends Control
 var slot_instances: Array = [null, null, null]
 var selected_slot_num = 0 # 0이면 스킵할거냐 질문, 1, 2, 3, 이면 slot_instance 쟤들 적용 
 var selectable = false
+
 func _ready() -> void:
 	inven_refresh()
 	spawn_tween()
@@ -197,12 +223,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 
 signal reward_exit
+
 func exit_tween():
 	var tween = create_tween()
 	tween.tween_property(title_ui, "position", Vector2(0, -300), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_interval(0.3)
+	tween.tween_interval(0.6)
 	var tween2 = create_tween()
 	tween2.tween_interval(0.2)
 	tween2.tween_property(inventory_ui, "position", Vector2(700, 0), 0.3)\
@@ -213,5 +240,218 @@ func exit_tween():
 	tween3.tween_property(extra_shop_ui, "position", Vector2(700, 0), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
+	var tween4 = create_tween()
+	tween4.tween_interval(0.4)
+	tween4.tween_property(slot_1, "position", Vector2(-1000, 321), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween4.parallel().tween_property(slot_2, "position", Vector2(-800, 321), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween4.parallel().tween_property(slot_3, "position", Vector2(-600, 321), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	var tween5 = create_tween()
+	tween5.tween_interval(0.4)
+	tween5.tween_property(skip_select_button, "position", Vector2(515, 1200), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween5.parallel().tween_property(plants_check_button, "position", Vector2(104, 1200), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween5.parallel().tween_property(reroll_button, "position", Vector2(928, 1200), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func(): reward_exit.emit())
 	tween.tween_callback(func(): queue_free())
+
+
+
+func synergy_1_show_tween():
+	synergy_1_color_mat.color = Color(0,0,0,0)
+	synergy_1_paper_bag.scale = Vector2(0, 0)
+	synergy_1_close_button.scale = Vector2(0, 0)
+	synergy_1_buy_button.scale = Vector2(0, 0)
+	synergy_1_panel.position = Vector2(-700, 431)
+	synergy_1.visible = true
+	var tween = create_tween()
+	tween.tween_property(synergy_1_color_mat, "color", Color(0,0,0,0.8), 0.5)
+	tween.parallel().tween_property(synergy_1_paper_bag, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_1_close_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.45)
+	tween.parallel().tween_property(synergy_1_buy_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.parallel().tween_property(synergy_1_panel, "position", Vector2(60, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.tween_callback(func():
+		synergy_1_buy_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		synergy_1_close_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		)
+
+func synergy_1_hide_tween():
+	synergy_1_buy_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	synergy_1_close_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var tween = create_tween()
+	
+	tween.tween_property(synergy_1_paper_bag, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_1_close_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_1_buy_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.2)
+	tween.parallel().tween_property(synergy_1_panel, "position", Vector2(-700, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_1_color_mat, "color", Color(0,0,0,0), 0.5)\
+		.set_delay(0.6)
+	tween.tween_callback(func(): synergy_1.visible = false)
+
+func synergy_2_show_tween():
+	synergy_2_color_mat.color = Color(0,0,0,0)
+	synergy_2_paper_bag.scale = Vector2(0, 0)
+	synergy_2_close_button.scale = Vector2(0, 0)
+	synergy_2_buy_button.scale = Vector2(0, 0)
+	synergy_2_panel.position = Vector2(-700, 431)
+	synergy_2.visible = true
+	var tween = create_tween()
+	tween.tween_property(synergy_2_color_mat, "color", Color(0,0,0,0.8), 0.5)
+	tween.parallel().tween_property(synergy_2_paper_bag, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_2_close_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.45)
+	tween.parallel().tween_property(synergy_2_buy_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.parallel().tween_property(synergy_2_panel, "position", Vector2(60, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.tween_callback(func():
+		synergy_2_buy_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		synergy_2_close_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		)
+
+func synergy_2_hide_tween():
+	synergy_2_buy_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	synergy_2_close_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var tween = create_tween()
+	
+	tween.tween_property(synergy_2_paper_bag, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_2_close_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_2_buy_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.2)
+	tween.parallel().tween_property(synergy_2_panel, "position", Vector2(-700, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_2_color_mat, "color", Color(0,0,0,0), 0.5)\
+		.set_delay(0.6)
+	tween.tween_callback(func(): synergy_2.visible = false)
+	
+func synergy_3_show_tween():
+	synergy_3_color_mat.color = Color(0,0,0,0)
+	synergy_3_paper_bag.scale = Vector2(0, 0)
+	synergy_3_close_button.scale = Vector2(0, 0)
+	synergy_3_buy_button.scale = Vector2(0, 0)
+	synergy_3_panel.position = Vector2(-700, 431)
+	synergy_3.visible = true
+	var tween = create_tween()
+	tween.tween_property(synergy_3_color_mat, "color", Color(0,0,0,0.8), 0.5)
+	tween.parallel().tween_property(synergy_3_paper_bag, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_3_close_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.45)
+	tween.parallel().tween_property(synergy_3_buy_button, "scale", Vector2(1, 1), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.parallel().tween_property(synergy_3_panel, "position", Vector2(60, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.6)
+	tween.tween_callback(func():
+		synergy_3_buy_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		synergy_3_close_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		)
+
+func synergy_3_hide_tween():
+	synergy_3_buy_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	synergy_3_close_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var tween = create_tween()
+	
+	tween.tween_property(synergy_3_paper_bag, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_3_close_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(synergy_3_buy_button, "scale", Vector2(0, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.2)
+	tween.parallel().tween_property(synergy_3_panel, "position", Vector2(-700, 431), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)\
+		.set_delay(0.3)
+	tween.parallel().tween_property(synergy_3_color_mat, "color", Color(0,0,0,0), 0.5)\
+		.set_delay(0.6)
+	tween.tween_callback(func(): synergy_3.visible = false)
+
+
+func _on_synergy_1_pressed() -> void:
+	synergy_1_show_tween()
+
+func _on_synergy_1_close_button_pressed() -> void:
+	synergy_1_hide_tween()
+
+
+func _on_synergy_2_pressed() -> void:
+	synergy_2_show_tween()
+
+func _on_synergy_2_close_button_pressed() -> void:
+	synergy_2_hide_tween()
+
+
+func _on_synergy_3_pressed() -> void:
+	synergy_3_show_tween()
+
+func _on_synergy_3_close_button_pressed() -> void:
+	synergy_3_hide_tween()
+
+
+func _on_skip_select_button_pressed() -> void:
+	exit_tween()
+
+
+func _on_reroll_button_pressed() -> void:
+	selectable = false
+	item_slot_setting()
