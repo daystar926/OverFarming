@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 
 func first_anim_tween():
 	var tween = create_tween()
-	tween.tween_property(cloud, "position", Vector2(195, -400), 2)\
+	tween.tween_property(cloud, "position", Vector2(195, -600), 2)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_QUART)
 	tween.parallel().tween_property(cloud_2, "position", Vector2(0, -400), 2)\

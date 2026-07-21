@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dt284538vv4ds" path="res://Assets/images/UI/logo item.png" id="10_r6ic3"]
 [ext_resource type="Texture2D" uid="uid://b5eylqoglunww" path="res://Assets/images/UI/button 73x18 normal.png" id="12_qm4q2"]
 [ext_resource type="Texture2D" uid="uid://bs1jjjxwrl61m" path="res://Assets/images/UI/button 73x18 pressed.png" id="13_2bo2l"]
+[ext_resource type="Script" uid="uid://12u5concmbsf" path="res://script/buttons_tween.gd" id="14_2bo2l"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="14_r6ic3"]
+[ext_resource type="Texture2D" uid="uid://fuawht4jqrqb" path="res://Assets/images/UI/button 73x18 hover.png" id="14_xqbj5"]
 [ext_resource type="Texture2D" uid="uid://do5pj6its5wuy" path="res://Assets/images/UI/button 60x13 normal.png" id="15_xqbj5"]
 [ext_resource type="Texture2D" uid="uid://0emqjwd65uh3" path="res://Assets/images/UI/button 60x13 pressed.png" id="16_ad7or"]
 
@@ -253,7 +255,9 @@ grow_vertical = 0
 pivot_offset = Vector2(294, 72)
 texture_normal = ExtResource("12_qm4q2")
 texture_pressed = ExtResource("13_2bo2l")
+texture_hover = ExtResource("14_xqbj5")
 stretch_mode = 0
+script = ExtResource("14_2bo2l")
 
 [node name="Label" type="Label" parent="buttons/game start" unique_id=679418475]
 layout_mode = 1
@@ -344,5 +348,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="button_up" from="buttons/game start" to="." method="_on_game_start_button_up"]
+[connection signal="mouse_entered" from="buttons/game start" to="buttons/game start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/game start" to="buttons/game start" method="_on_mouse_exited"]
 [connection signal="pressed" from="buttons/game start" to="." method="_on_game_start_pressed"]
 [connection signal="pressed" from="buttons/VBoxContainer/exit" to="." method="_on_exit_pressed"]

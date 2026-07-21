@@ -77,7 +77,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		_harvest()
 
 func _harvest() -> void:
-	
+	Global.stat_refresh()
 	var parent = get_tree().current_scene
 	var node = parent.get_child(9)
 	var item_position = Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 30)

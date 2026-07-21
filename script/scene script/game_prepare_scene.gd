@@ -33,7 +33,8 @@ func title_hide_tween(node):
 		.set_trans(Tween.TRANS_QUAD)
 
 func ddiyong_tween(node):
-	var current_scale = node.scale
+	node.scale = Vector2(8, 8)
+	var current_scale = Vector2(8, 8)
 	var target_scale = Vector2(current_scale.x * 0.8, current_scale.y * 1.4)
 	
 	var tween = create_tween()

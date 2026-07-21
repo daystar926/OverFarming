@@ -6,9 +6,10 @@ var is_level1_started = false
 var is_level0_started = false
 var blink_tween: Tween   # 깜빡임 트윈 추적용
 var spawn_position: Vector2
-
+var price = 0
 # 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
 func _ready() -> void:
+	price = Global.fa_total_rice
 	if randi_range(1, 2) == 1:
 		$AnimatedSprite2D.flip_h = true
 	spawn_position_setting()
@@ -39,7 +40,7 @@ func start_tween():
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
-	money_get_anim(Global.fa_total_wheat)
+	money_get_anim(price)
 	Global.stat_refresh()
 	Global.total_plants += 1
 	$CollisionShape2D.disabled = true
@@ -50,7 +51,7 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	var tween = Global.create_collect_tween($AnimatedSprite2D)
 	tween.tween_callback(func():
-		Global.add_gold(Global.fa_total_wheat)
+		Global.add_gold(price)
 	)
 	tween.tween_interval(1)
 	tween.tween_callback(func(): queue_free())

@@ -98,6 +98,7 @@ func _harvest() -> void:
 	var node = parent.get_child(9)
 	var item_position = Vector2(grid_pos.x * 128 + 64, grid_pos.y * 128 + 30)
 	var da_amount = Global.da_amount_cul("bean")
+	Global.stat_refresh()
 	for i in range (da_amount):
 		var item = preload("res://scene/plants/plants_item/bean_item.tscn").instantiate()
 		item.set("spawn_position", item_position)
