@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d2oscbcpb35yb"]
 
-[ext_resource type="Texture2D" uid="uid://b3jf3f23kytki" path="res://Assets/images/item icons/ex tool 2.png" id="1_75fwd"]
+[ext_resource type="Texture2D" uid="uid://ddr4tgtgjme7o" path="res://Assets/images/item icons/1004.png" id="1_75fwd"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_dx1h3"]
 
 [resource]
 script = ExtResource("1_dx1h3")
 item_id = 1004
 item_name = "삐걱이는 호미"
-item_option = "쌀 값어치 + 10 G"
+item_option = "쌀 가격 + 10 G
+쌀 씨앗 + 1개"
 discription = "곧 부러질 것 같다."
 icon = ExtResource("1_75fwd")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

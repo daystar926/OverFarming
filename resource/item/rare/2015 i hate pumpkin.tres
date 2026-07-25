@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cvet8uu5y6pxc"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_47410"]
+[ext_resource type="Texture2D" uid="uid://c5r24odqg58s8" path="res://Assets/images/item icons/2015.png" id="1_k4y3c"]
+
+[resource]
+script = ExtResource("1_47410")
+item_id = 2015
+item_name = "호박은 맛없어"
+item_option = "호박 씨앗 + 3개
+호박 추가 수확 + 1개"
+discription = "맛없는 주제에 건강에는 좋대.."
+icon = ExtResource("1_k4y3c")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

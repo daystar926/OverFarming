@@ -42,6 +42,8 @@ func start_tween():
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
+
+	
 	money_get_anim(price)
 	Global.stat_refresh()
 	Global.total_plants += 1

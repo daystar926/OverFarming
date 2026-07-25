@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c16tsnhnjawvq"]
+
+[ext_resource type="Texture2D" uid="uid://bhrfoyvl8lrf3" path="res://Assets/images/item icons/3001.png" id="1_05cvh"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_pr80y"]
+
+[resource]
+script = ExtResource("1_pr80y")
+item_id = 3001
+item_name = "마법이 깃든 잎"
+item_option = "전체 작물 추가 수확 + 1개
+아이템 보상 희귀도 Lv + 1"
+discription = "푸른 빛이 나는데.. 방사능..?"
+icon = ExtResource("1_05cvh")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

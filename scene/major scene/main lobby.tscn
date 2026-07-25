@@ -82,6 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("2_wp4oy")
 
 [node name="back ground" type="TextureRect" parent="background" unique_id=1502000678]
@@ -95,6 +96,7 @@ offset_right = 243.55518
 offset_bottom = 849.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("3_tor6f")
 
 [node name="front ground" type="TextureRect" parent="background" unique_id=1601281449]
@@ -108,6 +110,7 @@ offset_right = 183.11108
 offset_bottom = 1406.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("4_fmbow")
 
 [node name="cloud" type="TextureRect" parent="background" unique_id=731016657]
@@ -121,6 +124,7 @@ offset_right = -156.44434
 offset_bottom = 740.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("5_aieut")
 
 [node name="cloud 2" type="TextureRect" parent="background" unique_id=2094628260]
@@ -128,6 +132,7 @@ layout_mode = 0
 offset_top = 896.0
 offset_right = 4955.791
 offset_bottom = 1979.0
+mouse_filter = 0
 texture = ExtResource("6_k1t8d")
 
 [node name="filter" type="TextureRect" parent="background" unique_id=1593085637]
@@ -138,6 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("7_tor6f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="background" unique_id=1385027469]
@@ -165,6 +171,7 @@ offset_bottom = -1461.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
+mouse_filter = 0
 texture = ExtResource("7_jcrd8")
 
 [node name="logo items" type="TextureRect" parent="logo" unique_id=1887789271]
@@ -182,6 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(119, 81)
+mouse_filter = 0
 texture = ExtResource("10_r6ic3")
 
 [node name="logo farming" type="TextureRect" parent="logo" unique_id=1734697065]
@@ -198,6 +206,7 @@ offset_bottom = -1461.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
+mouse_filter = 0
 texture = ExtResource("8_qm4q2")
 
 [node name="logo over" type="TextureRect" parent="logo" unique_id=2055992439]
@@ -214,6 +223,7 @@ offset_bottom = -1461.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
+mouse_filter = 0
 texture = ExtResource("9_2bo2l")
 
 [node name="UI" type="Control" parent="." unique_id=542552590]
@@ -238,5 +248,17 @@ offset_right = 296.5
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 0
 text = "- 아무 키를 눌러서 게임 시작 -"
 label_settings = SubResource("LabelSettings_utxwm")
+
+[node name="game start label" type="TextureButton" parent="." unique_id=1411314748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+button_mask = 3
+
+[connection signal="pressed" from="game start label" to="." method="_on_game_start_label_pressed"]

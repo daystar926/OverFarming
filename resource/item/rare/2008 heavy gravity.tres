@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://lmkr5s1fpmr2"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_fl0bj"]
+[ext_resource type="Texture2D" uid="uid://dxq8mn3qqgkw2" path="res://Assets/images/item icons/2008.png" id="1_j0fp2"]
+
+[resource]
+script = ExtResource("1_fl0bj")
+item_id = 2008
+item_name = "강한 중력"
+item_option = "작물 드랍 거리 - 200
+이동속도 - 200"
+discription = "몸이 무거워..!"
+icon = ExtResource("1_j0fp2")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

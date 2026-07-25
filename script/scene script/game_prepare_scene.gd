@@ -16,9 +16,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			0:
 				return
 			1:
-				pass # 여기에 도감 입력
+				GlobalCanvas.dev_alert_1()
 			2:
-				pass # 여기에 시작 아이템 입력
+				GlobalCanvas.dev_alert_1()
 			3:
 				GlobalCanvas.white_transition("res://scene/major scene/main_game.tscn")
 

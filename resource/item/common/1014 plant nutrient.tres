@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://drjgkgltq1vvl"]
 
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_8f2bs"]
+[ext_resource type="Texture2D" uid="uid://lubn56w6w7u3" path="res://Assets/images/item icons/1014.png" id="1_8f2bs"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_k6au7"]
 
 [resource]
 script = ExtResource("1_k6au7")
 item_id = 1014
 item_name = "식물 영양제"
-item_option = "전체 작물 값어치 + 50%"
+item_option = "전체 작물 가격 + 50%"
 discription = "우왁! 무거워졌어!"
 icon = ExtResource("1_8f2bs")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var speed: float = Global.total_move_speed
 
@@ -15,9 +16,31 @@ func _ready() -> void:
 	Global.all_stat_refresh.connect(update_stat)
 	Global.time_stop_signal.connect(character_stop)
 	Global.time_start_signal.connect(character_start)
+	Global.cry_signal.connect(character_cry)
+
+	
+	
 	
 var is_movable = true
 
+func zoom_for_ch():
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "zoom", Vector2(3, 3), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(camera_2d, "position", Vector2(0, -30), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_callback(func(): animated_sprite.play("sleeping"))
+	tween.tween_interval(2)
+	tween.tween_property(camera_2d, "zoom", Vector2(0.9, 0.9), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(camera_2d, "position", Vector2(0, 0), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	await tween.finished
+	
 func character_stop():
 	is_movable = false
 
@@ -26,6 +49,8 @@ func character_stop():
 func character_start():
 	is_movable = true
 
+func character_cry():
+	animated_sprite.play("crying")
 
 func _process(delta: float) -> void:
 	if is_movable:

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://ddikv0fspbjqq"]
+
+[ext_resource type="Texture2D" uid="uid://bn4pvf6f5jbaf" path="res://Assets/images/item icons/3006.png" id="1_otgu1"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_oxrqv"]
+
+[resource]
+script = ExtResource("1_oxrqv")
+item_id = 3006
+item_name = "갑옷입은 양파"
+item_option = "양파 가격 + 1000%
+양파 성장시간 증가 + 300%"
+discription = "양파가 너무 딱딱해.."
+icon = ExtResource("1_otgu1")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

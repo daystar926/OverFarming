@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://wtbe5635y2d2"]
 
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_2flj2"]
+[ext_resource type="Texture2D" uid="uid://dlmis1ggioch5" path="res://Assets/images/item icons/1009.png" id="1_2flj2"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_brbkq"]
 
 [resource]
 script = ExtResource("2_brbkq")
 item_id = 1009
 item_name = "콩깍지"
-item_option = "콩 성장시간 가속 + 3초"
+item_option = "콩 성장시간 가속 + 3초
+콩 씨앗 + 2개"
 discription = "사랑의 콩깍지!"
 icon = ExtResource("1_2flj2")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

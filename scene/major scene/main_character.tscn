@@ -1,10 +1,28 @@
 [gd_scene format=3 uid="uid://ct18iihq3ijkt"]
 
 [ext_resource type="Script" uid="uid://dvhc03ksrhu0q" path="res://script/scene script/main_character.gd" id="1_vc4j5"]
+[ext_resource type="Texture2D" uid="uid://3q7fqyihc2qv" path="res://Assets/images/character/cha crying.png" id="2_1hmwj"]
 [ext_resource type="Texture2D" uid="uid://ciu5thr1ks2o1" path="res://Assets/images/character/character1.png" id="2_180cx"]
+[ext_resource type="Texture2D" uid="uid://bpioqjhb4ybif" path="res://Assets/images/character/sleeping.png" id="4_1hmwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(64, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu8of"]
+atlas = ExtResource("2_1hmwj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4y4m"]
+atlas = ExtResource("2_1hmwj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o4cp"]
+atlas = ExtResource("2_1hmwj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcpoe"]
+atlas = ExtResource("2_1hmwj")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hmwj"]
 atlas = ExtResource("2_180cx")
@@ -20,6 +38,22 @@ region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ux5ji"]
 atlas = ExtResource("2_180cx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcvhb"]
+atlas = ExtResource("4_1hmwj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3itx1"]
+atlas = ExtResource("4_1hmwj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfvft"]
+atlas = ExtResource("4_1hmwj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bvjs"]
+atlas = ExtResource("4_1hmwj")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc4j5"]
@@ -73,6 +107,23 @@ region = Rect2(48, 48, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_bu8of")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_x4y4m")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_1o4cp")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_qcpoe")
+}],
+"loop": 1,
+"name": &"crying",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.2,
 "texture": SubResource("AtlasTexture_1hmwj")
 }, {
@@ -87,6 +138,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_gcvhb")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_3itx1")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_pfvft")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_8bvjs")
+}],
+"loop": 1,
+"name": &"sleeping",
 "speed": 5.0
 }, {
 "frames": [{
@@ -171,7 +239,7 @@ position = Vector2(0, -53.999992)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
 animation = &"idle"
-frame_progress = 0.13712834
+frame_progress = 0.30256513
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=178342418 groups=["player"]]
 zoom = Vector2(0.9, 0.9)

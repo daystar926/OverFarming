@@ -6,7 +6,6 @@
 [ext_resource type="LabelSettings" uid="uid://bxw32gdgxew8l" path="res://Assets/fonts/font file/item title font.tres" id="4_0aanl"]
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="7_kg023"]
 [ext_resource type="LabelSettings" uid="uid://b781tdqme4c83" path="res://Assets/fonts/font file/item option font.tres" id="7_v7r8f"]
-[ext_resource type="Texture2D" uid="uid://bi0bksauyejsw" path="res://Assets/Placeholder/card selected effect-Sheet.png" id="9_kg023"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_my1pl"]
 shader = ExtResource("1_b5g6v")
@@ -22,82 +21,6 @@ font = ExtResource("7_kg023")
 font_size = 15
 outline_size = 8
 outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kg023"]
-atlas = ExtResource("9_kg023")
-region = Rect2(240, 15, 10, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_faoja"]
-atlas = ExtResource("9_kg023")
-region = Rect2(0, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2jbt"]
-atlas = ExtResource("9_kg023")
-region = Rect2(45, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xm64a"]
-atlas = ExtResource("9_kg023")
-region = Rect2(90, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0wys"]
-atlas = ExtResource("9_kg023")
-region = Rect2(135, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6itg"]
-atlas = ExtResource("9_kg023")
-region = Rect2(180, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_abclo"]
-atlas = ExtResource("9_kg023")
-region = Rect2(225, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc3cm"]
-atlas = ExtResource("9_kg023")
-region = Rect2(270, 0, 45, 60)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3ylc"]
-atlas = ExtResource("9_kg023")
-region = Rect2(315, 0, 45, 60)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kg023")
-}],
-"loop": 1,
-"name": &"normal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_faoja")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_d2jbt")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_xm64a")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_w0wys")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_p6itg")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_abclo")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_vc3cm")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_g3ylc")
-}],
-"loop": 1,
-"name": &"selected",
-"speed": 5.0
-}]
 
 [node name="item card" type="Button" unique_id=2037621706]
 self_modulate = Color(1, 1, 1, 0)
@@ -209,13 +132,6 @@ text = "어쩌고 저쩌고 옵션 + 20%"
 label_settings = ExtResource("7_v7r8f")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=539574214]
-z_index = 10
-position = Vector2(180, 240)
-scale = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_huuin")
-animation = &"normal"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

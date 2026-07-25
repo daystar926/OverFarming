@@ -19,13 +19,13 @@ func _ready() -> void:
 func pumpkin_level_set(level: int):
 	match level:
 		4:
-			incr_redu_ratio = 0.15
-		5:
 			incr_redu_ratio = 0.35
-		6:
+		5:
 			incr_redu_ratio = 0.6
-		7:
+		6:
 			incr_redu_ratio = 1
+		7:
+			incr_redu_ratio = 1.3
 
 func spawn_position_setting():
 	self.position = spawn_position
@@ -69,7 +69,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func money_get_anim(money):
 	$Label.visible = true
-	$Label.text = "+ " + str(Global.format_num_custom(money)) + " G"
+	$Label.text = "+ " + str(Global.format_num_custom(money * incr_redu_ratio)) + " G"
 	var target_y = $Label.position.y - 80
 	var tween = create_tween()
 	var alpha_tween = create_tween()

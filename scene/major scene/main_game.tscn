@@ -27,8 +27,15 @@
 [ext_resource type="LabelSettings" uid="uid://gf3ciuy3malt" path="res://Assets/fonts/font file/slot sa font.tres" id="18_hrcro"]
 [ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="19_yribu"]
 [ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="22_qsvq7"]
+[ext_resource type="Texture2D" uid="uid://mr3mq7ltr0t3" path="res://Assets/images/UI/panel 2.png" id="28_4xxtj"]
 [ext_resource type="Texture2D" uid="uid://bl5h3xaw1ciq4" path="res://Assets/images/UI/icon time scale 1.png" id="28_hrcro"]
 [ext_resource type="Texture2D" uid="uid://bkyp0ka1bl3h6" path="res://Assets/images/UI/icon menu.png" id="29_4xxtj"]
+[ext_resource type="Texture2D" uid="uid://wg8yq6u3033r" path="res://Assets/images/UI icons/coin.png" id="31_37kyt"]
+[ext_resource type="Texture2D" uid="uid://c3qnjrhdr7wxi" path="res://Assets/images/UI/panel 5.png" id="34_37kyt"]
+[ext_resource type="Texture2D" uid="uid://cdoyog8gbf5c5" path="res://Assets/images/UI/button 45x13 normal.png" id="35_epo04"]
+[ext_resource type="Texture2D" uid="uid://bc6dep5vpmugb" path="res://Assets/images/UI/button 45x13 pressed.png" id="36_vxxvd"]
+[ext_resource type="Texture2D" uid="uid://b5wnkw4n4ohd8" path="res://Assets/images/UI/button 45x13 hover.png" id="37_6n0cc"]
+[ext_resource type="Script" uid="uid://wiadyrr3wknj" path="res://script/buttons_tween_3.gd" id="38_vxxvd"]
 
 [sub_resource type="Animation" id="Animation_78176"]
 length = 0.001
@@ -134,13 +141,35 @@ _data = {
 size = Vector2(112, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utxwm"]
-size = Vector2(2246, 1680)
+size = Vector2(2246, 2045)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kqero"]
 font = ExtResource("9_84m0o")
-font_size = 50
+font_size = 35
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
 outline_size = 13
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xo6jo"]
+font = ExtResource("9_84m0o")
+font_size = 40
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_huuin"]
+font = ExtResource("9_84m0o")
+font_size = 60
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+outline_size = 25
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrwy8"]
+font = ExtResource("9_84m0o")
+font_size = 50
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+outline_size = 20
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
 [node name="main game" type="Control" unique_id=51014605]
 layout_mode = 3
@@ -327,14 +356,14 @@ grow_vertical = 2
 z_index = -1
 position = Vector2(180, 0)
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAD8////AwAYAAsAAAD9////AwAEAAcAAAD+////AwAEAAcAAAD/////AwAEAAcAAAAAAP//AwAEAAcAAAABAP//AwAEAAcAAAACAP//AwAcAAcAAAADAP//AwAEAAcAAAAEAP//AwAEAAcAAAAFAP//AwAcAAUAAAAGAP//AwAEAAcAAAAHAP//AwAEAAcAAAAIAP//AwAEAAcAAAAJAP//AwAEAAcAAAAKAP//AwAEAAcAAAALAP//AwAGAAcAAAALAAYAAwAGAAcAAAD8/wYAAwAYAAsAAAD8/wUAAwACAAcAAAD8/wQAAwACAAcAAAD8/wMAAwACAAcAAAD8/wIAAwACAAcAAAD8/wEAAwACAAcAAAD8/wAAAwACAAcAAAALAAUAAwAGAAcAAAALAAQAAwAGAAcAAAALAAMAAwAGAAcAAAAKAAMAAwAEAAcAAAAKAAIAAwAEAAcAAAAKAAEAAwAcAAUAAAAKAAAAAwAEAAcAAAALAAAAAwAGAAcAAAALAAEAAwAaAAsAAAALAAIAAwAGAAcAAAD9/wAAAwAcAAkAAAD+/wEAAwAEAAcAAAD//wEAAwAEAAcAAAAAAAIAAwAEAAcAAAABAAMAAwAEAAcAAAACAAQAAwAEAAcAAAADAAQAAwAEAAcAAAAEAAQAAwAEAAcAAAAEAAUAAwAEAAcAAAAFAAUAAwAEAAcAAAAGAAUAAwAEAAcAAAAGAAYAAwAEAAcAAAAHAAYAAwAEAAcAAAAIAAYAAwAEAAcAAAAJAAYAAwAEAAcAAAAKAAYAAwAEAAcAAAD9/wEAAwAcAAcAAAD9/wIAAwAEAAcAAAD9/wMAAwAEAAcAAAD9/wQAAwAEAAcAAAD9/wUAAwAcAAkAAAD9/wYAAwAEAAcAAAD+/wAAAwAEAAcAAAD+/wIAAwAEAAcAAAD+/wMAAwAcAAkAAAD+/wQAAwAcAAcAAAD+/wUAAwAEAAcAAAD+/wYAAwAEAAcAAAD//wAAAwAEAAcAAAD//wIAAwAEAAcAAAD//wMAAwAEAAcAAAD//wQAAwAEAAcAAAD//wUAAwAEAAcAAAD//wYAAwAEAAcAAAAAAAAAAwAEAAcAAAAAAAEAAwAEAAcAAAAAAAMAAwAEAAcAAAAAAAQAAwAEAAcAAAAAAAUAAwAEAAcAAAAAAAYAAwAEAAcAAAABAAAAAwAEAAcAAAABAAEAAwAEAAcAAAABAAIAAwAEAAcAAAABAAQAAwAEAAcAAAABAAUAAwAEAAcAAAABAAYAAwAEAAcAAAACAAAAAwAEAAcAAAACAAEAAwAEAAcAAAACAAIAAwAEAAcAAAACAAMAAwAEAAcAAAACAAUAAwAEAAcAAAACAAYAAwAEAAcAAAADAAAAAwAEAAcAAAADAAEAAwAEAAcAAAADAAIAAwAEAAcAAAADAAMAAwAEAAcAAAADAAUAAwAEAAcAAAADAAYAAwAEAAcAAAAEAAAAAwAEAAcAAAAEAAEAAwAEAAcAAAAEAAIAAwAEAAcAAAAEAAMAAwAEAAcAAAAEAAYAAwAEAAcAAAAFAAAAAwAEAAcAAAAFAAEAAwAEAAcAAAAFAAIAAwAEAAcAAAAFAAMAAwAEAAcAAAAFAAQAAwAEAAcAAAAFAAYAAwAEAAcAAAAGAAAAAwAEAAcAAAAGAAEAAwAEAAcAAAAGAAIAAwAEAAcAAAAGAAMAAwAEAAcAAAAGAAQAAwAEAAcAAAAHAAAAAwAEAAcAAAAHAAEAAwAEAAcAAAAHAAIAAwAEAAcAAAAHAAMAAwAEAAcAAAAHAAQAAwAEAAcAAAAHAAUAAwAEAAcAAAAIAAAAAwAcAAcAAAAIAAEAAwAEAAcAAAAIAAIAAwAEAAcAAAAIAAMAAwAEAAcAAAAIAAQAAwAEAAcAAAAIAAUAAwAEAAcAAAAJAAAAAwAEAAcAAAAJAAEAAwAEAAcAAAAJAAIAAwAcAAkAAAAJAAMAAwAcAAcAAAAJAAQAAwAEAAcAAAAJAAUAAwAcAAcAAAAKAAQAAwAEAAcAAAAKAAUAAwAcAAkAAAD9/wcAAwAEAAkAAAD+/wcAAwAEAAkAAAD//wcAAwAEAAkAAAAAAAcAAwAEAAkAAAABAAcAAwAEAAkAAAACAAcAAwAEAAkAAAADAAcAAwAEAAkAAAAEAAcAAwAEAAkAAAAFAAcAAwAEAAkAAAAGAAcAAwAEAAkAAAAHAAcAAwAEAAkAAAAIAAcAAwAEAAkAAAAJAAcAAwAEAAkAAAAKAAcAAwAEAAkAAAD8/wcAAwACAAkAAAALAAcAAwAGAAkAAAD8/wgAAwACAAsAAAD8/wkAAwACAA0AAAD8/woAAwACAA0AAAD8/wsAAwACAA0AAAD8/wwAAwACAA0AAAD8/w0AAwACAA0AAAD8/w4AAwACAA0AAAALAAgAAwAGAAsAAAALAAkAAwAGAA0AAAALAAoAAwAGAA0AAAALAAsAAwAGAA0AAAALAAwAAwAGAA0AAAALAA0AAwAGAA0AAAALAA4AAwAGAA0AAAD9/wgAAwAEAAsAAAD9/wkAAwAEAA0AAAD9/woAAwAEAA0AAAD9/wsAAwAEAA0AAAD9/wwAAwAEAA0AAAD9/w0AAwAEAA0AAAD9/w4AAwAEAA0AAAD+/wgAAwAEAAsAAAD+/wkAAwAEAA0AAAD+/woAAwAEAA0AAAD+/wsAAwAEAA0AAAD+/wwAAwAEAA0AAAD+/w0AAwAEAA0AAAD+/w4AAwAEAA0AAAD//wgAAwAEAAsAAAD//wkAAwAEAA0AAAD//woAAwAEAA0AAAD//wsAAwAEAA0AAAD//wwAAwAEAA0AAAD//w0AAwAEAA0AAAD//w4AAwAEAA0AAAAAAAgAAwAEAAsAAAAAAAkAAwAEAA0AAAAAAAoAAwAEAA0AAAAAAAsAAwAEAA0AAAAAAAwAAwAEAA0AAAAAAA0AAwAEAA0AAAAAAA4AAwAEAA0AAAABAAgAAwAEAAsAAAABAAkAAwAEAA0AAAABAAoAAwAEAA0AAAABAAsAAwAEAA0AAAABAAwAAwAEAA0AAAABAA0AAwAEAA0AAAABAA4AAwAEAA0AAAACAAgAAwAEAAsAAAACAAkAAwAEAA0AAAACAAoAAwAEAA0AAAACAAsAAwAEAA0AAAACAAwAAwAEAA0AAAACAA0AAwAEAA0AAAACAA4AAwAEAA0AAAADAAgAAwAEAAsAAAADAAkAAwAEAA0AAAADAAoAAwAEAA0AAAADAAsAAwAEAA0AAAADAAwAAwAEAA0AAAADAA0AAwAEAA0AAAADAA4AAwAEAA0AAAAEAAgAAwAEAAsAAAAEAAkAAwAEAA0AAAAEAAoAAwAEAA0AAAAEAAsAAwAEAA0AAAAEAAwAAwAEAA0AAAAEAA0AAwAEAA0AAAAEAA4AAwAEAA0AAAAFAAgAAwAEAAsAAAAFAAkAAwAEAA0AAAAFAAoAAwAEAA0AAAAFAAsAAwAEAA0AAAAFAAwAAwAEAA0AAAAFAA0AAwAEAA0AAAAFAA4AAwAEAA0AAAAGAAgAAwAEAAsAAAAGAAkAAwAEAA0AAAAGAAoAAwAEAA0AAAAGAAsAAwAEAA0AAAAGAAwAAwAEAA0AAAAGAA0AAwAEAA0AAAAGAA4AAwAEAA0AAAAHAAgAAwAEAAsAAAAHAAkAAwAEAA0AAAAHAAoAAwAEAA0AAAAHAAsAAwAEAA0AAAAHAAwAAwAEAA0AAAAHAA0AAwAEAA0AAAAHAA4AAwAEAA0AAAAIAAgAAwAEAAsAAAAIAAkAAwAEAA0AAAAIAAoAAwAEAA0AAAAIAAsAAwAEAA0AAAAIAAwAAwAEAA0AAAAIAA0AAwAEAA0AAAAIAA4AAwAEAA0AAAAJAAgAAwAEAAsAAAAJAAkAAwAEAA0AAAAJAAoAAwAEAA0AAAAJAAsAAwAEAA0AAAAJAAwAAwAEAA0AAAAJAA0AAwAEAA0AAAAJAA4AAwAEAA0AAAAKAAgAAwAEAAsAAAAKAAkAAwAEAA0AAAAKAAoAAwAEAA0AAAAKAAsAAwAEAA0AAAAKAAwAAwAEAA0AAAAKAA0AAwAEAA0AAAAKAA4AAwAEAA0AAAD9//3/AwAYAAUAAAD+//3/AwAEAAUAAAD///3/AwATAAUAAAAAAP3/AwAaAAcAAAABAP3/AwATAAUAAAACAP3/AwACABMAAAADAP3/AwAEABMAAAAEAP3/AwAEABMAAAAFAP3/AwAGABMAAAAGAP3/AwATAAUAAAAHAP3/AwAYAAcAAAAIAP3/AwATAAUAAAAJAP3/AwAEAAUAAAAKAP3/AwAaAAUAAAD8//3/AwACAAUAAAD8//7/AwACAAcAAAALAP7/AwAGAAcAAAALAP3/AwAGAAUAAAD9//7/AwAEAAcAAAD+//7/AwAcAAcAAAD///7/AwAEAAcAAAAAAP7/AwAcAAkAAAABAP7/AwAEAAcAAAACAP7/AwAEAAcAAAADAP7/AwAEAAcAAAAEAP7/AwAEAAcAAAAFAP7/AwAEAAcAAAAGAP7/AwAEAAcAAAAHAP7/AwAEAAcAAAAIAP7/AwAcAAcAAAAJAP7/AwAEAAcAAAAKAP7/AwAEAAcAAAADAPj/AwAEAA8AAAADAPn/AwAEABEAAAADAPr/AwAEABEAAAADAPv/AwATAAsAAAADAPz/AwAEABEAAAAEAPj/AwAEAA8AAAAEAPn/AwATAA0AAAAEAPr/AwAEABEAAAAEAPv/AwAEABEAAAAEAPz/AwAEABEAAAAFAPn/AwAGABEAAAAFAPr/AwAGABEAAAAFAPv/AwAGABEAAAAFAPz/AwAGABEAAAAFAPj/AwAGAA8AAAACAPj/AwACAA8AAAACAPn/AwACABEAAAACAPr/AwACABEAAAACAPv/AwACABEAAAACAPz/AwACABEAAAD///n/AwACAAsAAAD///r/AwACAA0AAAD///v/AwACAA0AAAD///z/AwACAA0AAAAAAPn/AwAEAAsAAAAAAPr/AwAEAA0AAAAAAPv/AwAEAA0AAAAAAPz/AwAEAA0AAAABAPn/AwAEAAsAAAABAPr/AwAEAA0AAAABAPv/AwAEAA0AAAABAPz/AwAEAA0AAAAGAPz/AwAEAA0AAAAHAPz/AwAEAA0AAAAGAPn/AwAEAAsAAAAGAPr/AwAEAA0AAAAGAPv/AwAEAA0AAAAHAPn/AwAEAAsAAAAHAPr/AwALAA0AAAAHAPv/AwAEAA0AAAAIAPn/AwAGAAsAAAAIAPr/AwAGAA0AAAAIAPv/AwAGAA0AAAAIAPz/AwAGAA0AAAD///j/AwACAAkAAAAAAPj/AwAEAAkAAAABAPj/AwAEAAkAAAAGAPj/AwAEAAkAAAAHAPj/AwAEAAkAAAAIAPj/AwAGAAkAAAAIAPX/AwAGAAcAAAAIAPb/AwAGAAcAAAAIAPf/AwAGAAcAAAAIAPT/AwAaAAsAAAAIAPP/AwAGAAUAAAD///P/AwACAAUAAAAAAPP/AwAEAAUAAAABAPP/AwAYAAUAAAACAPP/AwAEAAUAAAADAPP/AwAEAAUAAAAEAPP/AwAYAAUAAAAFAPP/AwAEAAUAAAAGAPP/AwAaAAUAAAAHAPP/AwAEAAUAAAD///T/AwACAAcAAAD///X/AwACAAcAAAD///b/AwAYAAsAAAD///f/AwACAAcAAAAAAPT/AwAEAAcAAAAAAPX/AwAEAAcAAAAAAPb/AwAEAAcAAAAAAPf/AwAEAAcAAAABAPT/AwAcAAUAAAABAPX/AwAEAAcAAAABAPb/AwAEAAcAAAABAPf/AwAEAAcAAAACAPT/AwAEAAcAAAACAPX/AwAEAAcAAAACAPb/AwAEAAcAAAACAPf/AwAcAAkAAAADAPT/AwAEAAcAAAADAPX/AwAEAAcAAAADAPb/AwAEAAcAAAADAPf/AwAEAAcAAAAEAPT/AwAEAAcAAAAEAPX/AwAEAAcAAAAEAPb/AwAEAAcAAAAEAPf/AwAEAAcAAAAFAPT/AwAEAAcAAAAFAPX/AwAEAAcAAAAFAPb/AwAEAAcAAAAFAPf/AwAEAAcAAAAGAPT/AwAEAAcAAAAGAPX/AwAEAAcAAAAGAPb/AwAEAAcAAAAGAPf/AwAEAAcAAAAHAPT/AwAEAAcAAAAHAPX/AwAcAAcAAAAHAPb/AwAEAAcAAAAHAPf/AwAEAAcAAAA=")
+tile_map_data = PackedByteArray("AAD8////AwAYAAsAAAD9////AwAEAAcAAAD+////AwAEAAcAAAD/////AwAEAAcAAAAAAP//AwAEAAcAAAABAP//AwAEAAcAAAACAP//AwAcAAcAAAADAP//AwAEAAcAAAAEAP//AwAEAAcAAAAFAP//AwAcAAUAAAAGAP//AwAEAAcAAAAHAP//AwAEAAcAAAAIAP//AwAEAAcAAAAJAP//AwAEAAcAAAAKAP//AwAEAAcAAAALAP//AwAGAAcAAAALAAYAAwAGAAcAAAD8/wYAAwAYAAsAAAD8/wUAAwACAAcAAAD8/wQAAwACAAcAAAD8/wMAAwACAAcAAAD8/wIAAwACAAcAAAD8/wEAAwACAAcAAAD8/wAAAwACAAcAAAALAAUAAwAGAAcAAAALAAQAAwAGAAcAAAALAAMAAwAGAAcAAAAKAAMAAwAEAAcAAAAKAAIAAwAEAAcAAAAKAAEAAwAcAAUAAAAKAAAAAwAEAAcAAAALAAAAAwAGAAcAAAALAAEAAwAaAAsAAAALAAIAAwAGAAcAAAD9/wAAAwAcAAkAAAD+/wEAAwAEAAcAAAD//wEAAwAEAAcAAAAAAAIAAwAEAAcAAAABAAMAAwAEAAcAAAACAAQAAwAEAAcAAAADAAQAAwAEAAcAAAAEAAQAAwAEAAcAAAAEAAUAAwAEAAcAAAAFAAUAAwAEAAcAAAAGAAUAAwAEAAcAAAAGAAYAAwAEAAcAAAAHAAYAAwAEAAcAAAAIAAYAAwAEAAcAAAAJAAYAAwAEAAcAAAAKAAYAAwAEAAcAAAD9/wEAAwAcAAcAAAD9/wIAAwAEAAcAAAD9/wMAAwAEAAcAAAD9/wQAAwAEAAcAAAD9/wUAAwAcAAkAAAD9/wYAAwAEAAcAAAD+/wAAAwAEAAcAAAD+/wIAAwAEAAcAAAD+/wMAAwAcAAkAAAD+/wQAAwAcAAcAAAD+/wUAAwAEAAcAAAD+/wYAAwAEAAcAAAD//wAAAwAEAAcAAAD//wIAAwAEAAcAAAD//wMAAwAEAAcAAAD//wQAAwAEAAcAAAD//wUAAwAEAAcAAAD//wYAAwAEAAcAAAAAAAAAAwAEAAcAAAAAAAEAAwAEAAcAAAAAAAMAAwAEAAcAAAAAAAQAAwAEAAcAAAAAAAUAAwAEAAcAAAAAAAYAAwAEAAcAAAABAAAAAwAEAAcAAAABAAEAAwAEAAcAAAABAAIAAwAEAAcAAAABAAQAAwAEAAcAAAABAAUAAwAEAAcAAAABAAYAAwAEAAcAAAACAAAAAwAEAAcAAAACAAEAAwAEAAcAAAACAAIAAwAEAAcAAAACAAMAAwAEAAcAAAACAAUAAwAEAAcAAAACAAYAAwAEAAcAAAADAAAAAwAEAAcAAAADAAEAAwAEAAcAAAADAAIAAwAEAAcAAAADAAMAAwAEAAcAAAADAAUAAwAEAAcAAAADAAYAAwAEAAcAAAAEAAAAAwAEAAcAAAAEAAEAAwAEAAcAAAAEAAIAAwAEAAcAAAAEAAMAAwAEAAcAAAAEAAYAAwAEAAcAAAAFAAAAAwAEAAcAAAAFAAEAAwAEAAcAAAAFAAIAAwAEAAcAAAAFAAMAAwAEAAcAAAAFAAQAAwAEAAcAAAAFAAYAAwAEAAcAAAAGAAAAAwAEAAcAAAAGAAEAAwAEAAcAAAAGAAIAAwAEAAcAAAAGAAMAAwAEAAcAAAAGAAQAAwAEAAcAAAAHAAAAAwAEAAcAAAAHAAEAAwAEAAcAAAAHAAIAAwAEAAcAAAAHAAMAAwAEAAcAAAAHAAQAAwAEAAcAAAAHAAUAAwAEAAcAAAAIAAAAAwAcAAcAAAAIAAEAAwAEAAcAAAAIAAIAAwAEAAcAAAAIAAMAAwAEAAcAAAAIAAQAAwAEAAcAAAAIAAUAAwAEAAcAAAAJAAAAAwAEAAcAAAAJAAEAAwAEAAcAAAAJAAIAAwAcAAkAAAAJAAMAAwAcAAcAAAAJAAQAAwAEAAcAAAAJAAUAAwAcAAcAAAAKAAQAAwAEAAcAAAAKAAUAAwAcAAkAAAD9/wcAAwAEAAkAAAD+/wcAAwAEAAkAAAD//wcAAwAEAAkAAAAAAAcAAwAEAAkAAAABAAcAAwAEAAkAAAACAAcAAwAEAAkAAAADAAcAAwAEAAkAAAAEAAcAAwAEAAkAAAAFAAcAAwAEAAkAAAAGAAcAAwAEAAkAAAAHAAcAAwAEAAkAAAAIAAcAAwAEAAkAAAAJAAcAAwAEAAkAAAAKAAcAAwAEAAkAAAD8/wcAAwACAAkAAAALAAcAAwAGAAkAAAD8/wgAAwACAAsAAAD8/wkAAwACAA0AAAD8/woAAwACAA0AAAD8/wsAAwACAA0AAAD8/wwAAwACAA0AAAD8/w0AAwACAA0AAAD8/w4AAwACAA0AAAALAAgAAwAGAAsAAAALAAkAAwAGAA0AAAALAAoAAwAGAA0AAAALAAsAAwAGAA0AAAALAAwAAwAGAA0AAAALAA0AAwAGAA0AAAALAA4AAwAGAA0AAAD9/wgAAwAEAAsAAAD9/wkAAwAEAA0AAAD9/woAAwAEAA0AAAD9/wsAAwAEAA0AAAD9/wwAAwAEAA0AAAD9/w0AAwAEAA0AAAD9/w4AAwAEAA0AAAD+/wgAAwAEAAsAAAD+/wkAAwAEAA0AAAD+/woAAwAEAA0AAAD+/wsAAwAEAA0AAAD+/wwAAwAEAA0AAAD+/w0AAwAEAA0AAAD+/w4AAwAEAA0AAAD//wgAAwAEAAsAAAD//wkAAwAEAA0AAAD//woAAwAEAA0AAAD//wsAAwAEAA0AAAD//wwAAwAEAA0AAAD//w0AAwAEAA0AAAD//w4AAwAEAA0AAAAAAAgAAwAEAAsAAAAAAAkAAwAEAA0AAAAAAAoAAwAEAA0AAAAAAAsAAwAEAA0AAAAAAAwAAwAEAA0AAAAAAA0AAwAEAA0AAAAAAA4AAwAEAA0AAAABAAgAAwAEAAsAAAABAAkAAwAEAA0AAAABAAoAAwAEAA0AAAABAAsAAwAEAA0AAAABAAwAAwAEAA0AAAABAA0AAwAEAA0AAAABAA4AAwAEAA0AAAACAAgAAwAEAAsAAAACAAkAAwAEAA0AAAACAAoAAwAEAA0AAAACAAsAAwAEAA0AAAACAAwAAwAEAA0AAAACAA0AAwAEAA0AAAACAA4AAwAEAA0AAAADAAgAAwAEAAsAAAADAAkAAwAEAA0AAAADAAoAAwAEAA0AAAADAAsAAwAEAA0AAAADAAwAAwAEAA0AAAADAA0AAwAEAA0AAAADAA4AAwAEAA0AAAAEAAgAAwAEAAsAAAAEAAkAAwAEAA0AAAAEAAoAAwAEAA0AAAAEAAsAAwAEAA0AAAAEAAwAAwAEAA0AAAAEAA0AAwAEAA0AAAAEAA4AAwAEAA0AAAAFAAgAAwAEAAsAAAAFAAkAAwAEAA0AAAAFAAoAAwAEAA0AAAAFAAsAAwAEAA0AAAAFAAwAAwAEAA0AAAAFAA0AAwAEAA0AAAAFAA4AAwAEAA0AAAAGAAgAAwAEAAsAAAAGAAkAAwAEAA0AAAAGAAoAAwAEAA0AAAAGAAsAAwAEAA0AAAAGAAwAAwAEAA0AAAAGAA0AAwAEAA0AAAAGAA4AAwAEAA0AAAAHAAgAAwAEAAsAAAAHAAkAAwAEAA0AAAAHAAoAAwAEAA0AAAAHAAsAAwAEAA0AAAAHAAwAAwAEAA0AAAAHAA0AAwAEAA0AAAAHAA4AAwAEAA0AAAAIAAgAAwAEAAsAAAAIAAkAAwAEAA0AAAAIAAoAAwAEAA0AAAAIAAsAAwAEAA0AAAAIAAwAAwAEAA0AAAAIAA0AAwAEAA0AAAAIAA4AAwAEAA0AAAAJAAgAAwAEAAsAAAAJAAkAAwAEAA0AAAAJAAoAAwAEAA0AAAAJAAsAAwAEAA0AAAAJAAwAAwAEAA0AAAAJAA0AAwAEAA0AAAAJAA4AAwAEAA0AAAAKAAgAAwAEAAsAAAAKAAkAAwAEAA0AAAAKAAoAAwAEAA0AAAAKAAsAAwAEAA0AAAAKAAwAAwAEAA0AAAAKAA0AAwAEAA0AAAAKAA4AAwAEAA0AAAD9//3/AwAYAAUAAAD+//3/AwAEAAUAAAD///3/AwATAAUAAAAAAP3/AwAaAAcAAAABAP3/AwATAAUAAAACAP3/AwACABMAAAADAP3/AwAEABMAAAAEAP3/AwAEABMAAAAFAP3/AwAGABMAAAAGAP3/AwATAAUAAAAHAP3/AwAYAAcAAAAIAP3/AwATAAUAAAAJAP3/AwAEAAUAAAAKAP3/AwAaAAUAAAD8//3/AwACAAUAAAD8//7/AwACAAcAAAALAP7/AwAGAAcAAAALAP3/AwAGAAUAAAD9//7/AwAEAAcAAAD+//7/AwAcAAcAAAD///7/AwAEAAcAAAAAAP7/AwAcAAkAAAABAP7/AwAEAAcAAAACAP7/AwAEAAcAAAADAP7/AwAEAAcAAAAEAP7/AwAEAAcAAAAFAP7/AwAEAAcAAAAGAP7/AwAEAAcAAAAHAP7/AwAEAAcAAAAIAP7/AwAcAAcAAAAJAP7/AwAEAAcAAAAKAP7/AwAEAAcAAAADAPj/AwAEAA8AAAADAPn/AwAEABEAAAADAPr/AwAEABEAAAADAPv/AwATAAsAAAADAPz/AwAEABEAAAAEAPj/AwAEAA8AAAAEAPn/AwATAA0AAAAEAPr/AwAEABEAAAAEAPv/AwAEABEAAAAEAPz/AwAEABEAAAAFAPn/AwAGABEAAAAFAPr/AwAGABEAAAAFAPv/AwAGABEAAAAFAPz/AwAGABEAAAAFAPj/AwAGAA8AAAACAPj/AwACAA8AAAACAPn/AwACABEAAAACAPr/AwACABEAAAACAPv/AwACABEAAAACAPz/AwACABEAAAD///n/AwACAAsAAAD///r/AwACAA0AAAD///v/AwACAA0AAAD///z/AwACAA0AAAAAAPn/AwAEAAsAAAAAAPr/AwAEAA0AAAAAAPv/AwAEAA0AAAAAAPz/AwAEAA0AAAABAPn/AwAEAAsAAAABAPr/AwAEAA0AAAABAPv/AwAEAA0AAAABAPz/AwAEAA0AAAAGAPz/AwAEAA0AAAAHAPz/AwAEAA0AAAAGAPn/AwAEAAsAAAAGAPr/AwAEAA0AAAAGAPv/AwAEAA0AAAAHAPn/AwAEAAsAAAAHAPr/AwALAA0AAAAHAPv/AwAEAA0AAAAIAPn/AwAGAAsAAAAIAPr/AwAGAA0AAAAIAPv/AwAGAA0AAAAIAPz/AwAGAA0AAAD///j/AwACAAkAAAAAAPj/AwAEAAkAAAABAPj/AwAEAAkAAAAGAPj/AwAEAAkAAAAHAPj/AwAEAAkAAAAIAPj/AwAGAAkAAAAIAPP/AwAGAAUAAAD///P/AwACAAUAAAAAAPP/AwAEAAUAAAABAPP/AwAYAAUAAAACAPP/AwAEAAUAAAADAPP/AwAEAAUAAAAEAPP/AwAYAAUAAAAFAPP/AwAEAAUAAAAGAPP/AwAaAAUAAAAHAPP/AwAEAAUAAAD///T/AwACAAcAAAD///X/AwACAAcAAAD///b/AwAYAAsAAAD///f/AwACAAcAAAAAAPT/AwAEAAcAAAAAAPX/AwAEAAcAAAAAAPb/AwAEAAcAAAAAAPf/AwAEAAcAAAABAPT/AwAcAAUAAAABAPb/AwAEAAcAAAABAPf/AwAEAAcAAAACAPT/AwAEAAcAAAACAPb/AwAEAAcAAAACAPf/AwAcAAkAAAADAPf/AwAEAAcAAAAEAPb/AwAEAAcAAAADAPb/AwAEAAcAAAADAPT/AwAEAAcAAAAEAPT/AwAEAAcAAAAEAPX/AwAEAAcAAAAFAPT/AwAEAAcAAAAFAPX/AwAEAAcAAAAFAPb/AwAEAAcAAAAFAPf/AwAEAAcAAAAGAPT/AwAEAAcAAAAGAPX/AwAEAAcAAAAGAPb/AwAEAAcAAAAGAPf/AwAEAAcAAAAHAPT/AwAEAAcAAAAHAPX/AwAcAAcAAAAHAPb/AwAEAAcAAAAHAPf/AwAEAAcAAAAIAPT/AwAaAAsAAAAIAPX/AwAGAAcAAAAIAPb/AwAGAAcAAAAIAPf/AwAGAAcAAAAEAPf/AwAEAAcAAAACAPX/AwAEAAcAAAADAPX/AwAEAAcAAAABAPX/AwAEAAcAAAA=")
 tile_set = ExtResource("5_ff5tn")
 
 [node name="deco 1" type="TileMapLayer" parent="." unique_id=275789369]
 z_index = -1
 position = Vector2(180, 0)
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAAAAEAAwAVAAEAAAAAAAIAAwAVAAEAAAAAAAMAAwARAAEAAAAAAAQAAwARAAEAAAAAAAUAAwAVAAEAAAABAAUAAwARAAEAAAACAAUAAwARAAEAAAADAAUAAwAXAAEAAAAEAAUAAwATAAEAAAAFAAUAAwARAAEAAAAGAAUAAwAXAAEAAAAHAAUAAwAXAAEAAAAHAAIAAwARAAEAAAAHAAMAAwARAAEAAAAHAAQAAwARAAEAAAAHAAEAAwAXAAEAAAABAAEAAwARAAEAAAACAAEAAwARAAEAAAADAAEAAwAXAAEAAAAEAAEAAwAXAAEAAAAFAAEAAwARAAEAAAAGAAEAAwATAAEAAAABAAIAAwATAAEAAAABAAMAAwARAAEAAAABAAQAAwAXAAEAAAACAAIAAwARAAEAAAACAAMAAwARAAEAAAACAAQAAwATAAEAAAADAAIAAwAXAAEAAAADAAMAAwAVAAEAAAADAAQAAwARAAEAAAAEAAIAAwARAAEAAAAEAAMAAwAVAAEAAAAEAAQAAwARAAEAAAAFAAIAAwARAAEAAAAFAAMAAwATAAEAAAAFAAQAAwAVAAEAAAAGAAIAAwAXAAEAAAAGAAMAAwARAAEAAAAGAAQAAwAXAAEAAAAAAAYAAwARAAMAAAABAAYAAwARAAMAAAACAAYAAwARAAMAAAADAAYAAwATAAMAAAAEAAYAAwATAAMAAAAFAAYAAwATAAMAAAAGAAYAAwARAAMAAAAHAAYAAwARAAMAAAAIAAYAAwAVAAMAAAAIAAAAAwAVAAMAAGD//wAAAwAVAAMAADD//wYAAwAVAAMAAFAIAAIAAwATAAMAAGAIAAMAAwATAAMAAGAIAAQAAwATAAMAAGAIAAUAAwATAAMAAGAIAAEAAwATAAMAAGAAAAAAAwATAAMAADABAAAAAwATAAMAADACAAAAAwATAAMAADADAAAAAwARAAMAADAEAAAAAwARAAMAADAFAAAAAwATAAMAADAGAAAAAwATAAMAADAHAAAAAwATAAMAADD//wEAAwARAAMAAFD//wIAAwARAAMAAFD//wMAAwARAAMAAFD//wQAAwATAAMAAFD//wUAAwATAAMAAFA=")
+tile_map_data = PackedByteArray("AAAAAAEAAwAVAAEAAAAAAAIAAwAVAAEAAAAAAAMAAwARAAEAAAAAAAQAAwARAAEAAAAAAAUAAwAVAAEAAAABAAUAAwARAAEAAAACAAUAAwARAAEAAAADAAUAAwAXAAEAAAAEAAUAAwATAAEAAAAFAAUAAwARAAEAAAAGAAUAAwAXAAEAAAAHAAUAAwAXAAEAAAAHAAIAAwARAAEAAAAHAAMAAwARAAEAAAAHAAQAAwARAAEAAAAHAAEAAwAXAAEAAAABAAEAAwARAAEAAAACAAEAAwARAAEAAAADAAEAAwAXAAEAAAAEAAEAAwAXAAEAAAAFAAEAAwARAAEAAAAGAAEAAwATAAEAAAABAAIAAwATAAEAAAABAAMAAwARAAEAAAABAAQAAwAXAAEAAAACAAIAAwARAAEAAAACAAMAAwARAAEAAAACAAQAAwATAAEAAAADAAIAAwAXAAEAAAADAAMAAwAVAAEAAAADAAQAAwARAAEAAAAEAAIAAwARAAEAAAAEAAMAAwAVAAEAAAAEAAQAAwARAAEAAAAFAAIAAwARAAEAAAAFAAMAAwATAAEAAAAFAAQAAwAVAAEAAAAGAAIAAwAXAAEAAAAGAAMAAwARAAEAAAAGAAQAAwAXAAEAAAAAAAYAAwARAAMAAAABAAYAAwARAAMAAAACAAYAAwARAAMAAAADAAYAAwATAAMAAAAEAAYAAwATAAMAAAAFAAYAAwATAAMAAAAGAAYAAwARAAMAAAAHAAYAAwARAAMAAAAIAAAAAwAVAAMAAGD//wAAAwAVAAMAADD//wYAAwAVAAMAAFAIAAIAAwATAAMAAGAIAAMAAwATAAMAAGAIAAEAAwATAAMAAGAAAAAAAwATAAMAADABAAAAAwATAAMAADACAAAAAwATAAMAADADAAAAAwARAAMAADAEAAAAAwARAAMAADAFAAAAAwATAAMAADAGAAAAAwATAAMAADAHAAAAAwATAAMAADD//wEAAwARAAMAAFD//wIAAwARAAMAAFD//wMAAwARAAMAAFD//wQAAwATAAMAAFD//wUAAwATAAMAAFAIAAQAAwATAAMAAGAIAAUAAwATAAMAAGAIAAYAAwAVAAMAAAADAPT/AwAQABsAAAADAPX/AwAQABwAAAAEAPT/AwARABsAAAAEAPX/AwARABwAAAA=")
 tile_set = ExtResource("5_ff5tn")
 
 [node name="actual field" type="Node2D" parent="." unique_id=1348106378]
@@ -342,12 +371,11 @@ y_sort_enabled = true
 position = Vector2(180, 128)
 
 [node name="Main Character" parent="actual field" unique_id=1477450777 instance=ExtResource("1_mgrta")]
-position = Vector2(500, -1500)
+position = Vector2(513, -1431)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="actual field" unique_id=541968531]
 y_sort_enabled = true
 scale = Vector2(8, 8)
-tile_map_data = PackedByteArray("AAAJAAQAAwAGAB0AAAAJAAUAAwAGAB4AAAAKAAQAAwAHAB0AAAAKAAUAAwAHAB4AAAAIAAUAAwANAB0AAAD9/wIAAwAPAB0AAAA=")
 tile_set = ExtResource("5_ff5tn")
 
 [node name="field" type="Control" parent="." unique_id=670599588]
@@ -894,7 +922,7 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI show area2d" unique_id=2097816976]
-position = Vector2(689, 201)
+position = Vector2(689, 18.5)
 shape = SubResource("RectangleShape2D_utxwm")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1726283960]
@@ -1568,28 +1596,64 @@ text = "디버그 버튼"
 [node name="UI" type="Control" parent="UI layer" unique_id=2105758495]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -500.0
-offset_right = -460.0
+offset_left = -550.0
+offset_right = -510.0
 offset_bottom = 40.0
 
-[node name="yield" type="Label" parent="UI layer/UI" unique_id=1640519957]
+[node name="gold panel" type="TextureRect" parent="UI layer/UI" unique_id=1438828139]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 519.0
+offset_bottom = 191.0
+texture = ExtResource("28_4xxtj")
+
+[node name="gold icon" type="TextureRect" parent="UI layer/UI/gold panel" unique_id=1442386597]
+visible = false
 layout_mode = 0
-offset_left = 210.0
+offset_left = 30.0
+offset_top = 32.0
+offset_right = 70.0
+offset_bottom = 80.0
+texture = ExtResource("31_37kyt")
+
+[node name="yield label" type="Label" parent="UI layer/UI/gold panel" unique_id=805227083]
+layout_mode = 0
+offset_left = 38.0
 offset_top = 40.0
-offset_right = 476.0
-offset_bottom = 91.0
-pivot_offset = Vector2(39, 26)
-text = "2365"
+offset_right = 474.0
+offset_bottom = 127.0
+text = "소지금: "
 label_settings = SubResource("LabelSettings_kqero")
 
-[node name="yield label" type="Label" parent="UI layer/UI" unique_id=805227083]
+[node name="yield" type="Label" parent="UI layer/UI/gold panel" unique_id=1640519957]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 476.0
-offset_bottom = 127.0
-text = "소지금:"
+offset_left = 156.0
+offset_top = 37.0
+offset_right = 422.0
+offset_bottom = 88.0
+pivot_offset = Vector2(39, 26)
+text = "2365"
+label_settings = SubResource("LabelSettings_xo6jo")
+
+[node name="yield label2" type="Label" parent="UI layer/UI/gold panel" unique_id=2022733407]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 102.0
+offset_right = 474.0
+offset_bottom = 189.0
+text = "목표 금액: "
 label_settings = SubResource("LabelSettings_kqero")
+
+[node name="goal gold" type="Label" parent="UI layer/UI/gold panel" unique_id=341513459]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 100.0
+offset_right = 470.0
+offset_bottom = 151.0
+pivot_offset = Vector2(39, 26)
+text = "2365"
+label_settings = SubResource("LabelSettings_xo6jo")
 
 [node name="yield marker" type="Marker2D" parent="UI layer" unique_id=363040486 groups=["yield marker"]]
 position = Vector2(225, 58)
@@ -1629,9 +1693,279 @@ focus_mode = 0
 texture_normal = ExtResource("29_4xxtj")
 stretch_mode = 0
 
+[node name="pause con" type="Control" parent="UI layer" unique_id=304092688]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="qause color mat" type="ColorRect" parent="UI layer/pause con" unique_id=834814953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1115.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="NinePatchRect" type="Control" parent="UI layer/pause con" unique_id=2041786698]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -400.0
+offset_right = 236.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(312, 328)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI layer/pause con/NinePatchRect" unique_id=91139720]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -113.28711
+offset_right = 29.5
+offset_bottom = -13.215332
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(29.5, 41.041016)
+texture = ExtResource("34_37kyt")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="UI layer/pause con/NinePatchRect" unique_id=1779677811]
+z_index = 5
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 104.0
+offset_right = 105.0
+offset_bottom = 164.0
+grow_horizontal = 2
+text = "일시정지"
+label_settings = SubResource("LabelSettings_huuin")
+
+[node name="continue button" type="TextureButton" parent="UI layer/pause con/NinePatchRect" unique_id=864685584]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -156.0
+offset_right = 180.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("35_epo04")
+texture_pressed = ExtResource("36_vxxvd")
+texture_hover = ExtResource("37_6n0cc")
+stretch_mode = 0
+script = ExtResource("38_vxxvd")
+
+[node name="Label" type="Label" parent="UI layer/pause con/NinePatchRect/continue button" unique_id=1367878307]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "이어하기"
+label_settings = SubResource("LabelSettings_qrwy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry button" type="TextureButton" parent="UI layer/pause con/NinePatchRect" unique_id=343167974]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -31.0
+offset_right = 180.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("35_epo04")
+texture_pressed = ExtResource("36_vxxvd")
+texture_hover = ExtResource("37_6n0cc")
+stretch_mode = 0
+script = ExtResource("38_vxxvd")
+
+[node name="Label" type="Label" parent="UI layer/pause con/NinePatchRect/retry button" unique_id=788659365]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "다시하기"
+label_settings = SubResource("LabelSettings_qrwy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="option button" type="TextureButton" parent="UI layer/pause con/NinePatchRect" unique_id=289573116]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 94.0
+offset_right = 180.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("35_epo04")
+texture_pressed = ExtResource("36_vxxvd")
+texture_hover = ExtResource("37_6n0cc")
+stretch_mode = 0
+script = ExtResource("38_vxxvd")
+
+[node name="Label" type="Label" parent="UI layer/pause con/NinePatchRect/option button" unique_id=523079236]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "설정"
+label_settings = SubResource("LabelSettings_qrwy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit button" type="TextureButton" parent="UI layer/pause con/NinePatchRect" unique_id=1218663165]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 219.0
+offset_right = 180.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("35_epo04")
+texture_pressed = ExtResource("36_vxxvd")
+texture_hover = ExtResource("37_6n0cc")
+stretch_mode = 0
+script = ExtResource("38_vxxvd")
+
+[node name="Label" type="Label" parent="UI layer/pause con/NinePatchRect/quit button" unique_id=250255358]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "나가기"
+label_settings = SubResource("LabelSettings_qrwy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="round ui" type="Control" parent="UI layer" unique_id=420045744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="day label" type="RichTextLabel" parent="UI layer/round ui" unique_id=1840990478]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -409.0
+offset_top = -500.0
+offset_right = 409.0
+offset_bottom = -12.0
+grow_horizontal = 2
+pivot_offset = Vector2(409, 243)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+theme_override_colors/font_outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/normal_font = ExtResource("9_84m0o")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "DAY 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="area_entered" from="field/GridContainer/field_1/field_area_1" to="field" method="_on_field_area_1_area_entered"]
 [connection signal="area_entered" from="UI show area2d" to="UI layer" method="_on_ui_show_area_2d_area_entered"]
 [connection signal="area_exited" from="UI show area2d" to="UI layer" method="_on_ui_show_area_2d_area_exited"]
 [connection signal="pressed" from="UI layer/debug con/Button" to="UI layer" method="_on_button_pressed"]
 [connection signal="pressed" from="UI layer/debug con/Button2" to="UI layer" method="_on_button_2_pressed"]
 [connection signal="pressed" from="UI layer/setting UI/HBoxContainer/speed button" to="UI layer" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="UI layer/setting UI/HBoxContainer/back button" to="UI layer" method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="UI layer/pause con/NinePatchRect/continue button" to="UI layer/pause con/NinePatchRect/continue button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI layer/pause con/NinePatchRect/continue button" to="UI layer/pause con/NinePatchRect/continue button" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/continue button" to="UI layer" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/continue button" to="UI layer/pause con/NinePatchRect/continue button" method="_on_pressed"]
+[connection signal="mouse_entered" from="UI layer/pause con/NinePatchRect/retry button" to="UI layer/pause con/NinePatchRect/retry button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI layer/pause con/NinePatchRect/retry button" to="UI layer/pause con/NinePatchRect/retry button" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/retry button" to="UI layer" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/retry button" to="UI layer/pause con/NinePatchRect/retry button" method="_on_pressed"]
+[connection signal="mouse_entered" from="UI layer/pause con/NinePatchRect/option button" to="UI layer/pause con/NinePatchRect/option button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI layer/pause con/NinePatchRect/option button" to="UI layer/pause con/NinePatchRect/option button" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/option button" to="UI layer" method="_on_option_button_pressed"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/option button" to="UI layer/pause con/NinePatchRect/option button" method="_on_pressed"]
+[connection signal="mouse_entered" from="UI layer/pause con/NinePatchRect/quit button" to="UI layer/pause con/NinePatchRect/quit button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI layer/pause con/NinePatchRect/quit button" to="UI layer/pause con/NinePatchRect/quit button" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/quit button" to="UI layer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI layer/pause con/NinePatchRect/quit button" to="UI layer/pause con/NinePatchRect/quit button" method="_on_pressed"]

@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://doyf0jkjfjw8p" path="res://Assets/images/tile map/shelf-Sheet.png" id="7_e8dnh"]
 [ext_resource type="Texture2D" uid="uid://50xus54sgyj8" path="res://Assets/images/tile map/stairs.png" id="8_dmmsi"]
 [ext_resource type="PackedScene" uid="uid://ct18iihq3ijkt" path="res://scene/major scene/main_character.tscn" id="8_euqia"]
+[ext_resource type="Script" uid="uid://bgbeoiqsltlao" path="res://script/scene script/prepare scene canvas.gd" id="12_guost"]
+[ext_resource type="Texture2D" uid="uid://c3qnjrhdr7wxi" path="res://Assets/images/UI/panel 5.png" id="13_rjg7o"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="14_61xg0"]
+[ext_resource type="Texture2D" uid="uid://cdoyog8gbf5c5" path="res://Assets/images/UI/button 45x13 normal.png" id="15_vcxjy"]
+[ext_resource type="Texture2D" uid="uid://bc6dep5vpmugb" path="res://Assets/images/UI/button 45x13 pressed.png" id="16_xbg7p"]
+[ext_resource type="Texture2D" uid="uid://b5wnkw4n4ohd8" path="res://Assets/images/UI/button 45x13 hover.png" id="17_er3ft"]
+[ext_resource type="Script" uid="uid://wiadyrr3wknj" path="res://script/buttons_tween_3.gd" id="18_xsrsw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1s8ty"]
 texture = ExtResource("2_c0m6k")
@@ -305,6 +312,20 @@ size = Vector2(378, 448)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(254, 328)
 
+[sub_resource type="LabelSettings" id="LabelSettings_gsh5o"]
+font = ExtResource("14_61xg0")
+font_size = 60
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+outline_size = 25
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_way4d"]
+font = ExtResource("14_61xg0")
+font_size = 50
+font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
+outline_size = 20
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
 [node name="game prepare scene" type="Control" unique_id=1108718539]
 layout_mode = 3
 anchors_preset = 15
@@ -536,6 +557,7 @@ vertical_alignment = 1
 position = Vector2(785, 711)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1226210028]
+script = ExtResource("12_guost")
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=357476407]
 anchors_preset = 7
@@ -554,6 +576,192 @@ label_settings = ExtResource("5_gef26")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="pause con" type="Control" parent="CanvasLayer" unique_id=1084734324]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="qause color mat" type="ColorRect" parent="CanvasLayer/pause con" unique_id=2137684683]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1115.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="NinePatchRect" type="Control" parent="CanvasLayer/pause con" unique_id=73648699]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -328.0
+offset_right = 236.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(312, 328)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/pause con/NinePatchRect" unique_id=911425562]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -41.0
+offset_right = 29.5
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+pivot_offset = Vector2(29.5, 41.041016)
+texture = ExtResource("13_rjg7o")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/pause con/NinePatchRect" unique_id=1208610584]
+z_index = 5
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 105.0
+offset_right = 105.0
+offset_bottom = 165.0
+grow_horizontal = 2
+text = "일시정지"
+label_settings = SubResource("LabelSettings_gsh5o")
+
+[node name="continue button" type="TextureButton" parent="CanvasLayer/pause con/NinePatchRect" unique_id=1331282497]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -96.0
+offset_right = 180.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("15_vcxjy")
+texture_pressed = ExtResource("16_xbg7p")
+texture_hover = ExtResource("17_er3ft")
+stretch_mode = 0
+script = ExtResource("18_xsrsw")
+
+[node name="Label" type="Label" parent="CanvasLayer/pause con/NinePatchRect/continue button" unique_id=778304973]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "이어하기"
+label_settings = SubResource("LabelSettings_way4d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="option button" type="TextureButton" parent="CanvasLayer/pause con/NinePatchRect" unique_id=36532128]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 27.0
+offset_right = 180.0
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("15_vcxjy")
+texture_pressed = ExtResource("16_xbg7p")
+texture_hover = ExtResource("17_er3ft")
+stretch_mode = 0
+script = ExtResource("18_xsrsw")
+
+[node name="Label" type="Label" parent="CanvasLayer/pause con/NinePatchRect/option button" unique_id=1783972353]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "설정"
+label_settings = SubResource("LabelSettings_way4d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit button" type="TextureButton" parent="CanvasLayer/pause con/NinePatchRect" unique_id=1026261175]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 150.0
+offset_right = 180.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180.5, 52.5)
+texture_normal = ExtResource("15_vcxjy")
+texture_pressed = ExtResource("16_xbg7p")
+texture_hover = ExtResource("17_er3ft")
+stretch_mode = 0
+script = ExtResource("18_xsrsw")
+
+[node name="Label" type="Label" parent="CanvasLayer/pause con/NinePatchRect/quit button" unique_id=1256600575]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 52)
+text = "나가기"
+label_settings = SubResource("LabelSettings_way4d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1057715544]
 layout_mode = 0
 offset_left = 647.0
@@ -567,3 +775,15 @@ offset_bottom = 568.0
 [connection signal="area_exited" from="playerble map/shelf" to="." method="_on_shelf_area_exited"]
 [connection signal="area_entered" from="playerble map/stairs" to="." method="_on_stairs_area_entered"]
 [connection signal="area_exited" from="playerble map/stairs" to="." method="_on_stairs_area_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/pause con/NinePatchRect/continue button" to="CanvasLayer/pause con/NinePatchRect/continue button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/pause con/NinePatchRect/continue button" to="CanvasLayer/pause con/NinePatchRect/continue button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/continue button" to="CanvasLayer" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/continue button" to="CanvasLayer/pause con/NinePatchRect/continue button" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/pause con/NinePatchRect/option button" to="CanvasLayer/pause con/NinePatchRect/option button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/pause con/NinePatchRect/option button" to="CanvasLayer/pause con/NinePatchRect/option button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/option button" to="CanvasLayer" method="_on_option_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/option button" to="CanvasLayer/pause con/NinePatchRect/option button" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer/pause con/NinePatchRect/quit button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer/pause con/NinePatchRect/quit button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer/pause con/NinePatchRect/quit button" method="_on_pressed"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cwjqcvtniiseg"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_178k5"]
+[ext_resource type="Texture2D" uid="uid://bbb0c84444wrf" path="res://Assets/images/item icons/2007.png" id="1_newts"]
+
+[resource]
+script = ExtResource("1_178k5")
+item_id = 2007
+item_name = "고소한 콩가루"
+item_option = "콩 가격 + 200%"
+discription = "이걸로 국물내면.. 크으"
+icon = ExtResource("1_newts")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

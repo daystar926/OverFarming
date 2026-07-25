@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bvo6rnmsdj3pq"]
+
+[ext_resource type="Texture2D" uid="uid://bw7crnyicw07s" path="res://Assets/images/item icons/3003.png" id="1_oq22o"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_r0h3w"]
+
+[resource]
+script = ExtResource("1_r0h3w")
+item_id = 3003
+item_name = "지푸라기 인형"
+item_option = "밀 추가 수확 + 3개"
+discription = "이거 저주인형은 아니지..?"
+icon = ExtResource("1_oq22o")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

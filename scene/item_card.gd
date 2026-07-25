@@ -28,8 +28,6 @@ var slot_num: int
 @onready var item_image: TextureRect = $"SubViewportContainer/SubViewport/CardTexture/Control/item image"
 @onready var item_discription: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item discription"
 @onready var item_option: Label = $"SubViewportContainer/SubViewport/CardTexture/Control/item option"
-@onready var animated_sprite_2d: AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
-
 @onready var card_panel_texture: TextureRect = $SubViewportContainer/SubViewport/CardTexture
 
 
@@ -137,7 +135,7 @@ func _on_mouse_entered() -> void:
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-	tween_hover.tween_property(self, "scale", Vector2(1.2, 1.2), 0.5)
+	tween_hover.tween_property(self, "scale", Vector2(1.15, 1.15), 0.5)
 
 func _on_mouse_exited() -> void:
 	if not mouse_followable: return

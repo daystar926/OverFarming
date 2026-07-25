@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://oy0x7xujiaw7"]
 
-[ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="1_ncu4b"]
+[ext_resource type="Texture2D" uid="uid://qp5ejxiohk1g" path="res://Assets/images/item icons/1007.png" id="1_ncu4b"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_3h6lk"]
 
 [resource]
 script = ExtResource("2_3h6lk")
 item_id = 1007
 item_name = "씁쓸한 양파즙"
-item_option = "양파 성장시간 가속 + 20%"
+item_option = "양파 성장시간 가속 + 20%
+양파 씨앗 + 1개"
 discription = "으엑 맛없어"
 icon = ExtResource("1_ncu4b")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

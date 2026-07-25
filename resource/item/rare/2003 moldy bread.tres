@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bxe2d7y6e3d3n"]
+
+[ext_resource type="Texture2D" uid="uid://ddoxtyv5o22sf" path="res://Assets/images/item icons/2003.png" id="1_rxxv6"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_ybrk8"]
+
+[resource]
+script = ExtResource("1_ybrk8")
+item_id = 2003
+item_name = "곰팡이 핀 빵"
+item_option = "작물 드랍 거리 - 50
+아이템 보상 희귀도 Lv + 1"
+discription = "곰빵이 삔 빵, 핀 팡, 삔 팡.. 빵.."
+icon = ExtResource("1_rxxv6")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c6r5rqy4ta5bf"]
 
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_5s084"]
+[ext_resource type="Texture2D" uid="uid://bib7mhh0dnyql" path="res://Assets/images/item icons/1002.png" id="1_ncd00"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_ufowe"]
 
 [resource]
@@ -8,7 +8,7 @@ script = ExtResource("1_ufowe")
 item_id = 1002
 item_name = "개똥"
 item_option = "전체 작물 추가 수확 확률 + 10%
-드랍 범위 + 30"
+작물 드랍 거리 + 30"
 discription = "밟으면 재수 좋다던데.."
-icon = ExtResource("1_5s084")
+icon = ExtResource("1_ncd00")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

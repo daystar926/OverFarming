@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dmnl0m0187xkf"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_cxxx1"]
+[ext_resource type="Texture2D" uid="uid://d36g1nqg52juh" path="res://Assets/images/item icons/2014.png" id="1_dliku"]
+
+[resource]
+script = ExtResource("1_cxxx1")
+item_id = 2014
+item_name = "콩알탄"
+item_option = "콩 추가 수확 + 2개
+작물 드랍 거리 + 500"
+discription = "밟으면 큰일납니다. 진지하게."
+icon = ExtResource("1_dliku")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

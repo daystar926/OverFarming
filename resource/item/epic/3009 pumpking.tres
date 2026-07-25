@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bc1rasyacwpis"]
+
+[ext_resource type="Texture2D" uid="uid://daj0mif5l3nl1" path="res://Assets/images/item icons/3009.png" id="1_ogutq"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_vwimo"]
+
+[resource]
+script = ExtResource("1_vwimo")
+item_id = 3009
+item_name = "펌킨킹"
+item_option = "호박 씨앗 + 2개
+호박 가격 + 1000%"
+discription = "펌킨을 다시 위대하게!"
+icon = ExtResource("1_ogutq")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

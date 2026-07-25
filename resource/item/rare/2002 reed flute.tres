@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://de2jxvlx2iftf"]
+
+[ext_resource type="Texture2D" uid="uid://cysjvuu8rqcdj" path="res://Assets/images/item icons/2002.png" id="1_h8pjg"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_tk7eq"]
+
+[resource]
+script = ExtResource("2_tk7eq")
+item_id = 2002
+item_name = "갈대 피리"
+item_option = "쌀 수확시간 가속 + 10%
+밀 수확시간 가속 + 10%"
+discription = "피릴릴리 피릴리~"
+icon = ExtResource("1_h8pjg")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

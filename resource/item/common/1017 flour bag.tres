@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://div5pknrs8nb1"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_40xas"]
-[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="1_50u3c"]
+[ext_resource type="Texture2D" uid="uid://b2dnypxv3qipn" path="res://Assets/images/item icons/1017.png" id="1_50u3c"]
 
 [resource]
 script = ExtResource("1_40xas")
 item_id = 1017
 item_name = "밀가루 봉투"
-item_option = "밀 성장시간 가속 + 20%"
+item_option = "밀 수확시간 가속 + 20%"
 discription = "분진폭발!?!?!"
 icon = ExtResource("1_50u3c")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

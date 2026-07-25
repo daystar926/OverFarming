@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bism813wdbkle"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_5vsl1"]
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_i6fav"]
+[ext_resource type="Texture2D" uid="uid://ckkdjpnosagwh" path="res://Assets/images/item icons/1012.png" id="1_i6fav"]
 
 [resource]
 script = ExtResource("1_5vsl1")
 item_id = 1012
 item_name = "밀가루"
-item_option = "밀 값어치 + 10 G"
+item_option = "밀 가격 + 10 G
+밀 씨앗 + 1개"
 discription = "난 이미 중독됐어.."
 icon = ExtResource("1_i6fav")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

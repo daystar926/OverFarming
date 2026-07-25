@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://0duck1ba01i3"]
+
+[ext_resource type="Texture2D" uid="uid://tqsl86hfeckl" path="res://Assets/images/item icons/2005.png" id="1_67gmi"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_mt2rj"]
+
+[resource]
+script = ExtResource("1_mt2rj")
+item_id = 2005
+item_name = "쌀벌레 한마리"
+item_option = "쌀 수확시간 가속 + 70%
+쌀 가격 - 25%
+쌀 씨앗 + 2개"
+discription = "재빠른 벌레 한마리"
+icon = ExtResource("1_67gmi")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

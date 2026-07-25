@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bl7b7rao1g4l0"]
+
+[ext_resource type="Texture2D" uid="uid://3cvc3sicogx6" path="res://Assets/images/item icons/3008.png" id="1_if4c1"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_jykg8"]
+
+[resource]
+script = ExtResource("1_jykg8")
+item_id = 3008
+item_name = "너무 많은 콩"
+item_option = "콩 추가 수확 + 3개
+콩 성장시간 가속 + 5초"
+discription = "콩으로 사막 만들기"
+icon = ExtResource("1_if4c1")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

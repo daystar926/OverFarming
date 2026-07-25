@@ -1,7 +1,9 @@
 extends CanvasLayer
 
-@onready var white_color: ColorRect = $"white color"
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+@onready var alert_1_texture: TextureRect = $"alert 1 texture"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,10 +17,25 @@ func _process(delta: float) -> void:
 func white_transition(path):
 
 	
-	animation_player.play("white in")
-	await animation_player.animation_finished
+	animated_sprite_2d.play("open")
+	await animated_sprite_2d.animation_finished
 	
 	get_tree().change_scene_to_file(path)
 	await get_tree().tree_changed
 	
-	animation_player.play("white out")
+	animated_sprite_2d.play("close")
+
+var alert_1_tween: Tween
+func dev_alert_1():
+	if alert_1_tween:
+		alert_1_tween.kill()
+
+	alert_1_tween = alert_1_texture.create_tween()
+	alert_1_tween.set_ignore_time_scale(true)
+	alert_1_tween.tween_property(alert_1_texture, "position", Vector2(680, 0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	alert_1_tween.tween_interval(1.5)
+	alert_1_tween.tween_property(alert_1_texture, "position", Vector2(680, -250), 0.5)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUART)

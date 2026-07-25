@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dvubpfwk0gcwy"]
+
+[ext_resource type="Texture2D" uid="uid://bqqy7nvo56r6n" path="res://Assets/images/item icons/2010.png" id="1_7rays"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_nmpl1"]
+
+[resource]
+script = ExtResource("1_nmpl1")
+item_id = 2010
+item_name = "재활용 양배추"
+item_option = "양배추 씨앗 + 3개
+양배추 수확시간 가속 + 50%"
+discription = "양배추는 씻어서 먹어도 돼."
+icon = ExtResource("1_7rays")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

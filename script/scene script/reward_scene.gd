@@ -29,6 +29,8 @@ extends Control
 @onready var plants_check_button: TextureButton = $"plants check button"
 @onready var reroll_button: TextureButton = $"reroll button"
 
+@onready var crystal_amount: Label = $"extra shop ui/crystal amount2"
+
 @onready var slot_1: Node2D = $"slot 1"
 @onready var slot_2: Node2D = $"slot 2"
 @onready var slot_3: Node2D = $"slot 3"
@@ -41,10 +43,14 @@ var selectable = false
 
 func _ready() -> void:
 	inven_refresh()
+	crystal_changed()
 	spawn_tween()
 
 func _process(delta: float) -> void:
 	pass
+
+func crystal_changed():
+	crystal_amount.text = str(Global.format_with_commas(Global.crystal)) + " 개"
 
 func spawn_tween():
 	var tween = create_tween()
@@ -55,6 +61,15 @@ func spawn_tween():
 	var tween2 = create_tween()
 	tween2.tween_interval(0.2)
 	tween2.tween_property(inventory_ui, "position", Vector2(0, 0), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(skip_select_button, "position", Vector2(515, 881), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(plants_check_button, "position", Vector2(104, 881), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(reroll_button, "position", Vector2(928, 881), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	var tween3 = create_tween()
@@ -143,18 +158,45 @@ func _on_slot_selected(slot_num: int) -> void:
 			slot_instances[i].cancel_selection()
 
 const RARITY_WEIGHTS: Dictionary = {
-	1: {1: 90, 2: 8, 3: 1.5, 4: 0.5},
-	2: {1: 80, 2: 17, 3: 2, 4: 1},
-	3: {1: 70, 2: 25, 3: 3, 4: 2},
-	4: {1: 60, 2: 30, 3: 7, 4: 3},
-	5: {1: 50, 2: 30, 3: 15, 4: 5},
+	1: {1: 90.0, 2: 8.0, 3: 1.5, 4: 0.5},
+	2: {1: 84.0, 2: 11.75, 3: 3.0, 4: 1.25},
+	3: {1: 78.0, 2: 15.5, 3: 4.5, 4: 2.0},
+	4: {1: 72.0, 2: 19.25, 3: 6.0, 4: 2.75},
+	5: {1: 66.0, 2: 23.0, 3: 7.5, 4: 3.5},
+	6: {1: 60.0, 2: 26.75, 3: 9.0, 4: 4.25},
+	7: {1: 54.0, 2: 30.5, 3: 10.5, 4: 5.0},
+	8: {1: 48.0, 2: 34.25, 3: 12.0, 4: 5.75},
+	9: {1: 42.0, 2: 38.0, 3: 13.5, 4: 6.5},
+	10: {1: 36.0, 2: 41.75, 3: 15.0, 4: 7.25},
+	11: {1: 30.0, 2: 45.5, 3: 16.5, 4: 8.0},
+	12: {1: 24.0, 2: 49.25, 3: 18.0, 4: 8.75},
+	13: {1: 18.0, 2: 53.0, 3: 19.5, 4: 9.5},
+	14: {1: 12.0, 2: 56.75, 3: 21.0, 4: 10.25},
+	15: {1: 6.0, 2: 60.5, 3: 22.5, 4: 11.0},
+	16: {1: 0.0, 2: 64.25, 3: 24.0, 4: 11.75},
+	17: {1: 0.0, 2: 58.25, 3: 28.0, 4: 13.75},
+	18: {1: 0.0, 2: 52.25, 3: 32.0, 4: 15.75},
+	19: {1: 0.0, 2: 46.25, 3: 36.0, 4: 17.75},
+	20: {1: 0.0, 2: 40.25, 3: 40.0, 4: 19.75},
+	21: {1: 0.0, 2: 34.25, 3: 44.0, 4: 21.75},
+	22: {1: 0.0, 2: 28.25, 3: 48.0, 4: 23.75},
+	23: {1: 0.0, 2: 22.25, 3: 52.0, 4: 25.75},
+	24: {1: 0.0, 2: 16.25, 3: 56.0, 4: 27.75},
+	25: {1: 0.0, 2: 10.25, 3: 60.0, 4: 29.75},
+	26: {1: 0.0, 2: 4.25, 3: 64.0, 4: 31.75},
+	27: {1: 0.0, 2: 0.0, 3: 65.08, 4: 34.92},
+	28: {1: 0.0, 2: 0.0, 3: 59.08, 4: 40.92},
+	29: {1: 0.0, 2: 0.0, 3: 53.08, 4: 46.92},
+	30: {1: 0.0, 2: 0.0, 3: 47.08, 4: 52.92},
 }
 
 # 레어도별 아이템 ID 목록
 var rarity_item_pool: Dictionary = {
-	1: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018],
-	2: [2001, 2002, 2003, 2004],
-	3: [3001],
+	1: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009,
+		1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018],
+	2: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+		2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+	3: [3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010],
 	4: [4001],
 }
 
@@ -233,6 +275,15 @@ func exit_tween():
 	var tween2 = create_tween()
 	tween2.tween_interval(0.2)
 	tween2.tween_property(inventory_ui, "position", Vector2(700, 0), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(skip_select_button, "position", Vector2(515, 1100), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(plants_check_button, "position", Vector2(104, 1100), 0.3)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_CUBIC)
+	tween2.parallel().tween_property(reroll_button, "position", Vector2(928, 1100), 0.3)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
 	var tween3 = create_tween()
@@ -455,3 +506,14 @@ func _on_skip_select_button_pressed() -> void:
 func _on_reroll_button_pressed() -> void:
 	selectable = false
 	item_slot_setting()
+
+
+func _on_synergy_1_buy_button_pressed() -> void:
+	GlobalCanvas.dev_alert_1()
+
+
+func _on_synergy_2_buy_button_pressed() -> void:
+	GlobalCanvas.dev_alert_1()
+
+func _on_synergy_3_buy_button_pressed() -> void:
+	GlobalCanvas.dev_alert_1()

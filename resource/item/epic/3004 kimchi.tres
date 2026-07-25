@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c7lab50hsxoay"]
+
+[ext_resource type="Texture2D" uid="uid://dg04euy3f6pvx" path="res://Assets/images/item icons/3004.png" id="1_tj6uo"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_xykyd"]
+
+[resource]
+script = ExtResource("1_xykyd")
+item_id = 3004
+item_name = "김치"
+item_option = "양배추 수확시간 가속 + 60%
+양배추 가격 + 300%"
+discription = "양배추로 하는 김치..?"
+icon = ExtResource("1_tj6uo")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

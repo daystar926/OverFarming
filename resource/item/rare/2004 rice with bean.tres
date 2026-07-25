@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dub1l5b1jkq18"]
+
+[ext_resource type="Texture2D" uid="uid://bhh7g673idvje" path="res://Assets/images/item icons/2004.png" id="1_2fmrd"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_yqomi"]
+
+[resource]
+script = ExtResource("1_yqomi")
+item_id = 2004
+item_name = "콩밥"
+item_option = "쌀 가격 + 30%
+쌀 수확시간 가속 + 10초
+콩 가격 + 10%
+콩 수확시간 가속 + 5초"
+discription = "콩밥 먹고 싶어? 응.."
+icon = ExtResource("1_2fmrd")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

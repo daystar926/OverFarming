@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cxxvv0cdq6tji"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_qbl3c"]
-[ext_resource type="Texture2D" uid="uid://cpog33ayuhnht" path="res://Assets/images/plants/strawberry item.png" id="1_vaqfb"]
+[ext_resource type="Texture2D" uid="uid://4xp6g0j7hns0" path="res://Assets/images/item icons/1016.png" id="1_vaqfb"]
 
 [resource]
 script = ExtResource("1_qbl3c")
 item_id = 1016
 item_name = "보리보리 쌀"
-item_option = "쌀 드랍 갯수 + 1"
+item_option = "쌀 추가 수확 + 1개"
 discription = "아직 보리밖에 안했어!"
 icon = ExtResource("1_vaqfb")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

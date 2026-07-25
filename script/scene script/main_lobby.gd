@@ -79,8 +79,15 @@ func label_tween():
 	tween.tween_interval(0.5)
 
 
+		
 func _unhandled_key_input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		return
 	if pressable:
 		GlobalCanvas.white_transition("res://scene/major scene/game_prepare_scene.tscn")
+
+
+func _on_game_start_label_pressed() -> void:
+	if not pressable:
+		return
+	GlobalCanvas.white_transition("res://scene/major scene/game_prepare_scene.tscn")

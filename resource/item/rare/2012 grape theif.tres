@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dtrykawujncrp"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_cm6xu"]
+[ext_resource type="Texture2D" uid="uid://u5eebd3t5bk1" path="res://Assets/images/item icons/2012.png" id="1_iux36"]
+
+[resource]
+script = ExtResource("1_cm6xu")
+item_id = 2012
+item_name = "나는 포도 도둑"
+item_option = "포도 씨앗 + 10개
+포도 수확시간 증가 + 100%"
+discription = "포도돋도둗두"
+icon = ExtResource("1_iux36")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

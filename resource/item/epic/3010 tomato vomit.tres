@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cs5mowdct6b2f"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_dayrj"]
+[ext_resource type="Texture2D" uid="uid://cupbcgm730oen" path="res://Assets/images/item icons/3010.png" id="1_fv83e"]
+
+[resource]
+script = ExtResource("1_dayrj")
+item_id = 3010
+item_name = "토 맛 토마토"
+item_option = "토마토 수확시간 가속 + 60%
+토마토 추가 수확 + 2개"
+discription = "이건 또 뭐야!"
+icon = ExtResource("1_fv83e")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

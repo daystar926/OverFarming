@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://s6ycdm58x8iq"]
 
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_8dw0u"]
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_vn7s6"]
+[ext_resource type="Texture2D" uid="uid://d0heejpxk72qw" path="res://Assets/images/item icons/1015.png" id="1_vn7s6"]
 
 [resource]
 script = ExtResource("1_8dw0u")
 item_id = 1015
 item_name = "옥수수수수"
-item_option = "옥수수 값어치 + 100%
+item_option = "옥수수 가격 + 100%
 옥수수 성장시간 증가 + 400%"
 discription = "옥수수숙 수수숙... 수숙!"
 icon = ExtResource("1_vn7s6")

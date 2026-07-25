@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d33la8olp4c3g"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_gncyw"]
+[ext_resource type="Texture2D" uid="uid://derjo4jyks24" path="res://Assets/images/item icons/2016.png" id="1_lsa1s"]
+
+[resource]
+script = ExtResource("1_gncyw")
+item_id = 2016
+item_name = "에너지드링크"
+item_option = "전체 작물 가격 + 50%"
+discription = "형님 저 흥부인데요!"
+icon = ExtResource("1_lsa1s")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

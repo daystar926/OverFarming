@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://rmhlue5f2hu5"]
+
+[ext_resource type="Texture2D" uid="uid://kre7l5cicr3o" path="res://Assets/images/item icons/2011.png" id="1_0mh21"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_8wjyh"]
+
+[resource]
+script = ExtResource("1_8wjyh")
+item_id = 2011
+item_name = "까도 까도 양파"
+item_option = "양파 씨앗 + 6개
+양파 외 작물 가격 - 30%"
+discription = "눈이 너무 매워.."
+icon = ExtResource("1_0mh21")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

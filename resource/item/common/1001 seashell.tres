@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dx2ej8d4megcx"]
 
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_iesbm"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_lv4h1"]
+[ext_resource type="Texture2D" uid="uid://dl4wt0f26hrjr" path="res://Assets/images/item icons/1001.png" id="1_xmqct"]
 
 [resource]
 script = ExtResource("1_lv4h1")
 item_id = 1001
 item_name = "조개껍질"
-item_option = "보너스 골드 + 10 G"
+item_option = "모든 작물 가격 + 10 G"
 discription = "이게 왜 여기있지?"
-icon = ExtResource("1_iesbm")
+icon = ExtResource("1_xmqct")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

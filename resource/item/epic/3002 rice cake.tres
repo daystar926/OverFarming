@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bem5y0sbkisko"]
+
+[ext_resource type="Texture2D" uid="uid://b34p41mtc1sqd" path="res://Assets/images/item icons/3002.png" id="1_6qjg7"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_x1vah"]
+
+[resource]
+script = ExtResource("1_x1vah")
+item_id = 3002
+item_name = "떡케이크"
+item_option = "쌀 씨앗 + 3개
+쌀 가격 + 300%"
+discription = "다 먹으면 살이 찌겠지..?"
+icon = ExtResource("1_6qjg7")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

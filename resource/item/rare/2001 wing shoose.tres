@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://1r0djbsxcn2o"]
+
+[ext_resource type="Texture2D" uid="uid://b5u848pfitwst" path="res://Assets/images/item icons/2001.png" id="1_eud4p"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_ep8fn"]
+
+[resource]
+script = ExtResource("2_ep8fn")
+item_id = 2001
+item_name = "날개 달린 신발"
+item_option = "이동속도 + 100
+아이템 보상 희귀도 Lv + 1"
+discription = "신발이 막 움직여!"
+icon = ExtResource("1_eud4p")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

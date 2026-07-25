@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://i8m1e6ecsp0o"]
 
-[ext_resource type="Texture2D" uid="uid://c0ff8vvjwcx77" path="res://Assets/Placeholder/Sprite-0001.png" id="1_m8vth"]
+[ext_resource type="Texture2D" uid="uid://dd5kf7dny4qn0" path="res://Assets/images/item icons/1010.png" id="1_m8vth"]
 [ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="2_x20i2"]
 
 [resource]
 script = ExtResource("2_x20i2")
 item_id = 1010
 item_name = "으스스한 호박"
-item_option = "호박 값어치 + 15 G"
+item_option = "호박 가격 + 15 G
+호박 씨앗 + 1개"
 discription = "이제 키다리 아저씨들이 안쫓아와"
 icon = ExtResource("1_m8vth")
 metadata/_custom_type_script = "uid://tovn75rtg33v"

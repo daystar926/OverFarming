@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cvd00romrvr5g"]
+
+[ext_resource type="Texture2D" uid="uid://dwvkfnq6bx803" path="res://Assets/images/item icons/2006.png" id="1_6y2tc"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_734lu"]
+
+[resource]
+script = ExtResource("1_734lu")
+item_id = 2006
+item_name = "밀짚모자"
+item_option = "밀 가격 + 100%"
+discription = "농부는 이거 써줘야지!"
+icon = ExtResource("1_6y2tc")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

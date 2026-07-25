@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://b3jn34kryd1k2"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_btfcf"]
+[ext_resource type="Texture2D" uid="uid://dhgyh74l346t6" path="res://Assets/images/item icons/2013.png" id="1_ff3l5"]
+
+[resource]
+script = ExtResource("1_btfcf")
+item_id = 2013
+item_name = "옥수수를 심어"
+item_option = "옥수수 씨앗 + 4개
+옥수수 성장시간 가속 + 50%"
+discription = "일단 심어. 얼른 자라."
+icon = ExtResource("1_ff3l5")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cvg7ueyi3d4wr"]
+
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_eggyh"]
+[ext_resource type="Texture2D" uid="uid://by5v2n5slpgf0" path="res://Assets/images/item icons/3005.png" id="1_lf70t"]
+
+[resource]
+script = ExtResource("1_eggyh")
+item_id = 3005
+item_name = "포도알 부자"
+item_option = "포도 추가 수확 + 7개
+포도 가격 - 30%"
+discription = "발에 치이는게 포도알이야"
+icon = ExtResource("1_lf70t")
+rarity = 2
+metadata/_custom_type_script = "uid://tovn75rtg33v"

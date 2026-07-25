@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://chqeg0fblt7q1"]
+
+[ext_resource type="Texture2D" uid="uid://duy80fggtlyuk" path="res://Assets/images/item icons/2018.png" id="1_003e7"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_7psmo"]
+
+[resource]
+script = ExtResource("1_7psmo")
+item_id = 2018
+item_name = "행운의 삽"
+item_option = "전체 작물 추가 수확 확률 + 50%"
+discription = "운이 좋아지는 기분을 알아?"
+icon = ExtResource("1_003e7")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"

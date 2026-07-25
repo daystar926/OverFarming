@@ -1,77 +1,383 @@
 [gd_scene format=3 uid="uid://d4e7olpq8vgqi"]
 
 [ext_resource type="Script" uid="uid://b1ooupodawb8d" path="res://script/scene script/global_canvas.gd" id="1_lbqau"]
+[ext_resource type="Texture2D" uid="uid://bahoo41foym7l" path="res://Assets/images/UI/panel 6.png" id="2_7tbri"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="3_ei6nu"]
+[ext_resource type="Texture2D" uid="uid://bxxdxd6y3xer1" path="res://Assets/images/main/transition/컴포지션 1_00040.png" id="4_olodh"]
+[ext_resource type="Texture2D" uid="uid://hw2wu3xxb3kt" path="res://Assets/images/main/transition/컴포지션 1_00041.png" id="5_1dsed"]
+[ext_resource type="Texture2D" uid="uid://bue5cu1yt55xy" path="res://Assets/images/main/transition/컴포지션 1_00042.png" id="6_17qo4"]
+[ext_resource type="Texture2D" uid="uid://dvquynx4qlidv" path="res://Assets/images/main/transition/컴포지션 1_00043.png" id="7_i8url"]
+[ext_resource type="Texture2D" uid="uid://bt808j3do3ny" path="res://Assets/images/main/transition/컴포지션 1_00044.png" id="8_r11hb"]
+[ext_resource type="Texture2D" uid="uid://cj7ku5tadula5" path="res://Assets/images/main/transition/컴포지션 1_00045.png" id="9_0rloy"]
+[ext_resource type="Texture2D" uid="uid://bb0c3oii7747t" path="res://Assets/images/main/transition/컴포지션 1_00046.png" id="10_6w7qg"]
+[ext_resource type="Texture2D" uid="uid://gksmrxxtw425" path="res://Assets/images/main/transition/컴포지션 1_00047.png" id="11_yspwo"]
+[ext_resource type="Texture2D" uid="uid://6mmwpr24g4x4" path="res://Assets/images/main/transition/컴포지션 1_00048.png" id="12_ivacv"]
+[ext_resource type="Texture2D" uid="uid://bpativuyfp2eo" path="res://Assets/images/main/transition/컴포지션 1_00049.png" id="13_2x7ny"]
+[ext_resource type="Texture2D" uid="uid://dpdqs1vdg7n1n" path="res://Assets/images/main/transition/컴포지션 1_00050.png" id="14_k25cb"]
+[ext_resource type="Texture2D" uid="uid://dpp7qhmxj0a2i" path="res://Assets/images/main/transition/컴포지션 1_00051.png" id="15_qg68k"]
+[ext_resource type="Texture2D" uid="uid://ci2egsu2ibx0g" path="res://Assets/images/main/transition/컴포지션 1_00052.png" id="16_rwlwf"]
+[ext_resource type="Texture2D" uid="uid://b2jymu6w7qtca" path="res://Assets/images/main/transition/컴포지션 1_00053.png" id="17_030w4"]
+[ext_resource type="Texture2D" uid="uid://dj1yi3ai8b8tw" path="res://Assets/images/main/transition/컴포지션 1_00054.png" id="18_0gy2u"]
+[ext_resource type="Texture2D" uid="uid://bdoa7vhtbktb8" path="res://Assets/images/main/transition/컴포지션 1_00055.png" id="19_hphel"]
+[ext_resource type="Texture2D" uid="uid://bbhkfml5qn82v" path="res://Assets/images/main/transition/컴포지션 1_00056.png" id="20_jo5el"]
+[ext_resource type="Texture2D" uid="uid://1rljq3g2iexb" path="res://Assets/images/main/transition/컴포지션 1_00057.png" id="21_rlerh"]
+[ext_resource type="Texture2D" uid="uid://cwkevgv50a42j" path="res://Assets/images/main/transition/컴포지션 1_00058.png" id="22_npjvv"]
+[ext_resource type="Texture2D" uid="uid://ykt6ctjtxbxn" path="res://Assets/images/main/transition/컴포지션 1_00059.png" id="23_oofna"]
+[ext_resource type="Texture2D" uid="uid://bmot5go1e6lgc" path="res://Assets/images/main/transition/컴포지션 1_00060.png" id="24_8uv6m"]
+[ext_resource type="Texture2D" uid="uid://c25afcudpgfpo" path="res://Assets/images/main/transition/컴포지션 1_00061.png" id="25_yga4c"]
+[ext_resource type="Texture2D" uid="uid://ctm3au6eg6h73" path="res://Assets/images/main/transition/컴포지션 1_00062.png" id="26_qt38b"]
+[ext_resource type="Texture2D" uid="uid://bmroonx65iaq6" path="res://Assets/images/main/transition/컴포지션 1_00063.png" id="27_gxjkv"]
+[ext_resource type="Texture2D" uid="uid://buyt0m7mqq2o" path="res://Assets/images/main/transition/컴포지션 1_00064.png" id="28_cvpdn"]
+[ext_resource type="Texture2D" uid="uid://tlt5oq8pkqha" path="res://Assets/images/main/transition/컴포지션 1_00065.png" id="29_bxldg"]
+[ext_resource type="Texture2D" uid="uid://bfau3y77wrv1l" path="res://Assets/images/main/transition/컴포지션 1_00066.png" id="30_3belu"]
+[ext_resource type="Texture2D" uid="uid://c64qskwg1g0wx" path="res://Assets/images/main/transition/컴포지션 1_00067.png" id="31_vwgrj"]
+[ext_resource type="Texture2D" uid="uid://1gxybx5fufs6" path="res://Assets/images/main/transition/컴포지션 1_00068.png" id="32_4j12c"]
+[ext_resource type="Texture2D" uid="uid://d2sb76nr4fuk4" path="res://Assets/images/main/transition/컴포지션 1_00069.png" id="33_vwih0"]
+[ext_resource type="Texture2D" uid="uid://b1ibrhw5etr2i" path="res://Assets/images/main/transition/컴포지션 1_00070.png" id="34_d7r8c"]
+[ext_resource type="Texture2D" uid="uid://cj5unimkt873e" path="res://Assets/images/main/transition/컴포지션 1_00071.png" id="35_oe7h5"]
+[ext_resource type="Texture2D" uid="uid://dycfhxyxmehbb" path="res://Assets/images/main/transition/컴포지션 1_00072.png" id="36_bx3yv"]
+[ext_resource type="Texture2D" uid="uid://cv72k2vpt574x" path="res://Assets/images/main/transition/컴포지션 1_00073.png" id="37_oy4bn"]
+[ext_resource type="Texture2D" uid="uid://dwgs6udpes2n3" path="res://Assets/images/main/transition/컴포지션 1_00074.png" id="38_ap1wd"]
+[ext_resource type="Texture2D" uid="uid://dx3bfdkyuaobb" path="res://Assets/images/main/transition/컴포지션 1_00075.png" id="39_gjih2"]
+[ext_resource type="Texture2D" uid="uid://cnnpuj7xxkumm" path="res://Assets/images/main/transition/컴포지션 1_00076.png" id="40_3bbkc"]
+[ext_resource type="Texture2D" uid="uid://7pbu0dof5b7p" path="res://Assets/images/main/transition/컴포지션 1_00077.png" id="41_h4dvj"]
+[ext_resource type="Texture2D" uid="uid://dlenf0kxvnv3y" path="res://Assets/images/main/transition/컴포지션 1_00078.png" id="42_qatg7"]
+[ext_resource type="Texture2D" uid="uid://biv1jd4cert6n" path="res://Assets/images/main/transition/컴포지션 1_00000.png" id="43_6x237"]
+[ext_resource type="Texture2D" uid="uid://8g8gy16d16sk" path="res://Assets/images/main/transition/컴포지션 1_00001.png" id="44_on2js"]
+[ext_resource type="Texture2D" uid="uid://d6stvhl3ch1l" path="res://Assets/images/main/transition/컴포지션 1_00002.png" id="45_cigsr"]
+[ext_resource type="Texture2D" uid="uid://cs4qe1wkubqd0" path="res://Assets/images/main/transition/컴포지션 1_00003.png" id="46_4pkfd"]
+[ext_resource type="Texture2D" uid="uid://dnjcdkxreo3ln" path="res://Assets/images/main/transition/컴포지션 1_00004.png" id="47_jgu5j"]
+[ext_resource type="Texture2D" uid="uid://mnnn11wqfcfs" path="res://Assets/images/main/transition/컴포지션 1_00005.png" id="48_cv74l"]
+[ext_resource type="Texture2D" uid="uid://cdtpkt0q6hr2a" path="res://Assets/images/main/transition/컴포지션 1_00006.png" id="49_bm0r2"]
+[ext_resource type="Texture2D" uid="uid://dk4mqdlas3omh" path="res://Assets/images/main/transition/컴포지션 1_00007.png" id="50_wnveg"]
+[ext_resource type="Texture2D" uid="uid://bwa1emmuhs2cb" path="res://Assets/images/main/transition/컴포지션 1_00008.png" id="51_ufg88"]
+[ext_resource type="Texture2D" uid="uid://dkjntljwnf2w2" path="res://Assets/images/main/transition/컴포지션 1_00009.png" id="52_bfrw7"]
+[ext_resource type="Texture2D" uid="uid://c4kannvajbvtm" path="res://Assets/images/main/transition/컴포지션 1_00010.png" id="53_rri7m"]
+[ext_resource type="Texture2D" uid="uid://cucr17hs66juv" path="res://Assets/images/main/transition/컴포지션 1_00011.png" id="54_ep53b"]
+[ext_resource type="Texture2D" uid="uid://dskdm877wasc6" path="res://Assets/images/main/transition/컴포지션 1_00012.png" id="55_7uwux"]
+[ext_resource type="Texture2D" uid="uid://mfoikacmvnfj" path="res://Assets/images/main/transition/컴포지션 1_00013.png" id="56_scjed"]
+[ext_resource type="Texture2D" uid="uid://duj43k0j8cejo" path="res://Assets/images/main/transition/컴포지션 1_00014.png" id="57_kn5ug"]
+[ext_resource type="Texture2D" uid="uid://ohc7d8e2jr2f" path="res://Assets/images/main/transition/컴포지션 1_00015.png" id="58_8dpo3"]
+[ext_resource type="Texture2D" uid="uid://dphajvi84550l" path="res://Assets/images/main/transition/컴포지션 1_00016.png" id="59_ibvvk"]
+[ext_resource type="Texture2D" uid="uid://csfijirydl7tk" path="res://Assets/images/main/transition/컴포지션 1_00017.png" id="60_h5rut"]
+[ext_resource type="Texture2D" uid="uid://cyf1fsis6gqej" path="res://Assets/images/main/transition/컴포지션 1_00018.png" id="61_vnrqq"]
+[ext_resource type="Texture2D" uid="uid://dej35kgmkseps" path="res://Assets/images/main/transition/컴포지션 1_00019.png" id="62_4yhcv"]
+[ext_resource type="Texture2D" uid="uid://bbmt3nf8k56j1" path="res://Assets/images/main/transition/컴포지션 1_00020.png" id="63_8sm3g"]
+[ext_resource type="Texture2D" uid="uid://byjij7xcairel" path="res://Assets/images/main/transition/컴포지션 1_00021.png" id="64_hfpau"]
+[ext_resource type="Texture2D" uid="uid://dbkup88dci3wq" path="res://Assets/images/main/transition/컴포지션 1_00022.png" id="65_v8k0b"]
+[ext_resource type="Texture2D" uid="uid://bcfybwn1bfsjq" path="res://Assets/images/main/transition/컴포지션 1_00023.png" id="66_6nenx"]
+[ext_resource type="Texture2D" uid="uid://csuyb11otgt54" path="res://Assets/images/main/transition/컴포지션 1_00024.png" id="67_mnca8"]
+[ext_resource type="Texture2D" uid="uid://c4tnt5cp0fnsk" path="res://Assets/images/main/transition/컴포지션 1_00025.png" id="68_ipiip"]
+[ext_resource type="Texture2D" uid="uid://dduw3pbr7kjav" path="res://Assets/images/main/transition/컴포지션 1_00026.png" id="69_gx0tx"]
+[ext_resource type="Texture2D" uid="uid://bdr5mi2a5jssv" path="res://Assets/images/main/transition/컴포지션 1_00027.png" id="70_jgumo"]
+[ext_resource type="Texture2D" uid="uid://b1mtgg5kv46f3" path="res://Assets/images/main/transition/컴포지션 1_00028.png" id="71_bi1du"]
+[ext_resource type="Texture2D" uid="uid://cnyxfh1a228y3" path="res://Assets/images/main/transition/컴포지션 1_00029.png" id="72_kbqeo"]
+[ext_resource type="Texture2D" uid="uid://cs4vswmxbtlpm" path="res://Assets/images/main/transition/컴포지션 1_00030.png" id="73_dljtu"]
+[ext_resource type="Texture2D" uid="uid://dgycw3jv5c7yy" path="res://Assets/images/main/transition/컴포지션 1_00031.png" id="74_h2a4r"]
+[ext_resource type="Texture2D" uid="uid://c0heaog63qa0o" path="res://Assets/images/main/transition/컴포지션 1_00032.png" id="75_nbkvb"]
+[ext_resource type="Texture2D" uid="uid://v426ye2s8dfm" path="res://Assets/images/main/transition/컴포지션 1_00033.png" id="76_jebi6"]
+[ext_resource type="Texture2D" uid="uid://cl0r3fu4ivync" path="res://Assets/images/main/transition/컴포지션 1_00034.png" id="77_gijjh"]
+[ext_resource type="Texture2D" uid="uid://2x0akkpjqei3" path="res://Assets/images/main/transition/컴포지션 1_00035.png" id="78_44mts"]
+[ext_resource type="Texture2D" uid="uid://5v4wrcih605n" path="res://Assets/images/main/transition/컴포지션 1_00036.png" id="79_8q3ab"]
+[ext_resource type="Texture2D" uid="uid://cb8plbawrybtk" path="res://Assets/images/main/transition/컴포지션 1_00037.png" id="80_7b7op"]
+[ext_resource type="Texture2D" uid="uid://btr5dciumtupq" path="res://Assets/images/main/transition/컴포지션 1_00038.png" id="81_83nln"]
+[ext_resource type="Texture2D" uid="uid://bsnv7hxobmpct" path="res://Assets/images/main/transition/컴포지션 1_00039.png" id="82_5sxsn"]
 
-[sub_resource type="Animation" id="Animation_5c1cb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("white color:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
+[sub_resource type="LabelSettings" id="LabelSettings_xjtiv"]
+font = ExtResource("3_ei6nu")
+font_size = 45
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 20
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
-[sub_resource type="Animation" id="Animation_lbqau"]
-resource_name = "white in"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("white color:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333),
-"transitions": PackedFloat32Array(1, 2.9281716),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_u7v7u"]
-resource_name = "white out"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("white color:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 0.3),
-"transitions": PackedFloat32Array(3.363586, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7v7u"]
-_data = {
-&"RESET": SubResource("Animation_5c1cb"),
-&"white in": SubResource("Animation_lbqau"),
-&"white out": SubResource("Animation_u7v7u")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("4_olodh")
+}, {
+"duration": 0.05,
+"texture": ExtResource("5_1dsed")
+}, {
+"duration": 0.05,
+"texture": ExtResource("6_17qo4")
+}, {
+"duration": 0.05,
+"texture": ExtResource("7_i8url")
+}, {
+"duration": 0.05,
+"texture": ExtResource("8_r11hb")
+}, {
+"duration": 0.05,
+"texture": ExtResource("9_0rloy")
+}, {
+"duration": 0.05,
+"texture": ExtResource("10_6w7qg")
+}, {
+"duration": 0.05,
+"texture": ExtResource("11_yspwo")
+}, {
+"duration": 0.05,
+"texture": ExtResource("12_ivacv")
+}, {
+"duration": 0.05,
+"texture": ExtResource("13_2x7ny")
+}, {
+"duration": 0.05,
+"texture": ExtResource("14_k25cb")
+}, {
+"duration": 0.05,
+"texture": ExtResource("15_qg68k")
+}, {
+"duration": 0.05,
+"texture": ExtResource("16_rwlwf")
+}, {
+"duration": 0.05,
+"texture": ExtResource("17_030w4")
+}, {
+"duration": 0.05,
+"texture": ExtResource("18_0gy2u")
+}, {
+"duration": 0.05,
+"texture": ExtResource("19_hphel")
+}, {
+"duration": 0.05,
+"texture": ExtResource("20_jo5el")
+}, {
+"duration": 0.05,
+"texture": ExtResource("21_rlerh")
+}, {
+"duration": 0.05,
+"texture": ExtResource("22_npjvv")
+}, {
+"duration": 0.05,
+"texture": ExtResource("23_oofna")
+}, {
+"duration": 0.05,
+"texture": ExtResource("24_8uv6m")
+}, {
+"duration": 0.05,
+"texture": ExtResource("25_yga4c")
+}, {
+"duration": 0.05,
+"texture": ExtResource("26_qt38b")
+}, {
+"duration": 0.05,
+"texture": ExtResource("27_gxjkv")
+}, {
+"duration": 0.05,
+"texture": ExtResource("28_cvpdn")
+}, {
+"duration": 0.05,
+"texture": ExtResource("29_bxldg")
+}, {
+"duration": 0.05,
+"texture": ExtResource("30_3belu")
+}, {
+"duration": 0.05,
+"texture": ExtResource("31_vwgrj")
+}, {
+"duration": 0.05,
+"texture": ExtResource("32_4j12c")
+}, {
+"duration": 0.05,
+"texture": ExtResource("33_vwih0")
+}, {
+"duration": 0.05,
+"texture": ExtResource("34_d7r8c")
+}, {
+"duration": 0.05,
+"texture": ExtResource("35_oe7h5")
+}, {
+"duration": 0.05,
+"texture": ExtResource("36_bx3yv")
+}, {
+"duration": 0.05,
+"texture": ExtResource("37_oy4bn")
+}, {
+"duration": 0.05,
+"texture": ExtResource("38_ap1wd")
+}, {
+"duration": 0.05,
+"texture": ExtResource("39_gjih2")
+}, {
+"duration": 0.05,
+"texture": ExtResource("40_3bbkc")
+}, {
+"duration": 0.05,
+"texture": ExtResource("41_h4dvj")
+}, {
+"duration": 0.05,
+"texture": ExtResource("42_qatg7")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.05,
+"texture": ExtResource("43_6x237")
+}, {
+"duration": 0.05,
+"texture": ExtResource("44_on2js")
+}, {
+"duration": 0.05,
+"texture": ExtResource("45_cigsr")
+}, {
+"duration": 0.05,
+"texture": ExtResource("46_4pkfd")
+}, {
+"duration": 0.05,
+"texture": ExtResource("47_jgu5j")
+}, {
+"duration": 0.05,
+"texture": ExtResource("48_cv74l")
+}, {
+"duration": 0.05,
+"texture": ExtResource("49_bm0r2")
+}, {
+"duration": 0.05,
+"texture": ExtResource("50_wnveg")
+}, {
+"duration": 0.05,
+"texture": ExtResource("51_ufg88")
+}, {
+"duration": 0.05,
+"texture": ExtResource("52_bfrw7")
+}, {
+"duration": 0.05,
+"texture": ExtResource("53_rri7m")
+}, {
+"duration": 0.05,
+"texture": ExtResource("54_ep53b")
+}, {
+"duration": 0.05,
+"texture": ExtResource("55_7uwux")
+}, {
+"duration": 0.05,
+"texture": ExtResource("56_scjed")
+}, {
+"duration": 0.05,
+"texture": ExtResource("57_kn5ug")
+}, {
+"duration": 0.05,
+"texture": ExtResource("58_8dpo3")
+}, {
+"duration": 0.05,
+"texture": ExtResource("59_ibvvk")
+}, {
+"duration": 0.05,
+"texture": ExtResource("60_h5rut")
+}, {
+"duration": 0.05,
+"texture": ExtResource("61_vnrqq")
+}, {
+"duration": 0.05,
+"texture": ExtResource("62_4yhcv")
+}, {
+"duration": 0.05,
+"texture": ExtResource("63_8sm3g")
+}, {
+"duration": 0.05,
+"texture": ExtResource("64_hfpau")
+}, {
+"duration": 0.05,
+"texture": ExtResource("65_v8k0b")
+}, {
+"duration": 0.05,
+"texture": ExtResource("66_6nenx")
+}, {
+"duration": 0.05,
+"texture": ExtResource("67_mnca8")
+}, {
+"duration": 0.05,
+"texture": ExtResource("68_ipiip")
+}, {
+"duration": 0.05,
+"texture": ExtResource("69_gx0tx")
+}, {
+"duration": 0.05,
+"texture": ExtResource("70_jgumo")
+}, {
+"duration": 0.05,
+"texture": ExtResource("71_bi1du")
+}, {
+"duration": 0.05,
+"texture": ExtResource("72_kbqeo")
+}, {
+"duration": 0.05,
+"texture": ExtResource("73_dljtu")
+}, {
+"duration": 0.05,
+"texture": ExtResource("74_h2a4r")
+}, {
+"duration": 0.05,
+"texture": ExtResource("75_nbkvb")
+}, {
+"duration": 0.05,
+"texture": ExtResource("76_jebi6")
+}, {
+"duration": 0.05,
+"texture": ExtResource("77_gijjh")
+}, {
+"duration": 0.05,
+"texture": ExtResource("78_44mts")
+}, {
+"duration": 0.05,
+"texture": ExtResource("79_8q3ab")
+}, {
+"duration": 0.05,
+"texture": ExtResource("80_7b7op")
+}, {
+"duration": 0.05,
+"texture": ExtResource("81_83nln")
+}, {
+"duration": 0.5,
+"texture": ExtResource("82_5sxsn")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 5.0
+}]
 
 [node name="global canvas" type="CanvasLayer" unique_id=1383010310]
 process_mode = 3
+layer = 5
 script = ExtResource("1_lbqau")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=865110479]
-process_mode = 3
-libraries/ = SubResource("AnimationLibrary_u7v7u")
+[node name="alert 1 texture" type="TextureRect" parent="." unique_id=542586383]
+z_index = 50
+z_as_relative = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = -250.0
+offset_right = 280.0
+offset_bottom = -106.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_7tbri")
+metadata/_edit_use_anchors_ = true
 
-[node name="white color" type="ColorRect" parent="." unique_id=2125912127]
-process_mode = 3
-modulate = Color(1, 1, 1, 0)
-z_index = 30
+[node name="Label" type="Label" parent="alert 1 texture" unique_id=1583701748]
+z_index = 50
+z_as_relative = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+text = "개발 예정인 미개발 요소"
+label_settings = SubResource("LabelSettings_xjtiv")
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=106870596]
+position = Vector2(959.99994, 540)
+scale = Vector2(0.9999999, 1.0000001)
+sprite_frames = SubResource("SpriteFrames_huuin")
+animation = &"open"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://c252q5k46uxj2"]
+
+[ext_resource type="Texture2D" uid="uid://ov0todhi1msg" path="res://Assets/images/item icons/2017.png" id="1_3ikei"]
+[ext_resource type="Script" uid="uid://tovn75rtg33v" path="res://resource/item/item.gd" id="1_tt8qq"]
+
+[resource]
+script = ExtResource("1_tt8qq")
+item_id = 2017
+item_name = "슈퍼드링크"
+item_option = "전체 작물 성장시간 가속 + 20%
+이동속도 + 100"
+discription = "아무도 날 막을 수 없어!"
+icon = ExtResource("1_3ikei")
+rarity = 1
+metadata/_custom_type_script = "uid://tovn75rtg33v"
