@@ -24,7 +24,7 @@ var time_controlable = true
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-
+	Global.reset_for_new_game()
 	Global.gold_changed.connect(gold_changed)
 	gold_changed()
 	time_modulate.time_tick.connect(set_daytime)
@@ -32,7 +32,9 @@ func _ready() -> void:
 	Global.ui_hide_signal.connect(ui_hide)
 	Global.ui_show_signal.connect(ui_show)
 	onready_text_anim()
+	
 	coin_anim.play("default")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	debug_label.text = "이속: " + str(Global.total_move_speed)

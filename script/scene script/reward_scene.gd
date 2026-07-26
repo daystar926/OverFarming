@@ -30,6 +30,7 @@ extends Control
 @onready var reroll_button: TextureButton = $"reroll button"
 
 @onready var crystal_amount: Label = $"extra shop ui/crystal amount2"
+@onready var reroll_button_label: Label = $"reroll button/reroll button label"
 
 @onready var slot_1: Node2D = $"slot 1"
 @onready var slot_2: Node2D = $"slot 2"
@@ -521,10 +522,14 @@ func _on_skip_select_button_pressed() -> void:
 	exit_tween()
 
 
+var reroll_chance = 2
 func _on_reroll_button_pressed() -> void:
-	selectable = false
-	item_slot_setting()
-
+	if reroll_chance > 0:
+		reroll_chance -= 1
+		reroll_button_label.text = "새로고침 (" + str(reroll_chance) + ")"
+		selectable = false
+		item_slot_setting()
+		
 
 func _on_synergy_1_buy_button_pressed() -> void:
 	GlobalCanvas.dev_alert_1()

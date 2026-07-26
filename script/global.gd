@@ -1296,7 +1296,7 @@ func _reset_all_crop_stats() -> void:
 		set("fa_reduce_percent_" + c, 0)
 		set("fa_reduce_" + c, 0)
 		set("sa_add_" + c, 0)
-		set("sa_total_" + c, 3)
+		set("sa_total_" + c, 2)
 
 	# bgt 계열이 있는 작물만 별도 처리
 	var bgt_crops = ["grape", "corn", "bean", "tomato"]

@@ -580,14 +580,14 @@ texture_hover = ExtResource("21_53kre")
 stretch_mode = 0
 script = ExtResource("18_o62pv")
 
-[node name="Label" type="Label" parent="reroll button" unique_id=595044911]
+[node name="reroll button label" type="Label" parent="reroll button" unique_id=595044911]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "새로고침"
+text = "새로고침 (2)"
 label_settings = SubResource("LabelSettings_utxwm")
 horizontal_alignment = 1
 vertical_alignment = 1
