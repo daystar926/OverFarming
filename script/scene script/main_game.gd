@@ -7,6 +7,7 @@ func _ready() -> void:
 	Global.stat_refresh()
 	back_clouod_anim.play("cloud anim1")
 	cloud_anim.play("cloud anim2")
+	AudioManager.play_bgm("game")
 
 func _process(delta: float) -> void:
 	pass

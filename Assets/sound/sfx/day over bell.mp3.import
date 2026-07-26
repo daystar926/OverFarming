@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmnh5mn3dmxwl"
+path="res://.godot/imported/day over bell.mp3-ce51273e4c4cdc2449e91a030094872d.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/sfx/day over bell.mp3"
+dest_files=["res://.godot/imported/day over bell.mp3-ce51273e4c4cdc2449e91a030094872d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -20,6 +20,7 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	AudioManager.play_sfx("button")
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.2 , 0.8), 0.07)
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.07)

@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="1_0djml"]
 
 [resource]
+line_spacing = 12.0
 font = ExtResource("1_0djml")
 font_size = 150
 outline_size = 40

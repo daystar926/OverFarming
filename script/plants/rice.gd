@@ -110,7 +110,7 @@ func _harvest() -> void:
 	
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)
-	
+	AudioManager.play_sfx("yield", 0.15)
 	self.queue_free()
 
 

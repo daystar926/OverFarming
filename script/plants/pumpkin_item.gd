@@ -1,31 +1,31 @@
 extends Area2D
 
-var life_time = 30
-var is_level2_started = false
-var is_level1_started = false
-var is_level0_started = false
-var blink_tween: Tween   # 깜빡임 트윈 추적용
+
 var spawn_position: Vector2
 
 var incr_redu_ratio
-# 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
+
 func _ready() -> void:
 	if randi_range(1, 2) == 1:
 		$AnimatedSprite2D.flip_h = true
 	spawn_position_setting()
 	start_tween()
-	$AnimatedSprite2D.play("normal")
+
 
 func pumpkin_level_set(level: int):
 	match level:
 		4:
 			incr_redu_ratio = 0.35
+			$AnimatedSprite2D.play("1")
 		5:
 			incr_redu_ratio = 0.6
+			$AnimatedSprite2D.play("2")
 		6:
 			incr_redu_ratio = 1
+			$AnimatedSprite2D.play("3")
 		7:
 			incr_redu_ratio = 1.3
+			$AnimatedSprite2D.play("4")
 
 func spawn_position_setting():
 	self.position = spawn_position
@@ -60,13 +60,10 @@ func _on_area_entered(area: Area2D) -> void:
 	Global.total_plants += 1
 	$CollisionShape2D.disabled = true
 	set_process(false)
-	$AnimatedSprite2D.play("suck")
-	if blink_tween:
-		blink_tween.kill()
 	
 	var tween = Global.create_collect_tween($AnimatedSprite2D)
 	tween.tween_callback(func():
-		Global.add_gold(Global.fa_total_pumpkin)
+		Global.add_gold(Global.fa_total_pumpkin * incr_redu_ratio)
 	)
 	tween.tween_interval(1)
 	tween.tween_callback(func(): queue_free())
@@ -81,3 +78,16 @@ func money_get_anim(money):
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC)
 	alpha_tween.tween_property($Label, "modulate", Color(1,1,1,0), 0.5).set_delay(0.5)
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if not area.is_in_group("fall area"):
+		return
+	var tween = create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(0,0), 7)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.tween_callback(func(): queue_free())
+	
+	

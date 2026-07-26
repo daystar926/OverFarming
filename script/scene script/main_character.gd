@@ -13,12 +13,14 @@ var last_direction: String = "down"
 func _ready() -> void:
 	Global.stat_refresh()
 	update_stat()
+	skin_change()
 	Global.all_stat_refresh.connect(update_stat)
 	Global.time_stop_signal.connect(character_stop)
 	Global.time_start_signal.connect(character_start)
 	Global.cry_signal.connect(character_cry)
-
-	
+	Global.skin_change_signal.connect(skin_change_mode)
+	Global.skin_change_finishignal.connect(skin_change_mode_exit)
+	Global.start_item_change_signal.connect(skin_change)
 	
 	
 var is_movable = true
@@ -91,3 +93,30 @@ func update_animation(input_vector: Vector2) -> void:
 		else:
 			animated_sprite.play("walk down")
 		animated_sprite.flip_h = false
+
+func skin_change_mode():
+	is_movable = false
+	animated_sprite.play("idle")
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "zoom", Vector2(3, 3), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(camera_2d, "position", Vector2(0, -30), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+		
+func skin_change_mode_exit():
+	is_movable = true
+	animated_sprite.play("idle")
+	var tween = create_tween()
+	tween.tween_property(camera_2d, "zoom", Vector2(0.9, 0.9), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_property(camera_2d, "position", Vector2(0, -30), 0.4)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+
+func skin_change():
+	var path = Global.start_item_list[Global.start_item]
+	animated_sprite.sprite_frames = load(path)
+	animated_sprite.play("idle")

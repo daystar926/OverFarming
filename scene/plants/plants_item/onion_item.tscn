@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://dgf4pg34kfoeu"]
 
 [ext_resource type="Script" uid="uid://dylr3ynvg7iyj" path="res://script/plants/onion_item.gd" id="1_brt7n"]
-[ext_resource type="Texture2D" uid="uid://bhrsdwqlbdjio" path="res://Assets/images/plants/onion item.png" id="1_clu48"]
+[ext_resource type="Texture2D" uid="uid://ctvy5sexic6em" path="res://Assets/images/plants/plants drop item.png" id="2_gagl7"]
 [ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="3_gagl7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brt7n"]
 size = Vector2(96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q1xy"]
+atlas = ExtResource("2_gagl7")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1x0a"]
+atlas = ExtResource("2_gagl7")
+region = Rect2(0, 112, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_clu48")
+"texture": SubResource("AtlasTexture_7q1xy")
 }],
 "loop": 1,
 "name": &"normal",
@@ -19,12 +27,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_clu48")
+"texture": SubResource("AtlasTexture_b1x0a")
 }],
 "loop": 1,
 "name": &"suck",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68ap5"]
+size = Vector2(98, 96)
 
 [node name="onion_item" type="Area2D" unique_id=513209600 groups=["dropped item"]]
 z_index = 3
@@ -61,4 +72,12 @@ label_settings = ExtResource("3_gagl7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1492575384]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1493488867]
+shape = SubResource("RectangleShape2D_68ap5")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

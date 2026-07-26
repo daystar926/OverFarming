@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c24ibnkoupql0"
+path="res://.godot/imported/item collect_c.mp3-b363b8ac5fce684ec3ae46834793cf7e.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/sfx/item collect_c.mp3"
+dest_files=["res://.godot/imported/item collect_c.mp3-b363b8ac5fce684ec3ae46834793cf7e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

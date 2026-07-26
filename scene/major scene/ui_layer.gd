@@ -10,15 +10,21 @@ extends CanvasLayer
 @onready var main_character: CharacterBody2D = $"../Main Character"
 @onready var debug_label: Label = $"debug con/debug label"
 @onready var time_modulate: CanvasModulate = $"../CanvasModulate"
-@onready var debug_label_2: Label = $"debug con/debug label2"
+@onready var current_gold: Label = $Control/yield
+
 @onready var speed_button: TextureButton = $"setting UI/HBoxContainer/speed button"
 @onready var time_image: TextureRect = $"UI/clork/time image"
 @onready var qause_color_mat: ColorRect = $"pause con/qause color mat"
+@onready var coin_anim: AnimatedSprite2D = $"Control/coin anim"
+@onready var debug_label_2: Label = $"Control/debug label2"
+@onready var day_label2: Label = $"../labels/day"
+@onready var goal_gold_label: Label = $"../labels/goal gold"
 
 var time_controlable = true
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+
 	Global.gold_changed.connect(gold_changed)
 	gold_changed()
 	time_modulate.time_tick.connect(set_daytime)
@@ -26,6 +32,7 @@ func _ready() -> void:
 	Global.ui_hide_signal.connect(ui_hide)
 	Global.ui_show_signal.connect(ui_show)
 	onready_text_anim()
+	coin_anim.play("default")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	debug_label.text = "이속: " + str(Global.total_move_speed)
@@ -42,7 +49,7 @@ func round_check():
 	
 	current_time_scale = 1
 	engine_speed_setting()
-	
+	AudioManager.play_sfx("day over")
 	time_modulate.fast_forward_to(Global.current_round, 23, 0)
 	
 	Global.time_stop()
@@ -91,14 +98,23 @@ func morning_text_anim():
 
 
 func set_daytime(day, hour, minute):
-	debug_label_2.text = str(day) + "번째 날, " + str(hour) + "시 " + str(minute) + "분"
+	
+	if hour == 12:
+		debug_label_2.text = "오후 12시 " + str(minute) + "분"
+	elif hour > 12:
+		debug_label_2.text = "오후 " + str(hour - 12) + "시 " + str(minute) + "분"
+	else:
+		debug_label_2.text = "오전 " + str(hour) + "시 " + str(minute) + "분"
+	
 	
 	
 	
 func gold_changed():
-	gold_label.text = str(Global.format_num_custom(Global.current_gold)) + " G"
+	current_gold.text = str(Global.format_num_custom(Global.current_gold)) + " G"
 	goal_gold.text = str(Global.format_num_custom(Global.clear_requirments[Global.current_round])) + " G"
 	Global.tween_ddiyong(gold_label)
+	day_label2.text = "DAY " + str(Global.current_round)
+	goal_gold_label.text = "목표 금액: " + str(Global.format_num_custom(Global.clear_requirments[Global.current_round])) + " G"
 	
 func _on_button_pressed() -> void:
 	Global.additional_move_speed += 30
@@ -106,6 +122,19 @@ func _on_button_pressed() -> void:
 
 var is_qaused = false
 var current_time_scale = 1
+var is_detail_opened = false
+func _input(event: InputEvent) -> void:
+	if not time_controlable:
+		return
+	if event.is_action_pressed("tab"):
+		if not is_qaused:
+			if is_detail_opened:
+				_on_detail_panel_close_button_pressed()
+				get_viewport().set_input_as_handled()
+			else:
+				detail_panel_open()
+				get_viewport().set_input_as_handled()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if time_controlable:
 		if Input.is_action_just_pressed("speed_up"):
@@ -119,10 +148,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			current_time_scale -= 1
 			engine_speed_setting()
 		elif Input.is_action_just_pressed("escape"):
-			if is_qaused:
-				_on_continue_button_pressed()
-			else:
-				_on_back_button_pressed()
+			if not is_detail_opened:
+				if is_qaused:
+					_on_continue_button_pressed()
+				else:
+					_on_back_button_pressed()
+			if is_detail_opened:
+				
+				_on_detail_panel_close_button_pressed()
+				get_viewport().set_input_as_handled()
 
 
 func engine_speed_setting(): # 시간 배속 감속 잠금은 클리어씬 소환함수, next_day_start() 함수에서 처리
@@ -267,3 +301,94 @@ func _on_retry_button_pressed() -> void:
 	else:
 		$"pause con/NinePatchRect/retry button/Label".text = "진짜로?"
 		retry_count = true
+
+
+
+
+
+@onready var detail: Control = $detail
+@onready var inventory_button: TextureButton = $"detail/inventory button"
+@onready var stat_button: TextureButton = $"detail/stat button"
+@onready var guidebook_button: TextureButton = $"detail/guidebook button"
+@onready var detail_panel_close_button: TextureButton = $"detail/detail panel close button"
+@onready var inven_grid: GridContainer = $"detail/panel/inven con/ScrollContainer/inven grid"
+@onready var inven_msg_label: Label = $"detail/panel/inven con/inven msg label"
+
+@onready var detail_buttons: Array = [inventory_button, stat_button, guidebook_button, detail_panel_close_button]
+@onready var inven_con: MarginContainer = $"detail/panel/inven con"
+@onready var stat_con: MarginContainer = $"detail/panel/stat con"
+@onready var guidebook_con: MarginContainer = $"detail/panel/guidebook con"
+
+
+######################### 인벤 패널 ##########################
+
+func detail_panel_open():
+	inven_refresh()
+	is_detail_opened = true
+	var tween = create_tween()
+	tween.set_ignore_time_scale(true)
+	tween.tween_property(detail, "position", Vector2(0,0), 0.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.parallel().tween_callback(func():button_enable()).set_delay(0.3)
+	ex_time_scale = current_time_scale
+	current_time_scale = 0
+	engine_speed_setting()
+
+
+func _on_detail_panel_close_button_pressed() -> void:
+	is_detail_opened = false
+	button_disable()
+	var tween = create_tween()
+	tween.set_ignore_time_scale(true)
+	tween.tween_property(detail, "position", Vector2(0,-1200), 0.5)\
+		.set_ease(Tween.EASE_IN)\
+		.set_trans(Tween.TRANS_QUART)
+	current_time_scale = ex_time_scale
+	engine_speed_setting()
+
+func button_enable():
+	for buttons in detail_buttons:
+		buttons.disabled = false
+		
+func button_disable():
+	for buttons in detail_buttons:
+		buttons.disabled = true
+
+const SLOT_SCENE: PackedScene = preload("res://scene/detail_inven_slot.tscn")
+
+
+func inven_refresh() -> void:
+	inven_msg_label.visible = false
+	# 즉시 떼어낸 뒤 삭제해야 다음 줄의 add_child와 섞이지 않습니다
+	for child in inven_grid.get_children():
+		inven_grid.remove_child(child)
+		child.queue_free()
+
+	for item in Global.item_inventory:
+		var slot = SLOT_SCENE.instantiate()
+		inven_grid.add_child(slot)
+		slot._set_item_data(item)
+
+	inven_msg_label.visible = Global.item_inventory.is_empty()
+	await get_tree().process_frame
+
+
+func _on_inventory_button_pressed() -> void:
+	inven_con.visible = true
+	stat_con.visible = false
+	guidebook_con.visible = false
+
+
+func _on_stat_button_pressed() -> void:
+	GlobalCanvas.dev_alert_1()
+	inven_con.visible = false
+	stat_con.visible = true
+	guidebook_con.visible = false
+
+
+func _on_guidebook_button_pressed() -> void:
+	GlobalCanvas.dev_alert_1()
+	inven_con.visible = false
+	stat_con.visible = false
+	guidebook_con.visible = true

@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bcdljqv3y8pgd"]
+
+[ext_resource type="Script" uid="uid://b3qosji7y1cpf" path="res://script/detail_inven_slot.gd" id="1_5bv0x"]
+[ext_resource type="Texture2D" uid="uid://bsofwtolpoc8e" path="res://Assets/images/UI/inven slot texture 1.png" id="1_uyga1"]
+[ext_resource type="Texture2D" uid="uid://bib7mhh0dnyql" path="res://Assets/images/item icons/1002.png" id="2_5bv0x"]
+[ext_resource type="LabelSettings" uid="uid://5nrmxtp217ir" path="res://Assets/fonts/font file/slot item font.tres" id="3_b23pu"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="5_b23pu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvjt0"]
+line_spacing = 8.0
+font = ExtResource("5_b23pu")
+font_size = 17
+outline_size = 9
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[node name="detail inven slot" type="Button" unique_id=1854459139]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(280, 400)
+custom_maximum_size = Vector2(280, 400)
+offset_right = 280.0
+offset_bottom = 400.0
+pivot_offset = Vector2(140, 200)
+script = ExtResource("1_5bv0x")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2008323315]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 400.0
+pivot_offset = Vector2(140, 210)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1067786920]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(280, 400)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport" unique_id=2043709116]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 280.0
+offset_bottom = 400.0
+
+[node name="panel" type="TextureRect" parent="SubViewportContainer/SubViewport/Control" unique_id=433244148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(140, 200)
+texture = ExtResource("1_uyga1")
+
+[node name="item icon" type="TextureRect" parent="SubViewportContainer/SubViewport/Control" unique_id=1222190697]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 82.0
+offset_right = 196.0
+offset_bottom = 194.0
+pivot_offset = Vector2(56, 56)
+texture = ExtResource("2_5bv0x")
+
+[node name="name_label" type="Label" parent="SubViewportContainer/SubViewport/Control" unique_id=1535123367]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 2.5
+offset_right = 105.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "에러똥"
+label_settings = ExtResource("3_b23pu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="option_label" type="Label" parent="SubViewportContainer/SubViewport/Control" unique_id=861323127]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 44.0
+offset_right = 105.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "전체 작물 수확 확률 + 1개
+옵션 2
+옵션 3
+옵션 4"
+label_settings = SubResource("LabelSettings_uvjt0")
+horizontal_alignment = 1
+vertical_alignment = 1

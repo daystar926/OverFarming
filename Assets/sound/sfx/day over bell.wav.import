@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo58na0txq66g"
+path="res://.godot/imported/day over bell.wav-edce3358573a5a3da8cb813c2e41a50c.sample"
+
+[deps]
+
+source_file="res://Assets/sound/sfx/day over bell.wav"
+dest_files=["res://.godot/imported/day over bell.wav-edce3358573a5a3da8cb813c2e41a50c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

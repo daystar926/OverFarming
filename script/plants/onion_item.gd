@@ -71,3 +71,19 @@ func money_get_anim(money):
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC)
 	alpha_tween.tween_property($Label, "modulate", Color(1,1,1,0), 0.5).set_delay(0.5)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if not area.is_in_group("fall area"):
+		return
+	var tween = create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(0,0), 7)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_QUART)
+	tween.tween_callback(func(): queue_free())
+	
+	
+	
+	
+	
+	

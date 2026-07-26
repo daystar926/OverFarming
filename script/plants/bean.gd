@@ -140,7 +140,7 @@ func _harvest() -> void:
 		var item = preload("res://scene/plants/plants_item/bean_item.tscn").instantiate()
 		item.set("spawn_position", item_position)
 		node.add_child(item)
-
+	AudioManager.play_sfx("yield", 0.15)
 	animated_sprite_2d.play("4")
 	current_bgt = Global.bgt_total_bean
 	fruit_level = 1

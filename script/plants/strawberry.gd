@@ -86,23 +86,23 @@ func plants_grow_tween() -> void:
 	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(18.892, 18.892, 18.892, 1.0), 0.01)
 	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1.0), 0.12)
 
-func fruit_level_check():
+func fruit_level_check() -> void:
 	if fruit_level != last_fruit_level:
 		last_fruit_level = fruit_level
-		
+		if fruit_level == 3:
+			animated_sprite_2d.play("4-3")
+		else:
+			plants_grow_tween()
 
-		match fruit_level:
-			1:
-				animated_sprite_2d.play("4")
-				$Area2D/CollisionShape2D.disabled = true
-				plants_grow_tween()
-			2:
-				animated_sprite_2d.play("4-2")
-				$Area2D/CollisionShape2D.disabled = true
-				plants_grow_tween()
-			3:
-				animated_sprite_2d.play("4-3")
-				$Area2D/CollisionShape2D.disabled = false
+	match fruit_level:
+		1:
+			animated_sprite_2d.play("4")
+			$Area2D/CollisionShape2D.disabled = true
+		2:
+			animated_sprite_2d.play("4-2")
+			$Area2D/CollisionShape2D.disabled = true
+		3:
+			$Area2D/CollisionShape2D.disabled = false
 
 func plants_level_check():
 	if plants_level != last_plants_level:
@@ -139,13 +139,14 @@ func _harvest() -> void:
 		var item = preload("res://scene/plants/plants_item/grape_item.tscn").instantiate()
 		item.set("spawn_position", item_position)
 		node.add_child(item)
-
+	AudioManager.play_sfx("yield", 0.15)
 	animated_sprite_2d.play("4")
 	current_bgt = Global.bgt_total_grape
 	fruit_level = 1
 	last_fruit_level = 1
 	$Area2D/CollisionShape2D.disabled = true
 
+	
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)

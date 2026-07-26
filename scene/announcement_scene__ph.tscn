@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cwpvrtjwnmesx"]
+
+[ext_resource type="Script" uid="uid://bl4sucektfaw1" path="res://scene/announcement_scene__ph.gd" id="1_fw2n3"]
+[ext_resource type="FontFile" uid="uid://yqgp63ni4sq5" path="res://Assets/fonts/Mulmaru.ttf" id="1_no74c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fw2n3"]
+line_spacing = 25.0
+font = ExtResource("1_no74c")
+font_size = 60
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_30e62"]
+line_spacing = 10.0
+font = ExtResource("1_no74c")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="announcement scene  PH" type="Control" unique_id=1739046603]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fw2n3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=621337165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1116545403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 51.0
+offset_bottom = -204.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "안녕하세요. Daystar Games 입니다.
+
+[ 오버파밍! ] 의 프로토타입 버전을 플레이해주셔서
+진심으로 감사드립니다.
+
+핵심적인 게임 플레이는 가능하지만,
+부가적인 기능 몇 가지가 미구현 되어 있습니다.
+
+버그 제보는 [happystar@kakao.com]으로 부탁드립니다.
+감사합니다."
+label_settings = SubResource("LabelSettings_fw2n3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=484656615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 897.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "아래는 구현 예정되어있는 미구현 기능들 입니다.
+[시너지 뽑기, 저장, 도감, 인벤토리 여러 기능,
+기러기 상점, 시작 아이템 효과, 플레이 레벨과 스킬]"
+label_settings = SubResource("LabelSettings_30e62")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=653916286]
+layout_mode = 0
+offset_left = 1490.0
+offset_top = 876.0
+offset_right = 1884.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 50
+text = "게임 시작 버튼"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

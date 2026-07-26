@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://6h8vnvh6funj"]
 
 [ext_resource type="Script" uid="uid://3opqvjbfon3o" path="res://script/plants/bean_item.gd" id="1_p43g6"]
-[ext_resource type="Texture2D" uid="uid://bpuehvp2vpxld" path="res://Assets/images/plants/bean item.png" id="1_yy0bo"]
+[ext_resource type="Texture2D" uid="uid://ctvy5sexic6em" path="res://Assets/images/plants/plants drop item.png" id="2_riqjc"]
 [ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="3_riqjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p43g6"]
 size = Vector2(96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_124wh"]
+atlas = ExtResource("2_riqjc")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqy87"]
+atlas = ExtResource("2_riqjc")
+region = Rect2(0, 128, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sgxtc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yy0bo")
+"texture": SubResource("AtlasTexture_124wh")
 }],
 "loop": 1,
 "name": &"normal",
@@ -19,12 +27,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yy0bo")
+"texture": SubResource("AtlasTexture_qqy87")
 }],
 "loop": 1,
 "name": &"suck",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv2nd"]
+size = Vector2(98, 96)
 
 [node name="bean_item" type="Area2D" unique_id=1773888730 groups=["dropped item"]]
 z_index = 3
@@ -41,7 +52,7 @@ disabled = true
 z_index = 3
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_sgxtc")
-animation = &"suck"
+animation = &"normal"
 
 [node name="Label" type="Label" parent="." unique_id=1773730548]
 visible = false
@@ -61,4 +72,12 @@ label_settings = ExtResource("3_riqjc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1762089506]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1124670394]
+shape = SubResource("RectangleShape2D_rv2nd")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -19,6 +19,7 @@ var pressable = false
 func _ready() -> void:
 	first_anim_tween()
 	first_logo_anim()
+	AudioManager.play_bgm("main")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

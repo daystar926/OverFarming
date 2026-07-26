@@ -23,6 +23,7 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	AudioManager.play_sfx("button")
 	self.scale = Vector2(1, 1)
 	var tween = create_tween()
 	tween.set_ignore_time_scale(true)

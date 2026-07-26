@@ -33,7 +33,8 @@ func _on_field_area_entered(area: Area2D, field: Control) -> void:
 	# 남은 모종 없으면 무시
 	if Global.get_sa(crop_id) <= 0:
 		return
-
+	
+	AudioManager.play_sfx("plant")
 	Global.use_sa(crop_id, 1)
 	print(Global.get_sa(crop_id))
 

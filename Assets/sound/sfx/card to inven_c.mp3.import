@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgc7oehdq4ovo"
+path="res://.godot/imported/card to inven_c.mp3-545167e87421b679e9ec3d1cb70583f0.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/sfx/card to inven_c.mp3"
+dest_files=["res://.godot/imported/card to inven_c.mp3-545167e87421b679e9ec3d1cb70583f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

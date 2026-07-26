@@ -15,7 +15,7 @@ var total_plants: int = 0
 var total_gold = 0
 
 var crystal = 0
-var current_gold = 100
+var current_gold = 0
 var current_ticket = 0
 var reward_level = 10
 ### bgt = base grow time 기본 성장 시간
@@ -44,7 +44,7 @@ const BGT_BASE_TOMATO = 40
 const FA_BASE_RICE = 10
 const FA_BASE_WHEAT = 7
 const FA_BASE_CABBAGE = 3
-const FA_BASE_GRAPE = 3
+const FA_BASE_GRAPE = 4
 const FA_BASE_ONION = 7
 const FA_BASE_CORN = 5
 const FA_BASE_BEAN = 2
@@ -241,52 +241,52 @@ var bgt_increase_tomato = 0
 # rice total
 var gt_total_rice = 0
 var fa_total_rice = 0
-var sa_total_rice = 3
+var sa_total_rice = 2
 
 # wheat total
 var gt_total_wheat = 0
 var fa_total_wheat = 0
-var sa_total_wheat = 3
+var sa_total_wheat = 2
 
 # cabbage total
 var gt_total_cabbage = 0
 var fa_total_cabbage = 0
-var sa_total_cabbage = 3
+var sa_total_cabbage = 2
 
 # grape total
 var gt_total_grape = 0
 var bgt_total_grape = 0
 var fa_total_grape = 0
-var sa_total_grape = 3
+var sa_total_grape = 2
 
 # onion total
 var gt_total_onion = 0
 var fa_total_onion = 0
-var sa_total_onion = 3
+var sa_total_onion = 2
 
 # corn total
 var gt_total_corn = 0
 var bgt_total_corn = 0
 var fa_total_corn = 0
-var sa_total_corn = 3
+var sa_total_corn = 2
 
 # bean total
 var gt_total_bean = 0
 var bgt_total_bean = 0
 var fa_total_bean = 0
-var sa_total_bean = 3
+var sa_total_bean = 2
 
 
 # pumpkin total
 var gt_total_pumpkin = 0
 var fa_total_pumpkin = 0
-var sa_total_pumpkin = 3
+var sa_total_pumpkin = 2
 
 # tomato total
 var gt_total_tomato = 0
 var bgt_total_tomato = 0
 var fa_total_tomato = 0
-var sa_total_tomato = 3
+var sa_total_tomato = 2
 
 # rice total
 var da_total_rice = 0
@@ -602,6 +602,7 @@ func create_collect_tween(node: Node) -> Tween:
 	tween.tween_property(node, "scale", Vector2(0, 0), 0.13)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_EXPO)
+	AudioManager.play_sfx("item collect", 0.15)
 	return tween
 
 # 3. CanvasLayer로 reparent (화면 좌표계 유지)
@@ -1309,3 +1310,31 @@ func _reset_all_crop_stats() -> void:
 signal cry_signal
 func cry():
 	cry_signal.emit()
+
+signal skin_change_signal
+func skin_change():
+	skin_change_signal.emit()
+
+signal skin_change_finishignal
+func skin_change_finish():
+	skin_change_finishignal.emit()
+
+
+var start_item_list: Dictionary = {
+	1: "res://resource/start item/normal.tres",
+	2: "res://resource/start item/start item 1.tres",
+}
+
+var start_item_name: Dictionary = {
+	1: "아이템 없음",
+	2: "버섯가죽 가방",
+}
+var start_item = 1
+signal start_item_change_signal
+func start_item_change():
+
+	start_item_change_signal.emit()
+
+# 1 버튼 누름 
+# 2 신호를 받고 현재 착용 넘버를 바꿈
+# 3 캐릭터에서 스킨 변경

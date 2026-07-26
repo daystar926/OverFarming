@@ -82,6 +82,7 @@
 [ext_resource type="Texture2D" uid="uid://cb8plbawrybtk" path="res://Assets/images/main/transition/컴포지션 1_00037.png" id="80_7b7op"]
 [ext_resource type="Texture2D" uid="uid://btr5dciumtupq" path="res://Assets/images/main/transition/컴포지션 1_00038.png" id="81_83nln"]
 [ext_resource type="Texture2D" uid="uid://bsnv7hxobmpct" path="res://Assets/images/main/transition/컴포지션 1_00039.png" id="82_5sxsn"]
+[ext_resource type="Texture2D" uid="uid://cx3knpmx6njci" path="res://Assets/images/UI/mouse sprite.png" id="83_1dsed"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xjtiv"]
 font = ExtResource("3_ei6nu")
@@ -340,10 +341,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_17qo4"]
+atlas = ExtResource("83_1dsed")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8url"]
+atlas = ExtResource("83_1dsed")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utxwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17qo4")
+}],
+"loop": 1,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8url")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="global canvas" type="CanvasLayer" unique_id=1383010310]
 process_mode = 3
 layer = 5
 script = ExtResource("1_lbqau")
+hotspot = Vector2(0, 0)
 
 [node name="alert 1 texture" type="TextureRect" parent="." unique_id=542586383]
 z_index = 50
@@ -381,3 +410,11 @@ position = Vector2(959.99994, 540)
 scale = Vector2(0.9999999, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_huuin")
 animation = &"open"
+
+[node name="cursor" type="AnimatedSprite2D" parent="." unique_id=1595695591]
+process_mode = 3
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_utxwm")
+animation = &"idle"
+centered = false

@@ -123,7 +123,7 @@ func _harvest() -> void:
 	# 펌킨 새끼한테 넘길때 펌킨 레벨 데이터 셋 해주기
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)
-	
+	AudioManager.play_sfx("yield", 0.15)
 	self.queue_free()
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:

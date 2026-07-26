@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bc6dep5vpmugb" path="res://Assets/images/UI/button 45x13 pressed.png" id="16_xbg7p"]
 [ext_resource type="Texture2D" uid="uid://b5wnkw4n4ohd8" path="res://Assets/images/UI/button 45x13 hover.png" id="17_er3ft"]
 [ext_resource type="Script" uid="uid://wiadyrr3wknj" path="res://script/buttons_tween_3.gd" id="18_xsrsw"]
+[ext_resource type="Texture2D" uid="uid://cgq3io38r6su6" path="res://Assets/images/UI/arrow.png" id="19_rjg7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1s8ty"]
 texture = ExtResource("2_c0m6k")
@@ -312,6 +313,14 @@ size = Vector2(378, 448)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(295, 354)
 
+[sub_resource type="LabelSettings" id="LabelSettings_guost"]
+line_spacing = 20.0
+font = ExtResource("14_61xg0")
+font_size = 35
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 15
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_gsh5o"]
 font = ExtResource("14_61xg0")
 font_size = 60
@@ -324,6 +333,13 @@ font = ExtResource("14_61xg0")
 font_size = 50
 font_color = Color(0.9764706, 0.98039216, 0.9411765, 1)
 outline_size = 20
+outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rjg7o"]
+font = ExtResource("14_61xg0")
+font_size = 100
+font_color = Color(0.9764706, 0.98039216, 0.88235295, 1)
+outline_size = 30
 outline_color = Color(0.13725491, 0.12941177, 0.23921569, 1)
 
 [node name="game prepare scene" type="Control" unique_id=1108718539]
@@ -560,22 +576,27 @@ position = Vector2(785, 711)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1226210028]
 script = ExtResource("12_guost")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=357476407]
+[node name="tuto label" type="Label" parent="CanvasLayer" unique_id=357476407]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -114.0
-offset_right = 375.0
-offset_bottom = -12.0
+offset_left = -913.0
+offset_top = -393.0
+offset_right = -189.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "스페이스바를 눌러 상호작용"
-label_settings = ExtResource("5_gef26")
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "이동: W, A, S, D 
+작물 심기: Shift
+상호작용/수확: Space Bar
+회수: Q
+배속: <, >
+작물 선택: 숫자 키/마우스 스크롤
+인벤토리: Tab"
+label_settings = SubResource("LabelSettings_guost")
+vertical_alignment = 2
 
 [node name="pause con" type="Control" parent="CanvasLayer" unique_id=1084734324]
 process_mode = 3
@@ -763,7 +784,111 @@ label_settings = SubResource("LabelSettings_way4d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="skin change con" type="Control" parent="CanvasLayer" unique_id=550315534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="skin left button" type="TextureButton" parent="CanvasLayer/skin change con" unique_id=2122001003]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -588.0
+offset_top = -191.0
+offset_right = -204.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(192, 192)
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("19_rjg7o")
+texture_pressed = ExtResource("19_rjg7o")
+stretch_mode = 0
+flip_h = true
+
+[node name="skin right button" type="TextureButton" parent="CanvasLayer/skin change con" unique_id=691508645]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 204.0
+offset_top = -191.0
+offset_right = 588.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(192, 191)
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("19_rjg7o")
+texture_pressed = ExtResource("19_rjg7o")
+stretch_mode = 0
+
+[node name="skin name label" type="Label" parent="CanvasLayer/skin change con" unique_id=936762461]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -619.0
+offset_top = -493.0
+offset_right = 627.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(617, 125)
+text = "아이템 없음"
+label_settings = SubResource("LabelSettings_rjg7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="skin apply button" type="TextureButton" parent="CanvasLayer/skin change con" unique_id=83810555]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = 219.0
+offset_right = 540.0
+offset_bottom = 458.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(540, 156)
+focus_mode = 0
+stretch_mode = 0
+
+[node name="skin apply label" type="Label" parent="CanvasLayer/skin change con/skin apply button" unique_id=459396524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(617, 125)
+text = "적용"
+label_settings = SubResource("LabelSettings_rjg7o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1057715544]
+visible = false
 layout_mode = 0
 offset_left = 647.0
 offset_top = 488.0
@@ -788,3 +913,6 @@ offset_bottom = 568.0
 [connection signal="mouse_exited" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer/pause con/NinePatchRect/quit button" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause con/NinePatchRect/quit button" to="CanvasLayer/pause con/NinePatchRect/quit button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/skin change con/skin left button" to="." method="_on_skin_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/skin change con/skin right button" to="." method="_on_skin_right_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/skin change con/skin apply button" to="." method="_on_skin_apply_button_pressed"]

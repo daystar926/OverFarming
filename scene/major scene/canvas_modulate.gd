@@ -19,7 +19,7 @@ signal time_tick(day: int, hour: int, minute: int)
 signal night_time()
 
 ## clock_change가 발동할 시각 목록
-const CLOCK_CHANGE_HOURS: Array[int] = [8, 11, 14, 17]
+const CLOCK_CHANGE_HOURS: Array[int] = [8, 10, 12, 14]
 ## 같은 시각에 중복 호출되지 않도록 마지막으로 실행한 시각을 저장 (day * 24 + hour)
 var past_clock_key: int = -1
 signal clock_changed(day: int, hour: int)

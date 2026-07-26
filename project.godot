@@ -8,19 +8,28 @@
 
 config_version=5
 
+[accessibility]
+
+general/accessibility_support=2
+
 [application]
 
 config/name="오버파밍!"
 config/tags=PackedStringArray("steam")
-run/main_scene="uid://cxaohmmfdtjjo"
+run/main_scene="uid://cwpvrtjwnmesx"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
 config/icon="uid://cwrcmgx48sbde"
+
+[audio]
+
+buses/default_bus_layout="uid://vj66aqx1leva"
 
 [autoload]
 
 GlobalCanvas="*uid://d4e7olpq8vgqi"
 Global="*uid://c5jees13px602"
+AudioManager="*uid://djgwww5a7cyg6"
 
 [display]
 
@@ -46,6 +55,22 @@ player=""
 "dropped item"=""
 "yield marker"=""
 object=""
+"fall area"=""
+
+[importer_defaults]
+
+wav={
+"compress/mode": 2,
+"edit/loop_begin": 0,
+"edit/loop_end": -1,
+"edit/loop_mode": 0,
+"edit/normalize": false,
+"edit/trim": false,
+"force/8_bit": false,
+"force/max_rate": false,
+"force/max_rate_hz": 44100,
+"force/mono": false
+}
 
 [input]
 
@@ -106,6 +131,11 @@ escape={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+tab={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -116,6 +146,7 @@ escape={
 2d_physics/layer_7="remove plant"
 2d_physics/layer_8="UI collision"
 2d_physics/layer_9="object"
+2d_physics/layer_10="drop item fall"
 
 [physics]
 

@@ -43,6 +43,8 @@ func _process(delta: float) -> void:
 	sa_9.text = str(Global.sa_total_tomato)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if $"..".is_detail_opened:
+		return 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			current_selected -= 1
@@ -96,3 +98,45 @@ func selected_check() -> void:
 	var effect_instance = preload("res://script/scene script/selected_effect.tscn").instantiate()
 	marker_array[current_selected - 1].add_child(effect_instance)
 	print(marker_array[current_selected - 1].get_children())
+
+
+func _on_slot_1_button_pressed() -> void:
+	current_selected = 1
+	selected_check()
+
+
+func _on_slot_2_button_pressed() -> void:
+	current_selected = 2
+	selected_check()
+
+
+func _on_slot_3_button_pressed() -> void:
+	current_selected = 3
+	selected_check()
+
+
+func _on_slot_4_button_pressed() -> void:
+	current_selected = 4
+	selected_check()
+
+func _on_slot_5_button_pressed() -> void:
+	current_selected = 5
+	selected_check()
+
+
+func _on_slot_6_button_pressed() -> void:
+	current_selected = 6
+	selected_check()
+
+
+func _on_slot_7_button_pressed() -> void:
+	current_selected = 7
+	selected_check()
+
+func _on_slot_8_button_pressed() -> void:
+	current_selected = 8
+	selected_check()
+
+func _on_slot_9_button_pressed() -> void:
+	current_selected = 9
+	selected_check()

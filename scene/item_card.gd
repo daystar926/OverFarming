@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 
 
 func spawn_tween():
+	AudioManager.play_sfx("card to inven")
 	var tween = create_tween()
 	tween.tween_property(card_texture, "scale", Vector2(1,1), 0.25)\
 		.set_ease(Tween.EASE_OUT)\
@@ -104,7 +105,6 @@ func rotate_velocity(delta: float) -> void:
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	
 	if not mouse_followable: return
 	# Don't compute rotation when moving the card
 	if following_mouse: return
@@ -131,7 +131,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	card_texture.material.set_shader_parameter("y_rot", rot_x)
 
 func _on_mouse_entered() -> void:
+	
 	if not mouse_followable: return
+	AudioManager.play_sfx("card select2", 0.15)
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)

@@ -83,6 +83,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation_player.play("game over_3")
 	elif anim_name == "game over_3":
 		animation_player.play("game over_4")
+		AudioManager.play_bgm("game over")
 
 
 #
@@ -107,8 +108,21 @@ func game_result_label_setting():
 	tween.tween_callback(func(): go_total_gold_label.type_text(total_gold))
 	
 	
+func transition_sound():
+	AudioManager.play_sfx("transition", 0.2)
 	
+func high_sound():
+	AudioManager.play_sfx("highlight")
 	
+func gameover_sound():
+	AudioManager.play_sfx("failure")
+
+func crash_sound():
+	AudioManager.play_sfx("crash")
+	
+func clear_sound():
+	AudioManager.play_sfx("boo")
+
 func inven_refresh():
 	for child in grid_container.get_children():
 		child.queue_free()

@@ -106,7 +106,7 @@ func _harvest() -> void:
 		var item = preload("res://scene/plants/plants_item/onion_item.tscn").instantiate()
 		item.set("spawn_position", item_position)
 		node.add_child(item)
-	
+	AudioManager.play_sfx("yield", 0.15)
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)
 	Global.clear_occupied(grid_pos)
 	
