@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dgqa2lyqw1lww"]
 
 [ext_resource type="Texture2D" uid="uid://7dpj4425dsnd" path="res://Assets/images/plants/pumkin item.png" id="1_1qkne"]
-[ext_resource type="Script" uid="uid://c5cwb7r8y44mg" path="res://scene/plants/plants_item/pumpkin_item.gd" id="1_8lmek"]
+[ext_resource type="Script" uid="uid://c5cwb7r8y44mg" path="res://script/plants/pumpkin_item.gd" id="1_8lmek"]
 [ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="3_o21wl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqqrg"]
@@ -9,6 +9,26 @@ size = Vector2(96, 98)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wp60l"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_1qkne")

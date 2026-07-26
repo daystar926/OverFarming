@@ -37,10 +37,13 @@ func start_tween():
 	var tween = Global.create_spawn_tween(self, 0.5, 0.7)
 	tween.tween_callback(func(): $CollisionShape2D.disabled = false)
 	tween.tween_callback(func(): hovering_tween())
-
+var is_collected = false
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
+	if is_collected:
+		return
+	is_collected = true
 	money_get_anim(price)
 	
 	Global.total_plants += 1

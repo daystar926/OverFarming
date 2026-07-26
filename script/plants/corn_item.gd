@@ -7,7 +7,6 @@ var is_level0_started = false
 var blink_tween: Tween   # 깜빡임 트윈 추적용
 var spawn_position: Vector2
 
-var incr_redu_ratio
 # 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
 func _ready() -> void:
 	if randi_range(1, 2) == 1:
@@ -15,18 +14,7 @@ func _ready() -> void:
 	spawn_position_setting()
 	start_tween()
 	$AnimatedSprite2D.play("normal")
-
-func pumpkin_level_set(level: int):
-	match level:
-		4:
-			incr_redu_ratio = 0.35
-		5:
-			incr_redu_ratio = 0.6
-		6:
-			incr_redu_ratio = 1
-		7:
-			incr_redu_ratio = 1.3
-
+	
 func spawn_position_setting():
 	self.position = spawn_position
 
@@ -48,10 +36,14 @@ func start_tween():
 	tween.tween_callback(func(): $CollisionShape2D.disabled = false)
 	tween.tween_callback(func(): hovering_tween())
 
+var is_collected = false
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
-	money_get_anim(Global.fa_total_pumpkin)
+	if is_collected:
+		return
+	is_collected = true
+	money_get_anim(Global.fa_total_corn)
 	Global.stat_refresh()
 	Global.total_plants += 1
 	$CollisionShape2D.disabled = true
@@ -62,14 +54,14 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	var tween = Global.create_collect_tween($AnimatedSprite2D)
 	tween.tween_callback(func():
-		Global.add_gold(Global.fa_total_pumpkin)
+		Global.add_gold(Global.fa_total_corn)
 	)
 	tween.tween_interval(1)
 	tween.tween_callback(func(): queue_free())
 
 func money_get_anim(money):
 	$Label.visible = true
-	$Label.text = "+ " + str(Global.format_num_custom(money * incr_redu_ratio)) + " G"
+	$Label.text = "+ " + str(Global.format_num_custom(money)) + " G"
 	var target_y = $Label.position.y - 80
 	var tween = create_tween()
 	var alpha_tween = create_tween()

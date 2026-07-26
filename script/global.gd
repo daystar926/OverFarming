@@ -2,6 +2,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_load_all_items()
+	stat_refresh()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -589,12 +590,16 @@ func create_spawn_tween(node: Node, duration_min: float, duration_max: float) ->
 
 # 2. 수확(마커로 빨려들어가기) 애니메이션
 func create_collect_tween(node: Node) -> Tween:
-	var first_scale = node.scale * 1.2
+	var first_scale = node.scale
+	var minus_scale = Vector2(2, -3)
+	var target_scale = first_scale - minus_scale
+
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(node, "scale", first_scale, 0.05)
-	tween.tween_property(node, "scale", Vector2(0, 0), 0.2)\
+	tween.tween_property(node, "scale", target_scale, 0.05)
+	tween.parallel().tween_property(node, "modulate", Color(10,10,10,1), 0.08)
+	tween.tween_property(node, "scale", Vector2(0, 0), 0.13)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_EXPO)
 	return tween
@@ -707,6 +712,7 @@ func format_num_custom(value: int) -> String:
 ###################################
 
 func apply_item(item_id: int) -> void:
+	print("[apply] id=%d tier=%d" % [item_id, item_id / 1000])
 	match item_id / 1000:
 		1:
 			_apply_common_item(item_id)
@@ -719,6 +725,8 @@ func apply_item(item_id: int) -> void:
 		_:
 			push_error("알 수 없는 아이템 ID입니다: %d" % item_id)
 	stat_refresh()
+	print("  gt_rice=%s bgt_grape=%s fa_corn=%s spd=%s" % \
+		[gt_total_rice, bgt_total_grape, fa_total_corn, total_move_speed])
 
 
 func remove_item(item_id: int) -> void:
@@ -1236,7 +1244,7 @@ func reset_for_new_game() -> void:
 	total_gold = 0
 	current_gold = 0
 	current_ticket = 0
-	reward_level = 1
+	reward_level = 10
 	current_round = 1
 	round_clear = false
 

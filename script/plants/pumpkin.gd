@@ -1,13 +1,17 @@
 extends Node2D
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var grow_time
 var amount
 var base_grow_time
 var plants_level = 1
-
+var grow_tween: Tween
+var flash_tween: Tween
 var crop_id: int = 8  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
+
+var last_plants_level: int = 0
 
 func _ready() -> void:
 	if randi_range(1, 2) == 1:
@@ -24,8 +28,10 @@ func plants_setting():
 func plants_start():
 	plants_setting()
 	base_grow_time = grow_time
-	
+	plants_level_check()
+
 var growable = true
+
 func stop_growing():
 	growable = false
 
@@ -50,27 +56,53 @@ func _process(delta: float) -> void:
 			plants_level = 2
 		plants_level_check()
 
+func plants_grow_tween() -> void:
+	if grow_tween and grow_tween.is_valid():
+		grow_tween.kill()
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+
+	animated_sprite_2d.scale = Vector2(8, 8)
+	animated_sprite_2d.modulate = Color(1, 1, 1, 1)
+
+	grow_tween = create_tween()
+	grow_tween.tween_property(animated_sprite_2d, "scale", Vector2(7, 9), 0.05)
+	grow_tween.tween_property(animated_sprite_2d, "scale", Vector2(8, 8), 0.08)
+
+	flash_tween = create_tween()
+	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(18.892, 18.892, 18.892, 1.0), 0.01)
+	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1.0), 0.12)
+
 func plants_level_check():
-	match plants_level:
-		1:
-			animated_sprite_2d.play("1")
-			z_as_relative = false
-			z_index = -1
-		2:
-			animated_sprite_2d.play("2")
-			z_as_relative = false
-			z_index = 0
-		3:
-			animated_sprite_2d.play("3")
-		4:
-			animated_sprite_2d.play("4")
-			$Area2D/CollisionShape2D.disabled = false
-		5:
-			animated_sprite_2d.play("5")
-		6:
-			animated_sprite_2d.play("6")
-		7:
-			animated_sprite_2d.play("7")
+	if plants_level != last_plants_level:
+		last_plants_level = plants_level
+		
+		match plants_level:
+			1:
+				animated_sprite_2d.play("1")
+				z_as_relative = false
+				plants_grow_tween()
+				z_index = -1
+			2:
+				animated_sprite_2d.play("2")
+				z_as_relative = false
+				plants_grow_tween()
+				z_index = 0
+			3:
+				animated_sprite_2d.play("3")
+				plants_grow_tween()
+			4:
+				animated_sprite_2d.play("4")
+				$Area2D/CollisionShape2D.disabled = false
+				plants_grow_tween()
+			5:
+				animated_sprite_2d.play("5")
+				plants_grow_tween()
+			6:
+				animated_sprite_2d.play("6")
+				plants_grow_tween()
+			7:
+				animated_sprite_2d.play("7")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
@@ -93,7 +125,6 @@ func _harvest() -> void:
 	Global.clear_occupied(grid_pos)
 	
 	self.queue_free()
-
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
 	Global.add_sa(crop_id, 1)  # 기존 동작 그대로 유지 (수확량 1개 고정)

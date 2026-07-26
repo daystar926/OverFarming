@@ -80,14 +80,14 @@ func onready_text_anim():
 func morning_text_anim():
 	day_label.text = "[wave amp=150 freq=10 connected=1]DAY " + str(Global.current_round)
 	var tween = create_tween()
-	tween.tween_property(day_label, "position", Vector2(551, 280), 0.35)\
+	tween.tween_property(day_label, "position", Vector2(551, 80), 0.35)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_QUART)
 	tween.tween_interval(1.5)
 	tween.tween_property(day_label, "position", Vector2(551, -550), 0.35)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_BACK)
-	
+
 
 
 func set_daytime(day, hour, minute):

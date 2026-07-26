@@ -14,7 +14,7 @@ extends Control
 @onready var go_total_plants_label: RichTextLabel = $"go total plants label"
 @onready var go_total_gold_label: RichTextLabel = $"go total gold label"
 
-@onready var grid_container: GridContainer = $"inven panel/MarginContainer/ScrollContainer/GridContainer"
+@onready var grid_container: GridContainer = $"inven panel/inven con/ScrollContainer/GridContainer"
 @onready var inven_panel: Control = $"inven panel"
 
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 	label_3.text = "필요 골드: " + str(Global.format_num_custom(Global.clear_requirments[Global.current_round])) + " G"
 	Global.current_gold -= Global.clear_requirments[Global.current_round]
 	animation_play()
+	inven_refresh()
 	
 var is_pressable = false
 
@@ -82,7 +83,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animation_player.play("game over_3")
 	elif anim_name == "game over_3":
 		animation_player.play("game over_4")
-		inven_refresh()
+
 
 #
 #@onready var go_round_label: RichTextLabel = $"go round label"
@@ -112,10 +113,18 @@ func inven_refresh():
 	for child in grid_container.get_children():
 		child.queue_free()
 
+	print("=== 인벤 진단 ===")
+	print("아이템 개수: ", Global.item_inventory.size())
+
 	for item in Global.item_inventory:
 		var slot = preload("res://scene/inventory_slot_2.tscn").instantiate()
 		grid_container.add_child(slot)
 		slot.set_item(item)
+		print("  아이콘: ", item.icon)
+
+	await get_tree().process_frame
+	print("패널 위치: ", inven_panel.position, " / 표시: ", inven_panel.visible, " / 알파: ", inven_panel.modulate.a)
+	print("그리드 크기: ", grid_container.size, " / 자식 수: ", grid_container.get_child_count())
 	
 	
 	
@@ -155,4 +164,18 @@ func _on_retry_button_pressed() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
+	Global.reset_for_new_game()
 	GlobalCanvas.white_transition("res://scene/major scene/main lobby.tscn")
+
+@onready var item_show_button: TextureButton = $"inven panel/item show button"
+@onready var synergy_show_button: TextureButton = $"inven panel/synergy show button"
+@onready var inven_con: MarginContainer = $"inven panel/inven con"
+
+func _on_item_show_button_pressed() -> void:
+
+	inven_con.visible = true
+
+
+func _on_synergy_show_button_pressed() -> void:
+
+	inven_con.visible = false

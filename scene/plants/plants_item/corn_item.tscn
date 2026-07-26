@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b44rei3do5k81"]
 
 [ext_resource type="Texture2D" uid="uid://dg6smfcjpd6s" path="res://Assets/images/plants/corn item.png" id="1_6tnuw"]
-[ext_resource type="Script" uid="uid://chks5jlrjhnro" path="res://scene/plants/plants_item/corn_item.gd" id="1_jjgab"]
+[ext_resource type="Script" uid="uid://chks5jlrjhnro" path="res://script/plants/corn_item.gd" id="1_jjgab"]
 [ext_resource type="LabelSettings" uid="uid://b6g3tfkdm12hp" path="res://Assets/fonts/font file/money get font.tres" id="3_a6u1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgab"]

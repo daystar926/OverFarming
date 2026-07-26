@@ -5,7 +5,7 @@ var item_data
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print("인벤 개수: ", Global.item_inventory.size())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,7 +13,5 @@ func _process(delta: float) -> void:
 	pass
 
 func set_item(item):
-	item_data = item
-	if item_data.icon != null:
-		texture.texture = item_data.icon
+	texture.texture = item.icon
 	

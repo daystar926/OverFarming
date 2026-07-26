@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd1k32hrql0ns" path="res://script/plants/bean.gd" id="1_2u8ho"]
 [ext_resource type="Texture2D" uid="uid://d0ntg7wf0v54x" path="res://Assets/images/plants/plants.png" id="2_quaso"]
+[ext_resource type="Texture2D" uid="uid://dkimnr53mxl1m" path="res://Assets/images/plants/plants all anim.png" id="3_quaso"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thbgh"]
 atlas = ExtResource("2_quaso")
@@ -24,12 +25,40 @@ atlas = ExtResource("2_quaso")
 region = Rect2(64, 128, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c1ux"]
-atlas = ExtResource("2_quaso")
-region = Rect2(80, 128, 16, 16)
+atlas = ExtResource("3_quaso")
+region = Rect2(80, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmsx2"]
-atlas = ExtResource("2_quaso")
-region = Rect2(96, 128, 16, 16)
+atlas = ExtResource("3_quaso")
+region = Rect2(112, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qi3i"]
+atlas = ExtResource("3_quaso")
+region = Rect2(128, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p54pe"]
+atlas = ExtResource("3_quaso")
+region = Rect2(144, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgcv6"]
+atlas = ExtResource("3_quaso")
+region = Rect2(160, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybre0"]
+atlas = ExtResource("3_quaso")
+region = Rect2(176, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p765y"]
+atlas = ExtResource("3_quaso")
+region = Rect2(192, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3nmu"]
+atlas = ExtResource("3_quaso")
+region = Rect2(208, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi4gs"]
+atlas = ExtResource("3_quaso")
+region = Rect2(224, 144, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_huuin"]
 animations = [{
@@ -82,10 +111,31 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_cmsx2")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_2qi3i")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_p54pe")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_vgcv6")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_ybre0")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_p765y")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_b3nmu")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_gi4gs")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"4-3",
 "speed": 5.0
 }]
@@ -104,6 +154,8 @@ position = Vector2(0, -20)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
 animation = &"4-3"
+frame = 7
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=699392989 groups=["plants"]]
 position = Vector2(0, -20)

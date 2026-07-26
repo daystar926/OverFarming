@@ -41,6 +41,7 @@ var slot_instances: Array = [null, null, null]
 var selected_slot_num = 0 # 0이면 스킵할거냐 질문, 1, 2, 3, 이면 slot_instance 쟤들 적용 
 var selectable = false
 
+var drawn_item_ids: Array = []
 func _ready() -> void:
 	inven_refresh()
 	crystal_changed()
@@ -81,6 +82,7 @@ func spawn_tween():
 
 func item_slot_setting():
 	slot_instances = [null, null, null]
+	drawn_item_ids.clear()
 	var tween = create_tween()
 	tween.tween_callback(func():item_slot_setting1())
 	tween.tween_interval(0.15)
@@ -202,9 +204,21 @@ var rarity_item_pool: Dictionary = {
 
 
 func get_random_item_id() -> int:
-	var rarity: int = _get_random_rarity(Global.reward_level)
-	var item_id: int = _get_random_item_by_rarity(rarity)
-	return item_id
+	for attempt in range(30):
+		var rarity: int = _get_random_rarity(Global.reward_level)
+		var item_id: int = _get_random_item_by_rarity(rarity)
+		if item_id != -1:
+			drawn_item_ids.append(item_id)
+			return item_id
+
+	# 30회 안에 못 뽑았을 때의 예비 처리
+	for rarity in rarity_item_pool.keys():
+		for id in rarity_item_pool[rarity]:
+			if not drawn_item_ids.has(id):
+				drawn_item_ids.append(id)
+				return id
+
+	return -1
 
 
 func _get_random_rarity(reward_level: int) -> int:
@@ -227,11 +241,15 @@ func _get_random_rarity(reward_level: int) -> int:
 
 func _get_random_item_by_rarity(rarity: int) -> int:
 	var pool: Array = rarity_item_pool.get(rarity, [])
-	if pool.is_empty():
-		push_error("해당 레어도의 아이템 풀이 비어있습니다: %d" % rarity)
+	var available: Array = []
+	for id in pool:
+		if not drawn_item_ids.has(id):
+			available.append(id)
+
+	if available.is_empty():
 		return -1
 
-	return pool[randi() % pool.size()]
+	return available[randi() % available.size()]
 
 
 func _on_debug_button_1_pressed() -> void:

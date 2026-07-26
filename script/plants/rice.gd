@@ -5,7 +5,8 @@ var grow_time
 var amount
 var base_grow_time
 var plants_level = 1
-
+var grow_tween: Tween
+var flash_tween: Tween
 var crop_id: int = 1  # 쌀 = 1
 var grid_pos: Vector2i  # 필드 관리자가 심을 때 주입해줌
 
@@ -24,6 +25,7 @@ func plants_setting():
 func plants_start():
 	plants_setting()
 	base_grow_time = grow_time
+	_set_level(1)
 
 var growable = true
 func stop_growing():
@@ -32,33 +34,64 @@ func stop_growing():
 func start_growing():
 	growable = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if growable:
-		base_grow_time -= delta
-		if base_grow_time <= 0:
-			plants_level = 4
-		elif base_grow_time <= grow_time * 0.33:
-			plants_level = 3
-		elif base_grow_time <= grow_time * 0.66:
-			plants_level = 2
-		plants_level_check()
+	if not growable:
+		return
+	if plants_level >= 4:
+		return
 
-func plants_level_check():
+	base_grow_time -= delta
+
+	var target_level: int = 1
+	if base_grow_time <= 0.0:
+		target_level = 4
+	elif base_grow_time <= grow_time * 0.33:
+		target_level = 3
+	elif base_grow_time <= grow_time * 0.66:
+		target_level = 2
+
+	if target_level > plants_level:
+		_set_level(target_level)
+
+func _set_level(new_level: int) -> void:
+	plants_level = new_level
+	
+
 	match plants_level:
 		1:
 			animated_sprite_2d.play("1")
 			z_as_relative = false
 			z_index = -1
+			plants_grow_tween()
 		2:
 			animated_sprite_2d.play("2")
 			z_as_relative = false
 			z_index = 0
+			plants_grow_tween()
 		3:
 			animated_sprite_2d.play("3")
+			plants_grow_tween()
 		4:
 			animated_sprite_2d.play("4")
-			$Area2D/CollisionShape2D.disabled = false
+			$Area2D/CollisionShape2D.set_deferred("disabled", false)
+			set_process(false)
+
+func plants_grow_tween() -> void:
+	if grow_tween and grow_tween.is_valid():
+		grow_tween.kill()
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+
+	animated_sprite_2d.scale = Vector2(8, 8)
+	animated_sprite_2d.modulate = Color(1, 1, 1, 1)
+
+	grow_tween = create_tween()
+	grow_tween.tween_property(animated_sprite_2d, "scale", Vector2(7, 9), 0.05)
+	grow_tween.tween_property(animated_sprite_2d, "scale", Vector2(8, 8), 0.08)
+
+	flash_tween = create_tween()
+	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(18.892, 18.892, 18.892, 1.0), 0.01)
+	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1.0), 0.12)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):

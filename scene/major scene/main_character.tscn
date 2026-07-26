@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3q7fqyihc2qv" path="res://Assets/images/character/cha crying.png" id="2_1hmwj"]
 [ext_resource type="Texture2D" uid="uid://ciu5thr1ks2o1" path="res://Assets/images/character/character1.png" id="2_180cx"]
 [ext_resource type="Texture2D" uid="uid://bpioqjhb4ybif" path="res://Assets/images/character/sleeping.png" id="4_1hmwj"]
+[ext_resource type="Texture2D" uid="uid://bq6naqbt4komt" path="res://Assets/images/character/wakeup.png" id="5_ocsmb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huuin"]
 size = Vector2(64, 20)
@@ -55,6 +56,26 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bvjs"]
 atlas = ExtResource("4_1hmwj")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8a6g"]
+atlas = ExtResource("5_ocsmb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4qly"]
+atlas = ExtResource("5_ocsmb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdy3i"]
+atlas = ExtResource("5_ocsmb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nobbt"]
+atlas = ExtResource("5_ocsmb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5u5q"]
+atlas = ExtResource("2_180cx")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc4j5"]
 atlas = ExtResource("2_180cx")
@@ -151,9 +172,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_pfvft")
 }, {
 "duration": 1.2,
+"texture": SubResource("AtlasTexture_gcvhb")
+}, {
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_8bvjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8a6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4qly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdy3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nobbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5u5q")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"sleeping",
 "speed": 5.0
 }, {
@@ -213,7 +252,7 @@ animations = [{
 size = Vector2(10, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_182vq"]
-size = Vector2(68, 74)
+size = Vector2(84, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44gkf"]
 
@@ -238,8 +277,9 @@ physics_interpolation_mode = 1
 position = Vector2(0, -53.999992)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_huuin")
-animation = &"idle"
-frame_progress = 0.30256513
+animation = &"sleeping"
+frame = 9
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=178342418 groups=["player"]]
 zoom = Vector2(0.9, 0.9)
@@ -260,7 +300,7 @@ collision_layer = 16
 collision_mask = 17
 
 [node name="item get collision" type="CollisionShape2D" parent="item get collision" unique_id=778731409 groups=["player"]]
-position = Vector2(0, -27)
+position = Vector2(0, -50.5)
 shape = SubResource("RectangleShape2D_182vq")
 
 [node name="yield collision" type="Area2D" parent="." unique_id=576940406 groups=["player"]]

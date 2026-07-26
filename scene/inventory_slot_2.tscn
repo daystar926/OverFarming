@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmw8j2rc80k42"]
 
 [ext_resource type="Script" uid="uid://caa3xb7xckrlx" path="res://script/inventory_slot_2.gd" id="1_tfc61"]
+[ext_resource type="Texture2D" uid="uid://dl4wt0f26hrjr" path="res://Assets/images/item icons/1001.png" id="2_xpuag"]
 
 [node name="inventory slot 2" type="Control" unique_id=1280829156]
 custom_minimum_size = Vector2(144, 144)
@@ -22,3 +23,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(72, 72)
+texture = ExtResource("2_xpuag")
+expand_mode = 1

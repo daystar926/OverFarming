@@ -10,7 +10,7 @@ var price = 0
 
 # 20초 남으면 깜빡깜빡, 10초 남으면 더 빨리, 0초 지나면 천천히 사라짐
 func _ready() -> void:
-	price = Global.fa_total_rice
+	price = Global.fa_total_onion
 	if randi_range(1, 2) == 1:
 		$AnimatedSprite2D.flip_h = true
 	spawn_position_setting()
@@ -38,9 +38,13 @@ func start_tween():
 	tween.tween_callback(func(): $CollisionShape2D.disabled = false)
 	tween.tween_callback(func(): hovering_tween())
 
+var is_collected = false
 func _on_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
+	if is_collected:
+		return
+	is_collected = true
 	money_get_anim(price)
 	Global.stat_refresh()
 	Global.total_plants += 1
